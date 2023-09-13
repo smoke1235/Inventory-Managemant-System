@@ -1,5 +1,9 @@
 <?php
 
+$id = "";
+$fname = "";
+$lname = "";
+
 ?>
 
 <html>
@@ -13,6 +17,7 @@
             ID to search: <input type="text" name="id"><br><br>
             First Name: <input type="text" name="fname"><br><br>
             Last Name: <input type="text" name="lname"><br><br>
+            <input type="submit" name="Find" value="Find Data">
         </form>
     </body>
 </html>
