@@ -1,9 +1,15 @@
 <?php
 session_start();
 
-include "config.php";
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'root';
+$DATABASE_PASS = '';
+$DATABASE_NAME = 'inventoryManager';
 
-$connection = db_connect();
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+if ( mysqli_connect_errno() ) {
+    exit('Failed to Connect to MySQL: ' . mysqli_connect_error());
+}
 
 if ( !isset($_POST['username'], $_POST['$password']) ) {
     exit('Please enter your username & password.');
