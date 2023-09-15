@@ -1,26 +1,25 @@
 <?php
 session_start();
-if (!isset($_SESSION['loggedin'])) {
+if ( !isset($_SESSION['loggedin']) ) {
     header('Location: index.html');
     exit;
 }
 ?>
 
 <!DOCTYPE html>
-<<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Home Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="main.css" rel="stylesheet">
+        <link href="home.css" rel="stylesheet">
     </head>
     <body class="loggedin">
         <nav class="navtop">
             <div>
-                <h1>Title</h1>
+                <h1>Website Title</h1>
                 <a href="profile.php"><i class="fas fa-user"></i>Profile</a>
-                <a href="logout.php"><i class="fa-sign-out-alt"></i>Logout</a>
+                <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
             </div>
         </nav>
         <div class="content">

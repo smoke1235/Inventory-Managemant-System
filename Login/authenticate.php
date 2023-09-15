@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 $DATABASE_HOST = 'localhost';
@@ -11,11 +12,11 @@ if ( mysqli_connect_errno() ) {
     exit('Failed to Connect to MySQL: ' . mysqli_connect_error());
 }
 
-if ( !isset($_POST['username'], $_POST['$password']) ) {
+if ( !isset($_POST['username'], $_POST['password']) ) {
     exit('Please enter your username & password.');
 }
 
-if ($stmt = $connection->prepare('SELECT id, password FROM accounts WHERE username = ?')) {
+if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
 
@@ -25,12 +26,12 @@ if ($stmt = $connection->prepare('SELECT id, password FROM accounts WHERE userna
         $stmt->bind_result($id, $password);
         $stmt->fetch();
 
-        if (password_verify($_POST['password'], $password)) {
+        if ($_POST['password'] === $password) {
             session_regenerate_id();
-            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['loggedin'] = true;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
-            echo 'Welcome' . $_SESSION['name'] . '!';
+            header('Location: home.php');
         } else {
             echo 'Incorrect username and/or password!';
         }
@@ -40,4 +41,3 @@ if ($stmt = $connection->prepare('SELECT id, password FROM accounts WHERE userna
 
     $stmt->close();
 }
-?>
