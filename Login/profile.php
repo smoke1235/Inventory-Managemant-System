@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit
@@ -15,4 +16,10 @@ if (mysqli_connect_errno()) {
 }
 
 $stmt = $con->prepare('SELECT password, email FROM users WHERE id = ?');
+
+$stmt->bind_parem('i', $_SESSION['id']);
+$stmt->execute();
+$stmt->bind_result($password, $email);
+$stmt->fetch();
+$stmt->close();
 ?>
