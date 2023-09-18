@@ -24,7 +24,7 @@ $stmt->fetch();
 $stmt->close();
 ?>
 
-<!doctype <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Profile Page</title>
