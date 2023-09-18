@@ -30,7 +30,7 @@ $stmt->close();
         <title>Profile Page</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="profile.css" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
     </head>
     <body class="loggedin">
         <nav class="navtop">
