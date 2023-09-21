@@ -16,15 +16,14 @@ if ( !isset($_SESSION['loggedin']) ) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Page</title>
         <meta name="discription" content="">
-        <link href="CSS/main.css" rel="stylesheet">
+        <link href="SCSS/main.scss" rel="stylesheet">
     </head>
     <body>
         <nav aria-label="nav-top" class="nav-top">
             <a href="home.php"><h1>Website Title</h1></a>
             <ul>
-                <li><a href="PHP/home.php">Home</a></li>
-                <li><a href="PHP/profile.php">Profile</a></li>
-                <li><a href="PHP/logout.php">Logout</a></li>
+                <li><a href="profile.php">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
         <nav aria-label="nav-left" class="nav-left">
@@ -37,5 +36,26 @@ if ( !isset($_SESSION['loggedin']) ) {
                 <li><a href="">Sells</a></li>
             </ul>
         </nav>
+        <header>
+            <h1>Welcome, <?=$_SESSION['name']?>!</h1>
+            <div class="board">
+                <div class="customer">
+                    <a href="">Totale customers</a>
+                </div>
+                <div class="supplier">
+                    <a href="">Totale suppliers</a>
+                </div>
+                <div class="sells">
+                    <a href="">Sells this month</a>
+                </div>
+                <div class="purchase">
+                    <a href="">Purchases this month</a>
+                </div>
+            </div>
+        </header>
+        <footer>
+            <h3>Inventory Manager</h3>
+            <p>If problems ocurr contact the admin</p>
+        </footer>
     </body>
 </html>

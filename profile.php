@@ -54,25 +54,27 @@ $stmt->close();
                 <li><a href="">Sells</a></li>
             </ul>
         </nav>
-        <div class="content">
-            <h2>Profile Page</h2>
-            <div>
-                <p>Your account details are below:</p>
-                <table>
-                    <tr>
-                        <td>Username:</td>
-                        <td><?=$_SESSION['name']?></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td><?=$password?></td>
-                    </tr>
-                    <tr>
-                        <td>E-mail:</td>
-                        <td><?=$email?></td>
-                    </tr>
-                </table>
-            </div>
+        <h2>Profile Page</h2>
+        <div>
+            <p>Your account details are below:</p>
+            <table>
+                <tr>
+                    <td>Username:</td>
+                    <td><?=$_SESSION['name']?></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><?=$password?></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td><?=$email?></td>
+                </tr>
+            </table>
         </div>
+        <footer>
+            <h3>Inventory Manager</h3>
+            <p>If problems ocurr contact the admin</p>
+        </footer>
     </body>
 </html>
