@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 }
 
 $stmt = $con->prepare('SELECT password, email FROM users WHERE id = ?');
-$stmt->bind_parem('i', $_SESSION['id']);
+$stmt->bind_param('i', $_SESSION['id']);
 $stmt->execute();
 $stmt->bind_result($password, $email);
 $stmt->fetch();
@@ -30,16 +30,28 @@ $stmt->close();
 <html lang="en">
     <head>
         <title>Profile Page</title>
+        <meta name="discription" content="">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="main.css" rel="stylesheet">
+        <link href="CSS/main.css" rel="stylesheet">
     </head>
     <body>
-    <nav class="navtop">
+    <nav aria-label="nav-top" class="nav-top">
             <a href="home.php"><h1>Website Title</h1></a>
             <ul>
+                <li><a href="home.php">Home</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+        <nav aria-label="nav-left" class="nav-left">
+            <ul>
+                <li><a href="">Dashboard</a></li>
+                <li><a href="">Customer</a></li>
+                <li><a href="">Supplier</a></li>
+                <li><a href="">Catergory</a></li>
+                <li><a href="">Stock</a></li>
+                <li><a href="">Sells</a></li>
             </ul>
         </nav>
         <div class="content">
