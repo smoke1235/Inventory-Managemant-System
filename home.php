@@ -52,6 +52,31 @@ if ( !isset($_SESSION['loggedin']) ) {
                     <a href="">Purchases this month</a>
                 </div>
             </div>
+            <div class="recent-order-list">
+                <table>
+                    <tr>
+                        <th>No.</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="">2</a>
+                        </td>
+                        <td>
+                            <a href="">2</a>
+                        </td>
+                        <td>
+                            <a href="">3</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>john</td>
+                        <td>alex</td>
+                        <td>anne</td>
+                    </tr>
+                </table>
+            </div>
         </header>
         <footer>
             <h3>Inventory Manager</h3>
