@@ -20,6 +20,10 @@ if (mysqli_connect_errno()) {
 
 $sql = " SELECT * FROM products ";
 $result = $con->query($sql);
+
+if (!$result) {
+    die("Invalid quary: " . $con->error);
+}
 $con->close();
 ?>
 
@@ -44,6 +48,7 @@ $con->close();
             <ul>
                 <li><a href="home.php">Dashboard</a></li>
                 <li><a href="products.php">Products</a></li>
+                <li><a href="stock.php">Stock</a></li>
                 <li><a href="orders.php">Orders</a></li>
                 <li><a href="customers.php">Customers</a></li>
                 <li><a href="suppliers.php">Suppliers</a></li>
@@ -55,11 +60,13 @@ $con->close();
         </div>
         <div class="product-list">
             <h1>Products</h1>
+            <a href="">Add</a>
             <table>
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
                     <th>Quantity</th>
+                    <th>Edit</th>
                 </tr>
                 <?php while($rows = $result->fetch_assoc() )
                     {
@@ -68,6 +75,9 @@ $con->close();
                     <td><?php echo $rows['id'];?></td>
                     <td><?php echo $rows['productName'];?></td>
                     <td><?php echo $rows['quantity'];?></td>
+                    <td>
+                        <a href="edit_product.php">Edit</a>
+                    </td>
                 </tr>
                 <?php } ?>
             </table>
@@ -77,4 +87,5 @@ $con->close();
             <p>If problems ocurr contact the admin</p>
             <a href="mailto:email@example.com">Send Email</a>
         </footer>
+    </body>
 </html>
