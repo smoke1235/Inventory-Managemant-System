@@ -18,6 +18,9 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
+$prepare = " SELECT * FROM products ";
+$result = $con->query($prepare);
+$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -49,10 +52,24 @@ if (mysqli_connect_errno()) {
                 <li><a href="">Sells</a></li>
             </ul>
         </nav>
-        <div>
+        <div class="product-list">
             <h1>Products</h1>
-            <div class="product-list">
-                
-            </div>
+            <br>
+            <table>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                </tr>
+                <?php while($rows = $result->fetch_assoc() )
+                    {
+                ?>
+                <tr>
+                    <td><?php echo $rows['id'];?></td>
+                    <td><?php echo $rows['productName'];?></td>
+                    <td><?php echo $rows['quantity'];?></td>
+                </tr>
+                <?php } ?>
+            </table>
         </div>
 </html>
