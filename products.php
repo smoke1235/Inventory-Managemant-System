@@ -18,8 +18,8 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$prepare = " SELECT * FROM products ";
-$result = $con->query($prepare);
+$sql = " SELECT * FROM products ";
+$result = $con->query($sql);
 $con->close();
 ?>
 
@@ -52,9 +52,12 @@ $con->close();
                 <li><a href="">Sells</a></li>
             </ul>
         </nav>
+        <div class="search">
+            <input type="text" placeholder="Search Products" name="search">
+            <button type="submit" >Search</button>
+        </div>
         <div class="product-list">
             <h1>Products</h1>
-            <br>
             <table>
                 <tr>
                     <th>#</th>
