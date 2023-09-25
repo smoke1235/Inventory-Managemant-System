@@ -43,13 +43,10 @@ $con->close();
         <nav aria-label="nav-left" class="nav-left">
             <ul>
                 <li><a href="home.php">Dashboard</a></li>
-                <li><a href="product.php">Products</a></li>
-                <li><a href="">Orders</a></li>
-                <li><a href="">Customer</a></li>
-                <li><a href="">Supplier</a></li>
-                <li><a href="">Catergory</a></li>
-                <li><a href="">Stock</a></li>
-                <li><a href="">Sells</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="customers.php">Customers</a></li>
+                <li><a href="suppliers.php">Suppliers</a></li>
             </ul>
         </nav>
         <div class="search">
@@ -60,7 +57,7 @@ $con->close();
             <h1>Products</h1>
             <table>
                 <tr>
-                    <th>#</th>
+                    <th>No.</th>
                     <th>Name</th>
                     <th>Quantity</th>
                 </tr>
@@ -75,4 +72,9 @@ $con->close();
                 <?php } ?>
             </table>
         </div>
+        <footer>
+            <h3>Inventory Manager</h3>
+            <p>If problems ocurr contact the admin</p>
+            <a href="mailto:email@example.com">Send Email</a>
+        </footer>
 </html>

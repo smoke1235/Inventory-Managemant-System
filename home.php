@@ -19,7 +19,7 @@ if ( !isset($_SESSION['loggedin']) ) {
         <link href="SCSS/main.scss" rel="stylesheet">
     </head>
     <body>
-        <nav aria-label="nav-top" class="nav-top">
+    <nav aria-label="nav-top" class="nav-top">
             <a href="home.php"><h1>Website Title</h1></a>
             <ul>
                 <li><a href="profile.php">Profile</a></li>
@@ -28,12 +28,11 @@ if ( !isset($_SESSION['loggedin']) ) {
         </nav>
         <nav aria-label="nav-left" class="nav-left">
             <ul>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">Customer</a></li>
-                <li><a href="">Supplier</a></li>
-                <li><a href="">Catergory</a></li>
-                <li><a href="">Stock</a></li>
-                <li><a href="">Sells</a></li>
+                <li><a href="home.php">Dashboard</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="customers.php">Customers</a></li>
+                <li><a href="suppliers.php">Suppliers</a></li>
             </ul>
         </nav>
         <header>
@@ -53,6 +52,7 @@ if ( !isset($_SESSION['loggedin']) ) {
                 </div>
             </div>
             <div class="recent-order-list">
+                <h2>Recent orders</h2>
                 <table>
                     <tr>
                         <th>No.</th>
@@ -60,20 +60,19 @@ if ( !isset($_SESSION['loggedin']) ) {
                         <th>Date</th>
                     </tr>
                     <tr>
-                        <td>
-                            <a href="">2</a>
-                        </td>
-                        <td>
-                            <a href="">2</a>
-                        </td>
-                        <td>
-                            <a href="">3</a>
-                        </td>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>01-01-2023</td>
                     </tr>
                     <tr>
-                        <td>john</td>
-                        <td>alex</td>
-                        <td>anne</td>
+                        <td>2</td>
+                        <td>Alex Doe</td>
+                        <td>01-01-2023</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Anna Doe</td>
+                        <td>05-01-2023</td>
                     </tr>
                 </table>
             </div>
@@ -81,6 +80,7 @@ if ( !isset($_SESSION['loggedin']) ) {
         <footer>
             <h3>Inventory Manager</h3>
             <p>If problems ocurr contact the admin</p>
+            <a href="mailto:email@example.com">Send Email</a>
         </footer>
     </body>
 </html>

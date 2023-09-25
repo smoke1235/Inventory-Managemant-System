@@ -33,25 +33,23 @@ $stmt->close();
         <meta name="discription" content="">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="CSS/main.css" rel="stylesheet">
+        <link href="SCSS/main.css" rel="stylesheet">
     </head>
     <body>
     <nav aria-label="nav-top" class="nav-top">
             <a href="home.php"><h1>Website Title</h1></a>
             <ul>
-                <li><a href="home.php">Home</a></li>
                 <li><a href="profile.php">Profile</a></li>
                 <li><a href="logout.php">Logout</a></li>
             </ul>
         </nav>
         <nav aria-label="nav-left" class="nav-left">
             <ul>
-                <li><a href="">Dashboard</a></li>
-                <li><a href="">Customer</a></li>
-                <li><a href="">Supplier</a></li>
-                <li><a href="">Catergory</a></li>
-                <li><a href="">Stock</a></li>
-                <li><a href="">Sells</a></li>
+                <li><a href="home.php">Dashboard</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="customers.php">Customers</a></li>
+                <li><a href="suppliers.php">Suppliers</a></li>
             </ul>
         </nav>
         <h2>Profile Page</h2>
@@ -75,6 +73,7 @@ $stmt->close();
         <footer>
             <h3>Inventory Manager</h3>
             <p>If problems ocurr contact the admin</p>
+            <a href="mailto:email@example.com">Send Email</a>
         </footer>
     </body>
 </html>
