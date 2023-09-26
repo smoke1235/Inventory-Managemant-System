@@ -60,14 +60,13 @@ $con->close();
         </div>
         <div class="product-list">
             <h1>Products</h1>
-            <a href="">Add</a>
+            <a href="insertProduct.html">Add</a>
             <table>
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
                     <th>Quantity</th>
-                    <th>Edit</th>
-                </tr>
+                    </tr>
                 <?php while($rows = $result->fetch_assoc() )
                     {
                 ?>
