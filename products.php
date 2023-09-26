@@ -60,7 +60,7 @@ $con->close();
         </div>
         <div class="product-list">
             <h1>Products</h1>
-            <a href="insertProduct.html">Add</a>
+            <a href="insertProduct.php">Add</a>
             <table>
                 <tr>
                     <th>No.</th>
