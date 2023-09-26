@@ -18,14 +18,8 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-if ( $_SERVER['REQUEST_METHODE'] == 'POST' ) {
-    $data = $_REQUEST['val1'];
-    if (empty($data) ) {
-        echo "You must add a product name";
-    } else {
-        echo "New product added!";
-    }
-}
+$productName = $_REQUEST['productName'];
+$quantity = $_REQUEST['quantity'];
 
 $con->close();
 ?>
@@ -57,11 +51,13 @@ $con->close();
             </ul>
         </nav>
         <h1>Add New Product</h1>
-        <form action="add_product.php" method="POST/GET">
+        <form action="insertProduct.php" method="POST">
             <label for="productName" name="productName">Product Name *:</label>
-            <input type="text" name="productName" placeholder="Product Name" required>
+            <input type="text" name="productName" id="productName" placeholder="Product Name" required>
+
             <label for="quantity" name="quantity">Quantity:</label>
-            <input type="number" name="quantity" placeholder="0">
+            <input type="number" name="quantity" id="quantity" placeholder="0">
+            
             <input type="submit" value="Submit">
         </form>
 </body>
