@@ -21,6 +21,14 @@ if (mysqli_connect_errno()) {
 $productName = $_REQUEST['productName'];
 $quantity = $_REQUEST['quantity'];
 
+$sql = "INSERT INTO products VALUES ('$productName, $quantity')";
+
+if ( mysqli_query($con, $sql) ) {
+    echo "New product succesfully added!";
+} else {
+    echo "ERROR:" . mysqli_error($conn);
+}
+
 $con->close();
 ?>
 
@@ -57,7 +65,7 @@ $con->close();
 
             <label for="quantity" name="quantity">Quantity:</label>
             <input type="number" name="quantity" id="quantity" placeholder="0">
-            
+
             <input type="submit" value="Submit">
         </form>
 </body>
