@@ -19,10 +19,15 @@ if (mysqli_connect_errno()) {
 }
 
 $productName = $_REQUEST['productName'];
-$quantity = $_REQUEST['$quantity'];
+$quantity = $_REQUEST['quantity'];
 
-$sql =  "INSERT INTO products VALUES ('$productName', '$quantity')";
+$sql =  "INSERT INTO products (productName, quantity) VALUES ('$productName', '$quantity')";
 
+if (mysqli_query($con, $sql)) {
+    echo "insert succesfull";
+} else {
+    echo "insert unsuccesfull";
+}
 
 $con->close();
 ?>
