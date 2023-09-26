@@ -19,15 +19,10 @@ if (mysqli_connect_errno()) {
 }
 
 $productName = $_REQUEST['productName'];
-$quantity = $_REQUEST['quantity'];
+$quantity = $_REQUEST['$quantity'];
 
-$sql = "INSERT INTO products VALUES ('$productName, $quantity')";
+$sql =  "INSERT INTO products VALUES ('$productName', '$quantity')";
 
-if ( mysqli_query($con, $sql) ) {
-    echo "New product succesfully added!";
-} else {
-    echo "ERROR:" . mysqli_error($conn);
-}
 
 $con->close();
 ?>
@@ -37,7 +32,7 @@ $con->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Product</title>
+    <title>Add New Product</title>
     <link rel="stylesheet" href="SCSS/main.scss">
 </head>
 <body>
