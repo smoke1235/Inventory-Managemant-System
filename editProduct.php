@@ -17,6 +17,10 @@ $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_
 if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+
+$quantity = $_REQUEST['quantity'];
+
+$sql = "UPDATE products SET quantity=$quantity WHERE id=?";
 ?>
 
 <!DOCTYPE html>
@@ -45,15 +49,13 @@ if (mysqli_connect_errno()) {
                 <li><a href="suppliers.php">Suppliers</a></li>
             </ul>
         </nav>
-        <h1>Add New Product</h1>
+        <h1>Change product quantity</h1>
         <form action="insertProduct.php" method="POST">
-            <label for="productName" name="productName">Product Name *:</label>
-            <input type="text" name="productName" id="productName" placeholder="Product Name" required>
-
-            <label for="quantity" name="quantity">Quantity:</label>
-            <input type="number" name="quantity" id="quantity" placeholder="0">
+            <label for="quantity" name="quantity">Quantity*:</label>
+            <input type="number" name="quantity" id="quantity" placeholder="0" required>
 
             <input type="submit" value="Submit">
+            <a href="products.php">Cancel</a>
         </form>
 </body>
 </html>
