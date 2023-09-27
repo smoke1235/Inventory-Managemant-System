@@ -22,7 +22,6 @@ $productName = $_REQUEST['productName'];
 $quantity = $_REQUEST['quantity'];
 
 $sql =  "INSERT INTO products (productName, quantity) VALUES ('$productName', '$quantity')";
-
 if (mysqli_query($con, $sql)) {
     echo "insert succesfull";
 } else {
@@ -38,7 +37,7 @@ $con->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Product</title>
-    <link rel="stylesheet" href="SCSS/main.scss">
+    <link rel="stylesheet" href="Assets/SCSS/main.scss">
 </head>
 <body>
 <nav aria-label="nav-top" class="nav-top">

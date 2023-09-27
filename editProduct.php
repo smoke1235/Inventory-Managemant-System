@@ -18,3 +18,42 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product Quantity</title>
+    <link rel="stylesheet" href="Assets/SCSS/main.scss">
+</head>
+<body>
+<nav aria-label="nav-top" class="nav-top">
+            <a href="home.php"><h1>Website Title</h1></a>
+            <ul>
+                <li><a href="profile.php">Profile</a></li>
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+        <nav aria-label="nav-left" class="nav-left">
+            <ul>
+                <li><a href="home.php">Dashboard</a></li>
+                <li><a href="products.php">Products</a></li>
+                <li><a href="stock.php">Stock</a></li>
+                <li><a href="orders.php">Orders</a></li>
+                <li><a href="customers.php">Customers</a></li>
+                <li><a href="suppliers.php">Suppliers</a></li>
+            </ul>
+        </nav>
+        <h1>Add New Product</h1>
+        <form action="insertProduct.php" method="POST">
+            <label for="productName" name="productName">Product Name *:</label>
+            <input type="text" name="productName" id="productName" placeholder="Product Name" required>
+
+            <label for="quantity" name="quantity">Quantity:</label>
+            <input type="number" name="quantity" id="quantity" placeholder="0">
+
+            <input type="submit" value="Submit">
+        </form>
+</body>
+</html>

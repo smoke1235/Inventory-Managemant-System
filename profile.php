@@ -33,7 +33,7 @@ $stmt->close();
         <meta name="discription" content="">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="SCSS/main.css" rel="stylesheet">
+        <link href="Assets/SCSS/main.scss" rel="stylesheet">
     </head>
     <body>
     <nav aria-label="nav-top" class="nav-top">

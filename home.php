@@ -16,7 +16,7 @@ if ( !isset($_SESSION['loggedin']) ) {
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Page</title>
         <meta name="discription" content="">
-        <link href="SCSS/main.scss" rel="stylesheet">
+        <link href="Assets/SCSS/main.scss" rel="stylesheet">
     </head>
     <body>
     <nav aria-label="nav-top" class="nav-top">
