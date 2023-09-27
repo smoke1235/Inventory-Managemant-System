@@ -34,7 +34,7 @@ $con->close();
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Home Page</title>
         <meta name="discription" content="">
-        <link href="SCSS/main.scss" rel="stylesheet">
+        <link href="Assets/SCSS/main.scss" rel="stylesheet">
     </head>
     <body>
         <nav aria-label="nav-top" class="nav-top">
@@ -66,6 +66,7 @@ $con->close();
                     <th>No.</th>
                     <th>Name</th>
                     <th>Quantity</th>
+                    <th>Action</th>
                     </tr>
                 <?php while($rows = $result->fetch_assoc() )
                     {
@@ -74,9 +75,7 @@ $con->close();
                     <td><?php echo $rows['id'];?></td>
                     <td><?php echo $rows['productName'];?></td>
                     <td><?php echo $rows['quantity'];?></td>
-                    <td>
-                        <a href="edit_product.php">Edit</a>
-                    </td>
+                    <td><a href="editProduct.php?id=<?php echo $rows['id'];?>" >Edit</a></td>
                 </tr>
                 <?php } ?>
             </table>
