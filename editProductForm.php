@@ -9,16 +9,15 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$productName = $_REQUEST['productName'];
-$quantity = $_REQUEST['quantity'];
-$int = (int)$quantity;
+$newQuantity = $_POST['quantity'];
+$id = $_POST['id'];
 
-$sql = "INSERT INTO products (productName, quantity) VALUES ('$productName', '$int')";
+$sql = "UPDATE products SET quantity= $newQuantity WHERE id= $id";
+echo $sql;
 if (mysqli_query($con, $sql)) {
     header('Location: products.php');
 } else {
-    echo "ERROR! Product not updated";
+    echo "ERROR Product not added";
 }
 
-$con->close();
 ?>
