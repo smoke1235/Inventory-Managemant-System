@@ -32,7 +32,7 @@ $con->close();
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Home Page</title>
+        <title>Products</title>
         <meta name="discription" content="">
         <link href="Assets/SCSS/main.scss" rel="stylesheet">
     </head>
@@ -54,14 +54,10 @@ $con->close();
                 <li><a href="suppliers.php">Suppliers</a></li>
             </ul>
         </nav>
-        <div class="search">
-            <input type="text" placeholder="Search Products" name="search">
-            <button type="submit" >Search</button>
-        </div>
         <div class="product-list">
             <h1>Products</h1>
             <a href="insertProduct.php">Add</a>
-            <table>
+            <table id="myTable">
                 <tr>
                     <th>No.</th>
                     <th>Name</th>
@@ -76,7 +72,7 @@ $con->close();
                     <td><?php echo $rows['productName'];?></td>
                     <td><?php echo $rows['quantity'];?></td>
                     <td><a href="editProduct.php?id=<?php echo $rows['id'];?>" >Edit</a></td>
-                </tr>
+                    </tr>
                 <?php } ?>
             </table>
         </div>
