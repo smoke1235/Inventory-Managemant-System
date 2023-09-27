@@ -7,28 +7,6 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit;
 }
-
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = '';
-$DATABASE_NAME = 'inventoryManager';
-
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-    exit('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
-
-$productName = $_REQUEST['productName'];
-$quantity = $_REQUEST['quantity'];
-$int = (int)$quantity;
-
-$sql = "INSERT INTO products (productName, quantity) VALUES ('$productName', '$int')";
-if (mysqli_query($con, $sql)) {
-    echo "insert succesfull";
-} else {
-    echo "insert unsuccesfull";
-}
-$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +16,7 @@ $con->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Product</title>
-    <link rel="stylesheet" href="SCSS/main.scss">
+    <link rel="stylesheet" href="AsseSCSS/main.scss">
 </head>
 
 <body>
@@ -61,8 +39,8 @@ $con->close();
             <li><a href="suppliers.php">Suppliers</a></li>
         </ul>
     </nav>
-    <h1>Add New Product</h1>
-    <form action="insertProduct.php" method="POST">
+    <h1>Change product quantity</h1>
+    <form action="insertProductForm.php" method="POST">
         <label for="productName" name="productName">Product Name *:</label>
         <input type="text" name="productName" id="productName" placeholder="Product Name" required>
 
