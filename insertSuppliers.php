@@ -17,15 +17,6 @@ $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_
 if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
-
-$sql = " SELECT * FROM suppliers ";
-$result = $con->query($sql);
-
-if (!$result) {
-    die("Invalid quary: " . $con->error);
-}
-
-$con->close();
 ?>
 
 <!DOCTYPE html>
@@ -34,8 +25,7 @@ $con->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="discription" content="">
-    <title>Suppliers</title>
+    <title>Add New Suppliers</title>
     <link rel="stylesheet" href="Assets/SCSS/main.scss">
 </head>
 
@@ -59,49 +49,32 @@ $con->close();
             <li><a href="suppliers.php">Suppliers</a></li>
         </ul>
     </nav>
-    <h1>Products</h1>
-    <a href="insertSuppliers.php">Add</a>
-    <table>
-        <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>street</th>
-            <th>postcode</th>
-            <th>city</th>
-            <th>country</th>
-            <th>Actions</th>
-        </tr>
-        <?php while ($rows = $result->fetch_assoc()) {
-            ?>
-            <tr>
-                <td>
-                    <?php echo $rows['id']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['name']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['street']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['postcode']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['city']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['country']; ?>
-                </td>
-
-                <td><a href="?id=<?php echo $rows['id']; ?>">Edit</a></td>
-            </tr>
-        <?php } ?>
-    </table>
+    <h1>Add new Supplier</h1>
+    <form action="insertSuppliersForm.php">
+        <label for="supplierName" name="supplierName">Supplier Name:*</label>
+        <input type="text" name="supplierName" placeholder="Supplier">
+        <br>
+        <label for="supplierStreet" name="supplierStreet">Street*:</label>
+        <input type="text" name="supplierStreet" placeholder="Street">
+        <br>
+        <label for="supplierPostcode" name="supplierPostcode">Postcode*:</label>
+        <input type="text" name="supplierPostcode" placeholder="Postcode">
+        <br>
+        <label for="supplierCity" name="supplierCity">City*:</label>
+        <input type="text" name="supplierCity" placeholder="City">
+        <br>
+        <label for="supplierCountry" name="supplierCountry">Country:</label>
+        <input type="text" name="supplierCountry" placeholder="Country">
+        <br><br>
+        <input type="submit" name="submit" value="Submit">
+        <a href="suppliers.php">Cancel</a>
+    </form>
     <footer>
         <h3>Inventory Manager</h3>
         <p>If problems ocurr contact the admin</p>
         <a href="mailto:email@example.com">Send Email</a>
     </footer>
+
 </body>
 
 </html>
