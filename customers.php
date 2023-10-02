@@ -60,7 +60,7 @@ $con->close();
         </ul>
     </nav>
     <h1>Products</h1>
-    <a href="insertSuppliers.php">Add</a>
+    <a href="insertCustomers.php">Add</a>
     <table>
         <tr>
             <th>No.</th>
@@ -101,7 +101,9 @@ $con->close();
                     <?php echo $rows['country']; ?>
                 </td>
 
-                <td><a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
+                <td>
+                    <a href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                </td>
             </tr>
         <?php } ?>
     </table>
