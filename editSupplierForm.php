@@ -17,13 +17,13 @@ $supplierCity = $_POST['newSuplierCity'];
 $supplierCountry = $_POST['newSupplierCountry'];
 
 $sql = "UPDATE suppliers SET
-name= $supplierName, street= $supplierStreet,  postcode= $supplierPostcode,
-city= $supplierCity, country= $supplierCountry WHERE id= $id";
+name= '$supplierName', street= '$supplierStreet',  postcode= '$supplierPostcode',
+city= '$supplierCity', country= '$supplierCountry' WHERE id= $id";
 echo $sql;
 if (mysqli_query($con, $sql)) {
-    header('Location: products.php');
+    header('Location: suppliers.php');
 } else {
     echo "ERROR Product not added";
 }
 
-$con->close();
+?>
