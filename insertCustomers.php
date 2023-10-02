@@ -25,7 +25,7 @@ if (mysqli_connect_errno()) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Suppliers</title>
+    <title>Add New Customers</title>
     <link rel="stylesheet" href="Assets/SCSS/main.scss">
 </head>
 
@@ -50,7 +50,7 @@ if (mysqli_connect_errno()) {
         </ul>
     </nav>
     <h1>Add new customers</h1>
-    <form action="insertCustomersForm.php">
+    <form action="insertCustomersForm.php" methode="POST">
         <label for="firstName" name="firstName">Fisrt Name:*</label>
         <input type="text" name="firstName" placeholder="First name">
         <br>
@@ -69,7 +69,7 @@ if (mysqli_connect_errno()) {
         <label for="customerCity" name="customerCity">City* :</label>
         <input type="text" name="customerCity" placeholder="customerCity">
         <br>
-        <label for="customerCountry" name="customerCountry">Country* :</label>
+        <label for="customerCountry" name="customerCountry">Country :</label>
         <input type="text" name="customerCountry" placeholder="customerCountry">
         <br><br>
         <input type="submit" name="submit" value="Submit">
