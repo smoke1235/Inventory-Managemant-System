@@ -59,7 +59,7 @@ $con->close();
             <li><a href="suppliers.php">Suppliers</a></li>
         </ul>
     </nav>
-    <h1>Products</h1>
+    <h1>Customers</h1>
     <a href="insertCustomers.php">Add</a>
     <table>
         <tr>
