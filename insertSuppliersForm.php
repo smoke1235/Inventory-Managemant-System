@@ -10,12 +10,13 @@ if (mysqli_connect_errno()) {
 }
 
 $supplierName = $_REQUEST['supplierName'];
+$supplierStreet = $_REQUEST['supplierStreet'];
 $supplierPostcode = $_REQUEST['supplierPostcode'];
 $supplierCity = $_REQUEST['supplierCity'];
 $supplierCountry = $_REQUEST['supplierCountry'];
 
 $sql = "INSERT INTO suppliers (name, postcode, street, city, country)
-VALUES ('$supplierName', '$supplierPoscode', '$supplierCity', '$supplierCountry')";
+VALUES ('$supplierName', '$supplierPoscode', '$supplierStreet', '$supplierCity', '$supplierCountry')";
 if (mysqli_query($con, $sql)) {
     header('Location: suppliers.php');
 } else {

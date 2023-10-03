@@ -28,7 +28,7 @@ $id = $_GET['id'];
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <title>Edit Product</title>
     <link rel="stylesheet" href="Assets/SCSS/main.scss">
 </head>
 
@@ -56,15 +56,15 @@ $id = $_GET['id'];
     <form action="editProductForm.php" method="POST">
         <label for="quantity" name="quantity">Quantity:</label>
         <input type="number" name="quantity" id="quantity" placeholder="0" required>
-        <input type="hidden" name="id" value="<?php echo $id?>">
+        <input type="hidden" name="id" value="<?php echo $id ?>">
 
         <input type="submit" value="Update">
         <a href="products.php">Cancel</a>
     </form>
     <footer>
-            <h3>Inventory Manager</h3>
-            <p>If problems ocurr contact the admin</p>
-            <a href="mailto:email@example.com">Send Email</a>
+        <h3>Inventory Manager</h3>
+        <p>If problems ocurr contact the admin</p>
+        <a href="mailto:email@example.com">Send Email</a>
     </footer>
 </body>
 

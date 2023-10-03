@@ -50,7 +50,7 @@ if (mysqli_connect_errno()) {
         </ul>
     </nav>
     <h1>Add new customers</h1>
-    <form action="insertCustomersForm.php" methode="POST">
+    <form action="insertCustomersFrom.php" methode="POST">
         <label for="firstName" name="firstName">Fisrt Name:*</label>
         <input type="text" name="firstName" placeholder="First name">
         <br>

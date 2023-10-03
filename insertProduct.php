@@ -49,7 +49,7 @@ if (mysqli_connect_errno()) {
             <li><a href="suppliers.php">Suppliers</a></li>
         </ul>
     </nav>
-    <h1>Change product quantity</h1>
+    <h1>Add new product</h1>
     <form action="insertProductForm.php" method="POST">
         <label for="productName" name="productName">Product Name *:</label>
         <input type="text" name="productName" id="productName" placeholder="Product Name" required>

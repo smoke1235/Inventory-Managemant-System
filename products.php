@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-if ( !isset($_SESSION['loggedin']) ) {
+if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit;
 }
@@ -29,57 +29,67 @@ $con->close();
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Products</title>
-        <meta name="discription" content="">
-        <link href="Assets/SCSS/main.scss" rel="stylesheet">
-    </head>
-    <body>
-        <nav aria-label="nav-top" class="nav-top">
-            <a href="home.php"><h1>Website Title</h1></a>
-            <ul>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-        <nav aria-label="nav-left" class="nav-left">
-            <ul>
-                <li><a href="home.php">Dashboard</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="stock.php">Stock</a></li>
-                <li><a href="orders.php">Orders</a></li>
-                <li><a href="customers.php">Customers</a></li>
-                <li><a href="suppliers.php">Suppliers</a></li>
-            </ul>
-        </nav>
-        <div class="product-list">
-            <h1>Products</h1>
-            <a href="insertProduct.php">Add</a>
-            <table id="myTable">
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Action</th>
-                    </tr>
-                <?php while($rows = $result->fetch_assoc() )
-                    {
-                ?>
-                <tr>
-                    <td><?php echo $rows['id'];?></td>
-                    <td><?php echo $rows['productName'];?></td>
-                    <td><?php echo $rows['quantity'];?></td>
-                    <td><a href="editProduct.php?id=<?php echo $rows['id'];?>" >Edit</a></td>
-                    </tr>
-                <?php } ?>
-            </table>
-        </div>
-        <footer>
-            <h3>Inventory Manager</h3>
-            <p>If problems ocurr contact the admin</p>
-            <a href="mailto:email@example.com">Send Email</a>
-        </footer>
-    </body>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Products</title>
+    <meta name="discription" content="">
+    <link href="Assets/SCSS/main.scss" rel="stylesheet">
+</head>
+
+<body>
+    <nav aria-label="nav-top" class="nav-top">
+        <a href="home.php">
+            <h1>Website Title</h1>
+        </a>
+        <ul>
+            <li><a href="profile.php">Profile</a></li>
+            <li><a href="logout.php">Logout</a></li>
+        </ul>
+    </nav>
+    <nav aria-label="nav-left" class="nav-left">
+        <ul>
+            <li><a href="home.php">Dashboard</a></li>
+            <li><a href="products.php">Products</a></li>
+            <li><a href="stock.php">Stock</a></li>
+            <li><a href="orders.php">Orders</a></li>
+            <li><a href="customers.php">Customers</a></li>
+            <li><a href="suppliers.php">Suppliers</a></li>
+        </ul>
+    </nav>
+
+    <h1>Products</h1>
+    <a href="insertProduct.php">Add</a>
+    <table id="myTable">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Action</th>
+        </tr>
+        <?php while ($rows = $result->fetch_assoc()) {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $rows['id']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['productName']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['quantity']; ?>
+                </td>
+                <td><a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
+            </tr>
+        <?php } ?>
+    </table>
+
+    <footer>
+        <h3>Inventory Manager</h3>
+        <p>If problems ocurr contact the admin</p>
+        <a href="mailto:email@example.com">Send Email</a>
+    </footer>
+</body>
+
 </html>
