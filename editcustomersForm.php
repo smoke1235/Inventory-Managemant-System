@@ -10,19 +10,17 @@ if (mysqli_connect_errno()) {
 }
 
 $id = $_POST['id'];
-$firstName = $_post['newFirstName'];
-$lastName = $_post['newLastName'];
-$companyName = $_post['newCompanyName'];
-$street = $_post['newStreet'];
-$postcode = $_post['newPostcode'];
-$city = $_post['newCity'];
-$country = $_post['newCountry'];
+$newFirstName = $_post['newFirstName'];
+$newLastName = $_post['newLastName'];
+$newCompanyName = $_post['newCompanyName'];
+$newStreet = $_post['newStreet'];
+$newPostcode = $_post['newPostcode'];
+$newCity = $_post['newCity'];
+$newCountry = $_post['newCountry'];
 
 $sql = "UPDATE customers SET
-firts_name='$firstName', last_name='$lastName', company_name='$companyName', street='$street',
-postcode='$postcode', city='$city', country='$country'
-WHERE id=$id";
-echo $sql;
+first_name='$newFirstName', last_name='$newLastName', company_name='$newCompanyName', street='$newStreet',
+postcode='$newPostcode', city='$newCity', country='$newCountry' WHERE id=$id";
 if (mysqli_query($con, $sql)) {
     header('Location: customers.php');
 } else {
