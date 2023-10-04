@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = '';
@@ -10,13 +13,13 @@ if (mysqli_connect_errno()) {
 }
 
 $id = $_POST['id'];
-$newFirstName = $_post['newFirstName'];
-$newLastName = $_post['newLastName'];
-$newCompanyName = $_post['newCompanyName'];
-$newStreet = $_post['newStreet'];
-$newPostcode = $_post['newPostcode'];
-$newCity = $_post['newCity'];
-$newCountry = $_post['newCountry'];
+$newFirstName = $_POST['newFirstName'];
+$newLastName = $_POST['newLastName'];
+$newCompanyName = $_POST['newCompanyName'];
+$newStreet = $_POST['newStreet'];
+$newPostcode = $_POST['newPostcode'];
+$newCity = $_POST['newCity'];
+$newCountry = $_POST['newCountry'];
 
 $sql = "UPDATE customers SET
 first_name='$newFirstName', last_name='$newLastName', company_name='$newCompanyName', street='$newStreet',
