@@ -53,27 +53,27 @@ $id = $_GET['id'];
         </ul>
     </nav>
     <h1>Update Customer Information</h1>
-    <form action="editcustomersForm.php" method="POST">
+    <form action="editCustomersForm.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id ?>">
-        <label for="newFirstName" name="newFirstName">First Name:</label>
+        <label for="newFirstName">First Name:</label>
         <input type="text" name="newFirstName" placeholder="First name">
         <br>
-        <label for="newLastName" name="newLastName">Last Name:</label>
+        <label for="newLastName">Last Name:</label>
         <input type="text" name="newLastName" placeholder="Last name">
         <br>
-        <label for="newCompanyName" name="newCompanyName">Company Name:</label>
+        <label for="newCompanyName">Company Name:</label>
         <input type="text" name="newCompanyName" placeholder="Company name">
         <br>
-        <label for="newStreet" name="newStreet">Street:</label>
+        <label for="newStreet">Street:</label>
         <input type="text" name="newStreet" placeholder="Street:">
         <br>
-        <label for="newPostcode" name="newPostcode">Postcode</label>
+        <label for="newPostcode">Postcode</label>
         <input type="text" name="newPostcode" placeholder="Postcode">
         <br>
-        <label for="newCity" name="newCity">City:</label>
+        <label for="newCity">City:</label>
         <input type="text" name="newCity" placeholder="City">
         <br>
-        <label for="newCountry" name="newCountry">Country:</label>
+        <label for="newCountry">Country:</label>
         <input type="text" name="newCountry" placeholder="Country">
         <br><br>
         <input type="submit" name="submit" value="Submit">
