@@ -18,7 +18,7 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = " SELECT * FROM suppliers ";
+$sql = " SELECT * FROM orderDetail ";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -58,12 +58,46 @@ if (!$result) {
     <a href="">New Order</a>
     <table>
         <tr>
-            <th></th>
+            <th>No.</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>Date</th>
+            <th>Product</th>
+            <th>Order</th>
         </tr>
-        <tr>
-            <td></td>
-        </tr>
+        <?php while ($rows = $result->fetch_assoc()) {
+            ?>
+            <tr>
+                <td>
+                    <?php echo $rows['id']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['unit_price']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['quantity']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['total']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['date']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['product_id']; ?>
+                </td>
+                <td>
+                    <?php echo $roews['order_id']; ?>
+                </td>
+
+                <td>
+                    <a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                </td>
+            </tr>
+        <?php } ?>
     </table>
+
     <footer>
         <h3>Inventory Manager</h3>
         <p>If problems ocurr contact the admin</p>
