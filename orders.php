@@ -49,6 +49,7 @@ if (!$result) {
         <ul>
             <li><a href="home.php">Dashboard</a></li>
             <li><a href="products.php">Products</a></li>
+            <li><a href="stocks.php">Stocks</a></li>
             <li><a href="orders.php">Orders</a></li>
             <li><a href="customers.php">Customers</a></li>
             <li><a href="suppliers.php">Suppliers</a></li>
@@ -90,7 +91,6 @@ if (!$result) {
                 <td>
                     <?php echo $roews['order_id']; ?>
                 </td>
-
                 <td>
                     <a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
                 </td>

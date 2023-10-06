@@ -55,25 +55,25 @@ $id = $_GET['id'];
     <h1>Update Customer Information</h1>
     <form action="editCustomersForm.php" method="POST">
         <input type="hidden" name="id" value="<?php echo $id ?>">
-        <label for="newFirstName">First Name:</label>
+        <label for="newFirstName" name="newFirstName">First Name:</label>
         <input type="text" name="newFirstName" placeholder="First name">
         <br>
-        <label for="newLastName">Last Name:</label>
+        <label for="newLastName" name="newLastName">Last Name:</label>
         <input type="text" name="newLastName" placeholder="Last name">
         <br>
         <label for="newCompanyName">Company Name:</label>
         <input type="text" name="newCompanyName" placeholder="Company name">
         <br>
-        <label for="newStreet">Street:</label>
+        <label for="newStreet" name="newCompanyName">Street:</label>
         <input type="text" name="newStreet" placeholder="Street:">
         <br>
-        <label for="newPostcode">Postcode</label>
+        <label for="newPostcode" name="newPostcode">Postcode</label>
         <input type="text" name="newPostcode" placeholder="Postcode">
         <br>
-        <label for="newCity">City:</label>
+        <label for="newCity" name="newCity">City:</label>
         <input type="text" name="newCity" placeholder="City">
         <br>
-        <label for="newCountry">Country:</label>
+        <label for="newCountry" name="newCountry">Country:</label>
         <input type="text" name="newCountry" placeholder="Country">
         <br><br>
         <input type="submit" name="submit" value="Submit">
