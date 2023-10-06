@@ -40,6 +40,7 @@ $con->close();
 
 <body>
     <?php include_once 'navbar.php'; ?>
+    
     <h1>Products</h1>
     <a href="insertProduct.php">Add</a>
     <table id="myTable">
