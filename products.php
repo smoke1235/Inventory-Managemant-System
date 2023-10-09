@@ -18,13 +18,14 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = " SELECT * FROM products ";
-$result = $con->query($sql);
+$sql =
+"SELECT products.id, products.productName, products.product_description,
+products.quantity, products.product_price, products.other_details, suppliers.name
+FROM products
+INNER JOIN suppliers
+ON products.supplier_id=suppliers.name ";
 
-if (!$result) {
-    die("Invalid quary: " . $con->error);
-}
-$con->close();
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -47,10 +48,11 @@ $con->close();
         <tr>
             <th>No.</th>
             <th>Name</th>
+            <th>discription</th>
             <th>Quantity</th>
             <th>Price</th>
             <th>Supplier</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
         <?php while ($rows = $result->fetch_assoc()) { ?>
             <tr>
@@ -59,6 +61,9 @@ $con->close();
                 </td>
                 <td>
                     <?php echo $rows['productName']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['product_description']; ?>
                 </td>
                 <td>
                     <?php echo $rows['quantity']; ?>
