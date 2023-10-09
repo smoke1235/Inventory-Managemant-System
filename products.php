@@ -43,15 +43,16 @@ $con->close();
     
     <h1>Products</h1>
     <a href="insertProduct.php">Add</a>
-    <table id="myTable">
+    <table>
         <tr>
             <th>No.</th>
             <th>Name</th>
             <th>Quantity</th>
+            <th>Price</th>
+            <th>Supplier</th>
             <th>Action</th>
         </tr>
-        <?php while ($rows = $result->fetch_assoc()) {
-            ?>
+        <?php while ($rows = $result->fetch_assoc()) { ?>
             <tr>
                 <td>
                     <?php echo $rows['id']; ?>
@@ -62,16 +63,22 @@ $con->close();
                 <td>
                     <?php echo $rows['quantity']; ?>
                 </td>
-                <td><a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
+                <td>
+                    <?php echo $rows['product_price']; ?>
+                </td>
+                <td>
+                    <?php echo $rows['supplier_id']; ?>
+                </td>
+                <td>
+                    <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                    <a href="">View</a>
+                </td>
+
             </tr>
         <?php } ?>
     </table>
 
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
+    <?php include_once 'footer.php'; ?>
 </body>
 
 </html>

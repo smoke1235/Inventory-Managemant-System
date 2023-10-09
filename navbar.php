@@ -11,7 +11,6 @@
         <ul>
             <li><a href="home.php">Dashboard</a></li>
             <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
             <li><a href="customers.php">Customers</a></li>
             <li><a href="suppliers.php">Suppliers</a></li>
         </ul>

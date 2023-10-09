@@ -24,49 +24,23 @@ if ( !isset($_SESSION['loggedin']) ) {
         <header>
             <h1>Welcome, <?=$_SESSION['name']?>!</h1>
             <div class="board">
-                <div class="customer">
-                    <a href="">Totale customers</a>
+                <div class="Products-button">
+                    <?php
+                    $products_counter = 'SELECT * FROM products';
+                    ?>
+                    <a href="products.php">Totale products</a>
                 </div>
-                <div class="supplier">
-                    <a href="">Totale suppliers</a>
+                <div class="customers-button">
+                    <a href="suppliers.php">Totale Customers</a>
                 </div>
-                <div class="sells">
-                    <a href="">Sells this month</a>
+                <div class="suppliers-button">
+                    <a href="">Totale Suppliers</a>
                 </div>
-                <div class="purchase">
-                    <a href="">Purchases this month</a>
-                </div>
-            </div>
-            <div class="recent-order-list">
-                <h2>Recent orders</h2>
-                <table>
-                    <tr>
-                        <th>No.</th>
-                        <th>Name</th>
-                        <th>Date</th>
-                    </tr>
-                    <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>01-01-2023</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Alex Doe</td>
-                        <td>01-01-2023</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Anna Doe</td>
-                        <td>05-01-2023</td>
-                    </tr>
-                </table>
             </div>
         </header>
-        <footer>
-            <h3>Inventory Manager</h3>
-            <p>If problems ocurr contact the admin</p>
-            <a href="mailto:email@example.com">Send Email</a>
-        </footer>
+        <table class="home-list">
+
+        </table>
+        <?php include_once 'footer.php'; ?>
     </body>
 </html>
