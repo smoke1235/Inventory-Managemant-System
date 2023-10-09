@@ -23,7 +23,7 @@ $sql =
 products.quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
-ON products.supplier_id=suppliers.name ";
+ON products.supplier_id=suppliers.id ";
 
 $result = $con->query($sql);
 ?>
@@ -41,7 +41,7 @@ $result = $con->query($sql);
 
 <body>
     <?php include_once 'navbar.php'; ?>
-    
+
     <h1>Products</h1>
     <a href="insertProduct.php">Add</a>
     <table>
@@ -72,11 +72,10 @@ $result = $con->query($sql);
                     <?php echo $rows['product_price']; ?>
                 </td>
                 <td>
-                    <?php echo $rows['supplier_id']; ?>
+                    <?php echo $rows['name']; ?>
                 </td>
                 <td>
                     <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                    <a href="">View</a>
                 </td>
 
             </tr>
