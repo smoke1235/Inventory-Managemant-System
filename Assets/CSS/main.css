@@ -7,12 +7,13 @@
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     position: fixed;
     height: 50px;
     width: 100%;
     background: black;
     color: white;
+    border-bottom: 2px #FF5733 solid;
     ul {
         display: flex;
         align-items: center;
@@ -21,13 +22,32 @@
         margin: 0 7px;
     }
     a {
+        margin: 0 7px;
         color: white;
     }
 }
 
-.sidebar {
+.dashboard-container {
     display: flex;
-    flex-direction: column;
+    .sidebar {
+        position: fixed;
+        overflow: scroll;
+        margin: 0 7px;
+        padding-top: 60px;
+        height: 100%;
+        width: 20%;
+        top: 0;
+        left: 0;
+        z-index: -1;
+    }
+    main {
+        width: 80%;
+        margin-left: 21%;
+        margin-top: 56px;
+        h1 {
+            
+        }
+    }
 }
 
 a {
