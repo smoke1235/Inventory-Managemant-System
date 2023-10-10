@@ -6,15 +6,8 @@
 }
 
 html {
-    background:  #FF5733;
-}
-
-h1 {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 5px;
-    color: white;
+    background:  #FF5733;
 }
 
 .container-2 {
@@ -25,24 +18,20 @@ h1 {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-top: 200px;
         border-radius: 5px;
         width: 550px;
-        height: 300px;
+        height: 550px;
         background: white;
         form {
             display: flex;
             flex-direction: column;
-            margin: 10px auto;
+            margin: 10 0px;
             padding: 10px;
             width: 20em;
             label {
                 margin-top: 10px;
             }
             .submit {
-                display: flex;
-                justify-content: center;
-                align-items: center;
                 width: 50%;
                 margin-top: 15px;
                 margin-left: 75px;
