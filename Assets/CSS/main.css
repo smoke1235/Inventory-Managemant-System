@@ -9,11 +9,15 @@
     align-items: center;
     justify-content: space-between;
     position: fixed;
-    height: 50px;
+    height: 70px;
     width: 100%;
+    z-index: 2;
     background: black;
     color: white;
     border-bottom: 2px #FF5733 solid;
+    h1 {
+        font-size: 45px;
+    }
     ul {
         display: flex;
         align-items: center;
@@ -23,6 +27,7 @@
     }
     a {
         margin: 0 7px;
+        font-size: larger;
         color: white;
     }
 }
@@ -31,22 +36,29 @@
     display: flex;
     .sidebar {
         position: fixed;
-        overflow: scroll;
         margin: 0 7px;
-        padding-top: 60px;
+        padding-top: 80px;
         height: 100%;
         width: 20%;
         top: 0;
         left: 0;
-        z-index: -1;
+        font-size: 20px;
+        border-right: 1px grey solid;
+        background: #f1f1f1;
+        ul {
+            li{
+                margin-bottom: 8px;
+                a {
+                    color: black;
+                }
+                
+            }
+        }
     }
     main {
-        width: 80%;
         margin-left: 21%;
-        margin-top: 56px;
-        h1 {
-            
-        }
+        margin-top: 80px;
+        width: 80%;
     }
 }
 
