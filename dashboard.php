@@ -24,7 +24,6 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="dashboard-container">
         <?php include_once 'navbar.php'; ?>
         <main>
-            <?php include_once 'sidebar.php'; ?>
             <h1>Welcome, <?= $_SESSION['name'] ?>!</h1>
             <div class="board">
                 <div class="Products-button">
