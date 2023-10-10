@@ -24,7 +24,8 @@ if (!isset($_SESSION['loggedin'])) {
     <div class="dashboard-container">
         <?php include_once 'navbar.php'; ?>
         <main>
-            <h1>Welcome,<?= $_SESSION['name'] ?>!</h1>
+            <?php include_once 'sidebar.php'; ?>
+            <h1>Welcome, <?= $_SESSION['name'] ?>!</h1>
             <div class="board">
                 <div class="Products-button">
                     <?php
@@ -41,7 +42,6 @@ if (!isset($_SESSION['loggedin'])) {
             </div>
         </main>
     </div>
-    <?php include_once 'footer.php'; ?>
 </body>
 
 </html>
