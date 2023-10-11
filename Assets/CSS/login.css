@@ -6,11 +6,16 @@
 }
 
 html {
-    display: flex;
-    background:  #FF5733;
+    background: #FF5733;
 }
 
-.container-2 {
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.container {
     display: flex;
     justify-content: center;
     .login {
@@ -20,7 +25,7 @@ html {
         align-items: center;
         border-radius: 5px;
         width: 550px;
-        height: 550px;
+        height: 450px;
         background: white;
         form {
             display: flex;

@@ -44,14 +44,17 @@
         left: 0;
         font-size: 20px;
         border-right: 1px grey solid;
-        background: #f1f1f1;
         ul {
+            align-items: center;
+            background: #f1f1f1;
             li{
                 margin-bottom: 8px;
-                a {
+                a:link {
                     color: black;
                 }
-                
+            }
+            li:hover {
+                background: grey;
             }
         }
     }
