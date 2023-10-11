@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a href="dashboard.php">
-        <h1>Website Title</h1>
+        <h1>Teeuwen Drukkerij Inventory Manager</h1>
     </a>
     <ul>
         <li><a href="profile.php">Profile</a></li>
