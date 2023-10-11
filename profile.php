@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-if ( !isset($_SESSION['loggedin']) ) {
+if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit;
 }
@@ -28,35 +28,46 @@ $stmt->close();
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Profile Page</title>
-        <meta name="discription" content="">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="Assets/SCSS/main.scss" rel="stylesheet">
-    </head>
-    <body>
-    <?php include_once 'navbar.php'; ?>
 
-    <h2>Profile Page</h2>
-        <div>
-            <p>Your account details are below:</p>
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><?=$_SESSION['name']?></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><?=$password?></td>
-                </tr>
-                <tr>
-                    <td>E-mail:</td>
-                    <td><?=$email?></td>
-                </tr>
-            </table>
-        </div>
+<head>
+    <title>Profile Page</title>
+    <meta name="discription" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Assets/CSS/main.css" rel="stylesheet">
+</head>
 
-        <?php include_once 'footer.php'; ?>
-    </body>
+<body>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+
+        <main>
+            <h2>Profile Page</h2>
+            <div class="table">
+                <p>Your account details are below:</p>
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td>
+                            <?= $_SESSION['name'] ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>
+                            <?= $password ?>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>E-mail:</td>
+                        <td>
+                            <?= $email ?>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </main>
+    </div>
+</body>
+
 </html>
