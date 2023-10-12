@@ -52,6 +52,7 @@
     border-right: 1px grey solid;
     background: #f1f1f1;
 }
+
 .sidebar li {
     margin-bottom: 8px;
 }
@@ -74,7 +75,28 @@ a {
     text-decoration: none;
 }
 
-
 ul {
     list-style: none;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    border: 1px black solid;
+
+}
+
+.products-button {
+    border: 1px red solid;
+    margin: 4px;
+}
+
+.customers-button {
+    border: 1px blue solid;
+    margin: 4px;
+}
+
+.suppliers-button {
+    border: 1px green solid;
+    margin: 4px;
 }
