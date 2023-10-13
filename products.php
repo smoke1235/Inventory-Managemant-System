@@ -18,13 +18,14 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = " SELECT * FROM products ";
-$result = $con->query($sql);
+$sql =
+"SELECT products.id, products.productName, products.product_description,
+products.quantity, products.product_price, products.other_details, suppliers.name
+FROM products
+INNER JOIN suppliers
+ON products.supplier_id=suppliers.id ";
 
-if (!$result) {
-    die("Invalid quary: " . $con->error);
-}
-$con->close();
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -35,61 +36,55 @@ $con->close();
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Products</title>
     <meta name="discription" content="">
-    <link href="Assets/SCSS/main.scss" rel="stylesheet">
+    <link href="Assets/CSS/main.css" rel="stylesheet">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+        <main>
+            <h1>Products</h1>
+            <a href="insertProduct.php">Add</a>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>Name</th>
+                    <th>discription</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Supplier</th>
+                    <th>Actions</th>
+                </tr>
+                <?php while ($rows = $result->fetch_assoc()) { ?>
+                    <tr>
+                        <td>
+                            <?php echo $rows['id']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['productName']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['product_description']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['quantity']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['product_price']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['name']; ?>
+                        </td>
+                        <td>
+                            <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                        </td>
+        
+                    </tr>
+                <?php } ?>
+            </table>
+        </main>
+    </div>
 
-    <h1>Products</h1>
-    <a href="insertProduct.php">Add</a>
-    <table id="myTable">
-        <tr>
-            <th>No.</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Action</th>
-        </tr>
-        <?php while ($rows = $result->fetch_assoc()) {
-            ?>
-            <tr>
-                <td>
-                    <?php echo $rows['id']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['productName']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['quantity']; ?>
-                </td>
-                <td><a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
-            </tr>
-        <?php } ?>
-    </table>
-
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
 </body>
 
 </html>

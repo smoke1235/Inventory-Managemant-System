@@ -36,82 +36,63 @@ $con->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="">
     <title>Customers</title>
-    <link rel="stylesheet" href="Assets/SCSS/main.scss">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stocks.php">Stocks</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
-    <h1>Customers</h1>
-    <a href="insertCustomers.php">Add</a>
-    <table>
-        <tr>
-            <th>No.</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Company</th>
-            <th>street</th>
-            <th>postcode</th>
-            <th>city</th>
-            <th>country</th>
-            <th>Actions</th>
-        </tr>
-        <?php while ($rows = $result->fetch_assoc()) {
-            ?>
-            <tr>
-                <td>
-                    <?php echo $rows['id']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['first_name']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['last_name']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['company_name']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['street']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['postcode']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['city']; ?>
-                </td>
-                <td>
-                    <?php echo $rows['country']; ?>
-                </td>
-
-                <td>
-                    <a href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                </td>
-            </tr>
-        <?php } ?>
-    </table>
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+        <main>
+            <h1>Customers</h1>
+            <a href="insertCustomers.php">Add</a>
+            <table>
+                <tr>
+                    <th>No.</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Company</th>
+                    <th>street</th>
+                    <th>postcode</th>
+                    <th>city</th>
+                    <th>country</th>
+                    <th>Actions</th>
+                </tr>
+                <?php while ($rows = $result->fetch_assoc()) {
+                    ?>
+                    <tr>
+                        <td>
+                            <?php echo $rows['id']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['first_name']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['last_name']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['company_name']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['street']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['postcode']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['city']; ?>
+                        </td>
+                        <td>
+                            <?php echo $rows['country']; ?>
+                        </td>
+        
+                        <td>
+                            <a href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                        </td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </main>
+    </div>
 </body>
 
 </html>

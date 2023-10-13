@@ -3,7 +3,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
-if ( !isset($_SESSION['loggedin']) ) {
+if (!isset($_SESSION['loggedin'])) {
     header('Location: index.html');
     exit;
 }
@@ -28,53 +28,48 @@ $stmt->close();
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <title>Profile Page</title>
-        <meta name="discription" content="">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="Assets/SCSS/main.scss" rel="stylesheet">
-    </head>
-    <body>
-    <nav aria-label="nav-top" class="nav-top">
-            <a href="home.php"><h1>Website Title</h1></a>
-            <ul>
-                <li><a href="profile.php">Profile</a></li>
-                <li><a href="logout.php">Logout</a></li>
-            </ul>
-        </nav>
-        <nav aria-label="nav-left" class="nav-left">
-            <ul>
-                <li><a href="home.php">Dashboard</a></li>
-                <li><a href="products.php">Products</a></li>
-                <li><a href="stocks.php">Stocks</a></li>
-                <li><a href="orders.php">Orders</a></li>
-                <li><a href="customers.php">Customers</a></li>
-                <li><a href="suppliers.php">Suppliers</a></li>
-            </ul>
-        </nav>
-        <h2>Profile Page</h2>
-        <div>
-            <p>Your account details are below:</p>
-            <table>
-                <tr>
-                    <td>Username:</td>
-                    <td><?=$_SESSION['name']?></td>
-                </tr>
-                <tr>
-                    <td>Password:</td>
-                    <td><?=$password?></td>
-                </tr>
-                <tr>
-                    <td>E-mail:</td>
-                    <td><?=$email?></td>
-                </tr>
-            </table>
-        </div>
-        <footer>
-            <h3>Inventory Manager</h3>
-            <p>If problems ocurr contact the admin</p>
-            <a href="mailto:email@example.com">Send Email</a>
-        </footer>
-    </body>
+
+<head>
+    <title>Profile Page</title>
+    <meta name="discription" content="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="Assets/CSS/main.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+
+        <main>
+            <div class="profile-page">
+                <h1>Profile Page</h1>
+                <div class="profile-table">
+                    <p>Your account details are below:</p>
+                    <table>
+                        <tr>
+                            <td>Username:</td>
+                            <td>
+                                <?= $_SESSION['name'] ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td>
+                                <?= $password ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>
+                                <?= $email ?>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+
 </html>
