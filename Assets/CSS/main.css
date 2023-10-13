@@ -5,6 +5,8 @@
     padding: 0px;
 }
 
+/* ---- Topbar ---- */
+
 .navbar {
     display: flex;
     align-items: center;
@@ -40,6 +42,8 @@
     font-size: 45px;
 }
 
+/* ---- Sidebar ---- */
+
 .sidebar {
     position: fixed;
     margin: 0 7px;
@@ -70,12 +74,6 @@
     display: flex;
 }
 
-main {
-    margin-left: 21%;
-    margin-top: 80px;
-    width: 80%;
-}
-
 a {
     text-decoration: none;
 }
@@ -83,6 +81,18 @@ a {
 ul {
     list-style: none;
 }
+
+main {
+    margin-left: 21%;
+    margin-top: 80px;
+    width: 80%;
+}
+
+main h1 {
+    font-size: 55px;
+}
+
+/* ---- Dashboad Top buttons ---- */
 
 .board {
     display: flex;
@@ -173,4 +183,30 @@ ul {
 .suppliers-button h3, .suppliers-button p {
     margin: 0 3px;
     color: whitesmoke;
+}
+
+/* ---- Profile page ---- */
+
+.profile-page {
+    height: 700px;
+}
+
+.profile-page h1 {
+    margin: 0 8px;
+}
+
+.profile-table {
+    margin: 8px;
+    padding: 3px;
+    border: 1px black solid;
+    border-radius: 5px;
+    background: #ddd;
+}
+
+.profile-table p {
+    margin-bottom: 8px;
+}
+
+.profile-table td {
+    padding: 4px;
 }

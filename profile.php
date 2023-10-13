@@ -42,29 +42,31 @@ $stmt->close();
         <?php include_once 'navbar.php'; ?>
 
         <main>
-            <h2>Profile Page</h2>
-            <div class="table">
-                <p>Your account details are below:</p>
-                <table>
-                    <tr>
-                        <td>Username:</td>
-                        <td>
-                            <?= $_SESSION['name'] ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td>
-                            <?= $password ?>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>E-mail:</td>
-                        <td>
-                            <?= $email ?>
-                        </td>
-                    </tr>
-                </table>
+            <div class="profile-page">
+                <h1>Profile Page</h1>
+                <div class="profile-table">
+                    <p>Your account details are below:</p>
+                    <table>
+                        <tr>
+                            <td>Username:</td>
+                            <td>
+                                <?= $_SESSION['name'] ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Password:</td>
+                            <td>
+                                <?= $password ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>E-mail:</td>
+                            <td>
+                                <?= $email ?>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </main>
     </div>
