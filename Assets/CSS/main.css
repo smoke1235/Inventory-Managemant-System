@@ -58,7 +58,12 @@
 }
 
 .sidebar a {
+    font-size: 25px;
     color: black;
+}
+
+.sidebar a:hover {
+    color: #FF5733;
 }
 
 .dashboard-container {
@@ -82,21 +87,82 @@ ul {
 .board {
     display: flex;
     justify-content: center;
+    margin: 4px;
+    padding: 4px;
     border: 1px black solid;
-
 }
 
 .products-button {
-    border: 1px red solid;
+    display: flex;
     margin: 4px;
+    border: 1px red solid;
+    border-radius: 4px;
+    background: red;
+}
+
+.products-button a {
+    width: 200px;
+}
+
+.products-button h3 {
+    font-size: 80px;
+}
+
+.products-button p {
+    font-size: 20px;
+}
+
+.products-button h3, .products-button p {
+    margin: 0 3px;
+    color: whitesmoke;
 }
 
 .customers-button {
-    border: 1px blue solid;
+    display: flex;
     margin: 4px;
+    border: 1px blue solid;
+    border-radius: 4px;
+    background: blue    ;
+}
+
+.customers-button a {
+    width: 200px;
+}
+
+.customers-button h3 {
+    font-size: 80px;
+}
+
+.customers-button p {
+    font-size: 20px;
+}
+
+.customers-button h3, .customers-button p {
+    margin: 0 3px;
+    color: whitesmoke;
 }
 
 .suppliers-button {
-    border: 1px green solid;
+    display: flex;
     margin: 4px;
+    border: 1px green solid;
+    border-radius: 4px;
+    background: green;
+}
+
+.suppliers-button a {
+    width: 200px;
+}
+
+.suppliers-button h3 {
+    font-size: 80px;
+}
+
+.suppliers-button p {
+    font-size: 20px;
+}
+
+.suppliers-button h3, .suppliers-button p {
+    margin: 0 3px;
+    color: whitesmoke;
 }
