@@ -89,15 +89,17 @@ ul {
     justify-content: center;
     margin: 4px;
     padding: 4px;
-    border: 1px black solid;
 }
 
 .products-button {
     display: flex;
     margin: 4px;
-    border: 1px red solid;
     border-radius: 4px;
-    background: red;
+    background: #c70606;
+}
+
+.products-button:hover{
+    background: #f20505;
 }
 
 .products-button a {
@@ -120,9 +122,12 @@ ul {
 .customers-button {
     display: flex;
     margin: 4px;
-    border: 1px blue solid;
     border-radius: 4px;
-    background: blue    ;
+    background: #1332bd;
+}
+
+.customers-button:hover {
+    background: #1b43f5;
 }
 
 .customers-button a {
@@ -145,9 +150,12 @@ ul {
 .suppliers-button {
     display: flex;
     margin: 4px;
-    border: 1px green solid;
     border-radius: 4px;
-    background: green;
+    background: #26802e;
+}
+
+.suppliers-button:hover {
+    background: #36b542;
 }
 
 .suppliers-button a {
