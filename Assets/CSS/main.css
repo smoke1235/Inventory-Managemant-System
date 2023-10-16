@@ -196,6 +196,7 @@ main h1 {
 }
 
 .profile-table {
+    height: 350px;
     margin: 8px;
     padding: 3px;
     border: 1px black solid;
