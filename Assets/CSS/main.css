@@ -216,9 +216,8 @@ main h1 {
 /* ---- table general ---- */
 
 table {
-    border: 1px solid black;
-    border-radius: 8px;
     border-collapse: collapse;
+    border: 1px solid #ddd;
     width: 100%;
 }
 
@@ -227,7 +226,6 @@ table h2 {
 }
 
 table th, table td {
-    border: 1px solid #ddd;
     padding: 8px;
 }
 
@@ -249,7 +247,6 @@ table th {
 /* ---- Dasboard table ----*/
 
 .dashboard-table {
-    border: 1px black solid;
     margin: 8px;
     padding: 4px;
 }

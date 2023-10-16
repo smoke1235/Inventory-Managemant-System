@@ -90,7 +90,8 @@ if (mysqli_connect_errno()) {
                 products.quantity, products.product_price, products.other_details, suppliers.name, date
                 FROM products
                 INNER JOIN suppliers
-                ON products.supplier_id=suppliers.id ";
+                ON products.supplier_id=suppliers.id
+                ORDER BY date DESC LIMIT 0,30";
                 $result = $con->query($sql);
                 if (!$result) {
                     die("Invalid quary: " . $con->error);
@@ -98,7 +99,7 @@ if (mysqli_connect_errno()) {
                 ?>
                 <table>
                     <tr>
-                        <th id="Number">No.</th>
+                        <th class="Number">No.</th>
                         <th>Name</th>
                         <th>Description</th>
                         <th>Quantity</th>
