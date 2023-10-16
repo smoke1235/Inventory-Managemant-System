@@ -45,42 +45,49 @@ $con->close();
         <main>
             <h1>Suppliers</h1>
             <a id="new-data" href="insertSuppliers.php">Add</a>
-            <table>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>street</th>
-                    <th>postcode</th>
-                    <th>city</th>
-                    <th>country</th>
-                    <th>Actions</th>
-                </tr>
-                <?php while ($rows = $result->fetch_assoc()) {
-                    ?>
-                    <tr>
-                        <td>
-                            <?php echo $rows['id']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['name']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['street']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['postcode']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['city']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['country']; ?>
-                        </td>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>street</th>
+                            <th>postcode</th>
+                            <th>city</th>
+                            <th>country</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <?php while ($rows = $result->fetch_assoc()) {
+                        ?>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <?php echo $rows['id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['name']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['street']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['postcode']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['city']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['country']; ?>
+                                </td>
 
-                        <td><a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
-                    </tr>
-                <?php } ?>
-            </table>
+                                <td><a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
+                            </tr>
+                        </tbody>
+                    <?php } ?>
+                </table>
+
+            </div>
         </main>
     </div>
 </body>

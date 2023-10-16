@@ -244,8 +244,6 @@ table th {
     color: white;
 }
 
-/* ---- Dashboard table ----*/
-
 .table-container {
     overflow: auto;
     height: 500px;
