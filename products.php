@@ -44,7 +44,7 @@ $result = $con->query($sql);
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Products</h1>
-            <a href="insertProduct.php">Add</a>
+            <a id="new-data" href="insertProduct.php">Add</a>
             <table>
                 <tr>
                     <th>No.</th>

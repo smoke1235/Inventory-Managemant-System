@@ -44,7 +44,7 @@ $con->close();
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Customers</h1>
-            <a href="insertCustomers.php">Add</a>
+            <a id="new-data" href="insertCustomers.php">Add</a>
             <table>
                 <tr>
                     <th>No.</th>
