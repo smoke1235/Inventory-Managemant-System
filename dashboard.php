@@ -97,39 +97,45 @@ if (mysqli_connect_errno()) {
                     die("Invalid quary: " . $con->error);
                 }
                 ?>
-                <table>
-                    <tr>
-                        <th class="Number">No.</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Supplier</th>
-                    </tr>
-                    <?php while ($rows = $result->fetch_assoc()) {
-                        ?>
-                        <tr>
-                            <td>
-                                <?php echo $rows['id']; ?>
-                            </td>
-                            <td>
-                                <?php echo $rows['productName']; ?>
-                            </td>
-                            <td>
-                                <?php echo $rows['product_description']; ?>
-                            </td>
-                            <td>
-                                <?php echo $rows['quantity']; ?>
-                            </td>
-                            <td>
-                                <?php echo $rows['product_price']; ?>
-                            </td>
-                            <td>
-                                <?php echo $rows['name']; ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </table>
+                <div class="table-container">
+                    <table aria-label="A table that shows newly 30 newly added products">
+                        <thead>
+                            <tr>
+                                <th>No.</th>
+                                <th>Name</th>
+                                <th>Description</th>
+                                <th>Quantity</th>
+                                <th>Price</th>
+                                <th>Supplier</th>
+                            </tr>
+                        </thead>
+                        <?php while ($rows = $result->fetch_assoc()) {
+                            ?>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <?php echo $rows['id']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['productName']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['product_description']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['quantity']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['product_price']; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $rows['name']; ?>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        <?php } ?>
+                    </table>
+                </div>
             </div>
         </main>
     </div>

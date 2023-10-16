@@ -244,13 +244,18 @@ table th {
     color: white;
 }
 
-/* ---- Dasboard table ----*/
+/* ---- Dashboard table ----*/
 
-.dashboard-table {
-    margin: 8px;
-    padding: 4px;
+.table-container {
+    overflow: auto;
+    height: 500px;
 }
 
+.table-container thead th {
+    position: sticky;
+    top: 0;
+}
 .dashboard-table h2 {
-    margin: 2px 0px;
+    margin-bottom: 8px;
 }
+
