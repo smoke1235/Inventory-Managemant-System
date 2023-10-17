@@ -19,6 +19,3 @@ if (mysqli_query($con, $sql)) {
 } else {
     echo "ERROR! Product not updated";
 }
-
-$con->close();
-?>
