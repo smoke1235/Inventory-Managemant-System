@@ -82,6 +82,8 @@ ul {
     list-style: none;
 }
 
+/* ---- Main General ---- */
+
 main {
     margin-left: 21%;
     margin-top: 80px;
@@ -185,34 +187,6 @@ main h1 {
     color: whitesmoke;
 }
 
-
-/* ---- Profile page ---- */
-
-.profile-page {
-    height: 700px;
-}
-
-.profile-page h1 {
-    margin: 0 8px;
-}
-
-.profile-table {
-    height: 350px;
-    margin: 8px;
-    padding: 3px;
-    border: 1px black solid;
-    border-radius: 5px;
-    background: #ddd;
-}
-
-.profile-table p {
-    margin-bottom: 8px;
-}
-
-.profile-table td {
-    padding: 4px;
-}
-
 /* ---- table general ---- */
 
 table {
@@ -227,10 +201,6 @@ table h2 {
 
 table th, table td {
     padding: 8px;
-}
-
-table tr:nth-child(even) {
-    background: #f2f2f2;
 }
 
 table tr:hover {
@@ -256,4 +226,3 @@ table th {
 .dashboard-table h2 {
     margin-bottom: 8px;
 }
-
