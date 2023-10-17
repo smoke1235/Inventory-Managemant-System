@@ -44,9 +44,9 @@ $result = $con->query($sql);
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Products</h1>
-            <a id="new-data" href="insertProduct.php">Add</a>
+            <a class="new-data" href="insertProduct.php">Add</a>
             <div class="table-container">
-                <table>
+                <table aria-label="Table for products">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -80,7 +80,8 @@ $result = $con->query($sql);
                                     <?php echo $rows['name']; ?>
                                 </td>
                                 <td>
-                                    <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="edit-data"
+                                    href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                 </td>
 
                             </tr>
