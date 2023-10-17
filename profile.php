@@ -34,7 +34,7 @@ $stmt->close();
     <meta name="discription" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="Assets/CSS/main.css" rel="stylesheet">
+    <link href="Assets/CSS/profile.css" rel="stylesheet">
 </head>
 
 <body>
@@ -46,7 +46,7 @@ $stmt->close();
                 <h1>Profile Page</h1>
                 <div class="profile-table">
                     <p>Your account details are below:</p>
-                    <table>
+                    <table aria-label="table for profile">
                         <tr>
                             <td>Username:</td>
                             <td>

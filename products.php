@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 }
 
 $sql =
-"SELECT products.id, products.productName, products.product_description,
+    "SELECT products.id, products.productName, products.product_description,
 products.quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
@@ -44,44 +44,50 @@ $result = $con->query($sql);
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Products</h1>
-            <a href="insertProduct.php">Add</a>
-            <table>
-                <tr>
-                    <th>No.</th>
-                    <th>Name</th>
-                    <th>discription</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Supplier</th>
-                    <th>Actions</th>
-                </tr>
-                <?php while ($rows = $result->fetch_assoc()) { ?>
-                    <tr>
-                        <td>
-                            <?php echo $rows['id']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['productName']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['product_description']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['quantity']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['product_price']; ?>
-                        </td>
-                        <td>
-                            <?php echo $rows['name']; ?>
-                        </td>
-                        <td>
-                            <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                        </td>
-        
-                    </tr>
-                <?php } ?>
-            </table>
+            <a id="new-data" href="insertProduct.php">Add</a>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Name</th>
+                            <th>discription</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Supplier</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <?php while ($rows = $result->fetch_assoc()) { ?>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <?php echo $rows['id']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['productName']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['product_description']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['quantity']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['product_price']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['name']; ?>
+                                </td>
+                                <td>
+                                    <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                </td>
+
+                            </tr>
+                        </tbody>
+                    <?php } ?>
+                </table>
+            </div>
         </main>
     </div>
 
