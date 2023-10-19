@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
             <div class="board">
                 <div class="products-button">
                     <?php
-                    $sql = "SELECT COUNT(productName) AS total FROM products;";
+                    $sql = "SELECT COUNT(product_name) AS total FROM products;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
@@ -86,16 +86,13 @@ if (mysqli_connect_errno()) {
                 <h2>Recently added products</h2>
                 <?php
                 $sql =
-                    "SELECT products.id, products.productName, products.product_description,
-                products.quantity, products.product_price, products.other_details, suppliers.name, date
+                    "SELECT products.id, products.product_name, products.product_description,
+                products.product_quantity, products.product_price, products.other_details, suppliers.name, date
                 FROM products
                 INNER JOIN suppliers
                 ON products.supplier_id=suppliers.id
                 ORDER BY date DESC LIMIT 0,30";
                 $result = $con->query($sql);
-                if (!$result) {
-                    die("Invalid quary: " . $con->error);
-                }
                 ?>
                 <div class="table-container">
                     <table aria-label="A table that shows newly 30 newly added products">
@@ -117,13 +114,13 @@ if (mysqli_connect_errno()) {
                                         <?php echo $rows['id']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $rows['productName']; ?>
+                                        <?php echo $rows['product_name']; ?>
                                     </td>
                                     <td>
                                         <?php echo $rows['product_description']; ?>
                                     </td>
                                     <td>
-                                        <?php echo $rows['quantity']; ?>
+                                        <?php echo $rows['product_quantity']; ?>
                                     </td>
                                     <td>
                                         <?php echo $rows['product_price']; ?>

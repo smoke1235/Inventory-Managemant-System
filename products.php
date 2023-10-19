@@ -19,8 +19,8 @@ if (mysqli_connect_errno()) {
 }
 
 $sql =
-    "SELECT products.id, products.productName, products.product_description,
-products.quantity, products.product_price, products.other_details, suppliers.name
+    "SELECT products.id, products.product_name, products.product_description,
+products.product_quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
 ON products.supplier_id=suppliers.id ";
@@ -65,13 +65,13 @@ $result = $con->query($sql);
                                     <?php echo $rows['id']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['productName']; ?>
+                                    <?php echo $rows['product_name']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['product_description']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['quantity']; ?>
+                                    <?php echo $rows['product_quantity']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['product_price']; ?>
