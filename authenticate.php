@@ -14,10 +14,6 @@ if ( mysqli_connect_errno() ) {
     exit('Failed to Connect to MySQL: ' . mysqli_connect_error());
 }
 
-if ( !isset($_POST['username'], $_POST['password']) ) {
-    exit('Please enter your username & password.');
-}
-
 if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();

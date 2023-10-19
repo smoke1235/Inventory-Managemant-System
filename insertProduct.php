@@ -18,8 +18,6 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = "SELECT * FROM suppliers";
-$all_suppliers = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -37,29 +35,10 @@ $all_suppliers = mysqli_query($con, $sql);
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Add new products</h1>
-            <div class="form container">
-                <form action="insertProductForm.php" method="post">
-                    <label for="productName">Product name:*</label>
-                    <input type="text" name="productName" id="productName" required>
-                    <label for="product_descr">Product description:</label>
-                    <input type="text" name="product_descr" id="product_descr">
-                    <label for="quantity">quantity:</label>
-                    <input type="text" name="quanity" id="quantity">
-                    <label for="product_price"></label>
-                    <input type="float" name="product_price" id="product_price">
-                    <label for="other_details">Other details:</label>
-                    <input type="text" name="other_details" id="other_details">
-                    <label for="supplier-option">Supplier</label>
-                    <select name="supplier-option" id="supplier-option">
-                        <option value="none">Select a supplier</option>
-                        <?php
-                        while ($supplier = mysqli_fetch_array ($all_suppliers, MYSQLI_ASSOC) )
-                        ?>
-                        <option value="<?php echo $supplier['name']; ?>">
-                            <?php echo $supplier['name']; ?>
-                        </option>
-                    </select>
-                    <input type="submit" value="Submit">
+            <div class="form-container">
+                <form action="searchSupplier.php" method="POST">
+                    <input type="text" name="quary">
+                    <input type="submit" value="Search">
                 </form>
             </div>
         </main>

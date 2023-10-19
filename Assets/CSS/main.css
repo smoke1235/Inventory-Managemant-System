@@ -219,7 +219,7 @@ table th {
 .table-container {
     margin-top: 20px;
     overflow: auto;
-    height: 500px;
+    height: 480px;
 }
 
 .table-container thead th {

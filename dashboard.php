@@ -95,7 +95,7 @@ if (mysqli_connect_errno()) {
                 $result = $con->query($sql);
                 ?>
                 <div class="table-container">
-                    <table aria-label="A table that shows newly 30 newly added products">
+                    <table class="dashboard-table" aria-label="A table that shows newly 30 newly added products">
                         <thead>
                             <tr>
                                 <th>No.</th>
