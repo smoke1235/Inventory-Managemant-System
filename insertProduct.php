@@ -36,9 +36,22 @@ if (mysqli_connect_errno()) {
         <main>
             <h1>Add new products</h1>
             <div class="form-container">
-                <form action="searchSupplier.php" method="POST">
-                    <input type="text" name="quary">
-                    <input type="submit" value="Search">
+                <?php include "fetch-suppliers.php"; ?>
+                <form >
+                    <label for="supplier_name">Supplier name:</label>
+                    <select name="supplier_name">
+                        <option>None</option>
+                        <?php
+                        foreach ($options as $option) {
+                        ?>
+                        <option value="<?php echo $option['name']; ?>">
+                            <?php echo $option['name']; ?>
+                        </option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                    <input type="submit" value="Submit">
                 </form>
             </div>
         </main>
