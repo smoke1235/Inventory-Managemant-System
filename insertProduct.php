@@ -37,21 +37,32 @@ if (mysqli_connect_errno()) {
             <h1>Add new products</h1>
             <div class="form-container">
                 <?php include "fetch-suppliers.php"; ?>
-                <form >
+                <form action="insertProductForm.php" methode="POST">
+                    <label for="product_name"> product name: *</label>
+                    <input type="text" name="product_name" required>
+                    <label for="product_descr">Descreption</label>
+                    <input type="text" name="product_descr">
+                    <label for="Quantity">Quantity: *</label>
+                    <input type="text" name="quantity" value="1">
+                    <label for="product_price">Product Price:</label>
+                    <input type="float" name="product_price" value="0.00">
+                    <label for="other_details">Other Details</label>
+                    <input type="text" name="other_details">
                     <label for="supplier_name">Supplier name:</label>
-                    <select name="supplier_name">
-                        <option>None</option>
+                    <select name="supplier_id">
+                        <option value="0">None</option>
                         <?php
                         foreach ($options as $option) {
-                        ?>
-                        <option value="<?php echo $option['name']; ?>">
-                            <?php echo $option['name']; ?>
-                        </option>
-                        <?php
+                            ?>
+                            <option value="<?php echo $option['id']; ?>">
+                                <?php echo $option['name']; ?>
+                            </option>
+                            <?php
                         }
                         ?>
                     </select>
                     <input type="submit" value="Submit">
+                    <a class="Cancel-button" href="products.php">Cancel</a>
                 </form>
             </div>
         </main>

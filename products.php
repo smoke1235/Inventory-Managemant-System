@@ -23,7 +23,8 @@ $sql =
 products.product_quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
-ON products.supplier_id=suppliers.id ";
+ON products.supplier_id=suppliers.id
+ORDER BY id DESC";
 
 $result = $con->query($sql);
 ?>
