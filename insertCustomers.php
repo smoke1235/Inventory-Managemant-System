@@ -36,11 +36,17 @@ if (mysqli_connect_errno()) {
             <h1>Add new customer</h1>
             <div class="form-container">
                 <form action="insertCustomersFrom.php" methode="POST">
-                    <label for="firstName" name="firstName">Fisrt Name:*</label>
-                    <input type="text" name="firstName" placeholder="First Name" required>
+                    <label for="firstName" name="firstName">Fisrt Name:</label>
+                    <input type="text" name="firstName" placeholder="First Name">
                     <br>
-                    <label for="lastName" name="lastName">Last name:*</label>
-                    <input type="text" name="lastName" placeholder="Last Name" required>
+                    <label for="lastName" name="lastName">Last name:</label>
+                    <input type="text" name="lastName" placeholder="Last Name">
+                    <br>
+                    <label for="number">Phone Number:*</label>
+                    <input type="tel" name="number" placeholder="06123456789" required>
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="someone@exaple.com">
                     <br>
                     <label for="companyName" name="companyName">Company name:</label>
                     <input type="text" name="companyName" placeholder="Company Name">
