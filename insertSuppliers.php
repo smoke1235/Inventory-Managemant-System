@@ -39,13 +39,19 @@ if (mysqli_connect_errno()) {
                     <label for="supplierName" name="supplierName">Supplier Name:*</label>
                     <input type="text" name="supplierName" placeholder="Supplier">
                     <br>
+                    <label for="number">Phone Number:*</label>
+                    <input type="tel" name="number" placeholder="06123456789">
+                    <br>
+                    <label for="email">Email:</label>
+                    <input type="text" name="email" placeholder="supplier@example.nl">
+                    <br>
                     <label for="supplierStreet" name="supplierStreet">Street*:</label>
                     <input type="text" name="supplierStreet" placeholder="Street">
                     <br>
                     <label for="supplierPostcode" name="supplierPostcode">Postcode*:</label>
                     <input type="text" name="supplierPostcode" placeholder="Postcode">
                     <br>
-                    <label for="supplierCity" name="supplierCity">City*:</label>
+                    <label for="supplierCity" name="supplierCity">City:</label>
                     <input type="text" name="supplierCity" placeholder="City">
                     <br>
                     <label for="supplierCountry" name="supplierCountry">Country:</label>

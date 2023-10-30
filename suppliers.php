@@ -52,6 +52,7 @@ $con->close();
                             <th>No.</th>
                             <th>Name</th>
                             <th>Number</th>
+                            <th>Email</th>
                             <th>street</th>
                             <th>postcode</th>
                             <th>city</th>
@@ -71,6 +72,9 @@ $con->close();
                                 </td>
                                 <td>
                                     <?php echo $rows['number']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['email']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['street']; ?>
