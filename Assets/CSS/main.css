@@ -256,6 +256,29 @@ table th {
     background: #6ce46a;
 }
 
+input[type=submit] {
+    margin-top: 8px;
+    height: 3vh;
+    width: 10vh;
+    font-size: medium;
+    color: white;
+    background: #3c9dea;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.Cancel-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 10vh;
+    color: white;
+    background: #c70606;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 /* ---- Insert Forms ---- */
 
 .form-container {
@@ -269,11 +292,19 @@ table th {
     justify-content: flex-start;
 }
 
-.form-container form input[type=text], select {
+.form-container form label {
+    margin-top: 8px;
+}
+
+.form-container form input[type=text], input[type=number], select {
     width: 100%;
     height: 3vh;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+.other_details {
+    height: 30vh;
 }

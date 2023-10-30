@@ -60,7 +60,7 @@ if (mysqli_connect_errno()) {
                         ?>
                     </select>
                     <label for="other_details">Other Details</label>
-                    <input type="text" name="other_details" >
+                    <input class="other_details" type="text" name="other_details" >
                     <input type="submit" value="Submit">
                     <a class="Cancel-button" href="products.php">Cancel</a>
                 </form>
