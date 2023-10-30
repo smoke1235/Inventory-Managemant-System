@@ -38,7 +38,7 @@ if (mysqli_connect_errno()) {
             <div class="form-container">
                 <?php include "fetch-suppliers.php"; ?>
                 <form action="insertProductForm.php">
-                    <label for="product_name"> product name: *</label>
+                    <label for="product_name"> Product name: *</label>
                     <input type="text" name="product_name" required>
                     <label for="product_descr">Description</label>
                     <input type="text" name="product_descr">
@@ -46,8 +46,6 @@ if (mysqli_connect_errno()) {
                     <input type="number" name="quantity" value="1">
                     <label for="product_price">Product Price:</label>
                     <input type="number" name="product_price" value="0.00">
-                    <label for="other_details">Other Details</label>
-                    <input type="text" name="other_details">
                     <label for="supplier_name">Supplier name:</label>
                     <select name="supplier_id">
                         <option value="0">None</option>
@@ -61,6 +59,8 @@ if (mysqli_connect_errno()) {
                         }
                         ?>
                     </select>
+                    <label for="other_details">Other Details</label>
+                    <input type="text" name="other_details" >
                     <input type="submit" value="Submit">
                     <a class="Cancel-button" href="products.php">Cancel</a>
                 </form>

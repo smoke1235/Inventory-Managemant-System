@@ -255,3 +255,10 @@ table th {
 .edit-data:hover {
     background: #6ce46a;
 }
+
+/* ---- Insert Forms ---- */
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+}
