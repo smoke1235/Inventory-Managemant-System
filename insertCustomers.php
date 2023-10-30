@@ -35,7 +35,7 @@ if (mysqli_connect_errno()) {
         <main>
             <h1>Add new customer</h1>
             <div class="form-container">
-                <form action="insertCustomersFrom.php" methode="POST">
+                <form action="insertCustomersFrom.php">
                     <label for="firstName" name="firstName">Fisrt Name:</label>
                     <input type="text" name="firstName" placeholder="First Name">
                     <br>

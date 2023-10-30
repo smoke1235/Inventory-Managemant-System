@@ -26,55 +26,37 @@ if (mysqli_connect_errno()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Suppliers</title>
-    <link rel="stylesheet" href="Assets/SCSS/main.scss">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
-    <h1>Add new Supplier</h1>
-    <form action="insertSuppliersForm.php">
-        <label for="supplierName" name="supplierName">Supplier Name:*</label>
-        <input type="text" name="supplierName" placeholder="Supplier">
-        <br>
-        <label for="supplierStreet" name="supplierStreet">Street*:</label>
-        <input type="text" name="supplierStreet" placeholder="Street">
-        <br>
-        <label for="supplierPostcode" name="supplierPostcode">Postcode*:</label>
-        <input type="text" name="supplierPostcode" placeholder="Postcode">
-        <br>
-        <label for="supplierCity" name="supplierCity">City*:</label>
-        <input type="text" name="supplierCity" placeholder="City">
-        <br>
-        <label for="supplierCountry" name="supplierCountry">Country:</label>
-        <input type="text" name="supplierCountry" placeholder="Country">
-        <br><br>
-        <input type="submit" name="submit" value="Submit">
-        <a href="suppliers.php">Cancel</a>
-    </form>
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
-
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+        <main>
+            <h1>Add new supplier</h1>
+            <div class="form-container">
+                <form action="insertSuppliersForm.php">
+                    <label for="supplierName" name="supplierName">Supplier Name:*</label>
+                    <input type="text" name="supplierName" placeholder="Supplier">
+                    <br>
+                    <label for="supplierStreet" name="supplierStreet">Street*:</label>
+                    <input type="text" name="supplierStreet" placeholder="Street">
+                    <br>
+                    <label for="supplierPostcode" name="supplierPostcode">Postcode*:</label>
+                    <input type="text" name="supplierPostcode" placeholder="Postcode">
+                    <br>
+                    <label for="supplierCity" name="supplierCity">City*:</label>
+                    <input type="text" name="supplierCity" placeholder="City">
+                    <br>
+                    <label for="supplierCountry" name="supplierCountry">Country:</label>
+                    <input type="text" name="supplierCountry" placeholder="Country">
+                    <br><br>
+                    <input type="submit" name="submit" value="Submit">
+                    <a href="suppliers.php">Cancel</a>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
