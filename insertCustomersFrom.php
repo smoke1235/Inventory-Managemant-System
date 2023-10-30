@@ -22,9 +22,4 @@ VALUES ('$firstName', '$lastName', '$companyName', '$customerStreet',
 '$customerPostcode', '$customerCity', '$customerCountry')";
 if (mysqli_query($con, $sql)) {
     header('Location: customers.php');
-} else {
-    echo "ERROR! Customer not added to system";
 }
-
-$con->close()
-?>
