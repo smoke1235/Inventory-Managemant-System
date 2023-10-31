@@ -19,11 +19,12 @@ if (mysqli_connect_errno()) {
 }
 
 $sql =
-    "SELECT products.id, products.productName, products.product_description,
-products.quantity, products.product_price, products.other_details, suppliers.name
+    "SELECT products.id, products.product_name, products.product_description,
+products.product_quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
-ON products.supplier_id=suppliers.id ";
+ON products.supplier_id=suppliers.id
+ORDER BY id DESC";
 
 $result = $con->query($sql);
 ?>
@@ -44,9 +45,9 @@ $result = $con->query($sql);
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Products</h1>
-            <a id="new-data" href="insertProduct.php">Add</a>
+            <a class="new-data" href="insertProduct.php">Add</a>
             <div class="table-container">
-                <table>
+                <table aria-label="Table for products">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -65,13 +66,13 @@ $result = $con->query($sql);
                                     <?php echo $rows['id']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['productName']; ?>
+                                    <?php echo $rows['product_name']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['product_description']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['quantity']; ?>
+                                    <?php echo $rows['product_quantity']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['product_price']; ?>
@@ -80,7 +81,8 @@ $result = $con->query($sql);
                                     <?php echo $rows['name']; ?>
                                 </td>
                                 <td>
-                                    <a href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="edit-data"
+                                    href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                 </td>
 
                             </tr>

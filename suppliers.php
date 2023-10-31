@@ -44,13 +44,15 @@ $con->close();
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Suppliers</h1>
-            <a id="new-data" href="insertSuppliers.php">Add</a>
+            <a class="new-data" href="insertSuppliers.php">Add</a>
             <div class="table-container">
                 <table>
                     <thead>
                         <tr>
                             <th>No.</th>
                             <th>Name</th>
+                            <th>Number</th>
+                            <th>Email</th>
                             <th>street</th>
                             <th>postcode</th>
                             <th>city</th>
@@ -69,6 +71,12 @@ $con->close();
                                     <?php echo $rows['name']; ?>
                                 </td>
                                 <td>
+                                    <?php echo $rows['number']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['email']; ?>
+                                </td>
+                                <td>
                                     <?php echo $rows['street']; ?>
                                 </td>
                                 <td>
@@ -81,7 +89,10 @@ $con->close();
                                     <?php echo $rows['country']; ?>
                                 </td>
 
-                                <td><a href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a></td>
+                                <td>
+                                    <a class="edit-data"
+                                    href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                </td>
                             </tr>
                         </tbody>
                     <?php } ?>

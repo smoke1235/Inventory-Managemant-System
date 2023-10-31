@@ -74,6 +74,8 @@
     display: flex;
 }
 
+/* ---- General Link styling ---- */
+
 a {
     text-decoration: none;
 }
@@ -215,8 +217,9 @@ table th {
 }
 
 .table-container {
+    margin-top: 20px;
     overflow: auto;
-    height: 500px;
+    height: 480px;
 }
 
 .table-container thead th {
@@ -225,4 +228,89 @@ table th {
 }
 .dashboard-table h2 {
     margin-bottom: 8px;
+}
+
+/* ---- Action Buttons General ---- */
+
+.new-data {
+    margin: 3px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    background: #3c9dea;
+    color: white;
+}
+
+.new-data:hover {
+    background: #7dc5ff;
+}
+
+.edit-data {
+    padding: 5px;
+    border-radius: 3px;
+    background: #53b052;
+    color: white;
+}
+
+.edit-data:hover {
+    background: #6ce46a;
+}
+
+input[type=submit] {
+    margin-top: 8px;
+    height: 3vh;
+    width: 10vh;
+    font-size: medium;
+    color: white;
+    background: #3c9dea;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit]:hover {
+    background: #7dc5ff;
+}
+
+.cancel-button {
+    display: flex;
+    order: 6;
+    justify-content: center;
+    align-items: center;
+    height: 3vh;
+    width: 10vh;
+    color: white;
+    background: #c70606;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cancel-button:hover {
+    background: #f20505;
+}
+
+
+/* ---- Insert Forms ---- */
+
+.form-container {
+    width: 70vh;
+    height: 80vh;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-container form label {
+    margin-top: 8px;
+}
+
+.form-container form input[type=text], input[type=number], select {
+    width: 100%;
+    height: 3vh;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }

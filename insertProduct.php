@@ -17,6 +17,7 @@ $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_
 if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -26,39 +27,46 @@ if (mysqli_connect_errno()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Product</title>
-    <link rel="stylesheet" href="AsseSCSS/main.scss">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
-    <h1>Add new product</h1>
-    <form action="insertProductForm.php" method="POST">
-        <label for="productName" name="productName">Product Name *:</label>
-        <input type="text" name="productName" id="productName" placeholder="Product Name" required>
-
-        <label for="quantity" name="quantity">Quantity:</label>
-        <input type="number" name="quantity" id="quantity" placeholder="0">
-
-        <input type="submit" value="Submit">
-    </form>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+        <main>
+            <h1>Add new products</h1>
+            <div class="form-container">
+                <?php include "fetch-suppliers.php"; ?>
+                <form action="insertProductForm.php">
+                    <label for="product_name"> Product name: *</label>
+                    <input type="text" name="product_name" required>
+                    <label for="product_descr">Description</label>
+                    <input type="text" name="product_descr" placeholder="Kleur, type, year?">
+                    <label for="Quantity">Quantity: *</label>
+                    <input type="number" name="quantity" value="1">
+                    <label for="product_price">Product Price:</label>
+                    <input type="number" name="product_price" value="0.00">
+                    <label for="supplier_name">Supplier name:</label>
+                    <select name="supplier_id">
+                        <option value="0">None</option>
+                        <?php
+                        foreach ($options as $option) {
+                            ?>
+                            <option value="<?php echo $option['id']; ?>">
+                                <?php echo $option['name']; ?>
+                            </option>
+                            <?php
+                        }
+                        ?>
+                    </select>
+                    <label for="other_details">Other Details</label>
+                    <input type="text" name="other_details" placeholder="Instructions? Good to know?">
+                    <input type="submit" value="Submit">
+                    <a class="cancel-button" href="products.php">Cancel</a>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>

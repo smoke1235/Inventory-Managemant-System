@@ -44,7 +44,7 @@ $con->close();
         <?php include_once 'navbar.php'; ?>
         <main>
             <h1>Customers</h1>
-            <a id="new-data" href="insertCustomers.php">Add</a>
+            <a class="new-data" href="insertCustomers.php">Add</a>
             <div class="table-container">
                 <table>
                     <thead>
@@ -52,9 +52,11 @@ $con->close();
                             <th>No.</th>
                             <th>First Name</th>
                             <th>Last Name</th>
+                            <th>Number</th>
+                            <th>Email</th>
                             <th>Company</th>
                             <th>street</th>
-                            <th>postcode</th>
+                            <th>Postal Code</th>
                             <th>city</th>
                             <th>country</th>
                             <th>Actions</th>
@@ -74,6 +76,12 @@ $con->close();
                                     <?php echo $rows['last_name']; ?>
                                 </td>
                                 <td>
+                                    <?php echo $rows['number']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $rows['email']; ?>
+                                </td>
+                                <td>
                                     <?php echo $rows['company_name']; ?>
                                 </td>
                                 <td>
@@ -90,7 +98,8 @@ $con->close();
                                 </td>
                 
                                 <td>
-                                    <a href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="edit-data"
+                                    href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                 </td>
                             </tr>
                         </tbody>
