@@ -13,11 +13,6 @@ $newQuantity = $_POST['quantity'];
 $id = $_POST['id'];
 
 $sql = "UPDATE products SET quantity= $newQuantity WHERE id= $id";
-echo $sql;
 if (mysqli_query($con, $sql)) {
     header('Location: products.php');
-} else {
-    echo "ERROR Product not added";
 }
-
-?>

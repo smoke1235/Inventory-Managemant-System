@@ -14,12 +14,20 @@ $DATABASE_PASS = '';
 $DATABASE_NAME = 'inventoryManager';
 
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-
 if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
 $id = $_GET['id'];
+
+$sql =
+"SELECT $id, products.product_name, products.product_description,
+products.product_quantity, products.product_price, products.other_details, suppliers.name
+FROM products
+INNER JOIN suppliers
+ON products.supplier_id=suppliers.id";
+
+$result = $con->query($sql);
 ?>
 
 <!DOCTYPE html>
@@ -29,43 +37,37 @@ $id = $_GET['id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Product</title>
-    <link rel="stylesheet" href="Assets/SCSS/main.scss">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
-    <h1>Update product quantity</h1>
-    <form action="editProductForm.php" method="POST">
-        <label for="quantity" name="quantity">Quantity:</label>
-        <input type="number" name="quantity" id="quantity" placeholder="0" required>
-        <input type="hidden" name="id" value="<?php echo $id ?>">
-
-        <input type="submit" value="Update">
-        <a href="products.php">Cancel</a>
-    </form>
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
+    <div class="dashboard-container">
+        <?php include_once 'navbar.php'; ?>
+        <main>
+            <h1>Update product</h1>
+            <div class="form-container">
+                <?php while ($rows = $result->fetch_assoc()) { ?>
+                <form action="editProductForm.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $rows['id']; ?>">
+                    <label for="product_name" name="product_name">Product Name:</label>
+                    <input type="text" name="product_name" value="<?php echo $rows['product_name']; ?>">
+                    <label for="product_description" name="product_description">Description:</label>
+                    <input type="text" name="product_description" value="<?php echo $rows['product_description']; ?>">
+                    <label for="quantity" name="quantity">Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" value="<?php echo $rows['product_quantity']; ?>">
+                    <label for="product_price">Product Price:</label>
+                    <input type="float" name="product_price" value="<?php echo $rows['product_price']; ?>">
+                    <label for="other_details">Other Details:</label>
+                    <input type="text" name="other_details" value="<?php echo $rows['other_details']; ?>">
+                    <label for="supplier">Supplier:</label>
+                    <input type="text" name="supplier" value="<?php echo $rows['name']; ?>">
+                    <input type="submit" value="Update">
+                    <a class="cancel-button" href="products.php">Cancel</a>
+                </form>
+                <?php } ?>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>

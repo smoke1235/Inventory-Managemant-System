@@ -257,7 +257,8 @@ table th {
 }
 
 input[type=submit] {
-    margin-top: 8px;
+    margin: 2px 0px;
+    margin-top: 4px;
     height: 3vh;
     width: 10vh;
     font-size: medium;
@@ -273,9 +274,9 @@ input[type=submit]:hover {
 
 .cancel-button {
     display: flex;
-    order: 6;
     justify-content: center;
     align-items: center;
+    margin: 2px 0px;
     height: 3vh;
     width: 10vh;
     color: white;

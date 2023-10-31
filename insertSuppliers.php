@@ -37,15 +37,15 @@ if (mysqli_connect_errno()) {
             <div class="form-container">
                 <form action="insertSuppliersForm.php">
                     <label for="supplierName" name="supplierName">Supplier Name:*</label>
-                    <input type="text" name="supplierName" placeholder="Supplier">
-                    <label for="number">Phone Number:*</label>
+                    <input type="text" name="supplierName" placeholder="Supplier" required>
+                    <label for="number">Phone Number:</label>
                     <input type="tel" name="number" placeholder="06123456789">
                     <label for="email">Email:</label>
                     <input type="text" name="email" placeholder="supplier@example.nl">
-                    <label for="supplierStreet" name="supplierStreet">Street*:</label>
+                    <label for="supplierStreet" name="supplierStreet">Street:</label>
                     <input type="text" name="supplierStreet" placeholder="Street">
-                    <label for="supplierPostcode" name="supplierPostcode">Postcode*:</label>
-                    <input type="text" name="supplierPostcode" placeholder="Postcode">
+                    <label for="supplierPostcode" name="supplierPostcode">Postal Code:</label>
+                    <input type="text" name="supplierPostcode" placeholder="Postal Code">
                     <label for="supplierCity" name="supplierCity">City:</label>
                     <input type="text" name="supplierCity" placeholder="City">
                     <label for="supplierCountry" name="supplierCountry">Country:</label>

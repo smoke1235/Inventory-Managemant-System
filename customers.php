@@ -25,7 +25,6 @@ if (!$result) {
     die("Invalid quary: " . $con->error);
 }
 
-$con->close();
 ?>
 
 <!DOCTYPE html>
