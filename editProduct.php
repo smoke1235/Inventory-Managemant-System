@@ -19,15 +19,9 @@ if (mysqli_connect_errno()) {
 }
 
 $id = $_GET['id'];
-
-$sql =
-"SELECT $id, products.product_name, products.product_description,
-products.product_quantity, products.product_price, products.other_details, suppliers.name
-FROM products
-INNER JOIN suppliers
-ON products.supplier_id=suppliers.id";
-
+$sql = "SELECT * FROM products WHERE id='$id' INNER JOIN suppliers ON products.supplier_id=suppliers.id";
 $result = $con->query($sql);
+$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -46,7 +40,6 @@ $result = $con->query($sql);
         <main>
             <h1>Update product</h1>
             <div class="form-container">
-                <?php while ($rows = $result->fetch_assoc()) { ?>
                 <form action="editProductForm.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $rows['id']; ?>">
                     <label for="product_name" name="product_name">Product Name:</label>
@@ -64,7 +57,6 @@ $result = $con->query($sql);
                     <input type="submit" value="Update">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>
-                <?php } ?>
             </div>
         </main>
     </div>
