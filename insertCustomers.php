@@ -55,7 +55,7 @@ if (mysqli_connect_errno()) {
                     <label for="customerCountry" name="customerCountry">Country:</label>
                     <input type="text" name="customerCountry" placeholder="Country">
                     <input type="submit" name="submit" value="Submit">
-                    <a href="customers.php">Cancel</a>
+                    <a class="cancel-button" href="customers.php">Cancel</a>
                 </form>
             </div>
         </main>

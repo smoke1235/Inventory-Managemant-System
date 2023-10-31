@@ -41,7 +41,7 @@ if (mysqli_connect_errno()) {
                     <label for="product_name"> Product name: *</label>
                     <input type="text" name="product_name" required>
                     <label for="product_descr">Description</label>
-                    <input type="text" name="product_descr">
+                    <input type="text" name="product_descr" placeholder="Kleur, type, year?">
                     <label for="Quantity">Quantity: *</label>
                     <input type="number" name="quantity" value="1">
                     <label for="product_price">Product Price:</label>
@@ -60,9 +60,9 @@ if (mysqli_connect_errno()) {
                         ?>
                     </select>
                     <label for="other_details">Other Details</label>
-                    <input class="other_details" type="text" name="other_details" >
+                    <input type="text" name="other_details" placeholder="Instructions? Good to know?">
                     <input type="submit" value="Submit">
-                    <a class="Cancel-button" href="products.php">Cancel</a>
+                    <a class="cancel-button" href="products.php">Cancel</a>
                 </form>
             </div>
         </main>
