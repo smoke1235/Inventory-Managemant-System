@@ -52,7 +52,7 @@ $row = $result->fetch_assoc();
                     <input type="float" name="product_price" value="<?php echo $row['product_price']; ?>" >
                     <label for="supplier">Supplier:</label>
                     <select name="supplier">
-                        <option value="<?php echo $id; ?>">
+                        <option value="<?php echo $row['id']; ?>">
                             <?php echo $row['name']; ?>
                         </option>
                         <?php include 'fetch-suppliers.php'; ?>
