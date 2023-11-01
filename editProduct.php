@@ -55,13 +55,7 @@ $row = $result->fetch_assoc();
                         <option value="<?php echo $id; ?>">
                             <?php echo $row['name']; ?>
                         </option>
-                        <?php
-                            $quary = 'SELECT id, name FROM suppliers';
-                            $result = $con->query($quary);
-                            if ($result->num_rows > 0) {
-                                $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
-                            }
-                        ?>
+                        <?php include 'fetch-suppliers.php'; ?>
                         <?php
                         foreach ($options as $option) {
                             ?>
