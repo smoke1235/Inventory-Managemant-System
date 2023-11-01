@@ -18,7 +18,9 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = " SELECT * FROM customers ";
+$sql =
+"SELECT * FROM `customers`  \n"
+. "ORDER BY `customers`.`last_name` ASC;";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -48,7 +50,6 @@ if (!$result) {
                 <table>
                     <thead>
                         <tr>
-                            <th>No.</th>
                             <th>First Name</th>
                             <th>Last Name</th>
                             <th>Number</th>
@@ -65,9 +66,6 @@ if (!$result) {
                         ?>
                         <tbody>
                             <tr>
-                                <td>
-                                    <?php echo $rows['id']; ?>
-                                </td>
                                 <td>
                                     <?php echo $rows['first_name']; ?>
                                 </td>
