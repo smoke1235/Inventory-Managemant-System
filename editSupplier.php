@@ -60,9 +60,9 @@ $row = $result->fetch_assoc();
                     <label for="newSupplierPostcode" name="newSupplierPostcode">Postal Code:</label>
                     <input type="text" name="newSuplierPostcode"
                     placeholder="Postal code" value="<?php echo $row['postcode']; ?>" maxlength="8">
-                    <label for="newSupplierCity" name="newSupplierCity">City:</label>
-                    <input type="text" name="newSupplierCity"
-                    placeholder="City:" value="<?php echo $row['city']; ?>" maxlength="90">
+                    <label for="newSupplierCity">City:</label>
+                    <input type="text" name="city"
+                    placeholder="City" value="<?php echo $row['city']; ?>" maxlength="90">
                     <label for="newSupplierCountry" name="newSupplierCountry">Country</label>
                     <input type="text" name="newSupplierCountry"
                     placeholder="Country" value="<?php echo $row['country']; ?>" maxlength="90">
