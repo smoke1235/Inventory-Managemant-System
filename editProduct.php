@@ -20,8 +20,6 @@ if (mysqli_connect_errno()) {
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM products WHERE id='$id' INNER JOIN suppliers ON products.supplier_id=suppliers.id";
-$result = $con->query($sql);
-$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -38,22 +36,22 @@ $row = $result->fetch_assoc();
     <div class="dashboard-container">
         <?php include_once 'navbar.php'; ?>
         <main>
-            <h1>Update product</h1>
+            <h1>Edit </h1>
             <div class="form-container">
                 <form action="editProductForm.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $rows['id']; ?>">
-                    <label for="product_name" name="product_name">Product Name:</label>
-                    <input type="text" name="product_name" value="<?php echo $rows['product_name']; ?>">
+                    <input type="hidden" name="id" value="">
                     <label for="product_description" name="product_description">Description:</label>
-                    <input type="text" name="product_description" value="<?php echo $rows['product_description']; ?>">
+                    <input type="text" name="product_description" value=" ">
                     <label for="quantity" name="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" value="<?php echo $rows['product_quantity']; ?>">
+                    <input type="number" name="quantity" id="quantity" value="">
                     <label for="product_price">Product Price:</label>
-                    <input type="float" name="product_price" value="<?php echo $rows['product_price']; ?>">
+                    <input type="float" name="product_price" value="">
                     <label for="other_details">Other Details:</label>
-                    <input type="text" name="other_details" value="<?php echo $rows['other_details']; ?>">
+                    <input type="text" name="other_details" value="">
                     <label for="supplier">Supplier:</label>
-                    <input type="text" name="supplier" value="<?php echo $rows['name']; ?>">
+                    <select name="supplier">
+                        <option value=""></option>
+                    </select>
                     <input type="submit" value="Update">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>
