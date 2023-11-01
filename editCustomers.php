@@ -50,6 +50,12 @@ $row = $result->fetch_assoc();
                     <label for="newLastName" name="newLastName">Last Name:</label>
                     <input type="text" name="newLastName"
                     placeholder="Last name" value="<?php echo $row['last_name']; ?>" maxlength="80">
+                    <label for="number">Phone number:</label>
+                    <input type="tel" name="number"
+                    placeholder="06123456789" value="<?php echo $row['number']; ?>" maxlength="20">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email"
+                    placeholder="customer@example.nl" value="<?php echo $row['email']; ?>" maxlength="200">
                     <label for="newCompanyName">Company Name:</label>
                     <input type="text" name="newCompanyName"
                     placeholder="Company name" value="<?php echo $row['company_name']; ?>" maxlength="100">
@@ -68,7 +74,6 @@ $row = $result->fetch_assoc();
                     <input type="submit" name="submit" value="Submit">
                     <a class="cancel-button" href="customers.php">Cancel</a>
                 </form>
-
             </div>
         </main>
     </div>
