@@ -21,7 +21,7 @@ if (mysqli_connect_errno()) {
 $id = $_GET['id'];
 $sql =
 "SELECT * FROM customers
-WHERE $id";
+WHERE id= $id";
 $result = mysqli_query($con, $sql);
 $row = $result->fetch_assoc();
 ?>
