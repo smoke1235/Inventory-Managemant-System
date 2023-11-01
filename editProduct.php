@@ -43,9 +43,11 @@ $row = $result->fetch_assoc();
                 <form action="editProductForm.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <label for="product_description" name="product_description">Description:</label>
-                    <input type="text" name="product_description" value="<?php echo $row['product_description']; ?> " maxlength="100">
+                    <input type="text" name="product_description"
+                    value="<?php echo $row['product_description']; ?> " maxlength="100">
                     <label for="quantity" name="quantity">Quantity:</label>
-                    <input type="number" name="quantity" id="quantity" value="<?php echo $row['product_quantity']; ?>" maxlength="11">
+                    <input type="number" name="quantity" id="quantity"
+                    value="<?php echo $row['product_quantity']; ?>" maxlength="11">
                     <label for="product_price">Product Price:</label>
                     <input type="float" name="product_price" value="<?php echo $row['product_price']; ?>" >
                     <label for="supplier">Supplier:</label>
@@ -53,9 +55,24 @@ $row = $result->fetch_assoc();
                         <option value="<?php echo $id; ?>">
                             <?php echo $row['name']; ?>
                         </option>
+                        <?php
+                            $quary = 'SELECT id, name FROM suppliers';
+                            $result = $con->query($quary);
+                            if ($result->num_rows > 0) {
+                                $options = mysqli_fetch_all($result, MYSQLI_ASSOC);
+                            }
+                        ?>
+                        <?php
+                        foreach ($options as $option) {
+                            ?>
+                            <option value="<?php echo $option['id']; ?>">
+                                <?php echo $option['name']; ?>
+                            </option>
+                            <?php } ?>
                     </select>
                     <label for="other_details">Other Details:</label>
-                    <input type="text" name="other_details" value="<?php echo $row['other_details']; ?>" maxlength="500">
+                    <input
+                    type="text" name="other_details" value="<?php echo $row['other_details']; ?>" maxlength="500">
                     <input type="submit" value="Update">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>
