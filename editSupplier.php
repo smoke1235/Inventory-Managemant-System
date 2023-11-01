@@ -20,6 +20,11 @@ if (mysqli_connect_errno()) {
 }
 
 $id = $_GET['id'];
+$sql =
+"SELECT * FROM suppliers
+WHERE id= $id";
+$result = mysqli_query($con, $sql);
+$row = $result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -29,56 +34,44 @@ $id = $_GET['id'];
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Supplier</title>
-    <link rel="stylesheet" href="Assets/SCSS/main.scss">
+    <link rel="stylesheet" href="Assets/CSS/main.css">
 </head>
 
 <body>
-    <nav aria-label="nav-top" class="nav-top">
-        <a href="home.php">
-            <h1>Website Title</h1>
-        </a>
-        <ul>
-            <li><a href="profile.php">Profile</a></li>
-            <li><a href="logout.php">Logout</a></li>
-        </ul>
-    </nav>
-    <nav aria-label="nav-left" class="nav-left">
-        <ul>
-            <li><a href="home.php">Dashboard</a></li>
-            <li><a href="products.php">Products</a></li>
-            <li><a href="stock.php">Stock</a></li>
-            <li><a href="orders.php">Orders</a></li>
-            <li><a href="customers.php">Customers</a></li>
-            <li><a href="suppliers.php">Suppliers</a></li>
-        </ul>
-    </nav>
-    <h1>Update Supplier Information</h1>
-    <form action="editSupplierForm.php" method="POST">
-        <label for="newSupplierName" name="newSupplierName">Name:</label>
-        <input type="hidden" name="id" value="<?php echo $id ?>">
-        <input type="text" name="newSupplierName" placeholder="Supplier name">
-        <br>
-        <label for="newSupplierStreet" name="newSupplierStreet">Street:</label>
-        <input type="text" name="newSupplierStreet" placeholder="Street">
-        <br>
-        <label for="newSupplierPostcode" name="newSupplierPostcode">Postcode:</label>
-        <input type="text" name="newSuplierPostcode" placeholder="Postcode">
-        <br>
-        <label for="newSupplierCity" name="newSupplierCity">City:</label>
-        <input type="text" name="newSupplierCity" placeholder="City:">
-        <br>
-        <label for="newSupplierCountry" name="newSupplierCountry">Country</label>
-        <input type="text" name="newSupplierCountry" placeholder="Country">
-        <br><br>
-        <input type="submit" name="submit" value="Submit">
-        <a href="suppliers.php">Cancel</a>
-    </form>
-    <footer>
-        <h3>Inventory Manager</h3>
-        <p>If problems ocurr contact the admin</p>
-        <a href="mailto:email@example.com">Send Email</a>
-    </footer>
-
+    <div class="dashboard-container">
+        <?php include 'navbar.php'; ?>
+        <main>
+            <h1>Edit <?php echo $row['name']; ?></h1>
+            <div class="form-container">
+                <form action="editSupplierForm.php" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $id ?>">
+                    <label for="newSupplierName" name="newSupplierName">Name:</label>
+                    <input type="text" name="newSupplierName"
+                    placeholder="Supplier name" value="<?php echo $row['name']; ?>" maxlength="90">
+                    <label for="number">Number:</label>
+                    <input type="tel" name="number"
+                    placeholder="06123456789" value="<?php echo $row['number']; ?>" maxlength="20">
+                    <label for="email">Email:</label>
+                    <input type="text" name="email"
+                    placeholder="supplier@example.nl" value="<?php echo $row['email']; ?>" maxlength="200">
+                    <label for="newSupplierStreet">Street:</label>
+                    <input type="text" name="newSupplierStreet"
+                    placeholder="Street" value="<?php echo $row['street']; ?>" maxlength="90">
+                    <label for="newSupplierPostcode" name="newSupplierPostcode">Postal Code:</label>
+                    <input type="text" name="newSuplierPostcode"
+                    placeholder="Postal code" value="<?php echo $row['postcode']; ?>" maxlength="8">
+                    <label for="newSupplierCity" name="newSupplierCity">City:</label>
+                    <input type="text" name="newSupplierCity"
+                    placeholder="City:" value="<?php echo $row['city']; ?>" maxlength="90">
+                    <label for="newSupplierCountry" name="newSupplierCountry">Country</label>
+                    <input type="text" name="newSupplierCountry"
+                    placeholder="Country" value="<?php echo $row['country']; ?>" maxlength="90">
+                    <input type="submit" name="submit" value="Submit">
+                    <a class="cancel-button" href="suppliers.php">Cancel</a>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 
 </html>
