@@ -19,7 +19,7 @@ if (mysqli_connect_errno()) {
 }
 
 $id = $_GET['id'];
-$sql = "SELECT * FROM products WHERE id='$id' INNER JOIN suppliers ON products.supplier_id=suppliers.id";
+$sql = "SELECT * FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id  WHERE products.id='$id'";
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,7 @@ $sql = "SELECT * FROM products WHERE id='$id' INNER JOIN suppliers ON products.s
             <h1>Edit </h1>
             <div class="form-container">
                 <form action="editProductForm.php" method="POST">
-                    <input type="hidden" name="id" value="">
+                    <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <label for="product_description" name="product_description">Description:</label>
                     <input type="text" name="product_description" value=" ">
                     <label for="quantity" name="quantity">Quantity:</label>
