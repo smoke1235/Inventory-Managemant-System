@@ -1,0 +1,317 @@
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* ---- Topbar ---- */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    z-index: 2;
+    background: black;
+    border-bottom: 2px #FF5733 solid;
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar li {
+    margin: 0 7px;
+}
+
+.navbar a {
+    margin: 0 7px;
+    font-size: larger;
+    color: white;
+}
+
+.navbar a:hover {
+    color: #FF5733;
+}
+
+.navbar h1 {
+    font-size: 45px;
+}
+
+/* ---- Sidebar ---- */
+
+.sidebar {
+    position: fixed;
+    margin: 0 7px;
+    padding-top: 80px;
+    height: 100%;
+    width: 20%;
+    top: 0;
+    left: 0;
+    font-size: 20px;
+    border-right: 1px grey solid;
+    background: #f1f1f1;
+}
+
+.sidebar li {
+    margin-bottom: 8px;
+}
+
+.sidebar a {
+    font-size: 25px;
+    color: black;
+}
+
+.sidebar a:hover {
+    color: #FF5733;
+}
+
+.dashboard-container {
+    display: flex;
+}
+
+/* ---- General Link styling ---- */
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ---- Main General ---- */
+
+main {
+    margin-left: 21%;
+    margin-top: 80px;
+    width: 80%;
+}
+
+main h1 {
+    font-size: 55px;
+}
+
+/* ---- Dashboad Top buttons ---- */
+
+.board {
+    display: flex;
+    justify-content: center;
+    margin: 4px;
+    padding: 4px;
+}
+
+.products-button {
+    display: flex;
+    margin: 4px;
+    border-radius: 4px;
+    background: #c70606;
+}
+
+.products-button:hover{
+    background: #f20505;
+}
+
+.products-button a {
+    width: 200px;
+}
+
+.products-button h3 {
+    font-size: 80px;
+}
+
+.products-button p {
+    font-size: 20px;
+}
+
+.products-button h3, .products-button p {
+    margin: 0 3px;
+    color: whitesmoke;
+}
+
+.customers-button {
+    display: flex;
+    margin: 4px;
+    border-radius: 4px;
+    background: #1332bd;
+}
+
+.customers-button:hover {
+    background: #1b43f5;
+}
+
+.customers-button a {
+    width: 200px;
+}
+
+.customers-button h3 {
+    font-size: 80px;
+}
+
+.customers-button p {
+    font-size: 20px;
+}
+
+.customers-button h3, .customers-button p {
+    margin: 0 3px;
+    color: whitesmoke;
+}
+
+.suppliers-button {
+    display: flex;
+    margin: 4px;
+    border-radius: 4px;
+    background: #26802e;
+}
+
+.suppliers-button:hover {
+    background: #36b542;
+}
+
+.suppliers-button a {
+    width: 200px;
+}
+
+.suppliers-button h3 {
+    font-size: 80px;
+}
+
+.suppliers-button p {
+    font-size: 20px;
+}
+
+.suppliers-button h3, .suppliers-button p {
+    margin: 0 3px;
+    color: whitesmoke;
+}
+
+/* ---- table general ---- */
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+table h2 {
+    padding: 6px;
+}
+
+table th, table td {
+    padding: 8px;
+}
+
+table tr:hover {
+    background: #ddd;
+}
+
+table th {
+    padding: 12 0px;
+    text-align: left;
+    background: #FF5733;
+    color: white;
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow: auto;
+    height: 480px;
+}
+
+.table-container thead th {
+    position: sticky;
+    top: 0;
+}
+.dashboard-table h2 {
+    margin-bottom: 8px;
+}
+
+/* ---- Action Buttons General ---- */
+
+.new-data {
+    margin: 3px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 3px;
+    background: #3c9dea;
+    color: white;
+}
+
+.new-data:hover {
+    background: #7dc5ff;
+}
+
+.edit-data {
+    padding: 5px;
+    border-radius: 3px;
+    background: #53b052;
+    color: white;
+}
+
+.edit-data:hover {
+    background: #6ce46a;
+}
+
+input[type=submit] {
+    margin: 2px 0px;
+    margin-top: 4px;
+    height: 3vh;
+    width: 10vh;
+    font-size: medium;
+    color: white;
+    background: #3c9dea;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type=submit]:hover {
+    background: #7dc5ff;
+}
+
+.cancel-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2px 0px;
+    height: 3vh;
+    width: 10vh;
+    color: white;
+    background: #c70606;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cancel-button:hover {
+    background: #f20505;
+}
+
+
+/* ---- Insert Forms ---- */
+
+.form-container {
+    width: 70vh;
+    height: 80vh;
+}
+
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.form-container form label {
+    margin-top: 8px;
+}
+
+.form-container form input[type=text], input[type=number], select {
+    width: 100%;
+    height: 3vh;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
