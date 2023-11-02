@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -34,12 +31,12 @@ $stmt->close();
     <meta name="discription" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="Assets/CSS/profile.css" rel="stylesheet">
+    <link href="../assets/CSS/profile.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="dashboard-container">
-        <?php include_once 'navbar.php'; ?>
+        <?php include_once '../include/navbar.php'; ?>
 
         <main>
             <div class="profile-page">

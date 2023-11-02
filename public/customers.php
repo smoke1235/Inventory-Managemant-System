@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -37,12 +34,12 @@ if (!$result) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="">
     <title>Customers</title>
-    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 
 <body>
     <div class="dashboard-container">
-        <?php include_once 'navbar.php'; ?>
+        <?php include_once '../include/navbar.php'; ?>
         <main>
             <h1>Customers</h1>
             <a class="new-data" href="insertCustomers.php">Add</a>
@@ -62,8 +59,7 @@ if (!$result) {
                             <th>Actions</th>
                         </tr>
                     </thead>
-                    <?php while ($rows = $result->fetch_assoc()) {
-                        ?>
+                    <?php while ($rows = $result->fetch_assoc()) { ?>
                         <tbody>
                             <tr>
                                 <td>
@@ -96,7 +92,8 @@ if (!$result) {
                 
                                 <td>
                                     <a class="edit-data"
-                                    href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                        href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

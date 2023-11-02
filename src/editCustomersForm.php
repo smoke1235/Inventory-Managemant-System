@@ -24,8 +24,7 @@ $number = $_POST['number'];
 $email = $_POST['email'];
 
 $sql =
-"UPDATE
-customers
+"UPDATE customers
 SET
 first_name='$newFirstName',
 last_name='$newLastName',
@@ -36,8 +35,7 @@ street='$newStreet',
 postcode='$newPostcode',
 city='$newCity',
 country='$newCountry'
-WHERE
-id=$id";
+WHERE id=$id";
 if (mysqli_query($con, $sql)) {
-    header('Location: customers.php');
+    header('Location: ../public/customers.php');
 }

@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 
 $DATABASE_HOST = 'localhost';
@@ -29,7 +26,7 @@ if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) 
             $_SESSION['loggedin'] = true;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $id;
-            header('Location: dashboard.php');
+            header('Location: ../public/dashboard.php');
         } else {
             echo 'Incorrect username and/or password!';
         }

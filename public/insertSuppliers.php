@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -26,16 +23,16 @@ if (mysqli_connect_errno()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Suppliers</title>
-    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 
 <body>
     <div class="dashboard-container">
-        <?php include_once 'navbar.php'; ?>
+        <?php include_once '../include/navbar.php'; ?>
         <main>
             <h1>Add new supplier</h1>
             <div class="form-container">
-                <form action="insertSuppliersForm.php">
+                <form action="../src/insertSuppliersForm.php">
                     <label for="supplierName" name="supplierName">Supplier Name:*</label>
                     <input type="text" name="supplierName" placeholder="Supplier" required>
                     <label for="number">Phone Number:</label>

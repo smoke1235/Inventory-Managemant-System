@@ -21,5 +21,5 @@ $sql = "INSERT INTO suppliers (name, number, email, street, postcode, city, coun
 VALUES
 ('$supplierName', '$number', '$email', '$supplierStreet', '$supplierPostcode', '$supplierCity', '$supplierCountry')";
 if (mysqli_query($con, $sql)) {
-    header('Location: suppliers.php');
+    header('Location: ../public/suppliers.php');
 }

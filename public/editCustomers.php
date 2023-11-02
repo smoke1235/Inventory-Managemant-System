@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -33,16 +30,16 @@ $row = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Customer</title>
-    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 
 <body>
     <div class="dashboard-container">
-        <?php include_once 'navbar.php'; ?>
+        <?php include_once '../include/navbar.php'; ?>
         <main>
             <h1>Edit <?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h1>
             <div class="form-container">
-                <form action="editCustomersForm.php" method="POST">
+                <form action="../src/editCustomersForm.php" method="POST">
                     <input type="hidden" name="id" value="<?php echo $id ?>">
                     <label for="newFirstName" name="newFirstName">First Name:</label>
                     <input type="text" name="newFirstName"

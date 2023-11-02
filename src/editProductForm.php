@@ -28,5 +28,5 @@ other_details= '$other_details',
 supplier_id= $supplier
 WHERE id= $id";
 if (mysqli_query($con, $sql)) {
-    header('Location: products.php');
+    header('Location: ../public/products.php');
 }

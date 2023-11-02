@@ -30,5 +30,5 @@ city= '$city',
 country= '$supplierCountry'
 WHERE id= $id";
 if (mysqli_query($con, $sql)) {
-    header('Location: suppliers.php');
+    header('Location: ../public/suppliers.php');
 }

@@ -7,7 +7,7 @@
     <title>Inventory Manager | Login Page</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="Assets/CSS/login.css" type="text/css">
+    <link rel="stylesheet" href="assets/CSS/login.css" type="text/css">
 </head>
 
 <body>
@@ -15,7 +15,7 @@
     <div class="container">
         <div class="login">
             <h2>Login</h2>
-            <form action="authenticate.php" method="post">
+            <form action="src/authenticate.php" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" placeholder="Username" required>
                 <label for="password">Password:</label>

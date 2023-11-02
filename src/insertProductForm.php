@@ -25,5 +25,5 @@ $sql =
 VALUES ('$product_name', '$product_descr', '$quantity', '$product_price', '$other_details', '$supplier_id',
 current_timestamp())";
 if (mysqli_query($con, $sql)) {
-    header('Location: products.php');
+    header('Location: ../public/products.php');
 }

@@ -26,5 +26,5 @@ $sql =
 VALUES ('$firstName', '$lastName', $number, '$email', '$companyName', '$customerStreet',
 '$customerPostcode', '$customerCity', '$customerCountry', current_timestamp())";
 if (mysqli_query($con, $sql)) {
-    header('Location: customers.php');
+    header('Location: ../public/customers.php');
 }

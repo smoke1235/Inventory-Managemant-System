@@ -1,10 +1,7 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.html');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -27,17 +24,17 @@ if (mysqli_connect_errno()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add New Product</title>
-    <link rel="stylesheet" href="Assets/CSS/main.css">
+    <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 
 <body>
     <div class="dashboard-container">
-        <?php include_once 'navbar.php'; ?>
+        <?php include_once '../include/navbar.php'; ?>
         <main>
             <h1>Add new products</h1>
             <div class="form-container">
-                <?php include "fetch-suppliers.php"; ?>
-                <form action="insertProductForm.php">
+                <?php include "../src/fetch-suppliers.php"; ?>
+                <form action="../src/insertProductForm.php">
                     <label for="product_name"> Product name: *</label>
                     <input type="text" name="product_name" required>
                     <label for="product_descr">Description</label>
