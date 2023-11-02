@@ -84,22 +84,9 @@ if (mysqli_connect_errno()) {
             </div>
             <div class="dashboard-table">
                 <h2>Recently added products</h2>
-                <input type="text" id="myInput" onkeyup="myFunction()"
-                placeholder="Search for names" title="Type in a name">
-                <script src="filterSearch.js"></script> 
-                <?php
-                $sql =
-                    "SELECT products.id, products.product_name, products.product_description,
-                products.product_quantity, products.product_price, products.other_details, suppliers.name, date
-                FROM products
-                INNER JOIN suppliers
-                ON products.supplier_id=suppliers.id
-                ORDER BY date DESC LIMIT 0,30";
-                $result = $con->query($sql);
-                ?>
                 <div class="table-container">
-                    <table id="dashboard-table"
-                    class="dashboard-table" aria-label="A table that shows newly 30 newly added products">
+                    <table id="dashboard-table" class="dashboard-table"
+                        aria-label="A table that shows newly 30 newly added products">
                         <thead>
                             <tr>
                                 <th>No.</th>
@@ -110,9 +97,19 @@ if (mysqli_connect_errno()) {
                                 <th>Supplier</th>
                             </tr>
                         </thead>
-                        <?php while ($rows = $result->fetch_assoc()) {
-                            ?>
+                        <?php
+                        $sql =
+                            "SELECT products.id, products.product_name, products.product_description,
+                            products.product_quantity, products.product_price, products.other_details,
+                            suppliers.name, date
+                            FROM products
+                            INNER JOIN suppliers
+                            ON products.supplier_id=suppliers.id
+                            ORDER BY date DESC LIMIT 0,30";
+                        $result = $con->query($sql);
+                        ?>
                             <tbody>
+                                <?php while ($rows = $result->fetch_assoc()) { ?>
                                 <tr>
                                     <td>
                                         <?php echo $rows['id']; ?>
@@ -133,8 +130,8 @@ if (mysqli_connect_errno()) {
                                         <?php echo $rows['name']; ?>
                                     </td>
                                 </tr>
+                                <?php } ?>
                             </tbody>
-                        <?php } ?>
                     </table>
                 </div>
             </div>
