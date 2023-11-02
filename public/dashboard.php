@@ -84,6 +84,9 @@ if (mysqli_connect_errno()) {
             </div>
             <div class="dashboard-table">
                 <h2>Recently added products</h2>
+                <input type="text" id="myInput" onkeyup="myFunction()"
+                placeholder="Search for names" title="Type in a name">
+                <script src="filterSearch.js"></script> 
                 <?php
                 $sql =
                     "SELECT products.id, products.product_name, products.product_description,
@@ -95,7 +98,8 @@ if (mysqli_connect_errno()) {
                 $result = $con->query($sql);
                 ?>
                 <div class="table-container">
-                    <table class="dashboard-table" aria-label="A table that shows newly 30 newly added products">
+                    <table id="dashboard-table"
+                    class="dashboard-table" aria-label="A table that shows newly 30 newly added products">
                         <thead>
                             <tr>
                                 <th>No.</th>
