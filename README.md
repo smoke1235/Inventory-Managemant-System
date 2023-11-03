@@ -10,7 +10,7 @@ Luckily I was allowed to put this publicly online, I learned many things during 
 Tijdens mijn stage kreeg ik de opdracht om een ​​webgebaseerd Inventory Systeem (CRUD-systeem) te bouwen voor binnen huis gebruik. 
 Gelukkig mocht ik dit openbaar online zetten, ik heb veel geleerd in mijn tijd en hoop nog meer te leren.
 
-## get started
+## Get started
 ### ENG
 In the "! database" folder you will find a sql file you can import to your computer.
 
