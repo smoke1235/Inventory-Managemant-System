@@ -52,7 +52,7 @@ $row = $result->fetch_assoc();
                         <option value="<?php echo $row['id']; ?>">
                             <?php echo $row['name']; ?>
                         </option>
-                        <?php include 'fetch-suppliers.php'; ?>
+                        <?php include '../src/fetch-suppliers.php'; ?>
                         <?php
                         foreach ($options as $option) {
                             ?>
