@@ -128,7 +128,6 @@ require_once '../config/connect.php';
             </div>
         </main>
     </div>
-    <script src="nav.js"></script>
 </body>
 
 </html>

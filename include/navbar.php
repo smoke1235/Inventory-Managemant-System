@@ -1,6 +1,9 @@
 <nav class="navbar" id="navbar">
     <ul>
-        <li><button>Button</button></li>
+        <li>
+            <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed')">
+            Button</button>
+        </li>
         <li>
             <a href="dashboard.php">
                 <h1>Teeuwen Drukkerij Inventory Manager</h1>
