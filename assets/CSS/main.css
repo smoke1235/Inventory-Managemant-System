@@ -17,6 +17,7 @@
 .navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     position: fixed;
     height: 70px;
     width: 100%;
@@ -47,6 +48,15 @@
     font-size: 45px;
 }
 
+.navbar button {
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    margin: 8 0px;
+}
+
 /* ---- Sidebar ---- */
 
 .sidebar {
@@ -59,8 +69,13 @@
 }
 
 .sidebar li {
-    margin: 8px;
+    margin: 4px;
     width: 100%;
+}
+
+.sidebar li a {
+    display: block;
+    padding-right: 61vh;
 }
 
 .sidebar a {
@@ -73,7 +88,6 @@
     color: #FF5733;
     background: white;
 }
-
 
 /* ---- General Link styling ---- */
 

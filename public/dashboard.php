@@ -22,7 +22,7 @@ require_once '../config/connect.php';
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
-        <main>
+        <main class="main-content">
             <h1>Welcome,
                 <?= $_SESSION['name'] ?>!
             </h1>
@@ -99,8 +99,8 @@ require_once '../config/connect.php';
                             ORDER BY date DESC LIMIT 0,30";
                         $result = $con->query($sql);
                         ?>
-                            <tbody>
-                                <?php while ($rows = $result->fetch_assoc()) { ?>
+                        <tbody>
+                            <?php while ($rows = $result->fetch_assoc()) { ?>
                                 <tr>
                                     <td>
                                         <?php echo $rows['id']; ?>
@@ -121,13 +121,14 @@ require_once '../config/connect.php';
                                         <?php echo $rows['name']; ?>
                                     </td>
                                 </tr>
-                                <?php } ?>
-                            </tbody>
+                            <?php } ?>
+                        </tbody>
                     </table>
                 </div>
             </div>
         </main>
     </div>
+    <script src="nav.js"></script>
 </body>
 
 </html>
