@@ -5,12 +5,18 @@
     padding: 0px;
 }
 
+/* ---- Dashboard container ---- */
+
+.dashboard-container {
+    display: flex;
+    transition: 1s ease;
+}
+
 /* ---- Topbar ---- */
 
 .navbar {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     position: fixed;
     height: 70px;
     width: 100%;
@@ -29,7 +35,6 @@
 }
 
 .navbar a {
-    margin: 0 7px;
     font-size: larger;
     color: white;
 }
@@ -45,34 +50,30 @@
 /* ---- Sidebar ---- */
 
 .sidebar {
-    position: fixed;
-    margin: 0 7px;
+    margin-right: 7px;
     padding-top: 80px;
-    height: 100%;
     width: 20%;
-    top: 0;
-    left: 0;
-    font-size: 20px;
-    border-right: 1px grey solid;
-    background: #f1f1f1;
+    position: relative;
+    transition: 1s ease;
+    background: #FF5733;;
 }
 
 .sidebar li {
-    margin-bottom: 8px;
+    margin: 8px;
+    width: 100%;
 }
 
 .sidebar a {
     font-size: 25px;
-    color: black;
+    color: white;
 }
 
 .sidebar a:hover {
+    width: 10%;
     color: #FF5733;
+    background: white;
 }
 
-.dashboard-container {
-    display: flex;
-}
 
 /* ---- General Link styling ---- */
 
@@ -87,9 +88,9 @@ ul {
 /* ---- Main General ---- */
 
 main {
-    margin-left: 21%;
     margin-top: 80px;
     width: 80%;
+    height: 100%;
 }
 
 main h1 {

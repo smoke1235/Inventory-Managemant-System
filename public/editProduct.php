@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $id = $_GET['id'];
 $sql = "SELECT * FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id  WHERE products.id='$id'";

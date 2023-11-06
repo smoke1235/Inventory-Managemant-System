@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $sql =
     "SELECT products.id, products.product_name, products.product_description,

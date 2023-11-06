@@ -1,5 +1,5 @@
 <?php
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $supplierName = $_REQUEST['supplierName'];
 $number = $_REQUEST['number'];

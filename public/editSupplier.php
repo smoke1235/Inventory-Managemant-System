@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $id = $_GET['id'];
 $sql =

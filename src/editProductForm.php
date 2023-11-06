@@ -1,5 +1,5 @@
 <?php
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $newQuantity = $_POST['quantity'];
 $id = $_POST['id'];

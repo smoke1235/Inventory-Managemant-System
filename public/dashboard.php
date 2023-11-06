@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ require '../config/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard</title>
+    <title>Drukkerij Teeuwen inventory Manager | Dashboard</title>
     <meta name="discription" content="">
     <link href="../assets/CSS/main.css" rel="stylesheet">
 </head>

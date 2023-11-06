@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $stmt = $con->prepare('SELECT password, email FROM users WHERE id = ?');
 $stmt->bind_param('i', $_SESSION['id']);

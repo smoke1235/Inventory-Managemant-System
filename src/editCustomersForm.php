@@ -1,5 +1,5 @@
 <?php
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $id = $_POST['id'];
 $newFirstName = $_POST['newFirstName'];

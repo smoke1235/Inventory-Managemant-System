@@ -1,5 +1,5 @@
 <?php
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $product_name = $_REQUEST['product_name'];
 $product_descr = $_REQUEST['product_descr'];

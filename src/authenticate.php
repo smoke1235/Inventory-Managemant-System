@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();

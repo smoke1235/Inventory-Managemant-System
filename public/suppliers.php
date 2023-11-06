@@ -5,7 +5,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $sql = " SELECT * FROM suppliers ";
 $result = $con->query($sql);

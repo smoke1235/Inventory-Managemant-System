@@ -1,5 +1,5 @@
 <?php
-require '../config/connect.php';
+require_once '../config/connect.php';
 
 $firstName = $_REQUEST['firstName'];
 $lastName = $_REQUEST['lastName'];
