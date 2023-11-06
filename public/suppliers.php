@@ -1,7 +1,4 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-
 session_start();
 if (!isset($_SESSION['loggedin'])) {
     header('Location: ../index.php');
@@ -27,7 +24,7 @@ $con->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="">
-    <title>Suppliers</title>
+    <title>Suppliers Page</title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 
