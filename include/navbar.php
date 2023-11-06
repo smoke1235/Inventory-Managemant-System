@@ -1,4 +1,5 @@
-<nav class="navbar" id="navbar">
+<nav class="navbar" id="navbar"
+aria-label="">
     <ul>
         <li>
             <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed')">
@@ -16,7 +17,8 @@
     </ul>
 </nav>
 
-<nav class="sidebar" id="sidebar">
+<nav class="sidebar" id="sidebar"
+aria-label="">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="products.php">Products</a></li>
