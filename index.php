@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <h1>Teeuwen Drukkerij Inventory Manager</h1>
+    <h1>Drukkerij Teeuwen Inventory Manager</h1>
     <div class="container">
         <div class="login">
             <h2>Login</h2>
