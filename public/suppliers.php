@@ -31,7 +31,7 @@ $con->close();
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
-        <main>
+        <main class="main-content">
             <h1>Suppliers</h1>
             <a class="new-data" href="insertSuppliers.php">Add</a>
             <div class="table-container">

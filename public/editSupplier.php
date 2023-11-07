@@ -28,7 +28,7 @@ $row = $result->fetch_assoc();
 <body>
     <div class="dashboard-container">
         <?php include '../include/navbar.php'; ?>
-        <main>
+        <main class="main-content">
             <h1>Edit <?php echo $row['name']; ?></h1>
             <div class="form-container">
                 <form action="../src/editSupplierForm.php" method="POST">

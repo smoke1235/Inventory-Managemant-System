@@ -32,7 +32,7 @@ $result = $con->query($sql);
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
-        <main>
+        <main class="main-content">
             <h1>Products</h1>
             <a class="new-data" href="insertProduct.php">Add</a>
             <div class="table-container">

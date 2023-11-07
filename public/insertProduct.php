@@ -21,7 +21,7 @@ require_once '../config/connect.php';
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
-        <main>
+        <main class="main-content">
             <h1>Add new products</h1>
             <div class="form-container">
                 <?php include "../src/fetch-suppliers.php"; ?>
