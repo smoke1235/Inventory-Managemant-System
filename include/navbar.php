@@ -1,9 +1,8 @@
-<nav class="navbar" id="navbar"
-aria-label="">
+<nav class="navbar" id="navbar" aria-label="">
     <ul>
         <li>
             <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed')">
-                Button
+                <ion-icon name="menu-outline"></ion-icon>
             </button>
         </li>
         <li>
@@ -18,8 +17,7 @@ aria-label="">
     </ul>
 </nav>
 
-<nav class="sidebar" id="sidebar"
-aria-label="">
+<nav class="sidebar" id="sidebar" aria-label="">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="products.php">Products</a></li>
@@ -28,3 +26,5 @@ aria-label="">
         <li><a href="">Help</a></li>
     </ul>
 </nav>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

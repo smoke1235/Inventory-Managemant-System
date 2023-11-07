@@ -8,8 +8,8 @@ if (!isset($_SESSION['loggedin'])) {
 require_once '../config/connect.php';
 
 $sql =
-"SELECT * FROM `customers`  \n"
-. "ORDER BY `customers`.`last_name` ASC;";
+    "SELECT * FROM `customers`  \n"
+    . "ORDER BY `customers`.`last_name` ASC;";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -81,10 +81,9 @@ if (!$result) {
                                 <td>
                                     <?php echo $rows['country']; ?>
                                 </td>
-                
+
                                 <td>
-                                    <a class="edit-data"
-                                        href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit
+                                    <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit
                                     </a>
                                 </td>
                             </tr>
