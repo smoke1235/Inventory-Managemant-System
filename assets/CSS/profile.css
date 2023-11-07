@@ -108,13 +108,12 @@ ul {
 
 /* ---- Main General ---- */
 
-main {
-    margin-left: 21%;
+.main-content {
     margin-top: 80px;
-    width: 80%;
+    width: 90%;
 }
 
-main h1 {
+.maincontent h1 {
     font-size: 55px;
 }
 
