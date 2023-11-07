@@ -75,7 +75,7 @@ require_once '../config/connect.php';
             </div>
             <div class="dashboard-table">
                 <h2>Recently added products</h2>
-                <div class="table-container">
+                <div class="dashboard-table-container">
                     <table id="dashboard-table" class="dashboard-table"
                         aria-label="A table that shows newly 30 newly added products">
                         <thead>

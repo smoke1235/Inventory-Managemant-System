@@ -8,7 +8,7 @@ if (!isset($_SESSION['loggedin'])) {
 require_once '../config/connect.php';
 
 $sql =
-    "SELECT products.id, products.product_name, products.product_description,
+"SELECT products.id, products.product_name, products.product_description,
 products.product_quantity, products.product_price, products.other_details, suppliers.name
 FROM products
 INNER JOIN suppliers
@@ -41,7 +41,7 @@ $result = $con->query($sql);
                         <tr>
                             <th>No.</th>
                             <th>Name</th>
-                            <th>discription</th>
+                            <th>Discription</th>
                             <th>Quantity</th>
                             <th>Price</th>
                             <th>Supplier</th>

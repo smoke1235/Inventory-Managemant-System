@@ -3,7 +3,8 @@ aria-label="">
     <ul>
         <li>
             <button onclick="document.getElementsByClassName('sidebar')[0].classList.toggle('collapsed')">
-            Button</button>
+                Button
+            </button>
         </li>
         <li>
             <a href="dashboard.php">

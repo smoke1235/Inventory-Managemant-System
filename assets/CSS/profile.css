@@ -5,6 +5,14 @@
     padding: 0px;
 }
 
+/* ---- Dashboard container ---- */
+
+.dashboard-container {
+    display: flex;
+    height: auto;
+    width: 100%;
+}
+
 /* ---- Topbar ---- */
 
 .navbar {
@@ -29,7 +37,6 @@
 }
 
 .navbar a {
-    margin: 0 7px;
     font-size: larger;
     color: white;
 }
@@ -42,37 +49,54 @@
     font-size: 45px;
 }
 
+.navbar button {
+    border: none;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    margin: 8 0px;
+}
+
 /* ---- Sidebar ---- */
 
 .sidebar {
-    position: fixed;
-    margin: 0 7px;
+    margin-right: 7px;
     padding-top: 80px;
-    height: 100%;
     width: 20%;
-    top: 0;
-    left: 0;
-    font-size: 20px;
-    border-right: 1px grey solid;
-    background: #f1f1f1;
+    position: relative;
+    transition: all .25s;
+    background: #FF5733;
 }
 
 .sidebar li {
-    margin-bottom: 8px;
+    margin: 4px;
+    width: 100%;
+}
+
+.sidebar li a {
+    display: block;
+    padding-right: 97%;
 }
 
 .sidebar a {
     font-size: 25px;
-    color: black;
+    color: white;
 }
 
 .sidebar a:hover {
+    width: 10%;
     color: #FF5733;
+    background: white;
 }
 
-.dashboard-container {
-    display: flex;
+.sidebar.collapsed {
+    transition: all 1s ease;
+    max-width: 0;
+    overflow: hidden;
 }
+
+/* ---- General Link styling ---- */
 
 a {
     text-decoration: none;

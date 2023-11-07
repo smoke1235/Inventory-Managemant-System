@@ -46,8 +46,8 @@ if (!$result) {
                             <th>Company</th>
                             <th>street</th>
                             <th>Postal Code</th>
-                            <th>city</th>
-                            <th>country</th>
+                            <th>City</th>
+                            <th>Country</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

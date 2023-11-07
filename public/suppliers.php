@@ -41,10 +41,10 @@ $con->close();
                             <th>Name</th>
                             <th>Number</th>
                             <th>Email</th>
-                            <th>street</th>
-                            <th>postcode</th>
-                            <th>city</th>
-                            <th>country</th>
+                            <th>Street</th>
+                            <th>Postcode</th>
+                            <th>City</th>
+                            <th>Country</th>
                             <th>Actions</th>
                         </tr>
                     </thead>

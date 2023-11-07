@@ -9,7 +9,8 @@
 
 .dashboard-container {
     display: flex;
-    transition: 1s ease;
+    height: auto;
+    width: 100%;
 }
 
 /* ---- Topbar ---- */
@@ -65,7 +66,7 @@
     width: 20%;
     position: relative;
     transition: all .25s;
-    background: #FF5733;;
+    background: #FF5733;
 }
 
 .sidebar li {
@@ -90,6 +91,7 @@
 }
 
 .sidebar.collapsed {
+    transition: all 1s ease;
     max-width: 0;
     overflow: hidden;
 }
@@ -104,6 +106,12 @@ ul {
     list-style: none;
 }
 
+/* ---- Dashboard table ---- */
+
+.dashboard-table h2 {
+    margin-bottom: 8px;
+}
+
 /* ---- Main General ---- */
 
 main {
@@ -114,6 +122,10 @@ main {
 
 main h1 {
     font-size: 55px;
+}
+
+.main-content_large {
+    width: 100%;
 }
 
 /* ---- Dashboad Top buttons ---- */
@@ -211,10 +223,33 @@ main h1 {
 
 /* ---- table general ---- */
 
+.table-container {
+    margin-top: 20px;
+    overflow: auto;
+    height: 77vh;
+}
+
+.table-container thead th {
+    position: sticky;
+    top: 0;
+}
+
+.dashboard-table-container {
+    margin-top: 20px;
+    overflow: auto;
+    height: 490px;
+}
+
+.dashboard-table-container thead th {
+    position: sticky;
+    top: 0;
+}
+
+
 table {
     border-collapse: collapse;
-    border: 1px solid #ddd;
     width: 100%;
+    border: 1px solid #ddd;
 }
 
 table h2 {
@@ -234,20 +269,6 @@ table th {
     text-align: left;
     background: #FF5733;
     color: white;
-}
-
-.table-container {
-    margin-top: 20px;
-    overflow: auto;
-    height: 480px;
-}
-
-.table-container thead th {
-    position: sticky;
-    top: 0;
-}
-.dashboard-table h2 {
-    margin-bottom: 8px;
 }
 
 /* ---- Action Buttons General ---- */
