@@ -20,7 +20,7 @@ $row = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <title>Inventory Manager | View <?php $row['product_name']; ?></title>
+    <title>Inventory Manager | View <?php echo $row['product_name']; ?></title>
     <meta name="description" name="">
 </head>
 
@@ -28,17 +28,25 @@ $row = $result->fetch_assoc();
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <table>
-                <thead>
-                    <tr>Name:</tr>
-                    <tr>Description:</tr>
-                    <tr>Quantity:</tr>
-                    <tr>Price:</tr>
-                    <tr>Supplier:</tr>
-                    <tr>Other details:</tr>
-                </thead>
-            </table>
-            <a class="cancel-button" href="products.php">Back</a>
+            <h1>View <?php echo $row['product_name']; ?></h1>
+            <a class="edit-data" href="editProduct.php?id=<?php echo $id; ?>">Edit</a>
+            <div class="form-container">
+                <form action="">
+                    <label for="">Product name:</label>
+                    <input type="text" value="<?php echo $row['product_name']; ?>" disabled>
+                    <label for="">Description:</label>
+                    <input type="text" value="<?php echo $row['product_description']; ?>" disabled>
+                    <label for="">Quantity</label>
+                    <input type="text" value="<?php echo $row['product_quantity']; ?>" disabled>
+                    <label for="">Price:</label>
+                    <input type="text" value="<?php echo $row['product_price']; ?>" disabled>
+                    <label for="">Supplier:</label>
+                    <input type="text" value="<?php echo $row['name']; ?>" disabled>
+                    <label for="">Other details:</label>
+                    <textarea name="other_details" rows="8" disabled><?php echo $row['other_details']; ?></textarea>
+                    <a class="cancel-button" href="products.php">Back</a>
+                </form>
+            </div>
         </main>
     </div>
 </body>

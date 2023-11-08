@@ -33,7 +33,7 @@ require_once '../config/connect.php';
                     <label for="Quantity">Quantity: *</label>
                     <input type="number" name="quantity" value="1">
                     <label for="product_price">Product Price:</label>
-                    <input type="number" name="product_price" value="0.00">
+                    <input type="float" name="product_price" value="0.00">
                     <label for="supplier_name">Supplier name:</label>
                     <select name="supplier_id">
                         <option value="0">None</option>
@@ -48,7 +48,7 @@ require_once '../config/connect.php';
                         ?>
                     </select>
                     <label for="other_details">Other Details</label>
-                    <input type="text" name="other_details" placeholder="Instructions? Good to know?">
+                    <textarea type="text" name="other_details" rows="8" placeholder="Instructions? Good to know?"></textarea>
                     <input type="submit" value="Submit">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>

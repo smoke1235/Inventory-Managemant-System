@@ -19,8 +19,9 @@ $row = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Manager | Edit Product</title>
+    <title>Inventory Manager | Edit <?php echo $row['product_name']; ?></title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
+    <meta name="description" name="">
 </head>
 
 <body>
@@ -29,7 +30,7 @@ $row = $result->fetch_assoc();
         <main class="main-content">
             <h1>Edit <?php echo $row['product_name']; ?></h1>
             <div class="form-container">
-                <form action="../src/editProductForm.php" method="POST">
+                <form action="../src/editProductForm.php" method="POST" id="editProduct">
                     <input type="hidden" name="id" value="<?php echo $id; ?>">
                     <label for="product_description" name="product_description">Description:</label>
                     <input type="text" name="product_description"
@@ -54,8 +55,7 @@ $row = $result->fetch_assoc();
                             <?php } ?>
                     </select>
                     <label for="other_details">Other Details:</label>
-                    <input
-                    type="text" name="other_details" value="<?php echo $row['other_details']; ?>" maxlength="500">
+                    <textarea name="other_details" maxlength="500" rows="8"><?php echo $row['other_details']; ?></textarea>
                     <input type="submit" value="Update">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>
