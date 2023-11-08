@@ -73,7 +73,6 @@ $result = $con->query($sql);
                                     <a class="edit-data"
                                     href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                 </td>
-
                             </tr>
                         </tbody>
                     <?php } ?>

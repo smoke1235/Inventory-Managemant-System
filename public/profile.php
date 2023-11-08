@@ -19,11 +19,11 @@ $stmt->close();
 <html lang="en">
 
 <head>
-    <title>Profile Page</title>
-    <meta name="discription" content="">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../assets/CSS/profile.css" rel="stylesheet">
+    <title>Inventory Manager | Profile</title>
+    <meta name="discription" content="">
 </head>
 
 <body>

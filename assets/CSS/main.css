@@ -30,11 +30,16 @@
 .navbar ul {
     display: flex;
     align-items: center;
+    height: 55px;
+}
+.navbar li {
+    margin: 0 4px;
 }
 
-.navbar li {
-    margin: 0 7px;
+.navbar li a {
+    height: 24px;
 }
+
 
 .navbar a {
     font-size: larger;
@@ -60,6 +65,14 @@
 }
 
 .navbar button:hover {
+    background: #333333;
+}
+.nav-search {
+    margin: 0 8px;
+    height: 100px;
+}
+
+.nav-search:hover {
     background: #333333;
 }
 

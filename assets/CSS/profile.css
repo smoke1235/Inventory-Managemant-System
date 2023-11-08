@@ -30,6 +30,7 @@
 .navbar ul {
     display: flex;
     align-items: center;
+    height: 55px;
 }
 
 .navbar li {
@@ -51,11 +52,29 @@
 
 .navbar button {
     border: none;
-    border-radius: 50%;
+    border-radius: 8px;
     height: 40px;
     width: 40px;
     cursor: pointer;
     margin: 8 0px;
+    background: black;
+}
+
+.navbar button:hover {
+    background: #333333;
+}
+.nav-search {
+    margin: 0 8px;
+    height: 100px;
+}
+
+.nav-search:hover {
+    background: #333333;
+}
+
+ion-icon {
+    font-size: x-large;
+    color: white;
 }
 
 /* ---- Sidebar ---- */

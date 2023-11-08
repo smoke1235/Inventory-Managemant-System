@@ -14,7 +14,7 @@ require_once '../config/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Drukkerij Teeuwen inventory Manager | Dashboard</title>
+    <title>Inventory Manager | Dashboard</title>
     <meta name="discription" content="">
     <link href="../assets/CSS/main.css" rel="stylesheet">
 </head>
@@ -86,6 +86,7 @@ require_once '../config/connect.php';
                                 <th>Quantity</th>
                                 <th>Price</th>
                                 <th>Supplier</th>
+                                <th>Actions</th>
                             </tr>
                         </thead>
                         <?php
@@ -119,6 +120,10 @@ require_once '../config/connect.php';
                                     </td>
                                     <td>
                                         <?php echo $rows['name']; ?>
+                                    </td>
+                                    <td>
+                                        <a class="edit-data"
+                                        href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                     </td>
                                 </tr>
                             <?php } ?>

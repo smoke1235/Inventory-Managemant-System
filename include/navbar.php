@@ -7,11 +7,12 @@
         </li>
         <li>
             <a href="dashboard.php">
-                <h1>Teeuwen Drukkerij Inventory Manager</h1>
+                <h1>Inventory Manager</h1>
             </a>
         </li>
     </ul>
     <ul>
+        <li><a href="" class="nav-search"><ion-icon name="search-outline"></ion-icon></a></li>
         <li><a href="profile.php">Profile</a></li>
         <li><a href="../src/logout.php">Logout</a></li>
     </ul>
@@ -23,7 +24,7 @@
         <li><a href="products.php">Products</a></li>
         <li><a href="customers.php">Customers</a></li>
         <li><a href="suppliers.php">Suppliers</a></li>
-        <li><a href="">Help</a></li>
+        <li><a href="help.php">Help</a></li>
     </ul>
 </nav>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
