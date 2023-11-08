@@ -28,12 +28,17 @@ $row = $result->fetch_assoc();
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1><?php echo $ow['product_name']; ?></h1>
-            <div class="form-container">
-                <form>
-                    
-                </form>
-            </div>
+            <table>
+                <thead>
+                    <tr>Name:</tr>
+                    <tr>Description:</tr>
+                    <tr>Quantity:</tr>
+                    <tr>Price:</tr>
+                    <tr>Supplier:</tr>
+                    <tr>Other details:</tr>
+                </thead>
+            </table>
+            <a class="cancel-button" href="products.php">Back</a>
         </main>
     </div>
 </body>
