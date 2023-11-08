@@ -19,7 +19,7 @@ if (!isset($_SESSION["loggedin"])) {
     <div class="container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1>Help</h1>   
+            <h1>Help</h1>
             <div class="insert-help">
                 <section>
                     <h2>Insert new Data</h2>

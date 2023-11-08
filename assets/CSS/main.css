@@ -288,7 +288,7 @@ table tr:hover {
 
 table th {
     padding: 12 0px;
-    text-align: left;
+    text-align: center;
     background: #FF5733;
     color: white;
 }
@@ -318,6 +318,18 @@ table th {
 .edit-data:hover {
     background: #6ce46a;
 }
+
+.view-data {
+    padding: 5px;
+    border-radius: 3px;
+    background: #387bd1;
+    color: white;
+}
+
+.view-data:hover {
+    background: #2eb6ff;
+}
+
 
 input[type=submit] {
     margin: 2px 0px;

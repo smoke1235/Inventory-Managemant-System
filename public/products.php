@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit;
 }
 
@@ -72,6 +72,8 @@ $result = $con->query($sql);
                                 <td>
                                     <a class="edit-data"
                                     href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="view-data"
+                                    href="view-product?id=<?php echo $rows['id']; ?>">View</a>
                                 </td>
                             </tr>
                         </tbody>
