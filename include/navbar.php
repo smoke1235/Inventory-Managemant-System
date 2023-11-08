@@ -12,7 +12,7 @@
         </li>
     </ul>
     <ul>
-        <li><a href="" class="nav-search"><ion-icon name="search-outline"></ion-icon></a></li>
+        <li><a href="search.php" class="nav-search"><ion-icon name="search-outline"></ion-icon></a></li>
         <li><a href="profile.php">Profile</a></li>
         <li><a href="../src/logout.php">Logout</a></li>
     </ul>

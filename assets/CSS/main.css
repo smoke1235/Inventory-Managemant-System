@@ -288,7 +288,7 @@ table tr:hover {
 
 table th {
     padding: 12 0px;
-    text-align: center;
+    text-align: left;
     background: #FF5733;
     color: white;
 }
