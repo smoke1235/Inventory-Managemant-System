@@ -143,3 +143,9 @@ ul {
 .main-content_large {
     width: 100%;
 }
+
+/* ----- sections ---- */
+
+section {
+    margin: 8 0px;
+}
