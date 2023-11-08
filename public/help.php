@@ -11,12 +11,12 @@ if (!isset($_SESSION["loggedin"])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/CSS/main.css">
+    <link rel="stylesheet" href="../assets/CSS/help.css">
     <title>Inventory Manager | Help</title>
     <meta name="discription" content="In this page you can find helpfull guides on how to navagate the web application.">
 </head>
 <body>
-    <div class="dashboard-container">
+    <div class="container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Help</h1>
@@ -77,8 +77,8 @@ if (!isset($_SESSION["loggedin"])) {
                     harum ea laudantium laborum possimus facilis dolor sit deserunt cupiditate ab voluptatibus sequi ipsa repellendus at hic!
                 </p>
             </div>
-            <?php include_once '../include/footer.php'; ?>
         </main>
+        <?php include_once '../include/footer.php'; ?>
     </div>
 </body>
 </html>
