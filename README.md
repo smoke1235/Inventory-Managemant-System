@@ -11,7 +11,7 @@ Tijdens mijn stage kreeg ik de opdracht om een ​​webgebaseerd Inventory Syst
 Gelukkig mocht ik dit openbaar online zetten, ik heb veel geleerd in mijn tijd en hoop nog meer te leren.
 
 ## Get started
-### ENG
+#### ENG
 In the "! database" folder you will find a sql file you can import to your computer.
 I already have a user in the database you can use.
 
@@ -19,10 +19,12 @@ Username: test
 
 Password: test
 
->[!IMPORTANT]
-> You need to have XAMPP/MAMPP for it to work
+>[!NOTE]
+> You need to have XAMPP/MAMPP for it to work.
+>
+> Don't forget to imort de sql file to your database.
 
-### NL
+#### NL
 In de map "! database" vindt u een sql-bestand dat u naar uw computer kunt importeren.
 Ik heb al een gebruiker in de database die u kunt gebruiken.
 
@@ -30,5 +32,14 @@ Gebruikersnaam: test
 
 Wachtwoord: test
 
->[!IMPORTANT]
-> Je hebt XAMPP/MAMPP nodig om te kunnen werken
+>[!NOTE]
+> Je hebt XAMPP/MAMPP nodig om te kunnen werken.
+>
+> Vergeet niet de sql bestand te importen naar jouw database.
+
+### .cpanel.yml
+#### ENG
+I personally used Cpanel webhosting service to test this project on. If you are planning to open the program locally you can just ignore it or delete it.
+
+#### NL
+Ik heb persoonlijk de webhostingservice Cpanel gebruikt om dit project te testen. Als u van plan bent het programma lokaal te openen, kunt u het gewoon negeren of het verwijderen.
