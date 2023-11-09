@@ -36,10 +36,3 @@ Wachtwoord: test
 > Je hebt XAMPP/MAMPP nodig om te kunnen werken.
 >
 > Vergeet niet de sql bestand te importen naar jouw database.
-
-### .cpanel.yml
-#### ENG
-I personally used Cpanel webhosting service to test this project on. If you are planning to open the program locally you can just ignore it or delete it.
-
-#### NL
-Ik heb persoonlijk de webhostingservice Cpanel gebruikt om dit project te testen. Als u van plan bent het programma lokaal te openen, kunt u het gewoon negeren of het verwijderen.
