@@ -20,7 +20,9 @@ $row = $result->fetch_assoc();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <title>Inventory Manager | View <?php echo $row['product_name']; ?></title>
+    <title>Inventory Manager | View
+        <?php echo $row['product_name']; ?>
+    </title>
     <meta name="description" name="">
 </head>
 
@@ -28,7 +30,9 @@ $row = $result->fetch_assoc();
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1>View <?php echo $row['product_name']; ?></h1>
+            <h1>View
+                <?php echo $row['product_name']; ?>
+            </h1>
             <a class="edit-data" href="editProduct.php?id=<?php echo $id; ?>">Edit</a>
             <div class="form-container">
                 <form action="">

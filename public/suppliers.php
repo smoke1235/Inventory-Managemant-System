@@ -41,10 +41,7 @@ $con->close();
                             <th>Name</th>
                             <th>Number</th>
                             <th>Email</th>
-                            <th>Street</th>
-                            <th>Postcode</th>
-                            <th>City</th>
-                            <th>Country</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -62,21 +59,14 @@ $con->close();
                                     <?php echo $rows['email']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['street']; ?>
+                                    <?php echo $rows['street'] . ', ' .
+                                    $rows['postcode'] . ', ' .
+                                    $rows['city'] . ', ' .
+                                    $rows['country']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $rows['postcode']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['city']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['country']; ?>
-                                </td>
-
                                 <td>
                                     <a class="edit-data" href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                                    <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
+                                    <a class="view-data" href="view-supplier.php?id=<?php echo $rows['id']; ?>">View</a>
                                 </td>
                             </tr>
                         </tbody>
