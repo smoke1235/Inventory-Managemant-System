@@ -37,15 +37,11 @@ if (!$result) {
                 <table>
                     <thead>
                         <tr>
-                            <th>First Name</th>
-                            <th>Last Name</th>
+                            <th>Name</th>
+                            <th>Company</th>
                             <th>Number</th>
                             <th>Email</th>
-                            <th>Company</th>
-                            <th>street</th>
-                            <th>Postal Code</th>
-                            <th>City</th>
-                            <th>Country</th>
+                            <th>Address</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -53,10 +49,10 @@ if (!$result) {
                         <tbody>
                             <tr>
                                 <td>
-                                    <?php echo $rows['first_name']; ?>
+                                    <?php echo $rows['first_name'] . ' ' . $rows['last_name']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['last_name']; ?>
+                                    <?php echo $rows['company_name']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['number']; ?>
@@ -65,21 +61,11 @@ if (!$result) {
                                     <?php echo $rows['email']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $rows['company_name']; ?>
+                                    <?php echo $rows['street'] . ', ' .
+                                    $rows['postcode'] . ', ' .
+                                    $rows['city'] . ', ' .
+                                    $rows['country']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $rows['street']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['postcode']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['city']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['country']; ?>
-                                </td>
-
                                 <td>
                                     <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
                                     <a class="view-data" href="view-customer.php?id=<?php echo $rows['id']; ?>">View</a>
