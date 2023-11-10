@@ -22,7 +22,7 @@ $stmt->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../assets/CSS/profile.css" rel="stylesheet">
-    <title>Inventory Manager | Profile</title>
+    <title>Inventory Manager | My Profile</title>
     <meta name="discription" content="">
 </head>
 

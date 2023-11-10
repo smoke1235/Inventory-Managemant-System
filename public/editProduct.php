@@ -19,7 +19,7 @@ $row = $result->fetch_assoc();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Manager | Edit <?php echo $row['product_name']; ?></title>
+    <title>Inventory Manager | Edit Products</title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
     <meta name="description" name="">
 </head>

@@ -14,7 +14,7 @@ require_once '../config/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Product</title>
+    <title>Inventory Manager | New Product</title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 

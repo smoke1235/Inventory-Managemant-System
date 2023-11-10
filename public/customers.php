@@ -25,7 +25,7 @@ if (!$result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="">
-    <title>Customers</title>
+    <title>Inventory Manager | Customers</title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 

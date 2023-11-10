@@ -24,7 +24,7 @@ $result = $con->query($sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Products</title>
+    <title>Inventory Manager | Products</title>
     <meta name="discription" content="">
     <link href="../assets/CSS/main.css" rel="stylesheet">
 </head>

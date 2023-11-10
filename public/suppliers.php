@@ -24,7 +24,7 @@ $con->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="discription" content="">
-    <title>Suppliers Page</title>
+    <title>Inventory Manager | Suppliers</title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
 

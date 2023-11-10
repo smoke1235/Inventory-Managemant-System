@@ -1,3 +1,5 @@
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <nav class="navbar" id="navbar" aria-label="">
     <ul>
         <li>
@@ -27,5 +29,3 @@
         <li><a href="help.php">Help</a></li>
     </ul>
 </nav>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
