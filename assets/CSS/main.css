@@ -36,11 +36,6 @@
     margin: 0 4px;
 }
 
-.navbar li a {
-    height: 24px;
-}
-
-
 .navbar a {
     font-size: larger;
     color: white;
@@ -67,16 +62,8 @@
 .navbar button:hover {
     background: #333333;
 }
-.nav-search {
-    margin: 0 8px;
-    height: 100px;
-}
 
-.nav-search:hover {
-    background: #333333;
-}
-
-ion-icon {
+.navbar ion-icon {
     font-size: x-large;
     color: white;
 }
