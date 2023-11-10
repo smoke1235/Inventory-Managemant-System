@@ -44,7 +44,6 @@ $result = $con->query($sql);
                             <th>Discription</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th>Supplier</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -65,9 +64,6 @@ $result = $con->query($sql);
                                 </td>
                                 <td>
                                     <?php echo $rows['product_price']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['name']; ?>
                                 </td>
                                 <td>
                                     <a class="edit-data"

@@ -7,9 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql =
-    "SELECT * FROM `customers`  \n"
-    . "ORDER BY `customers`.`last_name` ASC;";
+$sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`last_name` ASC;";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -83,8 +81,8 @@ if (!$result) {
                                 </td>
 
                                 <td>
-                                    <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit
-                                    </a>
+                                    <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
                                 </td>
                             </tr>
                         </tbody>

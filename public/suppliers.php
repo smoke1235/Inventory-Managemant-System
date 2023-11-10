@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = " SELECT * FROM suppliers ";
+$sql = $sql = "SELECT * FROM `suppliers`  \n" . "ORDER BY `suppliers`.`dateTime` DESC;";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -75,9 +75,8 @@ $con->close();
                                 </td>
 
                                 <td>
-                                    <a class="edit-data"
-                                        href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit
-                                    </a>
+                                    <a class="edit-data" href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
+                                    <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
                                 </td>
                             </tr>
                         </tbody>

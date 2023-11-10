@@ -85,7 +85,6 @@ require_once '../config/connect.php';
                                 <th>Description</th>
                                 <th>Quantity</th>
                                 <th>Price</th>
-                                <th>Supplier</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -117,9 +116,6 @@ require_once '../config/connect.php';
                                     </td>
                                     <td>
                                         <?php echo $rows['product_price']; ?>
-                                    </td>
-                                    <td>
-                                        <?php echo $rows['name']; ?>
                                     </td>
                                     <td>
                                         <a class="edit-data"
