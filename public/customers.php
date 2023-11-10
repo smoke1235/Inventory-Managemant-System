@@ -82,7 +82,7 @@ if (!$result) {
 
                                 <td>
                                     <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                                    <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
+                                    <a class="view-data" href="view-customer.php?id=<?php echo $rows['id']; ?>">View</a>
                                 </td>
                             </tr>
                         </tbody>
