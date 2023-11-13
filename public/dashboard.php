@@ -26,15 +26,15 @@ require_once '../config/connect.php';
             <h1>Welcome,
                 <?= $_SESSION['name'] ?>!
             </h1>
-            <div class="board"
-            title="This shows you how many products we have in the system, You also can click it to go straight to the product page.">
+            <div class="board">
                 <div class="products-button">
                     <?php
                     $sql = "SELECT COUNT(product_name) AS total FROM products;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
-                    <a href="products.php">
+                    <a href="products.php"
+                    title="This shows you how many products we have in the system, You also can click it to go straight to the product page.">
                         <h3>
                             <?php
                             echo $data['total'];
@@ -43,14 +43,14 @@ require_once '../config/connect.php';
                         <p>Totale products</p>
                     </a>
                 </div>
-                <div class="customers-button"
-                title="This shows how many customers we have in the system, you also can click it to go straight to the customers page.">
+                <div class="customers-button">
                     <?php
                     $sql = "SELECT COUNT(first_name) AS total FROM customers;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
-                    <a href="customers.php">
+                    <a href="customers.php"
+                    title="This shows how many customers we have in the system, you also can click it to go straight to the customers page.">
                         <h3>
                             <?php
                             echo $data['total'];
@@ -59,14 +59,14 @@ require_once '../config/connect.php';
                         <p>Totale Customers</p>
                     </a>
                 </div>
-                <div class="suppliers-button"
-                title="This shows how many suppliers we have in the system, you also can click it to go straight to the suppliers page.">
+                <div class="suppliers-button">
                     <?php
                     $sql = "SELECT COUNT(name) AS total FROM suppliers;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
-                    <a href="suppliers.php">
+                    <a href="suppliers.php"
+                    title="This shows how many suppliers we have in the system, you also can click it to go straight to the suppliers page.">
                         <h3>
                             <?php
                             echo $data['total'];
