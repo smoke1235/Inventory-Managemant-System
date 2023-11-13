@@ -70,7 +70,7 @@ require_once '../config/connect.php';
                         <table aria-label="">
                             <thead>
                                 <th>Name.</th>
-                                <th>Phoen Number</th>
+                                <th>Phone Number</th>
                                 <th>Email</th>
                                 <th>Price</th>
                             </thead>
