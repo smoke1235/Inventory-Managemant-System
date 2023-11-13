@@ -16,7 +16,7 @@ if (isset($_POST['save'])) {
         WHERE product_name
         like '%$search%' or first_name like '%$search%' or last_name like '%$search%' or name like '%$search%'");
         $stmt->execute();
-        $details = $stmt->
+        $details = $stmt->fetch_assoc();
     } else {
         $searchErr = "Nothing found 😞";
     }
