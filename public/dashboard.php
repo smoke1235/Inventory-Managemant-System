@@ -26,7 +26,8 @@ require_once '../config/connect.php';
             <h1>Welcome,
                 <?= $_SESSION['name'] ?>!
             </h1>
-            <div class="board">
+            <div class="board"
+            title="This shows you how many products we have in the system, You also can click it to go straight to the product page.">
                 <div class="products-button">
                     <?php
                     $sql = "SELECT COUNT(product_name) AS total FROM products;";
@@ -42,7 +43,8 @@ require_once '../config/connect.php';
                         <p>Totale products</p>
                     </a>
                 </div>
-                <div class="customers-button">
+                <div class="customers-button"
+                title="This shows how many customers we have in the system, you also can click it to go straight to the customers page.">
                     <?php
                     $sql = "SELECT COUNT(first_name) AS total FROM customers;";
                     $result = mysqli_query($con, $sql);
@@ -57,7 +59,8 @@ require_once '../config/connect.php';
                         <p>Totale Customers</p>
                     </a>
                 </div>
-                <div class="suppliers-button">
+                <div class="suppliers-button"
+                title="This shows how many suppliers we have in the system, you also can click it to go straight to the suppliers page.">
                     <?php
                     $sql = "SELECT COUNT(name) AS total FROM suppliers;";
                     $result = mysqli_query($con, $sql);

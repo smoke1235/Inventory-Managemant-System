@@ -20,6 +20,28 @@ if (!isset($_SESSION["loggedin"])) {
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Help</h1>
+            <div class="sidebar-help">
+                <section>
+                    <h2>Collapse Sidebar</h2>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                        Voluptates numquam asperiores sapiente ipsa nesciunt
+                        exercitationem accusantium ipsam voluptatum ratione,
+                        quaerat, voluptatibus laudantium id at saepe explicabo nobis alias reprehenderit sunt.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quibusdam quaerat consequuntur consectetur voluptatem ad cumque!
+                        Incidunt quibusdam, quas suscipit ipsum, dolore,
+                        quis mollitia cupiditate ab officia dolores placeat tempora a.
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                        Recusandae, rem dolores consequuntur, amet nemo id,
+                        dolorem labore maxime sint velit officiis odit possimus magnam voluptates eaque quod!
+                        Doloremque, veritatis officia!
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                        Itaque necessitatibus, accusamus est dolores,
+                        harum ea laudantium laborum possimus facilis dolor sit deserunt
+                        cupiditate ab voluptatibus sequi ipsa repellendus at hic!
+                    </p>
+                </section>
+            </div>
             <div class="insert-help">
                 <section>
                     <h2>Insert new Data</h2>
@@ -68,30 +90,8 @@ if (!isset($_SESSION["loggedin"])) {
                     </p>
                 </section>
             </div>
-            <div class="sidebar-help">
-                <section>
-                    <h2>Collapse Sidebar</h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Voluptates numquam asperiores sapiente ipsa nesciunt
-                        exercitationem accusantium ipsam voluptatum ratione,
-                        quaerat, voluptatibus laudantium id at saepe explicabo nobis alias reprehenderit sunt.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Quibusdam quaerat consequuntur consectetur voluptatem ad cumque!
-                        Incidunt quibusdam, quas suscipit ipsum, dolore,
-                        quis mollitia cupiditate ab officia dolores placeat tempora a.
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                        Recusandae, rem dolores consequuntur, amet nemo id,
-                        dolorem labore maxime sint velit officiis odit possimus magnam voluptates eaque quod!
-                        Doloremque, veritatis officia!
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Itaque necessitatibus, accusamus est dolores,
-                        harum ea laudantium laborum possimus facilis dolor sit deserunt
-                        cupiditate ab voluptatibus sequi ipsa repellendus at hic!
-                    </p>
-                </section>
-            </div>
+            <?php include_once '../include/footer.php'; ?>
         </main>
-        <?php include_once '../include/footer.php'; ?>
     </div>
 </body>
 </html>
