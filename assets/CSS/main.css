@@ -409,6 +409,7 @@ input[type=submit]:hover {
     margin: 0;
     padding: 0;
     color: white;
+    font-size: 30px;
 }
 
 search-form button:hover {
@@ -424,6 +425,7 @@ search-form button:hover {
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+    font-size: larger;
 }
 
 .search-form input[type=submit] {

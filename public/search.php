@@ -6,6 +6,21 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 require_once '../config/connect.php';
+
+$searchErr = '';
+$details = '';
+if (isset($_POST['save'])) {
+    if(!empty($_POST['search'])) {
+        $search = $_POST['search'];
+        $stmt = $con->prepare("SELECT * FROM `products`, `customers`, `suppliers`
+        WHERE product_name
+        like '%$search%' or first_name like '%$search%' or last_name like '%$search%' or name like '%$search%'");
+        $stmt->execute();
+        $details = $stmt->
+    } else {
+        $searchErr = "Nothing found 😞";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +40,8 @@ require_once '../config/connect.php';
         <main class="main-content">
             <h1>Search Items</h1>
             <div class="seacrh-container">
-                <form class="search-form" id="search-form">
-                    <input type="text" name="item-search" placeholder="Search for products, Customers & Suppliers.">
+                <form class="search-form" id="search-form" method="POST">
+                    <input type="text" name="search" placeholder="Search for products, Customers & Suppliers.">
                     <button><ion-icon name="search-sharp"></ion-icon></button>
                 </form>
             </div>
