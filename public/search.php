@@ -25,9 +25,9 @@ require_once '../config/connect.php';
         <main class="main-content">
             <h1>Search Items</h1>
             <div class="seacrh-container">
-                <form class="search-form">
+                <form class="search-form" id="search-form">
                     <input type="text" name="item-search" placeholder="Search for products, Customers & Suppliers.">
-                    <input type="submit">
+                    <button><ion-icon name="search-sharp"></ion-icon></button>
                 </form>
             </div>
             <div class="result-container">
