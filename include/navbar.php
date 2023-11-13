@@ -25,7 +25,7 @@
 </nav>
 
 <nav class="sidebar" id="sidebar" aria-label="">
-<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="75" width="250">
+<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="33%" width="100%">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="products.php">Products</a></li>

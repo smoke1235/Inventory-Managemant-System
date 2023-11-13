@@ -377,3 +377,14 @@ input[type=submit]:hover {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+/* ---- Search page ---- */
+
+.search-form {
+    height: 10vh;
+
+}
+
+.search-form input[type=text] {
+
+}
