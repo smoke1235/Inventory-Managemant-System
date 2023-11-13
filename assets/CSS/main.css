@@ -257,8 +257,9 @@ ul {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    border-spacing: 0;
     border: 1px solid #ddd;
+    width: 100%;
 }
 
 table h2 {
@@ -267,6 +268,7 @@ table h2 {
 
 table th, table td {
     padding: 8px;
+    border: 1px solid #ddd;
 }
 
 table tr:hover {
