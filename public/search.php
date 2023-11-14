@@ -7,20 +7,10 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$searchErr = '';
-$details = '';
-if (isset($_POST['save'])) {
-    if(!empty($_POST['search'])) {
-        $search = $_POST['search'];
-        $stmt = $con->prepare("SELECT * FROM `products`, `customers`, `suppliers`
-        WHERE product_name
-        like '%$search%' or first_name like '%$search%' or last_name like '%$search%' or name like '%$search%'");
-        $stmt->execute();
-        $details = $stmt->fetch_assoc();
-    } else {
-        $searchErr = "Nothing found 😞";
-    }
-}
+$search= '';
+$sql = "SELECT product_name, name FROM products
+INNER JOIN suppliers ON products.supplier_id=suppliers.id
+WHERE (products.product_name LIKE \'%$search%\' OR name LIKE \'%$search%\');";
 ?>
 
 <!DOCTYPE html>
