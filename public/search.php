@@ -7,11 +7,6 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$search= '';
-$sql = "SELECT product_name, name FROM products
-INNER JOIN suppliers ON products.supplier_id=suppliers.id
-WHERE (products.product_name LIKE \'%$search%\' OR name LIKE \'%$search%\');";
-$result = mysqli_query($con, $sql);
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +43,25 @@ $result = mysqli_query($con, $sql);
                                 <th>Price</th>
                             </thead>
                             <tbody>
-
+                                <?php
+                                    $search= $_POST['search'];
+                                    $sql = "SELECT product_name, name FROM products
+                                    INNER JOIN suppliers ON products.supplier_id=suppliers.id
+                                    WHERE (products.product_name LIKE \'%$search%\' OR name LIKE \'%$search%\');";
+                                    $result = mysqli_query($con, $sql);
+                                    if (mysqli_num_rows($result) > 0) {
+                                    while ($row = mysqli_fetch_array(($result))) {
+                                ?>
+                                <tr>
+                                    <td><?php echo $row['id'];?></td>
+                                    <td><?php echo $row['product_name'];?></td>
+                                    <td><?php echo $row['product_quantity'];?></td>
+                                    <td><?php echo $row['product_price'];?></td>
+                                </tr>
+                                <?php
+                                    }
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>

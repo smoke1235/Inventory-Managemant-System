@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = $sql = "SELECT * FROM `suppliers`  \n" . "ORDER BY `suppliers`.`dateTime` DESC;";
+$sql = "SELECT * FROM `suppliers` ORDER BY `suppliers`.`dateTime` DESC;";
 $result = $con->query($sql);
 
 if (!$result) {
