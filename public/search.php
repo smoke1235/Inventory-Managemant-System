@@ -4,18 +4,6 @@ if (!isset($_SESSION['loggedin'])) {
     header("Location: ../index.php");
     exit;
 }
-
-require_once '../config/connect.php';
-
-$search= $_POST['search'];
-if (!isset($search)) {
-    return;
-} else {
-    $sql = "SELECT product_name, name FROM products
-    INNER JOIN suppliers ON products.supplier_id=suppliers.id
-    WHERE (products.product_name LIKE '$search%' OR name LIKE '$search%')";
-    $result = mysqli_query($con, $sql);
-}
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +23,7 @@ if (!isset($search)) {
         <main class="main-content">
             <h1>Search Items</h1>
             <div class="seacrh-container">
-                <form class="search-form" id="search-form" method="POST">
+                <form class="search-form" id="search-form" >
                     <input type="text" name="search" placeholder="Search for products, Customers & Suppliers.">
                     <button><ion-icon name="search-sharp"></ion-icon></button>
                 </form>
@@ -53,19 +41,25 @@ if (!isset($search)) {
                             </thead>
                             <tbody>
                                 <?php
-                                    if (mysqli_num_rows($result) > 0) {
-                                    while ($row = mysqli_fetch_array(($result))) {
+                                if (isset($_POST['search'])) {
+                                    require '../src/productSearch.php';
+                                    if (count($results) > 0) {
+                                        foreach ($results as $row) {
                                 ?>
-                                <tr>
-                                    <td><?php echo $row['id'];?></td>
-                                    <td><?php echo $row['product_name'];?></td>
-                                    <td><?php echo $row['product_quantity'];?></td>
-                                    <td><?php echo $row['product_price'];?></td>
-                                </tr>
+                                <td>
+                                    <?php echo $row['id'];?>
+                                    <?php echo $row['product_name'];?>
+                                    <?php echo $row['product_quantity'];?>
+                                    <?php echo $row['product_price'];?>
+                                </td>
                                 <?php
+                                        }
+                                    } else {
+                                        echo "<td>No results found</td>";
                                     }
                                 }
                                 ?>
+
                             </tbody>
                         </table>
                     </div>
