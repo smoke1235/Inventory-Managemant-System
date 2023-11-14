@@ -7,13 +7,8 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql =
-"SELECT products.id, products.product_name, products.product_description,
-products.product_quantity, products.product_price, products.other_details, suppliers.name
-FROM products
-INNER JOIN suppliers
-ON products.supplier_id=suppliers.id
-ORDER BY id DESC";
+$sql = "SELECT products.id, product_name, product_description, product_quantity, product_price, other_details, name
+FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id ORDER BY id DESC;";
 
 $result = $con->query($sql);
 ?>
