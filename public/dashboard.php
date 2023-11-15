@@ -40,7 +40,7 @@ require_once '../config/connect.php';
                             echo $data['total'];
                             ?>
                         </h3>
-                        <p>Totale products</p>
+                        <p>Total products</p>
                     </a>
                 </div>
                 <div class="customers-button">
@@ -56,7 +56,7 @@ require_once '../config/connect.php';
                             echo $data['total'];
                             ?>
                         </h3>
-                        <p>Totale Customers</p>
+                        <p>Total Customers</p>
                     </a>
                 </div>
                 <div class="suppliers-button">
@@ -72,7 +72,16 @@ require_once '../config/connect.php';
                             echo $data['total'];
                             ?>
                         </h3>
-                        <p>Totale Suppliers</p>
+                        <p>Total Suppliers</p>
+                    </a>
+                </div>
+                <div class="orders-button">
+                    <?php
+                    $sql = "SELECT COUNT(catergory) AS "
+                    ?>
+                    <a href="orders.php">
+                        <h3></h3>
+                        <p>Total Orders</p>
                     </a>
                 </div>
             </div>

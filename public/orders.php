@@ -32,11 +32,12 @@ require_once '../config/connect.php';
                             <th>Customer</th>
                             <th>Total Price</th>
                             <th>Order started</th>
+                            <th>Expected Delivery</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            
+
                         </tr>
                     </tbody>
                 </table>
