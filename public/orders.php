@@ -41,6 +41,7 @@ $result = $con->query($sql);
                             <th>Total Price</th>
                             <th>Order started</th>
                             <th>Expected Delivery</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <?php while ($row = $result->fetch_assoc()) {?>
@@ -63,6 +64,9 @@ $result = $con->query($sql);
                             </td>
                             <td>
                                 <?php echo $row['expected']; ?>
+                            </td>
+                            <td>
+                                <a class="edit-data" href="">Edit</a>
                             </td>
                         </tr>
                     </tbody>
