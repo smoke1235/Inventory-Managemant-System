@@ -19,7 +19,29 @@ require_once '../config/connect.php';
 </head>
 <body>
     <div class="dashboard-container">
-        
+        <?php include_once '../include/navbar.php'; ?>
+        <main class="main-content">
+            <h1>Orders</h1>
+            <a class="new-data" href="">Add</a>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Status</th>
+                            <th>Customer</th>
+                            <th>Total Price</th>
+                            <th>Order started</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
     </div>
 </body>
 </html>
