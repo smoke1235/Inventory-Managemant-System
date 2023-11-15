@@ -14,11 +14,6 @@
         </li>
     </ul>
     <ul>
-        <li>
-            <button onclick="location.href='search.php'">
-                <ion-icon name="search-sharp"></ion-icon>
-            </button>
-        </li>
         <li><a href="profile.php">Profile</a></li>
         <li><a href="../src/logout.php">Logout</a></li>
     </ul>
