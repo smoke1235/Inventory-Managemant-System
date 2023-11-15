@@ -9,7 +9,6 @@ require_once '../config/connect.php';
 
 $sql = "SELECT products.id, product_name, product_description, product_quantity, product_price, other_details, name
 FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id ORDER BY id DESC;";
-
 $result = $con->query($sql);
 ?>
 
