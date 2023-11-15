@@ -230,6 +230,34 @@ ul {
     color: whitesmoke;
 }
 
+.orders-button {
+    display: flex;
+    margin: 4px;
+    border-radius: 4px;
+    background: #fcbd0f;
+}
+
+.orders-button:hover {
+    background: #fad20a;
+}
+
+.orders-button a {
+    width: 200px;
+}
+
+.orders-button h3 {
+    font-size: 80px;
+}
+
+.orders-button p {
+    font-size: 20px;
+}
+
+.orders-button h3, .orders-button p {
+    margin: 0 3px;
+    color: whitesmoke;
+}
+
 /* ---- table general ---- */
 
 .table-container {

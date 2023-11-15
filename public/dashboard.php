@@ -77,11 +77,15 @@ require_once '../config/connect.php';
                 </div>
                 <div class="orders-button">
                     <?php
-                    $sql = "SELECT COUNT(catergory) AS "
+                    $sql = "SELECT COUNT(*) AS total FROM orders WHERE catergory = '6'";
+                    $result = mysqli_query($con, $sql);
+                    $data = mysqli_fetch_assoc($result);
                     ?>
                     <a href="orders.php">
-                        <h3></h3>
-                        <p>Total Orders</p>
+                        <h3>
+                            <?php echo $data['total']; ?>
+                        </h3>
+                        <p>Orders In Process</p>
                     </a>
                 </div>
             </div>
