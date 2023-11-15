@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 02, 2023 at 11:34 AM
+-- Generation Time: Nov 15, 2023 at 04:19 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.2
 
@@ -146,6 +146,56 @@ INSERT INTO `customers` (`id`, `first_name`, `last_name`, `number`, `email`, `co
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `order_number` int(11) NOT NULL,
+  `catergory` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `unit_price` float NOT NULL,
+  `expected` date NOT NULL,
+  `updated` datetime NOT NULL DEFAULT current_timestamp(),
+  `created` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`id`, `order_number`, `catergory`, `customer_id`, `user_id`, `product_id`, `quantity`, `unit_price`, `expected`, `updated`, `created`) VALUES
+(3, 111111111, 6, 118, 1, 13, 2, 40, '2023-11-29', '2023-11-15 13:50:03', '2023-11-15 13:50:03'),
+(4, 222222222, 3, 73, 1, 33, 1, 12.99, '2023-11-20', '2023-11-15 14:02:36', '2023-11-15 14:02:36');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_catergory`
+--
+
+CREATE TABLE `order_catergory` (
+  `id` int(11) NOT NULL,
+  `status` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `order_catergory`
+--
+
+INSERT INTO `order_catergory` (`id`, `status`) VALUES
+(3, 'PAID'),
+(4, 'RETURNED'),
+(5, 'CLOSED'),
+(6, 'IN PROCESS'),
+(7, 'ARCHIEVED');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `products`
 --
 
@@ -252,7 +302,7 @@ INSERT INTO `products` (`id`, `product_name`, `product_description`, `product_qu
 (97, 'Product 89', 'Description for Product 89', 140, 7.99, 'Details for Product 89', 1, '2023-10-19 10:53:56'),
 (98, 'Product 90', 'Description for Product 90', 65, 14.99, 'Details for Product 90', 1, '2023-10-19 10:53:56'),
 (99, 'Product 91', 'Description for Product 91', 110, 23.99, 'Details for Product 91', 1, '2023-10-19 10:53:56'),
-(100, 'Product 92', 'Description for Product 92', 90, 10.99, 'Details for Product 92', 1, '2023-10-19 10:53:56'),
+(100, 'Product 92', 'Description for Product 92 ', 90, 10.99, 'Details for Product 92', 15, '2023-10-19 10:53:56'),
 (101, 'Product 93', 'Description for Product 93', 70, 9.99, 'Details for Product 93', 1, '2023-10-19 10:53:56'),
 (102, 'Product 94', 'Description for Product 94', 85, 17.99, 'Details for Product 94', 1, '2023-10-19 10:53:56'),
 (103, 'Product 95', 'Description for Product 95', 75, 13.99, 'Details for Product 95', 1, '2023-10-19 10:53:56'),
@@ -270,10 +320,13 @@ INSERT INTO `products` (`id`, `product_name`, `product_description`, `product_qu
 (115, 'Product 11', 'This is the description for Product 11', 150, 44.99, 'Random details for Product 11', 1, '2023-10-19 11:41:20'),
 (116, 'Product 12', 'This is the description for Product 12', 40, 19.99, 'Random details for Product 12', 1, '2023-10-19 11:41:20'),
 (117, 'Product 13', 'This is the description for Product 13', 85, 28.99, 'Random details for Product 13', 1, '2023-10-19 11:41:20'),
-(118, 'Product 14', 'This is the description for Product 14', 55, 10.99, 'Random details for Product 14', 1, '2023-10-19 11:41:20'),
+(118, 'Product 14', 'This is the description for Product 14 ', 55, 10.99, 'Random details for Product 14', 49, '2023-10-19 11:41:20'),
 (119, 'insert test via browser', 'details about product', 1, 0, 'more details', 7, '2023-10-20 13:42:55'),
 (120, 'test voor de zekerheid', 'blue ', 65, 34.59, 'HEAVY 55KG', 17, '2023-10-30 09:03:15'),
-(122, 'banjo', 'yellow', 30, 399, 'fragile', 37, '2023-11-02 11:32:18');
+(122, 'banjo', 'yellow', 30, 399, 'fragile', 37, '2023-11-02 11:32:18'),
+(131, 'spoon', 'Silver', 13, 0.99, 'none', 17, '2023-11-02 15:46:11'),
+(133, 'Necklace', 'Gold', 5, 1399, 'none', 45, '2023-11-02 15:53:01'),
+(134, 'Teddy Bear', 'Brown', 10, 29.99, 'Very comfy to hold', 17, '2023-11-08 15:04:46');
 
 -- --------------------------------------------------------
 
@@ -381,6 +434,22 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product` (`product_id`),
+  ADD KEY `customer` (`customer_id`),
+  ADD KEY `catergory` (`catergory`),
+  ADD KEY `user` (`user_id`);
+
+--
+-- Indexes for table `order_catergory`
+--
+ALTER TABLE `order_catergory`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `products`
 --
 ALTER TABLE `products`
@@ -410,10 +479,22 @@ ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
 
 --
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `order_catergory`
+--
+ALTER TABLE `order_catergory`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=135;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
@@ -430,6 +511,15 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `orders`
+--
+ALTER TABLE `orders`
+  ADD CONSTRAINT `catergory` FOREIGN KEY (`catergory`) REFERENCES `order_catergory` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`
