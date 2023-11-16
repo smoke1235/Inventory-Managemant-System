@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`last_name` ASC;";
+$sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`name` ASC;";
 $result = $con->query($sql);
 
 if (!$result) {
@@ -38,8 +38,7 @@ if (!$result) {
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Company</th>
-                            <th>Number</th>
+                            <th>Phone Number</th>
                             <th>Email</th>
                             <th>Address</th>
                             <th>Actions</th>
@@ -49,10 +48,7 @@ if (!$result) {
                         <tbody>
                             <tr>
                                 <td>
-                                    <?php echo $rows['first_name'] . ' ' . $rows['last_name']; ?>
-                                </td>
-                                <td>
-                                    <?php echo $rows['company_name']; ?>
+                                    <?php echo $rows['name']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['number']; ?>
