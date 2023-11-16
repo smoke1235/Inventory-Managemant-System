@@ -45,7 +45,7 @@ require_once '../config/connect.php';
                 </div>
                 <div class="customers-button">
                     <?php
-                    $sql = "SELECT COUNT(first_name) AS total FROM customers;";
+                    $sql = "SELECT COUNT(id) AS total FROM customers;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>

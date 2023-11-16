@@ -9,11 +9,9 @@ require_once '../config/connect.php';
 
 $sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`name` ASC;";
 $result = $con->query($sql);
-
 if (!$result) {
     die("Invalid quary: " . $con->error);
 }
-
 ?>
 
 <!DOCTYPE html>

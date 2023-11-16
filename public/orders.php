@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT * FROM orders
+$sql = "SELECT *, orders.id AS orderID FROM orders
 INNER JOIN order_catergory ON orders.catergory=order_catergory.id
 INNER JOIN customers ON orders.customer_id=customers.id
 INNER JOIN products ON orders.product_id=products.id
@@ -35,7 +35,7 @@ $result = $con->query($sql);
                 <table aria-label="">
                     <thead>
                         <tr>
-                            <th>Order Number</th>
+                            <th>Order ID</th>
                             <th>Status</th>
                             <th>Customer</th>
                             <th>Total Price</th>
@@ -48,13 +48,13 @@ $result = $con->query($sql);
                     <tbody>
                         <tr>
                             <td>
-                                <?php echo $row['order_number']; ?>
+                                <?php echo $row['orderID']; ?>
                             </td>
                             <td>
                                 <?php echo $row['status']; ?>
                             </td>
                             <td>
-                                <?php echo $row['company_name']; ?>
+                                <?php echo $row['name']; ?>
                             </td>
                             <td>
                                 <?php echo $row['unit_price']; ?>
@@ -67,6 +67,7 @@ $result = $con->query($sql);
                             </td>
                             <td>
                                 <a class="edit-data" href="">Edit</a>
+                                <a class="view-data" href="">View</a>
                             </td>
                         </tr>
                     </tbody>
