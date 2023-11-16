@@ -40,6 +40,7 @@ $result = $con->query($sql);
                             <th>Customer</th>
                             <th>Total Price</th>
                             <th>Order started</th>
+                            <th>Last Updated</th>
                             <th>Expected Delivery</th>
                             <th>Actions</th>
                         </tr>
@@ -61,6 +62,9 @@ $result = $con->query($sql);
                             </td>
                             <td>
                                 <?php echo $row['created']; ?>
+                            </td>
+                            <td>
+                                <?php echo $row['updated']; ?>
                             </td>
                             <td>
                                 <?php echo $row['expected']; ?>
