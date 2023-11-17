@@ -24,7 +24,7 @@ require_once '../config/connect.php';
         <main class="main-content">
             <h1>Add new products</h1>
             <div class="form-container">
-                <?php include "../src/fetch-suppliers.php"; ?>
+                <?php include_once "../src/fetch-suppliers.php"; ?>
                 <form action="../src/insertProductForm.php">
                     <label for="product_name"> Product name: *</label>
                     <input type="text" name="product_name" required>
@@ -48,7 +48,7 @@ require_once '../config/connect.php';
                         ?>
                     </select>
                     <label for="other_details">Other Details</label>
-                    <textarea type="text" name="other_details" rows="8" placeholder="Instructions? Good to know?"></textarea>
+                    <textarea type="text" name="other_details" rows="8" placeholder="Good to know?"></textarea>
                     <input type="submit" value="Submit">
                     <a class="cancel-button" href="products.php">Cancel</a>
                 </form>

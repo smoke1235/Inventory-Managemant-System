@@ -11,7 +11,7 @@ $supplier = (int) $supplier_id;
 $other_details = $_POST['other_details'];
 
 $sql =
-"UPDATE products
+    "UPDATE products
 SET
 product_description= '$product_descr',
 product_quantity= $newQuantity,
