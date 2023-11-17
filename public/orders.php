@@ -8,9 +8,8 @@ if (!isset($_SESSION['loggedin'])) {
 require_once '../config/connect.php';
 
 $sql = "SELECT *, orders.id AS orderID FROM orders
-INNER JOIN order_catergory ON orders.catergory=order_catergory.id
+INNER JOIN order_category ON orders.category=order_category.id
 INNER JOIN customers ON orders.customer_id=customers.id
-INNER JOIN products ON orders.product_id=products.id
 INNER JOIN users ON orders.user_id=users.id
 ORDER BY updated DESC";
 $result = $con->query($sql);
@@ -30,7 +29,7 @@ $result = $con->query($sql);
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Orders</h1>
-            <a class="new-data" href="">Add</a>
+            <a class="new-data" href="insertOrder.php">Add</a>
             <div class="table-container">
                 <table aria-label="">
                     <thead>
@@ -39,9 +38,8 @@ $result = $con->query($sql);
                             <th>Status</th>
                             <th>Customer</th>
                             <th>Total Price</th>
-                            <th>Order started</th>
+                            <th>Created</th>
                             <th>Last Updated</th>
-                            <th>Expected Delivery</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -58,16 +56,10 @@ $result = $con->query($sql);
                                 <?php echo $row['name']; ?>
                             </td>
                             <td>
-                                <?php echo $row['unit_price']; ?>
-                            </td>
-                            <td>
                                 <?php echo $row['created']; ?>
                             </td>
                             <td>
                                 <?php echo $row['updated']; ?>
-                            </td>
-                            <td>
-                                <?php echo $row['expected']; ?>
                             </td>
                             <td>
                                 <a class="edit-data" href="">Edit</a>
