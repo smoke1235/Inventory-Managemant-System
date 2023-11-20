@@ -53,7 +53,7 @@ $result = $con->query($sql);
                                 <?php echo $row['status']; ?>
                             </td>
                             <td>
-                                <?php echo $row['first_name'] . ['last_name']; ?>
+                                <?php echo $row['first_name'] . ' ' . $row['last_name']; ?>
                             </td>
                             <td>
                                 <?php echo $row['created']; ?>

@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`name` ASC;";
+$sql = "SELECT * FROM `customers`  \n" . "ORDER BY `customers`.`last_name` ASC;";
 $result = $con->query($sql);
 if (!$result) {
     die("Invalid quary: " . $con->error);
@@ -46,7 +46,7 @@ if (!$result) {
                         <tbody>
                             <tr>
                                 <td>
-                                    <?php echo $rows['name']; ?>
+                                    <?php echo $rows['first_name'] . ' ' . $rows['last_name']; ?>
                                 </td>
                                 <td>
                                     <?php echo $rows['number']; ?>
