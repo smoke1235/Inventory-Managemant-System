@@ -77,7 +77,7 @@ require_once '../config/connect.php';
                 </div>
                 <div class="orders-button">
                     <?php
-                    $sql = "SELECT COUNT(*) AS total FROM orders WHERE catergory = '6'";
+                    $sql = "SELECT COUNT(*) AS total FROM orders WHERE category = '6'";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
