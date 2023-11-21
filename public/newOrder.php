@@ -14,7 +14,7 @@ require_once '../config/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invtory Manager | New Order</title>
+    <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
 </head>
@@ -24,7 +24,7 @@ require_once '../config/connect.php';
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>New Order</h1>
-            <div class="form-container">
+            <div class="order-form-container">
                 <form action="" method="">
                     <div class="order-form-header">
                         <label for="">Customer:</label>
@@ -46,7 +46,7 @@ require_once '../config/connect.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    
+                                    <td><a class="view-data" href="">Add Product</a></td>
                                 </tr>
                             </tbody>
                         </table>

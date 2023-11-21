@@ -37,7 +37,6 @@ $result = $con->query($sql);
                             <th>Order ID</th>
                             <th>Status</th>
                             <th>Customer</th>
-                            <th>Total Price</th>
                             <th>Created</th>
                             <th>Last Updated</th>
                             <th>Actions</th>

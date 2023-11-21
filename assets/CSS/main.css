@@ -366,6 +366,21 @@ ul {
     color: white;
 }
 
+/* ---- Order Formm ---- */
+
+.order-form-container {
+    width: 100%;
+    height: 82.5vh;
+}
+
+.order-form-content table {
+
+}
+
+.order-form-content th, td {
+    border-bottom: 1px solid #ddd;
+}
+
 /* ---- Action Buttons General ---- */
 
 .new-data {
