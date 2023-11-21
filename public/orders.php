@@ -29,7 +29,7 @@ $result = $con->query($sql);
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Orders</h1>
-            <a class="new-data" href="insertOrder.php">Add</a>
+            <a class="new-data" href="newOrder.php">Create order</a>
             <div class="table-container">
                 <table aria-label="">
                     <thead>
