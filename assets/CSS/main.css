@@ -271,6 +271,44 @@ ul {
     top: 0;
 }
 
+.table-container table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    width: 100%;
+}
+
+.table-container table h2 {
+    padding: 6px;
+}
+
+.table-container table th, table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+}
+
+.table-container table td:first-child {
+    min-width: 150px;
+    max-width: 150px;
+}
+
+.table-container table td:last-child {
+    word-break: break-all;
+}
+
+.table-container table tr:hover {
+    background: #ddd;
+}
+
+.table-container table th {
+    padding: 12 0px;
+    text-align: left;
+    background: #FF5733;
+    color: white;
+}
+
+/* ---- Dashboard table ---- */
+
 .dashboard-table-container {
     margin-top: 20px;
     overflow: auto;
@@ -282,37 +320,46 @@ ul {
     top: 0;
 }
 
+.dashboard-table-container {
+    margin-top: 20px;
+    overflow: auto;
+}
 
-table {
+.dashboard-table-container thead th {
+    position: sticky;
+    top: 0;
+}
+
+.dashboard-table-container table {
     border-collapse: collapse;
     border-spacing: 0;
     border: 1px solid #ddd;
     width: 100%;
 }
 
-table h2 {
+.dashboard-table-container table h2 {
     padding: 6px;
 }
 
-table th, table td {
+.dashboard-table-container table th, table td {
     padding: 8px;
     border: 1px solid #ddd;
 }
 
-table td:first-child {
+.dashboard-table-container table td:first-child {
     min-width: 150px;
     max-width: 150px;
 }
 
-table td:last-child {
+.dashboard-table-container table td:last-child {
     word-break: break-all;
 }
 
-table tr:hover {
+.dashboard-table-container table tr:hover {
     background: #ddd;
 }
 
-table th {
+.dashboard-table-container table th {
     padding: 12 0px;
     text-align: left;
     background: #FF5733;
