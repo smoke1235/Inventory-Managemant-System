@@ -46,7 +46,7 @@ require_once '../config/connect.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><a class="view-data" href="">Add Product</a></td>
+                                    <td colspan="4"><a href="">Add Product</a></td>
                                 </tr>
                             </tbody>
                         </table>

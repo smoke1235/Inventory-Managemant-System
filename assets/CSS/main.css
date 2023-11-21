@@ -282,7 +282,7 @@ ul {
     padding: 6px;
 }
 
-.table-container table th, table td {
+.table-container th, .table-container td {
     padding: 8px;
     border: 1px solid #ddd;
 }
@@ -374,7 +374,7 @@ ul {
 }
 
 .order-form-content table {
-
+    width: 150vh;
 }
 
 .order-form-content th, td {
