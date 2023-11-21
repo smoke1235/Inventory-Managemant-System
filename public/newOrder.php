@@ -23,19 +23,26 @@ require_once '../config/connect.php';
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1>New Order</h1>
+            <h1>New Draft Order</h1>
             <div class="order-form-container">
                 <form action="" method="">
                     <div class="order-form-header">
-                        <label for="">Customer:</label>
-                        <label for="">Phone Number:</label>
-                        <label for="">Email:</label>
-                        <label for="">Address:</label>
-                        <label for="">Created by:</label>
+                        <h2>Customer</h2>
+                        <select name="" id="">
+                            <option value="0">None</option>
+                            <option value="1">I❤️U</option>
+                        </select>
+                        <h2>Shipping Address</h2>
+                        <h2>Billing Address</h2>
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Street">
+                        <input type="text" name="" placeholder="Postal Code">
+                        <input type="text" placeholder="City">
+                        <input type="text" placeholder="Country">
                     </div>
-                    <label for="">Products:</label>
+                    <br><hr>
                     <div class="order-form-content">
-                        <table>
+                        <table aria-label="">
                             <thead>
                                 <tr>
                                     <th>Name</th>
@@ -52,7 +59,7 @@ require_once '../config/connect.php';
                         </table>
                     </div>
                 </form>
-                
+
             </div>
         </main>
     </div>
