@@ -52,6 +52,7 @@ require_once '../config/connect.php';
                         </table>
                     </div>
                 </form>
+                
             </div>
         </main>
     </div>

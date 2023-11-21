@@ -20,7 +20,7 @@ if (!isset($_SESSION["loggedin"])) {
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Help</h1>
-            <div class="sidebar-help">
+            <div class="help">
                 <section>
                     <h2>Collapse Sidebar</h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
