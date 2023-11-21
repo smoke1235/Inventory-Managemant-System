@@ -25,11 +25,32 @@ require_once '../config/connect.php';
         <main class="main-content">
             <h1>New Order</h1>
             <div class="form-container">
-                <form action="">
-                    <label for="">Customer:</label>
-                    <label for="">Address:</label>
-                    <label for="">Created by:</label>
-                    <label for="">Products</label>
+                <form action="" method="">
+                    <div class="order-form-header">
+                        <label for="">Customer:</label>
+                        <label for="">Phone Number:</label>
+                        <label for="">Email:</label>
+                        <label for="">Address:</label>
+                        <label for="">Created by:</label>
+                    </div>
+                    <label for="">Products:</label>
+                    <div class="order-form-content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Description</th>
+                                    <th>Qty</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </form>
             </div>
         </main>
