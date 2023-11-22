@@ -320,11 +320,6 @@ ul {
     top: 0;
 }
 
-.dashboard-table-container {
-    margin-top: 20px;
-    overflow: auto;
-}
-
 .dashboard-table-container thead th {
     position: sticky;
     top: 0;
@@ -373,16 +368,39 @@ ul {
     height: 82.5vh;
     border-radius: 4px;
     background: whitesmoke;
+    border: 1px solid gray;
 }
 
 .order-form-content table {
     width: 150vh;
+    border-collapse: collapse;
 }
 
 .order-form-content th, td {
     border-bottom: 1px solid black;
 }
 
+.order-form-header {
+    display: flex;
+    flex-direction: row;
+    margin: 4px;
+}
+
+.order-form-customer {
+    display: flex;
+    flex-direction: column;
+    width: 55vh;
+    height: 20vh;
+}
+
+.order-form-customer select {
+    width: 25vh;
+}
+
+.order-form-shipping {
+    width: 55vh;
+    height: 20vh;
+}
 /* ---- Action Buttons General ---- */
 
 .new-data {

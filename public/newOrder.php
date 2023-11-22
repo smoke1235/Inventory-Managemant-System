@@ -23,22 +23,38 @@ require_once '../config/connect.php';
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1>New Draft Order</h1>
+            <div class="order-title">
+                <h1>New Order</h1>
+                <a href="">Cancel</a>
+                <a href="">Save</a>
+            </div>
             <div class="order-form-container">
                 <form action="" method="">
                     <div class="order-form-header">
-                        <h2>Customer</h2>
-                        <select name="" id="">
-                            <option value="0">None</option>
-                            <option value="1">I❤️U</option>
-                        </select>
-                        <h2>Shipping Address</h2>
-                        <h2>Billing Address</h2>
-                        <input type="text" placeholder="Name">
-                        <input type="text" placeholder="Street">
-                        <input type="text" name="" placeholder="Postal Code">
-                        <input type="text" placeholder="City">
-                        <input type="text" placeholder="Country">
+                        <section class="order-form-customer">
+                            <h2>Customer</h2>
+                            <select name="select-customer" id="">
+                                <option value="0">None</option>
+                                <option value="1">I❤️U</option>
+                            </select>
+                            <a href="">New Customer</a>
+                        </section>
+                        <section class="order-form-shipping">
+                            <h2>Shipping Address</h2>
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Street">
+                            <input type="text" name="" placeholder="Postal Code">
+                            <input type="text" placeholder="City">
+                            <input type="text" placeholder="Country">
+                        </section>
+                        <section class="order-form-billing">
+                            <h2>Billing Address</h2>
+                            <input type="text" placeholder="Name">
+                            <input type="text" placeholder="Street">
+                            <input type="text" name="" placeholder="Postal Code">
+                            <input type="text" placeholder="City">
+                            <input type="text" placeholder="Country">
+                        </section>
                     </div>
                     <br><hr>
                     <div class="order-form-content">
@@ -59,7 +75,6 @@ require_once '../config/connect.php';
                         </table>
                     </div>
                 </form>
-
             </div>
         </main>
     </div>
