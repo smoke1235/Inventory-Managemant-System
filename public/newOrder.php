@@ -27,7 +27,7 @@ require_once '../config/connect.php';
                 <h1>New Order</h1>
                 <section class="">
                     <a href="">Cancel</a>
-                    <a href="">Save</a>
+                    <a class="view-data" href="">Save</a>
                 </section>
             </div>
             <div class="order-form-container">
@@ -48,6 +48,7 @@ require_once '../config/connect.php';
                             <input type="text" name="" placeholder="Postal Code">
                             <input type="text" placeholder="City">
                             <input type="text" placeholder="Country">
+                            <a href="">Edit</a>
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
@@ -56,6 +57,7 @@ require_once '../config/connect.php';
                             <input type="text" name="" placeholder="Postal Code">
                             <input type="text" placeholder="City">
                             <input type="text" placeholder="Country">
+                            <a href="">Edit</a>
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>

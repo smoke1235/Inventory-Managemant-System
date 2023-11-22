@@ -367,10 +367,14 @@ ul {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+}
+
+.order-title section {
+    margin: 0 8px;
 }
 
 .order-form-container {
-    width: 150vh;
     height: 82.5vh;
     border-radius: 4px;
     background: whitesmoke;
@@ -389,13 +393,14 @@ ul {
 .order-form-header {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     margin: 4px;
 }
 
 .order-form-customer {
     display: flex;
     flex-direction: column;
-    width: 55vh;
+    width: 25vh;
     height: 20vh;
 }
 
@@ -404,22 +409,22 @@ ul {
 }
 
 .order-form-shipping {
-    width: 55vh;
+    width: 25vh;
     height: 20vh;
 }
 
 .order-form-billing {
-    width: 55vh;
+    width: 25vh;
     height: 20vh;
 }
 
 .order-form-status {
-    width: 55vh;
+    width: 25vh;
     height: 20vh;
 }
 
 .order-form-status select {
-    width: 25vh;
+    width: 15vh;
 }
 
 /* ---- Action Buttons General ---- */
