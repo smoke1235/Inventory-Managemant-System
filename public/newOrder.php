@@ -35,7 +35,7 @@ require_once '../config/connect.php';
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
-                            <select name="select-customer" id="">
+                            <select name="customer-select" id="customer-select" onchange="customerChange(this.value)">
                                 <option value="0">None</option>
                             <?php
                                 include_once '../src/fetch-customers.php';
@@ -98,6 +98,23 @@ require_once '../config/connect.php';
             </div>
         </main>
     </div>
+    <script>
+        function customerChange(id) {
+            $.ajax ({
+                type:       'post',
+                data:       {'id': id},
+                url:        'newOrder.php',
+                dataType:   'json',
+                success:    function(res){
+                    alert(res)
+                },
+                error: function(res){
+                    $('#message').text('Error!');
+                    $('.dvLoading').hide();
+                }
+            });
+        }
+    </script>
 </body>
 
 </html>
