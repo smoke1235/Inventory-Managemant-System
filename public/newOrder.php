@@ -37,9 +37,17 @@ require_once '../config/connect.php';
                             <h2>Customer</h2>
                             <select name="select-customer" id="">
                                 <option value="0">None</option>
-                                <option value="1">I❤️U</option>
+                            <?php
+                                include_once '../src/fetch-customers.php';
+                                foreach ($options as $option) {
+                                    ?>
+                                    <option value="<?php echo $option['id']; ?>">
+                                        <?php echo $option['first_name'] . ' ' . $option['last_name']; ?>
+                                    </option>
+                                    <?php
+                                }
+                            ?>
                             </select>
-                            <a href="">Change Customer</a>
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
@@ -48,7 +56,6 @@ require_once '../config/connect.php';
                             <input type="text" name="" placeholder="Postal Code">
                             <input type="text" placeholder="City">
                             <input type="text" placeholder="Country">
-                            <a href="">Edit</a>
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
@@ -57,7 +64,6 @@ require_once '../config/connect.php';
                             <input type="text" name="" placeholder="Postal Code">
                             <input type="text" placeholder="City">
                             <input type="text" placeholder="Country">
-                            <a href="">Edit</a>
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
