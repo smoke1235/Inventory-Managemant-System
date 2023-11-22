@@ -26,7 +26,7 @@ require_once '../config/connect.php';
             <div class="order-title">
                 <h1>New Order</h1>
                 <section class="">
-                    <a href="">Cancel</a>
+                    <a href="orders.php">Cancel</a>
                     <a class="view-data" href="">Save</a>
                 </section>
             </div>
@@ -39,7 +39,7 @@ require_once '../config/connect.php';
                                 <option value="0">None</option>
                                 <option value="1">I❤️U</option>
                             </select>
-                            <a href="">New Customer</a>
+                            <a href="">Change Customer</a>
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
