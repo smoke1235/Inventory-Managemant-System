@@ -25,8 +25,10 @@ require_once '../config/connect.php';
         <main class="main-content">
             <div class="order-title">
                 <h1>New Order</h1>
-                <a href="">Cancel</a>
-                <a href="">Save</a>
+                <section class="">
+                    <a href="">Cancel</a>
+                    <a href="">Save</a>
+                </section>
             </div>
             <div class="order-form-container">
                 <form action="" method="">

@@ -363,8 +363,14 @@ ul {
 
 /* ---- Order Formm ---- */
 
+.order-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .order-form-container {
-    width: 100%;
+    width: 150vh;
     height: 82.5vh;
     border-radius: 4px;
     background: whitesmoke;
@@ -372,7 +378,7 @@ ul {
 }
 
 .order-form-content table {
-    width: 150vh;
+    width: 100%;
     border-collapse: collapse;
 }
 
@@ -401,6 +407,21 @@ ul {
     width: 55vh;
     height: 20vh;
 }
+
+.order-form-billing {
+    width: 55vh;
+    height: 20vh;
+}
+
+.order-form-status {
+    width: 55vh;
+    height: 20vh;
+}
+
+.order-form-status select {
+    width: 25vh;
+}
+
 /* ---- Action Buttons General ---- */
 
 .new-data {
