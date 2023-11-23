@@ -36,7 +36,7 @@ include_once '../src/fetch-customers.php';
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
-                            <select name="customer-select" id="customer-select" onchange="customerChange(this.value)">
+                            <select name="customer-select" id="customer-select" onchange="showCustomer(this.value)">
                                 <option value="0">None</option>
                             <?php
                                 foreach ($options as $option) {
@@ -100,6 +100,21 @@ include_once '../src/fetch-customers.php';
             </div>
         </main>
     </div>
+    <script>
+        function showCustomer(str) {
+            var xhttp;
+            if (str == "") {
+                document.getElementById("txtHint").innerHTML = "";
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    documet.getElementById("txtHint").innerHTML = this.responseText;
+                }
+            };
+            xhttp.open("GET", "")
+        }
+    </script>
 </body>
 
 </html>
