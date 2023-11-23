@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedin'])) {
 }
 
 require_once '../config/connect.php';
+include_once '../src/fetch-customers.php';
 ?>
 
 <!DOCTYPE html>
@@ -38,7 +39,6 @@ require_once '../config/connect.php';
                             <select name="customer-select" id="customer-select" onchange="customerChange(this.value)">
                                 <option value="0">None</option>
                             <?php
-                                include_once '../src/fetch-customers.php';
                                 foreach ($options as $option) {
                                     ?>
                                     <option value="<?php echo $option['id']; ?>">
@@ -51,19 +51,21 @@ require_once '../config/connect.php';
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Street">
-                            <input type="text" name="" placeholder="Postal Code">
-                            <input type="text" placeholder="City">
-                            <input type="text" placeholder="Country">
+                            <input type="text" name="shipping_name" placeholder="Name">
+                            <input type="text" name="shipping_company" placeholder="Compamy name">
+                            <input type="text" name="shipping_street" placeholder="Street">
+                            <input type="text" name="shipping_postal_code" placeholder="Postal Code">
+                            <input type="text" name="shipping_city" placeholder="City">
+                            <input type="text" name="shipping_country" placeholder="Country">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
-                            <input type="text" placeholder="Name">
-                            <input type="text" placeholder="Street">
-                            <input type="text" name="" placeholder="Postal Code">
-                            <input type="text" placeholder="City">
-                            <input type="text" placeholder="Country">
+                            <input type="text" name="billing_name" placeholder="Name">
+                            <input type="text" name="billing_company" placeholder="Company name">
+                            <input type="text" name="billing_street" placeholder="Street">
+                            <input type="text" name="billing_postal_code" placeholder="Postal Code">
+                            <input type="text" name="billing_city" placeholder="City">
+                            <input type="text" name="billing_country" placeholder="Country">
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
