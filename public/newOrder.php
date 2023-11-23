@@ -98,23 +98,6 @@ require_once '../config/connect.php';
             </div>
         </main>
     </div>
-    <script>
-        function customerChange(id) {
-            $.ajax ({
-                type:       'post',
-                data:       {'id': id},
-                url:        'newOrder.php',
-                dataType:   'json',
-                success:    function(res){
-                    alert(res)
-                },
-                error: function(res){
-                    $('#message').text('Error!');
-                    $('.dvLoading').hide();
-                }
-            });
-        }
-    </script>
 </body>
 
 </html>
