@@ -27,11 +27,11 @@ require_once '../config/connect.php';
                 <h1>New Order</h1>
                 <section class="">
                     <a href="orders.php">Cancel</a>
-                    <a class="view-data" href="">Save</a>
+                    <input type="submit" name="submit" value="Save" form="create-order">
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" method="">
+                <form action="" method="" id="create-order">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
