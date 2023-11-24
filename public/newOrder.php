@@ -7,6 +7,8 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
+
+
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +20,7 @@ include_once '../src/fetch-customers.php';
     <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 
 <body>
@@ -32,7 +35,7 @@ include_once '../src/fetch-customers.php';
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" method="" id="create-order">
+                <form action="" method="POST" id="create-order">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
@@ -51,12 +54,12 @@ include_once '../src/fetch-customers.php';
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
-                            <input type="text" name="shipping_name" placeholder="Name">
-                            <input type="text" name="shipping_company" placeholder="Compamy name">
-                            <input type="text" name="shipping_street" placeholder="Street">
-                            <input type="text" name="shipping_postal_code" placeholder="Postal Code">
-                            <input type="text" name="shipping_city" placeholder="City">
-                            <input type="text" name="shipping_country" placeholder="Country">
+                            <input type="text" name="shipping_name" id="customer-name" placeholder="Name">
+                            <input type="text" name="shipping_company" id="customer-company" placeholder="Compamy name">
+                            <input type="text" name="shipping_street" id="customer-street" placeholder="Street">
+                            <input type="text" name="shipping_postal_code" id="customer-postalcode" placeholder="Postal Code">
+                            <input type="text" name="shipping_city" id="customer-city" placeholder="City">
+                            <input type="text" name="shipping_country" id="customer-country" placeholder="Country">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
@@ -101,19 +104,27 @@ include_once '../src/fetch-customers.php';
         </main>
     </div>
     <script>
-        function showCustomer(str) {
-            var xhttp;
-            if (str == "") {
-                document.getElementById("txtHint").innerHTML = "";
+        $(function() {
+            $('#customer-select').on('change',function(e)) {
+                $.ajax({
+                    url:    "../src/get-customers.php",
+                    type:   'POST',
+                    data:   {
+                        customer-select: $('#customer-select').val()
+                    },
+                    success: function(data) {
+                        customerSelected = JSON.parse(data);
+
+                        $('#')
+                        $('#')
+                        $('#')
+                        $('#')
+                        $('#')
+                        $('#')
+                    },
+                });
             }
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    documet.getElementById("txtHint").innerHTML = this.responseText;
-                }
-            };
-            xhttp.open("GET", "")
-        }
+        });
     </script>
 </body>
 
