@@ -9,7 +9,16 @@ require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
 
 if($_SERVER['REQUEST_METHOD']=='POST') {
-    $_POST['']=date(DATE_ATOM);
+    $_POST['date']=date(DATE_ATOM);
+
+    $_POST['customer-name'];
+    $_POST['customer-company'];
+    $_POST['customer-street'];
+    $_POST['customer-postalcode'];
+    $_POST['customer-city'];
+    $_POST['customer-country'];
+
+    exit(json_encode($_POST));
 }
 ?>
 
@@ -22,7 +31,7 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
     <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -56,12 +65,12 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
-                            <input type="text" name="shipping_name" id="customer-name" placeholder="Name">
-                            <input type="text" name="shipping_company" id="customer-company" placeholder="Compamy name">
-                            <input type="text" name="shipping_street" id="customer-street" placeholder="Street">
-                            <input type="text" name="shipping_postal_code" id="customer-postalcode" placeholder="Postal Code">
-                            <input type="text" name="shipping_city" id="customer-city" placeholder="City">
-                            <input type="text" name="shipping_country" id="customer-country" placeholder="Country">
+                            <input type="text" name="shipping_name" id="customer-name" placeholder="Name" value="">
+                            <input type="text" name="shipping_company" id="customer-company" placeholder="Compamy name" value="">
+                            <input type="text" name="shipping_street" id="customer-street" placeholder="Street" value="">
+                            <input type="text" name="shipping_postal_code" id="customer-postalcode" placeholder="Postal Code" value="">
+                            <input type="text" name="shipping_city" id="customer-city" placeholder="City" value="">
+                            <input type="text" name="shipping_country" id="customer-country" placeholder="Country" value="">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
@@ -123,9 +132,9 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
                         $('#customer-postalcode').val(customerData.customer-postalcode);
                         $('#customer-city').val(customerData.customer-city);
                         $('#country-country').val(customerData.customer-country);
-                    },
+                    }
                 });
-            }
+            };
         });
     </script>
 </body>
