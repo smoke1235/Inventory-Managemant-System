@@ -115,12 +115,12 @@ include_once '../src/fetch-customers.php';
                     success: function(data) {
                         customerSelected = JSON.parse(data);
 
-                        $('#')
-                        $('#')
-                        $('#')
-                        $('#')
-                        $('#')
-                        $('#')
+                        $('#customer-name').val(customerData.customer-name);
+                        $('#customer-company').val(customerData.customer-company);
+                        $('#customer-street').val(customerData.customer-street);
+                        $('#customer-postalcode').val(customerData.customer-postalcode);
+                        $('#customer-city').val(customerData.customer-city);
+                        $('#country-country').val(customerData.customer-country);
                     },
                 });
             }
