@@ -8,7 +8,9 @@ if (!isset($_SESSION['loggedin'])) {
 require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
 
-
+if($_SERVER['REQUEST_METHOD']=='POST') {
+    $_POST['']=date(DATE_ATOM);
+}
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +37,7 @@ include_once '../src/fetch-customers.php';
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" method="POST" id="create-order">
+                <form action="" id="create-order" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
