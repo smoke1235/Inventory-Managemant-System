@@ -54,18 +54,18 @@ include_once '../src/fetch-customers.php';
                             <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
                             <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name">
                             <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
-                            <input type="text" name="shipping_postal_code" id="shipping_postalcode" placeholder="Postal Code">
+                            <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code">
                             <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
                             <input type="text" name="shipping_country" id="shipping_country" placeholder="Country">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
-                            <input type="text" name="billing_name" placeholder="Full Name">
-                            <input type="text" name="billing_company" placeholder="Company name">
-                            <input type="text" name="billing_street" placeholder="Street">
-                            <input type="text" name="billing_postal_code" placeholder="Postal Code">
-                            <input type="text" name="billing_city" placeholder="City">
-                            <input type="text" name="billing_country" placeholder="Country">
+                            <input type="text" name="billing_name" id="billing_name" placeholder="Full Name">
+                            <input type="text" name="billing_company" id="billing_company" placeholder="Company Name">
+                            <input type="text" name="billing_street" id="billing_street" placeholder="Street">
+                            <input type="text" name="billing_postalcode" id="billing_postalcode" placeholder="Postal Code">
+                            <input type="text" name="billing_city" id="billing_city" placeholder="City">
+                            <input type="text" name="billing_country" id="billing_country" placeholder="Country">
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
@@ -117,8 +117,12 @@ include_once '../src/fetch-customers.php';
                     document.getElementById("shipping_city").value = data['city'];
                     document.getElementById("shipping_country").value = data['country'];
 
-                    document.getElementById("shipping_street").value = data['street'];
-                    
+                    document.getElementById("billing_name").value = data['first_name'] + " " + data['last_name'];
+                    document.getElementById("billing_company").value = data['company_name'];
+                    document.getElementById("billing_street").value = data['street'];
+                    document.getElementById("billing_postalcode").value = data['postcode'];
+                    document.getElementById("billing_city").value = data['city'];
+                    document.getElementById("billing_country").value = data['country'];
                 }
             };
 
