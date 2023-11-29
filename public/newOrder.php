@@ -52,7 +52,7 @@ include_once '../src/fetch-customers.php';
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
                             <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
-                            <input type="text" name="shipping_company" id="sjipping_company" placeholder="Compamy name">
+                            <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name">
                             <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
                             <input type="text" name="shipping_postal_code" id="shipping_postalcode" placeholder="Postal Code">
                             <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
@@ -110,7 +110,15 @@ include_once '../src/fetch-customers.php';
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var data = JSON.parse(xhr.responseText);
 
-                    document.getElementById("shipping_name").value = data['first_name'];
+                    document.getElementById("shipping_name").value = data['first_name'] + " " + data['last_name'];
+                    document.getElementById("shipping_company").value = data['company_name'];
+                    document.getElementById("shipping_street").value = data['street'];
+                    document.getElementById("shipping_postalcode").value = data['postcode'];
+                    document.getElementById("shipping_city").value = data['city'];
+                    document.getElementById("shipping_country").value = data['country'];
+
+                    document.getElementById("shipping_street").value = data['street'];
+                    
                 }
             };
 
