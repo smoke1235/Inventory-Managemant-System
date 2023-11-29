@@ -48,6 +48,9 @@ include_once '../src/fetch-customers.php';
                                 }
                             ?>
                             </select>
+                            <h3>Contact Info</h3>
+                            <input type="text" name="customer_number" id="customer_number">
+                            <input type="text" name="customer_email" id="customer_email">
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
@@ -109,6 +112,9 @@ include_once '../src/fetch-customers.php';
             xhr.onreadystatechange = function () {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var data = JSON.parse(xhr.responseText);
+
+                    document.getElementById("customer_number").value = data['number'];
+                    document.getElementById("customer_email").value = data['email'];
 
                     document.getElementById("shipping_name").value = data['first_name'] + " " + data['last_name'];
                     document.getElementById("shipping_company").value = data['company_name'];
