@@ -36,7 +36,7 @@ include_once '../src/fetch-customers.php';
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
-                            <select name="customer-select" id="customer-select" onchange="showCustomer(this.value)">
+                            <select name="customer-select" id="customer-select" onchange="populateTextInput()">
                                 <option value="0">None</option>
                             <?php
                                 foreach ($options as $option) {
@@ -101,7 +101,7 @@ include_once '../src/fetch-customers.php';
         </main>
     </div>
     <script>
-        function populateTextInput {
+        function populateTextInput() {
             var selectedOption = document.getElementById("customer-select");
             var selectedValue = selectedOption.value;
 
@@ -110,10 +110,11 @@ include_once '../src/fetch-customers.php';
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     var data = JSON.parse(xhr.responseText);
 
-                    document.getElementById("").value = data[selectedValue];
+                    document.getElementById("shipping_name").value = data['first_name'];
                 }
             };
-            xhr.open("GET", "../src/getcustomers.php?selectedvalue=" + selectedValue, true);
+
+            xhr.open("GET", "../src/get-customers.php?selectedValue=" + selectedValue, true);
             xhr.send();
         }
     </script>
