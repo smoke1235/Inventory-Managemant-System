@@ -7,19 +7,6 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
-
-if($_SERVER['REQUEST_METHOD']=='POST') {
-    $_POST['date']=date(DATE_ATOM);
-
-    $_POST['customer-name'];
-    $_POST['customer-company'];
-    $_POST['customer-street'];
-    $_POST['customer-postalcode'];
-    $_POST['customer-city'];
-    $_POST['customer-country'];
-
-    exit(json_encode($_POST));
-}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +18,6 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
     <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -65,16 +51,16 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
-                            <input type="text" name="shipping_name" id="customer-name" placeholder="Name" value="">
-                            <input type="text" name="shipping_company" id="customer-company" placeholder="Compamy name" value="">
-                            <input type="text" name="shipping_street" id="customer-street" placeholder="Street" value="">
-                            <input type="text" name="shipping_postal_code" id="customer-postalcode" placeholder="Postal Code" value="">
-                            <input type="text" name="shipping_city" id="customer-city" placeholder="City" value="">
-                            <input type="text" name="shipping_country" id="customer-country" placeholder="Country" value="">
+                            <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
+                            <input type="text" name="shipping_company" id="sjipping_company" placeholder="Compamy name">
+                            <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
+                            <input type="text" name="shipping_postal_code" id="shipping_postalcode" placeholder="Postal Code">
+                            <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
+                            <input type="text" name="shipping_country" id="shipping_country" placeholder="Country">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
-                            <input type="text" name="billing_name" placeholder="Name">
+                            <input type="text" name="billing_name" placeholder="Full Name">
                             <input type="text" name="billing_company" placeholder="Company name">
                             <input type="text" name="billing_street" placeholder="Street">
                             <input type="text" name="billing_postal_code" placeholder="Postal Code">
@@ -115,27 +101,21 @@ if($_SERVER['REQUEST_METHOD']=='POST') {
         </main>
     </div>
     <script>
-        $(function() {
-            $('#customer-select').on('change',function(e)) {
-                $.ajax({
-                    url:    "../src/get-customers.php",
-                    type:   'POST',
-                    data:   {
-                        customer-select: $('#customer-select').val()
-                    },
-                    success: function(data) {
-                        customerSelected = JSON.parse(data);
+        function populateTextInput {
+            var selectedOption = document.getElementById("customer-select");
+            var selectedValue = selectedOption.value;
 
-                        $('#customer-name').val(customerData.customer-name);
-                        $('#customer-company').val(customerData.customer-company);
-                        $('#customer-street').val(customerData.customer-street);
-                        $('#customer-postalcode').val(customerData.customer-postalcode);
-                        $('#customer-city').val(customerData.customer-city);
-                        $('#country-country').val(customerData.customer-country);
-                    }
-                });
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+
+                    document.getElementById("").value = data[selectedValue];
+                }
             };
-        });
+            xhr.open("GET", "../src/getcustomers.php?selectedvalue=" + selectedValue, true);
+            xhr.send();
+        }
     </script>
 </body>
 
