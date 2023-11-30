@@ -23,7 +23,7 @@
 <img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="10%" width="100%">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
-        <li><a href="orders.php">Orders</a></li>
+        <li><a href="invoice.php">invoices</a></li>
         <li><a href="products.php">Products</a></li>
         <li><a href="customers.php">Customers</a></li>
         <li><a href="suppliers.php">Suppliers</a></li>

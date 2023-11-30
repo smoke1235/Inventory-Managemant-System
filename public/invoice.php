@@ -7,11 +7,10 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT *, orders.id AS orderID FROM invoices
-INNER JOIN invoice_category ON invoice.category=invoice_category.id
-INNER JOIN customers ON invoices.customer_id=customers.id
-INNER JOIN users ON invoices.user_id=users.id
-ORDER BY updated DESC";
+$sql = "SELECT *, invoices.id AS invoiceID FROM invoices\n"
+    . "INNER JOIN invoice_category ON invoices.category=invoice_category.id\n"
+    . "INNER JOIN customers ON invoices.customer_id=customers.id\n"
+    . "INNER JOIN users ON invoices.user_id=users.id\n";
 $result = $con->query($sql);
 ?>
 
@@ -28,13 +27,13 @@ $result = $con->query($sql);
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <h1>Orders</h1>
-            <a class="new-data" href="newOrder.php">Create order</a>
+            <h1>Invoices</h1>
+            <a class="new-data" href="newOrder.php">Create invoice</a>
             <div class="table-container">
                 <table aria-label="">
                     <thead>
                         <tr>
-                            <th>Order ID</th>
+                            <th>ID</th>
                             <th>Status</th>
                             <th>Customer</th>
                             <th>Created</th>

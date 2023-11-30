@@ -77,7 +77,7 @@ require_once '../config/connect.php';
                 </div>
                 <div class="orders-button">
                     <?php
-                    $sql = "SELECT COUNT(*) AS total FROM orders WHERE category = '6'";
+                    $sql = "SELECT COUNT(*) AS total FROM invoices WHERE category = '6'";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
@@ -85,7 +85,7 @@ require_once '../config/connect.php';
                         <h3>
                             <?php echo $data['total']; ?>
                         </h3>
-                        <p>Orders In Process</p>
+                        <p>Invoices this month</p>
                     </a>
                 </div>
             </div>
