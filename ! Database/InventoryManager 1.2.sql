@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2023 at 04:19 PM
+-- Generation Time: Nov 30, 2023 at 04:42 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.2
 
@@ -29,169 +29,107 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `customers` (
   `id` int(11) NOT NULL,
-  `first_name` varchar(80) NOT NULL,
-  `last_name` varchar(80) NOT NULL,
+  `first_name` varchar(90) NOT NULL,
+  `last_name` varchar(90) NOT NULL,
+  `company_name` varchar(60) NOT NULL,
   `number` varchar(20) NOT NULL,
   `email` varchar(200) NOT NULL,
-  `company_name` varchar(100) NOT NULL,
   `street` varchar(90) NOT NULL,
   `postcode` varchar(8) NOT NULL,
   `city` varchar(90) NOT NULL,
-  `country` varchar(60) NOT NULL,
-  `date` datetime NOT NULL DEFAULT current_timestamp()
+  `country` varchar(60) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `first_name`, `last_name`, `number`, `email`, `company_name`, `street`, `postcode`, `city`, `country`, `date`) VALUES
-(48, 'Michael', 'Brown', '0', '', 'MB Inc.', '101 Pine Street', '54321', 'Smallville', 'USA', '2023-10-19 11:09:44'),
-(49, 'Jennifer', 'Lee', '0', '', 'Lee Corporation', '202 Oak Avenue', '98765', 'Metro City', 'Canada', '2023-10-19 11:09:44'),
-(50, 'Robert', 'Williams', '0', '', 'Williams Group', '303 Maple Road', '11111', 'Newtown', 'UK', '2023-10-19 11:09:44'),
-(51, 'Linda', 'Jones', '0', '', 'Jones Enterprises', '404 Birch Lane', '22222', 'Ruralville', 'Australia', '2023-10-19 11:09:44'),
-(52, 'William', 'Taylor', '0', '', 'Taylor Co.', '505 Cedar Lane', '33333', 'Suburbia', 'Germany', '2023-10-19 11:09:44'),
-(53, 'Emily', 'Anderson', '0', '', 'Anderson Ltd.', '606 Redwood Drive', '44444', 'Villageville', 'France', '2023-10-19 11:09:44'),
-(54, 'James', 'Wilson', '0', '', 'Wilson Group', '707 Elm Way', '55555', 'Hometown', 'Spain', '2023-10-19 11:09:44'),
-(55, 'Mary', 'Davis', '0', '', 'MD Corporation', '808 Spruce Lane', '66666', 'Bigtown', 'Italy', '2023-10-19 11:09:44'),
-(56, 'David', 'Moore', '0', '', 'Moore Enterprises', '909 Pine Road', '77777', 'Megacity', 'Japan', '2023-10-19 11:09:44'),
-(57, 'Susan', 'Clark', '0', '', 'Clark Co.', '1010 Maple Avenue', '88888', 'Gotham City', 'South Korea', '2023-10-19 11:09:44'),
-(58, 'Karen', 'Miller', '0', '', 'Miller Ltd.', '1111 Birch Street', '99999', 'Springfield', 'Brazil', '2023-10-19 11:09:44'),
-(59, 'Charles', 'White', '0', '', 'White Corporation', '1212 Oak Lane', '12345', 'Central City', 'Mexico', '2023-10-19 11:09:44'),
-(60, 'Jessica', 'Thomas', '0', '', 'Thomas Group', '1313 Elm Road', '23456', 'Metropolis', 'Argentina', '2023-10-19 11:09:44'),
-(61, 'Matthew', 'Harris', '0', '', 'Harris Enterprises', '1414 Redwood Way', '34567', 'Harbor City', 'India', '2023-10-19 11:09:44'),
-(62, 'Patricia', 'Martin', '0', '', 'Martin Ltd.', '1515 Cedar Avenue', '45678', 'Beach Town', 'China', '2023-10-19 11:09:44'),
-(63, 'Richard', 'Thompson', '0', '', 'Thompson Co.', '1616 Maple Lane', '56789', 'Mountainview', 'Russia', '2023-10-19 11:09:44'),
-(64, 'Sarah', 'Walker', '0', '', 'Walker Corporation', '1717 Pine Drive', '67890', 'Lakeside', 'South Africa', '2023-10-19 11:09:44'),
-(65, 'John', 'Wilson', '0', '', 'Wilson Group', '1818 Birch Avenue', '76543', 'Villagetown', 'New Zealand', '2023-10-19 11:09:44'),
-(66, 'Nancy', 'Davis', '0', '', 'Davis Enterprises', '1919 Oak Road', '65432', 'Suburbville', 'Ireland', '2023-10-19 11:09:44'),
-(67, 'Daniel', 'Hall', '0', '', 'Hall Corporation', '2020 Elm Way', '54321', 'Countryville', 'Sweden', '2023-10-19 11:09:44'),
-(68, 'Lisa', 'Lewis', '0', '', 'Lewis Co.', '2121 Maple Street', '43210', 'Townsville', 'Netherlands', '2023-10-19 11:09:44'),
-(69, 'Paul', 'Parker', '0', '', 'Parker Group', '2222 Cedar Road', '32109', 'Citytown', 'Belgium', '2023-10-19 11:09:44'),
-(70, 'Elizabeth', 'Wood', '0', '', 'Wood Ltd.', '2323 Redwood Lane', '21098', 'Downtown', 'Portugal', '2023-10-19 11:09:44'),
-(71, 'Kevin', 'Young', '0', '', 'Young Corporation', '2424 Pine Avenue', '10987', 'Hillside', 'Greece', '2023-10-19 11:09:44'),
-(72, 'Laura', 'Scott', '0', '', 'Scott Co.', '2525 Oak Lane', '09876', 'Valleyville', 'Norway', '2023-10-19 11:09:44'),
-(73, 'Andrew', 'Evans', '0', '', 'Evans Enterprises', '2626 Elm Drive', '98765', 'Beachtown', 'Denmark', '2023-10-19 11:09:44'),
-(74, 'Sharon', 'Roberts', '0', '', 'Roberts Ltd.', '2727 Birch Street', '87654', 'Parkville', 'Finland', '2023-10-19 11:09:44'),
-(75, 'Mark', 'Turner', '0', '', 'Turner Group', '2828 Maple Way', '76543', 'Riverside', 'Switzerland', '2023-10-19 11:09:44'),
-(76, 'Cynthia', 'Reed', '0', '', 'Reed Corporation', '2929 Cedar Road', '65432', 'Highland', 'Austria', '2023-10-19 11:09:44'),
-(77, 'Steven', 'Cook', '0', '', 'Cook Ltd.', '3030 Redwood Avenue', '54321', 'Uptown', 'Poland', '2023-10-19 11:09:44'),
-(78, 'Karen', 'Kelly', '0', '', 'Kelly Co.', '3131 Pine Lane', '43210', 'Laketown', 'Czech Republic', '2023-10-19 11:09:44'),
-(79, 'Eric', 'Rivera', '0', '', 'Rivera Group', '3232 Oak Drive', '32109', 'Hometown', 'Hungary', '2023-10-19 11:09:44'),
-(80, 'Michelle', 'Gonzalez', '0', '', 'Gonzalez Co.', '3333 Elm Avenue', '21098', 'Villageville', 'Slovakia', '2023-10-19 11:09:44'),
-(81, 'Joseph', 'Baker', '0', '', 'Baker Enterprises', '3434 Birch Street', '10987', 'Villagetown', 'Romania', '2023-10-19 11:09:44'),
-(82, 'Susan', 'Hall', '0', '', 'Hall Ltd.', '3535 Maple Lane', '09876', 'Suburbia', 'Bulgaria', '2023-10-19 11:09:44'),
-(83, 'Thomas', 'Ross', '0', '', 'Ross Group', '3636 Cedar Road', '98765', 'Countryside', 'Croatia', '2023-10-19 11:09:44'),
-(84, 'Lisa', 'Phillips', '0', '', 'Phillips Co.', '3737 Redwood Road', '87654', 'Smalltown', 'Serbia', '2023-10-19 11:09:44'),
-(85, 'David', 'Hernandez', '0', '', 'Hernandez Ltd.', '3838 Pine Way', '76543', 'Countryside', 'Slovenia', '2023-10-19 11:09:44'),
-(86, 'Jennifer', 'Morgan', '0', '', 'Morgan Corporation', '3939 Oak Avenue', '65432', 'Hillville', 'Estonia', '2023-10-19 11:09:44'),
-(87, 'William', 'Butler', '0', '', 'Butler Group', '4040 Elm Lane', '54321', 'Lowville', 'Latvia', '2023-10-19 11:09:44'),
-(88, 'Mary', 'Simmons', '0', '', 'Simmons Co.', '4141 Birch Drive', '43210', 'Forestville', 'Lithuania', '2023-10-19 11:09:44'),
-(89, 'Daniel', 'Foster', '0', '', 'Foster Enterprises', '4242 Maple Street', '32109', 'Villageland', 'Ukraine', '2023-10-19 11:09:44'),
-(90, 'Nancy', 'Gomez', '0', '', 'Gomez Co.', '4343 Cedar Lane', '21098', 'Lakeland', 'Belarus', '2023-10-19 11:09:44'),
-(91, 'Richard', 'Hayes', '0', '', 'Hayes Corporation', '4444 Redwood Lane', '10987', 'Landville', 'Moldova', '2023-10-19 11:09:44'),
-(92, 'Deborah', 'Webb', '0', '', 'Webb Ltd.', '4545 Pine Road', '09876', 'Townsville', 'Uzbekistan', '2023-10-19 11:09:44'),
-(93, 'Kenneth', 'Bishop', '0', '', 'Bishop Group', '4646 Oak Street', '98765', 'Villagefield', 'Kazakhstan', '2023-10-19 11:09:44'),
-(94, 'Susan', 'Weaver', '0', '', 'Weaver Corporation', '4747 Elm Way', '87654', 'Countryfield', 'Tajikistan', '2023-10-19 11:09:44'),
-(95, 'John', 'Anderson', '0', '', 'Anderson Inc.', '101 Pine Street', '54321', 'Smallville', 'USA', '2023-10-19 11:11:15'),
-(96, 'Sarah', 'Harris', '0', '', 'Harris Corporation', '202 Oak Avenue', '98765', 'Metro City', 'Canada', '2023-10-19 11:11:15'),
-(97, 'Michael', 'Wilson', '0', '', 'Wilson Co.', '303 Maple Road', '11111', 'Newtown', 'UK', '2023-10-19 11:11:15'),
-(98, 'Jennifer', 'Smith', '0', '', 'Smith Ltd.', '404 Birch Lane', '22222', 'Ruralville', 'Australia', '2023-10-19 11:11:15'),
-(99, 'David', 'Martin', '0', '', 'Martin Enterprises', '505 Cedar Lane', '33333', 'Suburbia', 'Germany', '2023-10-19 11:11:15'),
-(100, 'Laura', 'Garcia', '0', '', 'Garcia Ltd.', '606 Redwood Drive', '44444', 'Villageville', 'France', '2023-10-19 11:11:15'),
-(101, 'William', 'Brown', '0', '', 'Brown Co.', '707 Elm Way', '55555', 'Hometown', 'Spain', '2023-10-19 11:11:15'),
-(102, 'Linda', 'Moore', '0', '', 'Moore Corporation', '808 Spruce Lane', '66666', 'Bigtown', 'Italy', '2023-10-19 11:11:15'),
-(103, 'Robert', 'Taylor', '0', '', 'Taylor Group', '909 Pine Road', '77777', 'Megacity', 'Japan', '2023-10-19 11:11:15'),
-(104, 'Mary', 'Davis', '0', '', 'Davis Inc.', '1010 Maple Avenue', '88888', 'Gotham City', 'South Korea', '2023-10-19 11:11:15'),
-(105, 'James', 'Hall', '0', '', 'Hall Ltd.', '1111 Birch Street', '99999', 'Springfield', 'Brazil', '2023-10-19 11:11:15'),
-(106, 'Karen', 'Thomas', '0', '', 'Thomas Enterprises', '1212 Oak Lane', '12345', 'Central City', 'Mexico', '2023-10-19 11:11:15'),
-(107, 'Elizabeth', 'Young', '0', '', 'Young Group', '1313 Elm Road', '23456', 'Metropolis', 'Argentina', '2023-10-19 11:11:15'),
-(108, 'Charles', 'Hernandez', '0', '', 'Hernandez Corporation', '1414 Redwood Way', '34567', 'Harbor City', 'India', '2023-10-19 11:11:15'),
-(109, 'Jennifer', 'Lewis', '0', '', 'Lewis Co.', '1515 Cedar Avenue', '45678', 'Beach Town', 'China', '2023-10-19 11:11:15'),
-(110, 'Joseph', 'Roberts', '0', '', 'Roberts Inc.', '1616 Maple Lane', '56789', 'Mountainview', 'Russia', '2023-10-19 11:11:15'),
-(111, 'Cynthia', 'Turner', '0', '', 'Turner Enterprises', '1717 Pine Drive', '67890', 'Lakeside', 'South Africa', '2023-10-19 11:11:15'),
-(112, 'Paul', 'King', '0', '', 'King Group', '1818 Birch Avenue', '76543', 'Villagetown', 'New Zealand', '2023-10-19 11:11:15'),
-(113, 'Mark', 'Thompson', '0', '', 'Thompson Ltd.', '1919 Oak Road', '65432', 'Suburbville', 'Ireland', '2023-10-19 11:11:15'),
-(114, 'Karen', 'Perez', '0', '', 'Perez Corporation', '2020 Elm Way', '54321', 'Countryville', 'Sweden', '2023-10-19 11:11:15'),
-(115, 'Steven', 'Scott', '0', '', 'Scott Inc.', '2121 Maple Street', '43210', 'Townsville', 'Netherlands', '2023-10-19 11:11:15'),
-(116, 'Jennifer', 'Adams', '06123456789', 'j.adams@example.nl', 'Adams Co.', '2222 Cedar Road', '32109', 'Citytown', 'Belgium', '2023-10-19 11:11:15'),
-(117, 'David', 'Evans', '0', '', 'Evans Group', '2323 Redwood Lane', '21098', 'Downtown', 'Portugal', '2023-10-19 11:11:15'),
-(118, 'Amy', 'Cooper', '0', '', 'Cooper Ltd.', '2424 Pine Avenue', '10987', 'Hillside', 'Greece', '2023-10-19 11:11:15'),
-(119, 'Robert', 'Foster', '0', '', 'Foster Corporation', '2525 Oak Lane', '09876', 'Valleyville', 'Norway', '2023-10-19 11:11:15'),
-(120, 'Nancy', 'Bell', '0', '', 'Bell Co.', '2626 Elm Drive', '98765', 'Beachtown', 'Denmark', '2023-10-19 11:11:15'),
-(121, 'Matthew', 'Bennett', '0', '', 'Bennett Group', '2727 Birch Street', '87654', 'Parkville', 'Finland', '2023-10-19 11:11:15'),
-(122, 'Lisa', 'Reed', '0', '', 'Reed Ltd.', '2828 Maple Way', '76543', 'Riverside', 'Switzerland', '2023-10-19 11:11:15'),
-(123, 'Richard', 'Price', '0', '', 'Price Co.', '2929 Cedar Road', '65432', 'Highland', 'Austria', '2023-10-19 11:11:15'),
-(124, 'Laura', 'Fisher', '0', '', 'Fisher Group', '3030 Redwood Avenue', '54321', 'Uptown', 'Poland', '2023-10-19 11:11:15'),
-(125, 'Michael', 'Mitchell', '0', '', 'Mitchell Ltd.', '3131 Pine Lane', '43210', 'Laketown', 'Czech Republic', '2023-10-19 11:11:15'),
-(126, 'Sarah', 'Russell', '0', '', 'Russell Corporation', '3232 Oak Drive', '32109', 'Hometown', 'Hungary', '2023-10-19 11:11:15'),
-(127, 'Christopher', 'Ward', '0', '', 'Ward Co.', '3333 Elm Avenue', '21098', 'Villageville', 'Slovakia', '2023-10-19 11:11:15'),
-(128, 'Sharon', 'Carter', '0', '', 'Carter Ltd.', '3434 Birch Street', '10987', 'Villagetown', 'Romania', '2023-10-19 11:11:15'),
-(129, 'Daniel', 'Barnes', '0', '', 'Barnes Group', '3535 Maple Lane', '09876', 'Suburbia', 'Bulgaria', '2023-10-19 11:11:15'),
-(130, 'Sarah', 'Baker', '0', '', 'Baker Inc.', '3636 Cedar Road', '98765', 'Countryside', 'Croatia', '2023-10-19 11:11:15'),
-(131, 'Jason', 'Diaz', '0', '', 'Diaz Corporation', '3737 Redwood Road', '87654', 'Smalltown', 'Serbia', '2023-10-19 11:11:15'),
-(132, 'Jennifer', 'Stewart', '0', '', 'Stewart Co.', '3838 Pine Way', '76543', 'Countryside', 'Slovenia', '2023-10-19 11:11:15'),
-(133, 'Daniel', 'Gomez', '0', '', 'Gomez Ltd.', '3939 Oak Avenue', '65432', 'Hillville', 'Estonia', '2023-10-19 11:11:15'),
-(134, 'Sarah', 'Ward', '0', '', 'Ward Group', '4040 Elm Lane', '54321', 'Lowville', 'Latvia', '2023-10-19 11:11:15'),
-(135, 'Jason', 'Morales', '0', '', 'Morales Co.', '4141 Birch Drive', '43210', 'Forestville', 'Lithuania', '2023-10-19 11:11:15'),
-(136, 'Susan', 'Myers', '0', '', 'Myers Ltd.', '4242 Maple Street', '32109', 'Villageland', 'Ukraine', '2023-10-19 11:11:15'),
-(137, 'Joseph', 'Powell', '0', '', 'Powell Group', '4343 Cedar Lane', '21098', 'Lakeland', 'Belarus', '2023-10-19 11:11:15'),
-(138, 'Cynthia', 'Watson', '0', '', 'Watson Corporation', '4444 Redwood Lane', '10987', 'Landville', 'Moldova', '2023-10-19 11:11:15'),
-(139, 'David', 'Sullivan', '0', '', 'Sullivan Co.', '4545 Pine Road', '09876', 'Townsville', 'Uzbekistan', '2023-10-19 11:11:15'),
-(140, 'Karen', 'Burns', '0', '', 'Burns Group', '4646 Oak Street', '98765', 'Villagefield', 'Kazakhstan', '2023-10-19 11:11:15'),
-(141, 'Steven', 'Fox', '0', '', 'Fox Corporation', '4747 Elm Way', '87654', 'Countryfield', 'Tajikistan', '2023-10-19 11:11:15'),
-(142, 'Henk', 'Tee', '6123456789', 'henk.t@test.com', 'tee bv', 'straat 1', '1234 aa', 'rotterdam', 'Nederland', '2023-10-30 11:54:50'),
-(143, 'Mike', 'Tyson', '6123456789', 'm.tyson@axample.com', 'boxer LLC.', 'oxerstreet', '1234 AA', 'Chicago', 'USA', '2023-11-02 11:30:04');
+INSERT INTO `customers` (`id`, `first_name`, `last_name`, `company_name`, `number`, `email`, `street`, `postcode`, `city`, `country`) VALUES
+(144, 'John', 'Doe', 'John Doe', '123456789', 'john.doe@example.com', '123 Main St', '12345', 'Cityville', 'Countryland'),
+(145, 'jane', 'Smith', 'Jane Smith', '987654321', 'jane.smith@example.com', '456 Oak St', '54321', 'Townsville', 'Countryland'),
+(146, 'Bob', 'Johnson', 'Bob Johnson', '456789012', 'bob.johnson@example.com', '789 Pine St', '67890', 'Villagetown', 'Countryland'),
+(147, 'Alice', 'Brown', 'Alice Brown', '321098765', 'alice.brown@example.com', '987 Cedar St', '09876', 'Hamletville', 'Countryland'),
+(148, 'Cahrlie', 'White', 'Charlie White', '789012345', 'charlie.white@example.com', '654 Birch St', '34567', 'Metropolis', 'Countryland'),
+(149, 'Eva', 'Green', 'Eva Green', '210987654', 'eva.green@example.com', '876 Maple St', '21098', 'Cityburg', 'Countryland'),
+(150, 'David', 'Black', 'David Black', '543210987', 'david.black@example.com', '321 Elm St', '87654', 'Suburbia', 'Countryland'),
+(151, 'Grace', 'Red', 'Grace Red', '678901234', 'grace.red@example.com', '234 Walnut St', '10987', 'Villageville', 'Countryland'),
+(152, 'Samuel', 'Grey', 'Samuel Grey', '890123456', 'samuel.grey@example.com', '789 Pine St', '34521', 'Hamletburg', 'Countryland'),
+(153, 'Olivia', 'Blue', 'Olivia Blue', '432109876', 'olivia.blue@example.com', '567 Spruce St', '56789', 'Citytown', 'Countryland'),
+(154, 'Michael', 'Davis', 'Michael Davis', '345678901', 'michael.davis@example.com', '543 Oak St', '45678', 'Townburg', 'Countryland'),
+(155, 'Sophia', 'White', 'Sophia White', '567890123', 'sophia.white@example.com', '876 Birch St', '56789', 'Villageburg', 'Countryland'),
+(156, 'Daniel', 'Miller', 'Daniel Miller', '789012345', 'daniel.miller@example.com', '123 Cedar St', '67890', 'Cityville', 'Countryland'),
+(157, 'Emma', 'Wilson', 'Emma Wilson', '890123456', 'emma.wilson@example.com', '456 Pine St', '78901', 'Suburbville', 'Countryland'),
+(158, 'Joseph', 'Taylor', 'Joseph Taylor', '210987654', 'joseph.taylor@example.com', '789 Elm St', '89012', 'Metropolistown', 'Countryland'),
+(159, 'Madison', 'Martinez', 'Madison Martinez', '432109876', 'madison.martinez@example.com', '987 Spruce St', '90123', 'Hamletville', 'Countryland'),
+(160, 'Christopher', 'Harris', 'Christopher Harris', '654321098', 'christopher.harris@example.com', '234 Maple St', '23456', 'Villageburg', 'Countryland'),
+(161, 'Isabella', 'Anderson', 'Isabella Anderson', '876543210', 'isabella.anderson@example.com', '567 Oak St', '34567', 'Citytown', 'Countryland'),
+(162, 'Andrew', 'Jakson', 'Andrew Jackson', '987654321', 'andrew.jackson@example.com', '876 Cedar St', '45678', 'Suburbia', 'Countryland'),
+(163, 'Eva', 'Brown', 'Ava Brown', '109876543', 'ava.brown@example.com', '321 Pine St', '56789', 'Cityburg', 'Countryland'),
+(164, 'Test', 'Test', 'Test B.V.', '06123456778', 'test@example.com', 'teststraat 12', '1234 AA', 'testerdam', 'Nederland');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Table structure for table `invoices`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE `invoices` (
   `id` int(11) NOT NULL,
-  `order_number` int(11) NOT NULL,
-  `catergory` int(11) NOT NULL,
+  `category` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `product_id` int(11) NOT NULL,
-  `quantity` int(11) NOT NULL,
-  `unit_price` float NOT NULL,
-  `expected` date NOT NULL,
+  `shipping_name` varchar(100) NOT NULL,
+  `shipping_company` varchar(100) DEFAULT NULL,
+  `shipping_street` varchar(100) NOT NULL,
+  `shipping_postalcode` varchar(7) NOT NULL,
+  `shipping_city` varchar(100) NOT NULL,
+  `shipping_country` varchar(100) NOT NULL,
+  `billing_name` varchar(100) NOT NULL,
+  `billing_company` varchar(100) DEFAULT NULL,
+  `billing_street` varchar(100) NOT NULL,
+  `billing_postalcode` varchar(7) NOT NULL,
+  `billing_city` varchar(100) NOT NULL,
+  `billing_country` varchar(100) NOT NULL,
   `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `orders`
---
-
-INSERT INTO `orders` (`id`, `order_number`, `catergory`, `customer_id`, `user_id`, `product_id`, `quantity`, `unit_price`, `expected`, `updated`, `created`) VALUES
-(3, 111111111, 6, 118, 1, 13, 2, 40, '2023-11-29', '2023-11-15 13:50:03', '2023-11-15 13:50:03'),
-(4, 222222222, 3, 73, 1, 33, 1, 12.99, '2023-11-20', '2023-11-15 14:02:36', '2023-11-15 14:02:36');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_catergory`
+-- Table structure for table `invoice_category`
 --
 
-CREATE TABLE `order_catergory` (
+CREATE TABLE `invoice_category` (
   `id` int(11) NOT NULL,
   `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `order_catergory`
+-- Dumping data for table `invoice_category`
 --
 
-INSERT INTO `order_catergory` (`id`, `status`) VALUES
+INSERT INTO `invoice_category` (`id`, `status`) VALUES
 (3, 'PAID'),
 (4, 'RETURNED'),
 (5, 'CLOSED'),
 (6, 'IN PROCESS'),
-(7, 'ARCHIEVED');
+(7, 'ARCHIEVED'),
+(8, 'SHIPPING'),
+(9, 'SHIPPED');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `invoice_line`
+--
+
+CREATE TABLE `invoice_line` (
+  `id` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `product_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -205,7 +143,7 @@ CREATE TABLE `products` (
   `product_description` varchar(100) DEFAULT NULL,
   `product_quantity` int(11) NOT NULL,
   `product_price` float NOT NULL,
-  `other_details` varchar(500) DEFAULT NULL,
+  `other_details` text DEFAULT NULL,
   `supplier_id` int(11) DEFAULT NULL,
   `date` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -413,15 +351,15 @@ CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
   `password` varchar(90) NOT NULL,
   `email` varchar(80) DEFAULT NULL,
-  `dateTime` datetime NOT NULL DEFAULT current_timestamp()
+  `created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`, `dateTime`) VALUES
-(1, 'test', 'test', '', '2023-10-19 09:45:52');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `created`) VALUES
+(1, 'test', 'test', 'test@test.com', '2023-10-19 09:45:52');
 
 --
 -- Indexes for dumped tables
@@ -434,20 +372,26 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indexes for table `invoices`
 --
-ALTER TABLE `orders`
+ALTER TABLE `invoices`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `product` (`product_id`),
   ADD KEY `customer` (`customer_id`),
-  ADD KEY `catergory` (`catergory`),
+  ADD KEY `catergory` (`category`),
   ADD KEY `user` (`user_id`);
 
 --
--- Indexes for table `order_catergory`
+-- Indexes for table `invoice_category`
 --
-ALTER TABLE `order_catergory`
+ALTER TABLE `invoice_category`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `invoice_line`
+--
+ALTER TABLE `invoice_line`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `product` (`product_id`);
 
 --
 -- Indexes for table `products`
@@ -476,19 +420,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=144;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT for table `invoices`
 --
-ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `invoices`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
--- AUTO_INCREMENT for table `order_catergory`
+-- AUTO_INCREMENT for table `invoice_category`
 --
-ALTER TABLE `order_catergory`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `invoice_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `invoice_line`
+--
+ALTER TABLE `invoice_line`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `products`
@@ -513,13 +463,19 @@ ALTER TABLE `users`
 --
 
 --
--- Constraints for table `orders`
+-- Constraints for table `invoices`
 --
-ALTER TABLE `orders`
-  ADD CONSTRAINT `catergory` FOREIGN KEY (`catergory`) REFERENCES `order_catergory` (`id`) ON UPDATE CASCADE,
+ALTER TABLE `invoices`
+  ADD CONSTRAINT `catergory` FOREIGN KEY (`category`) REFERENCES `invoice_category` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+
+--
+-- Constraints for table `invoice_line`
+--
+ALTER TABLE `invoice_line`
+  ADD CONSTRAINT `orderID` FOREIGN KEY (`id`) REFERENCES `invoices` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `products`
