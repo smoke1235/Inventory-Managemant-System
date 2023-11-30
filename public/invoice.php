@@ -28,7 +28,7 @@ $result = $con->query($sql);
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <h1>Invoices</h1>
-            <a class="new-data" href="newOrder.php">Create invoice</a>
+            <a class="new-data" href="createInvoice.php">Create invoice</a>
             <div class="table-container">
                 <table aria-label="">
                     <thead>

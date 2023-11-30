@@ -340,6 +340,10 @@ ul {
     max-width: 150px;
 }
 
+.dashboard-table-container table td {
+    border: 1px solid #ddd;
+}
+
 .dashboard-table-container table td:last-child {
     word-break: break-all;
 }
@@ -380,7 +384,7 @@ ul {
     border-collapse: collapse;
 }
 
-.order-form-content th, td {
+.order-form-content table th, table td {
     border-bottom: 1px solid black;
 }
 
