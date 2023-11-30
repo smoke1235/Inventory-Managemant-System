@@ -77,7 +77,7 @@ require_once '../config/connect.php';
                 </div>
                 <div class="orders-button">
                     <?php
-                    $sql = "SELECT COUNT(*) AS total FROM invoices WHERE category = '6'";
+                    $sql = "SELECT COUNT(id) AS total FROM invoices WHERE MONTH(updated) = MONTH(CURRENT_DATE) ORDER BY updated;";
                     $result = mysqli_query($con, $sql);
                     $data = mysqli_fetch_assoc($result);
                     ?>
