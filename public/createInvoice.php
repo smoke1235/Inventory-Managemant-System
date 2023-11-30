@@ -73,7 +73,9 @@ include_once '../src/fetch-customers.php';
                         <section class="order-form-status">
                             <h2>Status</h2>
                             <select name="order-status">
-                                <option value="6">IN PROCESS</option>
+                                <option value="6">IN PROCESS</option>   
+                                <option value="8">SHIPPING</option>
+                                <option value="9">SHIPPED</option>
                                 <option value="3">PAID</option>
                                 <option value="4">RETURNED</option>
                                 <option value="5">CLOSED</option>
