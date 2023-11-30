@@ -333,7 +333,6 @@ ul {
 
 .dashboard-table-container table th, table td {
     padding: 8px;
-    border: 1px solid #ddd;
 }
 
 .dashboard-table-container table td:first-child {
