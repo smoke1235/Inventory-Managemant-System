@@ -1,3 +1,8 @@
+var formField = document.getElementById('formField');
+
 function addFields() {
-    var 
+    var newField = document.createElement('input');
+    newField.setAttribute('type','text');
+    newField.setAttribute('name','product');
 }
+
