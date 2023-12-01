@@ -19,6 +19,7 @@ include_once '../src/fetch-customers.php';
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
     <script src="../assets/js/populateTextInput.js"></script>
+    <script src="../assets/js/addFields.js"></script>
 </head>
 
 <body>
