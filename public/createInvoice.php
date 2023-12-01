@@ -96,7 +96,7 @@ include_once '../src/fetch-customers.php';
                                     <th>Price</th>
                                 </tr>
                             </thead>
-                            <tbody id="formField">
+                            <tbody>
                                 <tr>
                                     <td colspan="4"><a href="">Add Product</a></td>
                                 </tr>
