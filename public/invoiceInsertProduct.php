@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/CSS/popup.css">
 </head>
 <body>
-    <div class="conatiner">
+    <div class="container">
         <div class="input-container">
             <h1>Search Product</h1>
             <input type="text" id="">
