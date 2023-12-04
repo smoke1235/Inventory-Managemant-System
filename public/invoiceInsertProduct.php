@@ -6,15 +6,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Iventory Manager | Add product for invoice</title>
     <link rel="stylesheet" href="../assets/CSS/popup.css">
+    <script src="../assets/js/showProductResult.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="input-container">
             <h1>Search Product</h1>
-            <input type="text" id="">
+            <input type="text" name="search" id="search" placeholder="Search" onkeyup="load_data(this.value);">
             <div class="results-container">
                 <table id="">
                     <thead>
@@ -26,11 +27,7 @@
                             <th id="price">Price</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <!-- insert product data here -->
-                        </tr>
-                    </tbody>
+                    <tbody id="post_data"></tbody>
                 </table>
             </div>
         </div>
