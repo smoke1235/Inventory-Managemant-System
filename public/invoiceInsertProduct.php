@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Iventory Manager | Add product for invoice</title>
     <link rel="stylesheet" href="../assets/CSS/popup.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="../assets/js/showProductResult.js"></script>
 </head>
 
@@ -15,9 +16,9 @@
     <div class="container">
         <div class="input-container">
             <h1>Search Product</h1>
-            <input type="text" name="search" id="search" placeholder="Search" onkeyup="load_data(this.value);">
+            <input type="text" name="search" id="search" placeholder="Search">
             <div class="results-container">
-                <table id="">
+                <table aria-label="">
                     <thead>
                         <tr>
                             <th id="number">No.</th>
@@ -27,7 +28,7 @@
                             <th id="price">Price</th>
                         </tr>
                     </thead>
-                    <tbody id="post_data"></tbody>
+                    <tbody id="result"></tbody>
                 </table>
             </div>
         </div>

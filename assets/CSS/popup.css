@@ -33,6 +33,7 @@ input[type=text] {
     margin: 8px;
     height: 62vh;
     width: 80%;
+    overflow: auto;
     border: 1px solid white;
     border-radius: 4px;
     background: white;
@@ -41,6 +42,21 @@ input[type=text] {
 table {
     width: 100%;
     table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    background: white;
+}
+
+td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    border: 1px solid #ddd;
 }
 
 #number {
@@ -48,7 +64,7 @@ table {
 }
 
 #product {
-    width: 25%;
+    width: 35%;
 }
 #desc {
     width: 40%;
@@ -59,11 +75,5 @@ table {
 }
 
 #price {
-    width: 25%;
-}
-
-td {
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    width: 10%;
 }
