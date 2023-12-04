@@ -28,7 +28,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            //insert product data
+                            <!-- insert product data here -->
                         </tr>
                     </tbody>
                 </table>
