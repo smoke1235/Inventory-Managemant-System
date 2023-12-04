@@ -8,3 +8,9 @@ function addFields() {
     formField.appendChild(newField);
 }
 
+function remove() {
+    var input_tags = formField.getElementsByTagName('input');
+    if(input_tags.length > 2) {
+        formField.removeChild(input_tags[(input_tags.length) - 1]);
+    }
+}
