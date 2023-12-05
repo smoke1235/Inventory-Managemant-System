@@ -2,7 +2,7 @@ $(document).ready(function(){
     function load_data(query) {
         $.ajax({
             url:            "../src/liveSearch.php",
-            methode:        "POST",
+            type:        "POST",
             data:           {query:query},
             success:        function(data)
             {

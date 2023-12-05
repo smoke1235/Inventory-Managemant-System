@@ -32,7 +32,7 @@ input[type=text] {
 .results-container {
     margin: 8px;
     height: 62vh;
-    width: 80%;
+    width: 85%;
     overflow: auto;
     border: 1px solid white;
     border-radius: 4px;

@@ -7,9 +7,6 @@ if(isset($_POST["query"])) {
     $query = "SELECT * FROM products
     WHERE id LIKE  '%".$search."%'
     OR product_name LIKE '%".$search."%'
-    OR product_description LIKE '%".$search."%'
-    OR product_quantity LIKE  '%".$search."%'
-    OR product_price LIKE '%".$search."%'
     ";
 } else {
     $query = "SELECT * FROM products";

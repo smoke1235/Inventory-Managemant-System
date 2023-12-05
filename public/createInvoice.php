@@ -27,7 +27,7 @@ include_once '../src/fetch-customers.php';
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <div class="order-title">
-                <h1>New Order</h1>
+                <h1>New Invoice</h1>
                 <section class="">
                     <a href="orders.php">Cancel</a>
                     <input type="submit" name="submit" value="Save" form="create-order">
