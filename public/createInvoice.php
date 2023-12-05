@@ -21,12 +21,14 @@ include_once '../src/fetch-customers.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
     <script src="../assets/js/addFields.js"></script>
+    <script src="../assets/js/selectProductPopup.js"></script>
 </head>
 
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
+            <div id="space" class="space"></div>
             <div class="order-title">
                 <h1>New Invoice</h1>
                 <section class="">
@@ -76,7 +78,7 @@ include_once '../src/fetch-customers.php';
                         <section class="order-form-status">
                             <h2>Status</h2>
                             <select name="order-status">
-                                <option value="6">IN PROCESS</option>   
+                                <option value="6">IN PROCESS</option>
                                 <option value="8">SHIPPING</option>
                                 <option value="9">SHIPPED</option>
                                 <option value="3">PAID</option>
@@ -99,7 +101,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4"><a href="" class="new-product">Add Product</a></td>
+                                    <td colspan="4"><button class="invoice-new-product">Add product</button></td>
                                 </tr>
                             </tbody>
                         </table>

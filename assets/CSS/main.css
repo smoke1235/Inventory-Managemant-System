@@ -169,7 +169,8 @@ ul {
     font-size: 20px;
 }
 
-.products-button h3, .products-button p {
+.products-button h3,
+.products-button p {
     margin: 0 3px;
     color: whitesmoke;
 }
@@ -197,7 +198,8 @@ ul {
     font-size: 20px;
 }
 
-.customers-button h3, .customers-button p {
+.customers-button h3,
+.customers-button p {
     margin: 0 3px;
     color: whitesmoke;
 }
@@ -225,7 +227,8 @@ ul {
     font-size: 20px;
 }
 
-.suppliers-button h3, .suppliers-button p {
+.suppliers-button h3,
+.suppliers-button p {
     margin: 0 3px;
     color: whitesmoke;
 }
@@ -253,7 +256,8 @@ ul {
     font-size: 20px;
 }
 
-.orders-button h3, .orders-button p {
+.orders-button h3,
+.orders-button p {
     margin: 0 3px;
     color: whitesmoke;
 }
@@ -282,21 +286,25 @@ ul {
     padding: 6px;
 }
 
-.table-container th, .table-container td {
+.table-container th,
+.table-container td {
     padding: 8px;
     border: 1px solid #ddd;
 }
 
-.table-container table td:first-child {
+.table-container
+table td:first-child {
     min-width: 150px;
     max-width: 150px;
 }
 
-.table-container table td:last-child {
+.table-container
+table td:last-child {
     word-break: break-all;
 }
 
-.table-container table tr:hover {
+.table-container
+table tr:hover {
     background: #ddd;
 }
 
@@ -331,11 +339,13 @@ ul {
     padding: 6px;
 }
 
-.dashboard-table-container table th, table td {
+.dashboard-table-container table th,
+table td {
     padding: 8px;
 }
 
-.dashboard-table-container table td:first-child {
+.dashboard-table-container
+table td:first-child {
     min-width: 150px;
     max-width: 150px;
 }
@@ -344,11 +354,13 @@ ul {
     border: 1px solid #ddd;
 }
 
-.dashboard-table-container table td:last-child {
+.dashboard-table-container
+table td:last-child {
     word-break: break-all;
 }
 
-.dashboard-table-container table tr:hover {
+.dashboard-table-container
+table tr:hover {
     background: #ddd;
 }
 
@@ -384,7 +396,8 @@ ul {
     border-collapse: collapse;
 }
 
-.order-form-content table th, table td {
+.order-form-content table th,
+table td {
     border-bottom: 1px solid black;
 }
 
@@ -423,6 +436,15 @@ ul {
 
 .order-form-status select {
     width: 15vh;
+}
+
+.invoice-new-product {
+    margin: 8 0px;
+    border: none;
+    border-radius: 2px;
+    height: 25px;
+    width: 100px;
+    cursor: pointer;
 }
 
 /* ---- Action Buttons General ---- */
@@ -514,11 +536,26 @@ input[type=submit]:hover {
     margin-top: 8px;
 }
 
-.form-container form input[type=text], input[type=number], select {
+.form-container form input[type=text],
+input[type=number],
+select {
     width: 100%;
     height: 3vh;
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
+}
+
+/* ---- Popup ---- */
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgb(0, 0, 0, 0.4);
 }
