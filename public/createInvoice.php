@@ -18,6 +18,7 @@ include_once '../src/fetch-customers.php';
     <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
     <script src="../assets/js/addFields.js"></script>
 </head>
@@ -98,7 +99,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4"><a href="">Add Product</a></td>
+                                    <td colspan="4"><a href="" class="new-product">Add Product</a></td>
                                 </tr>
                             </tbody>
                         </table>

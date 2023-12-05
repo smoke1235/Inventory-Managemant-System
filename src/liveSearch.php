@@ -25,5 +25,5 @@ if (mysqli_num_rows($result) > 0) {
     }
     echo $return;
 } else {
-    echo 'No results Found.';
+    echo '<tr><td colspan="5" style="text-align: center;">No results Found.</td></tr>';
 }
