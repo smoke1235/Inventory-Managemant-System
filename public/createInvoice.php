@@ -18,6 +18,7 @@ include_once '../src/fetch-customers.php';
     <title>Inventory Manager | New Order</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
     <script src="../assets/js/addFields.js"></script>
@@ -28,10 +29,12 @@ include_once '../src/fetch-customers.php';
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <div id="space" class="space"></div>
+            <div id="space" class="space">
+                <?php include_once '../include/invoiceInsertProduct.php'; ?>
+            </div>
             <div class="order-title">
                 <h1>New Invoice</h1>
-                <section class="">
+                <section>
                     <a href="orders.php">Cancel</a>
                     <input type="submit" name="submit" value="Save" form="create-order">
                 </section>
@@ -101,7 +104,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4"><button class="invoice-new-product">Add product</button></td>
+                                    <td colspan="4"><button class="invoice-new-product" id="productSelector">Add product</button></td>
                                 </tr>
                             </tbody>
                         </table>
