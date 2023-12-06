@@ -22,14 +22,14 @@ include_once '../src/fetch-customers.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
     <script src="../assets/js/addFields.js"></script>
-    <script src="../assets/js/selectProductPopup.js"></script>
+    <script src="../assets/js/productSelectorPopup.js"></script>
 </head>
 
 <body>
     <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
-            <div id="space" class="space">
+            <div id="myModal" class="modal">
                 <?php include_once '../include/invoiceInsertProduct.php'; ?>
             </div>
             <div class="order-title">

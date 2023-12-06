@@ -1,7 +1,7 @@
-var space = document.getElementById("");
-var productSelector = document.getElementById("productSelector");
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("productSelector");
 
-Btn.onclick = function() {
+btn.onclick = function() {
     modal.style.display = "block";
 }
 
