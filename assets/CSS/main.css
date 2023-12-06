@@ -445,6 +445,12 @@ table td {
     height: 25px;
     width: 100px;
     cursor: pointer;
+    background: #3c9dea;
+    color: white;
+}
+
+.invoice-new-product:hover {
+    background: #2eb6ff;
 }
 
 /* ---- Action Buttons General ---- */
