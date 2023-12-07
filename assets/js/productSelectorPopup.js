@@ -1,5 +1,6 @@
 var modal = document.getElementById("myModal");
-var btn = document.getElementById("productSelector");
+
+var btn = document.getElementById("btn");
 
 btn.onclick = function() {
     modal.style.display = "block";

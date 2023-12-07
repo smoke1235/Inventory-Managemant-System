@@ -22,7 +22,6 @@ include_once '../src/fetch-customers.php';
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
     <script src="../assets/js/addFields.js"></script>
-    <script src="../assets/js/productSelectorPopup.js"></script>
 </head>
 
 <body>
@@ -104,7 +103,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4"><button class="invoice-new-product" id="productSelector">Add product</button></td>
+                                    <td colspan="4"><a href="" id="btn">Add product</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -113,6 +112,7 @@ include_once '../src/fetch-customers.php';
             </div>
         </main>
     </div>
+    <script src="../assets/js/productSelectorPopup.js"></script>
 </body>
 
 </html>
