@@ -15,13 +15,12 @@ include_once '../src/fetch-customers.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Manager | New Order</title>
+    <title>Inventory Manager | New Invoice</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
-    <script src="../assets/js/addFields.js"></script>
 </head>
 
 <body>
@@ -95,6 +94,7 @@ include_once '../src/fetch-customers.php';
                         <table aria-label="">
                             <thead>
                                 <tr>
+                                    <th></th>
                                     <th>Name</th>
                                     <th>Description</th>
                                     <th>Qty</th>
@@ -103,7 +103,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="4"><a href="" id="btn">Add product</a></td>
+                                    <td colspan="5"><a href="" id="btn">Add product</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -113,6 +113,7 @@ include_once '../src/fetch-customers.php';
         </main>
     </div>
     <script src="../assets/js/productSelectorPopup.js"></script>
+    <script src="../assets/js/showProductResult.js"></script>
 </body>
 
 </html>
