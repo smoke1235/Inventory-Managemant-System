@@ -103,7 +103,7 @@ include_once '../src/fetch-customers.php';
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="5"><a href="" id="btn">Add product</a></td>
+                                    <td colspan="5"><a href="#" id="btn">Add product</a></td>
                                 </tr>
                             </tbody>
                         </table>

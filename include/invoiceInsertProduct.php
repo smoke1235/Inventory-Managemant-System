@@ -1,4 +1,4 @@
-    <div class="container">
+    <div class="modal-container">
         <div class="input-container">
             <h1>Search Product</h1>
             <input type="text" name="search" id="search" placeholder="Search">

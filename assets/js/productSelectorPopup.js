@@ -1,12 +1,14 @@
-var modal = document.getElementById("myModal");
-var btn = document.getElementById("btn");
+var modal = $('#myModal');
+var btn = $('#btn');
 
-btn.onclick = function() {
-    modal.style.display = "block";
-}
+$(document).ready(function() {
+    btn.on('click',function() {
+        modal.show();
+    });
+});
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+$('body').bind('click', function(e) {
+    if ($(e.target).hasClass("modal")) {
+        modal.fadeOut();
     }
-}
+});
