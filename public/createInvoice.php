@@ -112,6 +112,11 @@ include_once '../src/fetch-customers.php';
             </div>
         </main>
     </div>
+    <script>
+        function myFunction() {
+  alert("I am an alert box!");
+}
+    </script>
     <script src="../assets/js/productSelectorPopup.js"></script>
     <script src="../assets/js/showProductResult.js"></script>
 </body>

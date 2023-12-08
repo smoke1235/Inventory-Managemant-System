@@ -282,6 +282,11 @@ ul {
     width: 100%;
 }
 
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
 .table-container table h2 {
     padding: 6px;
 }
@@ -559,7 +564,6 @@ select {
     display: none;
     position: fixed;
     z-index: 1;
-    padding-top: 100px;
     left: 0;
     top: 0;
     height: 100%;
@@ -570,9 +574,11 @@ select {
 }
 
 .modal-container {
-    margin-left: 400px;
     height: 75vh;
     width: 85vh;
+    margin-top: 100px;
+    margin-right: auto;
+    margin-left: auto;
     background: #FF5733;
     border-radius: 5px;
 }
@@ -608,14 +614,20 @@ select {
 .result-container table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
-    border-spacing: 0;
 }
 
 .result-container thead th {
-    position: sticky;
     top: 0;
+    position: sticky;
     background: white;
+}
+
+#invoice-result tr {
+    cursor: pointer;
+}
+
+#invoice-result  tr:hover {
+    background: #ddd;
 }
 
 .result-container td {

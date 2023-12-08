@@ -13,7 +13,7 @@
                             <th id="price">Price</th>
                         </tr>
                     </thead>
-                    <tbody id="result"></tbody>
+                    <tbody id="invoice-result"></tbody>
                 </table>
             </div>
         </div>
