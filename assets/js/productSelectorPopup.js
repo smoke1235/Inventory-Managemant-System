@@ -14,9 +14,6 @@ $('body').bind('click', function(e) {
 });
 
 function item(id) {
-    alert(id);
-    modal.fadeOut();
-    /*
     $.ajax({
         type:       "POST",
         url:        "../src/addInvoiceItem.php",
@@ -26,5 +23,4 @@ function item(id) {
             modal.fadeOut();
         }
     });
-    */
 }
