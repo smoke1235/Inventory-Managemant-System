@@ -13,4 +13,6 @@ if (isset($_POST["id"])) {
     } else {
         echo json_encode(array());
     }
+
+    $con->close();
 }
