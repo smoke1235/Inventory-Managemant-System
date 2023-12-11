@@ -17,9 +17,10 @@ function item(id) {
     $.ajax({
         type:       "POST",
         url:        "../src/addInvoiceItem.php",
-        data:       {item: 'id'},
+        data:       {id: id},
         success:    function(data) {
-            alert;
+            console.log(data);
+            alert(data + 'added.');
             modal.fadeOut();
         }
     });

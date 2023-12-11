@@ -17,5 +17,3 @@ if (isset($_POST["id"])) {
         );
     }
 }
-
-$json = json_encode($result);
