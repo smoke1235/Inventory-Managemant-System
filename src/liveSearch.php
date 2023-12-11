@@ -15,7 +15,7 @@ $result = mysqli_query($con,$query);
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_array($result)) {
         $return .= '
-        <tr onclick="myFunction()">
+        <tr onclick="item('.$row["id"].')">
         <td>'.$row["id"].'</td>
         <td>'.$row["product_name"].'</td>
         <td>'.$row["product_description"].'</td>

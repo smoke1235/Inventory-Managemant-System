@@ -18,7 +18,8 @@ include_once '../src/fetch-customers.php';
     <title>Inventory Manager | New Invoice</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="../assets/js/populateTextInput.js"></script>
 </head>
@@ -43,8 +44,8 @@ include_once '../src/fetch-customers.php';
                         <section class="order-form-customer">
                             <h2>Customer</h2>
                             <select name="customer-select" id="customer-select" onchange="populateTextInput()">
-                                <option value="0">None</option>
-                            <?php
+                                <option selected disabled>Select customer</option>
+                                <?php
                                 foreach ($options as $option) {
                                     ?>
                                     <option value="<?php echo $option['id']; ?>">
@@ -52,7 +53,7 @@ include_once '../src/fetch-customers.php';
                                     </option>
                                     <?php
                                 }
-                            ?>
+                                ?>
                             </select>
                             <h3>Contact Info</h3>
                             <input type="text" name="customer_number" id="customer_number">
@@ -63,7 +64,8 @@ include_once '../src/fetch-customers.php';
                             <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
                             <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name">
                             <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
-                            <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code">
+                            <input type="text" name="shipping_postalcode" id="shipping_postalcode"
+                                placeholder="Postal Code">
                             <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
                             <input type="text" name="shipping_country" id="shipping_country" placeholder="Country">
                         </section>
@@ -72,7 +74,8 @@ include_once '../src/fetch-customers.php';
                             <input type="text" name="billing_name" id="billing_name" placeholder="Full Name">
                             <input type="text" name="billing_company" id="billing_company" placeholder="Company Name">
                             <input type="text" name="billing_street" id="billing_street" placeholder="Street">
-                            <input type="text" name="billing_postalcode" id="billing_postalcode" placeholder="Postal Code">
+                            <input type="text" name="billing_postalcode" id="billing_postalcode"
+                                placeholder="Postal Code">
                             <input type="text" name="billing_city" id="billing_city" placeholder="City">
                             <input type="text" name="billing_country" id="billing_country" placeholder="Country">
                         </section>
@@ -89,7 +92,8 @@ include_once '../src/fetch-customers.php';
                             </select>
                         </section>
                     </div>
-                    <br><hr>
+                    <br>
+                    <hr>
                     <div class="order-form-content">
                         <table aria-label="">
                             <thead>
@@ -101,7 +105,7 @@ include_once '../src/fetch-customers.php';
                                     <th>Price</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="item_resuls">
                                 <tr>
                                     <td colspan="5"><a href="#" id="btn">Add product</a></td>
                                 </tr>
@@ -112,11 +116,6 @@ include_once '../src/fetch-customers.php';
             </div>
         </main>
     </div>
-    <script>
-        function myFunction() {
-  alert("I am an alert box!");
-}
-    </script>
     <script src="../assets/js/productSelectorPopup.js"></script>
     <script src="../assets/js/showProductResult.js"></script>
 </body>

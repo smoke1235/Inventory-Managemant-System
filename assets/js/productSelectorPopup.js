@@ -12,3 +12,19 @@ $('body').bind('click', function(e) {
         modal.fadeOut();
     }
 });
+
+function item(id) {
+    alert(id);
+    modal.fadeOut();
+    /*
+    $.ajax({
+        type:       "POST",
+        url:        "../src/addInvoiceItem.php",
+        data:       {item: 'id'},
+        success:    function(data) {
+            alert;
+            modal.fadeOut();
+        }
+    });
+    */
+}
