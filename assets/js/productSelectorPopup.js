@@ -22,6 +22,9 @@ function item(id) {
             console.log(data);
             alert(data + 'added.');
             modal.fadeOut();
+        },
+        error:      function(xhr, status, error) {
+            console.error('error:', error);
         }
     });
 }

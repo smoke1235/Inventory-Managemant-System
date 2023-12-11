@@ -5,15 +5,12 @@ if (isset($_POST["id"])) {
     require_once '../config/connect.php';
 
     $sql = "SELECT * FROM products WHERE id = $passedId";
-
-    $result =array();
-    while ($row = mysqli_fetch_array($sql)) {
-        $result[] = array(
-            'id'        => $row['id'],
-            'name'      => $row['product_name'],
-            'descr'     => $row['$product_description'],
-            'qty'       => $row['product_quantity'],
-            'price'     => $row['product_price'],
-        );
+    
+    $result = $con->query($sql);
+    if ($result->num_rows > 0) {
+        $row = $result->fetch_assoc();
+        echo json_encode($row);
+    } else {
+        echo json_encode(array());
     }
 }
