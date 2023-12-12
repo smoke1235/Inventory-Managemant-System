@@ -4,7 +4,9 @@ if (isset($_POST["id"])) {
 
     require_once '../config/connect.php';
 
-    $sql = "SELECT * FROM products WHERE id = $passedId";
+    $sql =
+    "SELECT id, product_name, product_description, product_price
+    FROM products WHERE id = $passedId;";
     
     $result = $con->query($sql);
     if ($result->num_rows > 0) {
