@@ -25,13 +25,13 @@ function item(id) {
 
             var inputFloat = $("input[type=float]").length;
             var inputHidden = $("input[type=hidden]").length;
-            var inputnmbr = $("input[type=number]").length;
+            var inputnumber = $("input[type=number]").length;
             var fieldCount = 1;
 
-            $(document).ready(function() {
+            $(btn).click(function(e) {
                 if ()
-            })
-           })
+            });
+           });
         },
         error:      function(xhr, status, error) {
             console.error('error:', error);
