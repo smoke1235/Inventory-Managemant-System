@@ -399,6 +399,7 @@ table tr:hover {
 .order-form-content table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .order-form-content table th,
@@ -406,12 +407,18 @@ table td {
     border-bottom: 1px solid black;
 }
 
+.order-form-content table td {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
 .order-form-content input[type=number]{
     width: 50px;
 }
 
 .order-form-content input[type=float]{
-    width: 60px;
+    width: 50px;
 }
 
 #inv-ation {
@@ -428,10 +435,14 @@ table td {
 
 #inv-qty {
     width: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #inv-prc {
     width: 5%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .order-form-header {
