@@ -32,7 +32,11 @@ function item(id) {
         $('#item_results').prepend(
             '<tr>'
             + '<td><a href="#" id="remove_btn">Remove</a></td>'
-            + '<td><p>' + data['product_name'] + '</p></td>'
+            + '<td><input type="hidden" name="invoice_name" value="' + results['id'] + '"'
+            + '<p>' + results['product_name'] + '</p></td>'
+            + '<td><p>' + results['product_description'] + '</p></td>'
+            + '<td><input type="number" name="invoice_qty" id="input-qty" value="1"></td>'
+            + '<td><input type="float" name="invoice_price" id="input-price" value="' + results['product_price'] + '"'
             + '</tr>'
         );
         modal.fadeOut();
