@@ -19,22 +19,20 @@ function item(id) {
         url:        "../src/addInvoiceItem.php",
         data:       {id: id},
         success:    function(data) {
-           $(document).ready(function() {
-            var maxInputs = 50;
-            var inputField = $("#item_results");
-
-            var inputFloat = $("input[type=float]").length;
-            var inputHidden = $("input[type=hidden]").length;
-            var inputnumber = $("input[type=number]").length;
-            var fieldCount = 1;
-
-            $(btn).click(function(e) {
-                if ()
-            });
-           });
+            console.log(data);
+            onSuccess(data);
         },
         error:      function(xhr, status, error) {
             console.error('error:', error);
-        }
+        },
     });
+    function onSuccess(data) {
+        $('#item_results').prepend(
+            "<tr>"
+            + "<td><p>" + data + "</p></td>"
+            + "</tr>"
+        );
+        modal.fadeOut();
+    }
+
 }
