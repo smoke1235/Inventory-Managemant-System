@@ -27,10 +27,13 @@ function item(id) {
         },
     });
     function onSuccess(data) {
+        var results = $.parseJSON(data);
+
         $('#item_results').prepend(
-            "<tr>"
-            + "<td><p>" + data + "</p></td>"
-            + "</tr>"
+            '<tr>'
+            + '<td><a href="#" id="remove_btn">Remove</a></td>'
+            + '<td><p>' + data['product_name'] + '</p></td>'
+            + '</tr>'
         );
         modal.fadeOut();
     }
