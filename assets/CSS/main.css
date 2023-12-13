@@ -406,6 +406,34 @@ table td {
     border-bottom: 1px solid black;
 }
 
+.order-form-content input[type=number]{
+    width: 50px;
+}
+
+.order-form-content input[type=float]{
+    width: 60px;
+}
+
+#inv-ation {
+    width: 10%;
+}
+
+#inv-name {
+    width: 30%;
+}
+
+#inv-descr {
+    width: 50%;
+}
+
+#inv-qty {
+    width: 5%;
+}
+
+#inv-prc {
+    width: 5%;
+}
+
 .order-form-header {
     display: flex;
     flex-direction: row;

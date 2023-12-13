@@ -98,11 +98,11 @@ include_once '../src/fetch-customers.php';
                         <table aria-label="">
                             <thead>
                                 <tr>
-                                    <th></th>
-                                    <th>Name</th>
-                                    <th>Description</th>
-                                    <th>Qty</th>
-                                    <th>Price</th>
+                                    <th id="inv-action"></th>
+                                    <th id="inv-name">Name</th>
+                                    <th id="inv-descr">Description</th>
+                                    <th id="inv-qty">Qty</th>
+                                    <th id="inv-prc">Price</th>
                                 </tr>
                             </thead>
                             <tbody id="item_results">
