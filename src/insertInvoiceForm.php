@@ -21,4 +21,11 @@ $billing_country =      $_POST['billing_country'];
 
 $status =               $_POST['invoice_status'];
 
+$item1 = "";
+$item2 = "";
 
+$sql1 = "";
+$sql2 = "";
+if (mysqli_query($con, $sql1, $sql2)) {
+    echo "<script>alert('There are no fields to generate a report');document.location='admin/ahm/panel'</script>";
+}
