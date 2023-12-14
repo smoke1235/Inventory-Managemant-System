@@ -36,8 +36,10 @@ if (mysqli_query($link, $sql1)) {
 }
 
 $product_id =           $_POST['product_id'];
-$qty =                  $_POST['invoice_qty'];
-$price =                $_POST['invoice_price'];
+$qty_string =           $_POST['invoice_qty'];
+$qty =                  (int) $qty_string;
+$price_string =         $_POST['invoice_price'];
+$price =                (float) $price_var;
 
 foreach ($product_id as $key => $n) {
     $sql2 = "INSERT INTO invoice_lines
