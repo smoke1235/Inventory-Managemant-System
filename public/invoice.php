@@ -7,10 +7,10 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT *, invoices.id AS invoiceID FROM invoices\n"
-    . "INNER JOIN invoice_category ON invoices.category=invoice_category.id\n"
-    . "INNER JOIN customers ON invoices.customer_id=customers.id\n"
-    . "INNER JOIN users ON invoices.user_id=users.id\n";
+$sql = "SELECT *, invoices.id AS invoiceID
+FROM invoices
+INNER JOIN invoice_status ON invoices.status=invoice_status.id
+INNER JOIN users ON invoices.user_id=users.id;";
 $result = $con->query($sql);
 ?>
 

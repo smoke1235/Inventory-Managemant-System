@@ -13,6 +13,8 @@ $('body').bind('click', function(e) {
     }
 });
 
+var number = 0;
+
 function item(id) {
     $.ajax({
         type:       "POST",
@@ -30,9 +32,9 @@ function item(id) {
         var results = $.parseJSON(data);
 
         $('#item_results').prepend(
-            '<tr id="item">'
-            + '<td><a href="#" onclick="removeItem()">Remove</a></td>'
-            + '<td><input type="hidden" name="invoice_name" value="' + results['id'] + '"'
+            '<tr id="item-'+number+'">'
+            + '<td><a href="#" onclick="removeItem('+number+')">Remove</a></td>'
+            + '<td><input type="hidden" name="product_id" value="' + results['id'] + '"'
             + '<p>' + results['product_name'] + '</p></td>'
             + '<td><p>' + results['product_description'] + '</p></td>'
             + '<td><input type="number" name="invoice_qty" id="input-qty" value="1"></td>'
@@ -40,11 +42,12 @@ function item(id) {
             + '</tr>'
         );
         modal.fadeOut();
+        number++;
     }
 
 }
 
-function removeItem() {
-    const item =  document.getElementById("item");
+function removeItem(number) {
+    const item =  document.getElementById("item-" + number);
     item.remove();
 }
