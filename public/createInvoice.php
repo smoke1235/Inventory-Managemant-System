@@ -39,7 +39,7 @@ include_once '../src/fetch-customers.php';
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" id="create-invoice" method="POST">
+                <form action="../src/insertInvoiceForm.php" id="create-invoice" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>

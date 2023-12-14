@@ -26,13 +26,10 @@ billing_name, billing_company, billing_street, billing_postalcode, billing_city,
 updated, created)
 VALUES
 ('$status', '$user', '$number', '$mail', '$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country',
-'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country'
-current_timestamp(), current_timestamp()";
-if (mysqli_query($link, $sql1)) {
-    $last_id = mysqli_insert_id($link);
-    echo "Succes, last insertd ID:" . $last_id;
-} else {
-    echo "Fail!" . mysqli_error($link);
+'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
+current_timestamp(), current_timestamp())";
+if ($con->query($sql1) === true) {
+    $last_id = $con->insert_id;
 }
 
 $product_id =           $_POST['product_id'];
@@ -44,6 +41,10 @@ $price =                (float) $price_var;
 foreach ($product_id as $key => $n) {
     $sql2 = "INSERT INTO invoice_lines
     (invoice_id, product_id, price, quantity)
-    VALUES ('$last_id', '$product_id[$key]', '$price', '$qty')";
+    VALUES ('$n', '$product_id[$key]', '$price[$key]', '$qty[$key]')";
+}
 
+$result = mysqli_query($con, $sql2);
+if ($result) {
+    header('location: ../public/invoice.php');
 }
