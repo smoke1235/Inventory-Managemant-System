@@ -30,8 +30,8 @@ function item(id) {
         var results = $.parseJSON(data);
 
         $('#item_results').prepend(
-            '<tr>'
-            + '<td><a href="#" id="remove_btn">Remove</a></td>'
+            '<tr id="item">'
+            + '<td><a href="#" onclick="removeItem()">Remove</a></td>'
             + '<td><input type="hidden" name="invoice_name" value="' + results['id'] + '"'
             + '<p>' + results['product_name'] + '</p></td>'
             + '<td><p>' + results['product_description'] + '</p></td>'
@@ -42,4 +42,9 @@ function item(id) {
         modal.fadeOut();
     }
 
+}
+
+function removeItem() {
+    const item =  document.getElementById("item");
+    item.remove();
 }
