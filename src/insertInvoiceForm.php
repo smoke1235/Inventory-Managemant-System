@@ -20,7 +20,7 @@ $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
 $sql1 = "INSERT INTO invoices
-(id, status, user_id, number, mail,
+(status, user_id, number, mail,
 shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_city, shipping_country,
 billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
 updated, created)
@@ -29,7 +29,11 @@ VALUES
 '$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country'
 current_timestamp(), current_timestamp()";
 
-$item1 = "";
+$item1 =                $_POST[''];
+$invoice_id
+$qty =                  $_POST['invoice_qty'];
+$price =                $_POST['invoice_price'];
 $item2 = "";
 
-$sql2 = "";
+$sql2 = "INSERT INTO invoice_lines
+(invoice_id, product_id, price, quantity) VALUES ('$invoice_id', '$item1', '$price')";
