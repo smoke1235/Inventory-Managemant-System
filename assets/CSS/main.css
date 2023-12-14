@@ -643,14 +643,14 @@ select {
 .results-container {
     margin: 8px;
     height: 62vh;
-    width: 85%;
+    width: 95%;
     overflow: auto;
     border: 1px solid white;
     border-radius: 4px;
     background: white;
 }
 
-.result-container table {
+.results-container table {
     width: 100%;
     table-layout: fixed;
 }
@@ -669,22 +669,22 @@ select {
     background: #ddd;
 }
 
-.result-container td {
+.results-container td {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    border: 1px solid #ddd;
+    border-bottom: 1px solid black;
 }
 
 #number {
-    width: 10%;
+    width: 5%;
 }
 
 #product {
-    width: 25%;
+    width: 35%;
 }
 #desc {
-    width: 40%;
+    width: 35%;
 }
 
 #qty {
@@ -692,5 +692,5 @@ select {
 }
 
 #price {
-    width: 15%;
+    width: 10%;
 }

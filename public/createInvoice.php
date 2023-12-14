@@ -35,15 +35,15 @@ include_once '../src/fetch-customers.php';
                 <h1>New Invoice</h1>
                 <section>
                     <a href="orders.php">Cancel</a>
-                    <input type="submit" name="submit" value="Save" form="create-order">
+                    <input type="submit" name="submit" value="Save" form="create-invoice">
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" id="create-order" method="POST">
+                <form action="" id="create-invoice" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
-                            <select name="customer-select" id="customer-select" onchange="populateTextInput()">
+                            <select name="customer_select" id="customer-select" onchange="populateTextInput()">
                                 <option selected disabled>Select customer</option>
                                 <?php
                                 foreach ($options as $option) {
@@ -81,7 +81,7 @@ include_once '../src/fetch-customers.php';
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
-                            <select name="order-status">
+                            <select name="invoice_status">
                                 <option value="6">IN PROCESS</option>
                                 <option value="8">SHIPPING</option>
                                 <option value="9">SHIPPED</option>
