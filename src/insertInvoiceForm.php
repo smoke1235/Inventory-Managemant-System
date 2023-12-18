@@ -3,6 +3,7 @@
 require_once '../config/connect.php';
 
 $user =                 $_SESSION['id'];
+$customer =             $_POST['customer_select'];
 $number =               $_POST['customer_number'];
 $mail =                 $_POST['customer_email'];
 $status =               $_POST['invoice_status'];
@@ -21,12 +22,12 @@ $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
 $sql1 = "INSERT INTO invoices
-(status, user_id, number, mail,
+(status, user_id, number, mail, customer_id,
 shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_city, shipping_country,
 billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
 updated, created)
 VALUES
-('$status', '$user', '$number', '$mail',
+('$status', '$user', '$number', '$mail', '$customer',
 '$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
 ,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
 current_timestamp(), current_timestamp())";
@@ -58,6 +59,3 @@ for($i=0;$i<$total_products;$i++) {
     }
 }
 
-if($sql3) {
-    header('location: ../public/invoice.php');
-}
