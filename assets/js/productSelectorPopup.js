@@ -34,11 +34,11 @@ function item(id) {
         $('#item_results').prepend(
             '<tr id="item-'+number+'">'
             + '<td><a href="#" onclick="removeItem('+number+')">Remove</a></td>'
-            + '<td><input type="hidden" name="product_id" value="' + results['id'] + '"'
+            + '<td><input type="hidden" name="product[]" value="' + results['id'] + '"'
             + '<p>' + results['product_name'] + '</p></td>'
             + '<td><p>' + results['product_description'] + '</p></td>'
-            + '<td><input type="number" name="invoice_qty" id="input-qty" value="1"></td>'
-            + '<td><input type="float" name="invoice_price" id="input-price" value="' + results['product_price'] + '"'
+            + '<td><input type="number" name="qty[]" id="input-qty" value="1"></td>'
+            + '<td><p>' + results['product_price'] + '</p></td>'
             + '</tr>'
         );
         modal.fadeOut();

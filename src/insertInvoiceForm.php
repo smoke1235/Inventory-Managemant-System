@@ -25,26 +25,33 @@ shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_
 billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
 updated, created)
 VALUES
-('$status', '$user', '$number', '$mail', '$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country',
-'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
+('$status', '$user', '$number', '$mail',
+'$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
+,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
 current_timestamp(), current_timestamp())";
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
 }
 
-$product_id =           $_POST['product_id'];
-$qty_string =           $_POST['invoice_qty'];
-$qty =                  (int) $qty_string;
-$price_string =         $_POST['invoice_price'];
-$price =                (float) $price_var;
+$total_products =       count($_POST['product']);
+$total_qty =            count($_POST['invoice_qty']);
 
-foreach ($product_id as $key => $n) {
-    $sql2 = "INSERT INTO invoice_lines
-    (invoice_id, product_id, price, quantity)
-    VALUES ('$n', '$product_id[$key]', '$price[$key]', '$qty[$key]')";
+for($i=0;$i<$total_products.$total_qty;$i++) {
+    $product =      $_POST['product'][$i];
+    $qty =          $_POST['qty'][$i];
+
+    $sql2 = mysqli_query($con, "INSERT INTO invoice_line
+    (invoice_id, product_id, quantity)
+    VALUES ('$last_id', '$product', '$qty')");
+    if(!$sql2) {
+        $error = true;
+        $error_msg = $error_msg.mysqli_error($con);
+    }
 }
 
 $result = mysqli_query($con, $sql2);
 if ($result) {
     header('location: ../public/invoice.php');
+} else {
+    echo "Error: ".$error_msg;
 }
