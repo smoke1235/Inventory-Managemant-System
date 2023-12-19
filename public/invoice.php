@@ -67,7 +67,8 @@ $result = $con->query($sql);
                                     <?php echo $row['username'] ?>
                                 </td>
                                 <td>
-                                    <a class="edit-data" href="#">Edit</a>
+                                    <a class="edit-data"
+                                    href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">Edit</a>
                                     <a class="view-data" href="#">View</a>
                                 </td>
                             </tr>

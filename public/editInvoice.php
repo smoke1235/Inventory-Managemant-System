@@ -7,6 +7,18 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
+
+$invoice_id = $_GET['id'];
+$sql1 = "SELECT *, `invoices`.`id` as `invoice_id`, `invoices`.`created` AS `invoice_created` FROM invoices
+INNER JOIN invoice_status ON invoices.status=invoice_status.id
+INNER JOIN customers ON invoices.customer_id=customers.id
+INNER JOIN users ON invoices.user_id=users.id
+WHERE `invoices`.`id` = '$invoice_id'";
+$inv_result = $con->query($sql1);
+$row1 = $inv_result->fetch_assoc();
+$sql2 = "SELECT * FROM `invoice_line` WHERE invoice_id = '$invoice_id'";
+$inv_line_result = $con->query($sql2);
+$row2 = $inv_line_result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -25,55 +37,73 @@ include_once '../src/fetch-customers.php';
 </head>
 
 <body>
-    <div class="dashboard-container">
+<div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <div id="myModal" class="modal">
                 <?php include_once '../include/invoiceInsertProduct.php'; ?>
             </div>
             <div class="order-title">
-                <h1>Edit Invoice</h1>
+                <h1>New Invoice</h1>
                 <section>
                     <a href="invoice.php">Cancel</a>
                     <input type="submit" name="submit" value="Save" form="create-invoice">
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="" id="edit-invoice" method="POST">
+                <form action="../src/insertInvoiceForm.php" id="create-invoice" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
                             <select name="customer_select" id="customer-select" onchange="populateTextInput()">
-                                <option value=""></option>
-                                <?php foreach ($options as $option) { ?>
+                                <option value="<?php echo $row1['invoice_id']; ?>">
+                                    <?php echo $row1['first_name'] . ' ' . $row1['last_name']; ?>
+                                </option>
+                                <?php
+                                foreach ($options as $option) {
+                                    ?>
                                     <option value="<?php echo $option['id']; ?>">
                                         <?php echo $option['first_name'] . ' ' . $option['last_name']; ?>
                                     </option>
-                                <?php } ?>
+                                    <?php
+                                }
+                                ?>
                             </select>
                             <h3>Contact Info</h3>
-                            <input type="text" name="customer_number" id="customer_number">
-                            <input type="text" name="customer_email" id="customer_email">
+                            <input type="text" name="customer_number" id="customer_number"
+                            value="<?php echo $row1['number']; ?>">
+                            <input type="text" name="customer_email" id="customer_email"
+                            value="<?php echo $row1['mail']; ?>">
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
-                            <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
-                            <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name">
-                            <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
+                            <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name"
+                            value="<?php echo $row1['shipping_name']; ?>">
+                            <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name"
+                            value="<?php echo $row1['shipping_company']; ?>">
+                            <input type="text" name="shipping_street" id="shipping_street" placeholder="Street"
+                            value="<?php echo $row1['shipping_street']; ?>">
                             <input type="text" name="shipping_postalcode" id="shipping_postalcode"
-                                placeholder="Postal Code">
-                            <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
-                            <input type="text" name="shipping_country" id="shipping_country" placeholder="Country">
+                                placeholder="Postal Code" value="<?php echo $row1['shipping_postalcode']; ?>">
+                            <input type="text" name="shipping_city" id="shipping_city" placeholder="City"
+                            value="<?php echo $row1['shipping_city']; ?>">
+                            <input type="text" name="shipping_country" id="shipping_country" placeholder="Country"
+                            value="<?php echo $row1['shipping_country']; ?>">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
-                            <input type="text" name="billing_name" id="billing_name" placeholder="Full Name">
-                            <input type="text" name="billing_company" id="billing_company" placeholder="Company Name">
-                            <input type="text" name="billing_street" id="billing_street" placeholder="Street">
+                            <input type="text" name="billing_name" id="billing_name" placeholder="Full Name"
+                            value="<?php echo $row1['billing_name']; ?>">
+                            <input type="text" name="billing_company" id="billing_company" placeholder="Company Name"
+                            value="<?php echo $row1['billing_company']; ?>">
+                            <input type="text" name="billing_street" id="billing_street" placeholder="Street"
+                            value="<?php echo $row1['billing_street']; ?>">
                             <input type="text" name="billing_postalcode" id="billing_postalcode"
-                                placeholder="Postal Code">
-                            <input type="text" name="billing_city" id="billing_city" placeholder="City">
-                            <input type="text" name="billing_country" id="billing_country" placeholder="Country">
+                                placeholder="Postal Code" value="<?php echo $row1['billing_postalcode']; ?>">
+                            <input type="text" name="billing_city" id="billing_city" placeholder="City"
+                            value="<?php echo $row1['billing_city']; ?>">
+                            <input type="text" name="billing_country" id="billing_country" placeholder="Country"
+                            value="<?php echo $row1['billing_country']; ?>">
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
@@ -87,25 +117,26 @@ include_once '../src/fetch-customers.php';
                                 <option value="7">ARCHIEVED</option>
                             </select>
                         </section>
-                        <br><hr>
-                        <div class="order-form-content">
-                            <table aria-label="">
-                                <thead>
-                                    <tr>
-                                        <th id="inv-action"></th>
-                                        <th id="inv-name">Name</th>
-                                        <th id="inv-descr">Description</th>
-                                        <th id="inv-qty">qty</th>
-                                        <th id="inv-prc">Price</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="item_results">
-                                    <tr>
-                                        <td colspan="5"> <a href="#" id="btn">Add product</a></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                    </div>
+                    <br>
+                    <hr>
+                    <div class="order-form-content">
+                        <table aria-label="">
+                            <thead>
+                                <tr>
+                                    <th id="inv-action"></th>
+                                    <th id="inv-name">Name</th>
+                                    <th id="inv-descr">Description</th>
+                                    <th id="inv-qty">Qty</th>
+                                    <th id="inv-prc">Price</th>
+                                </tr>
+                            </thead>
+                            <tbody id="item_results">
+                                <tr>
+                                    <td colspan="5"><a href="#" id="btn">Add product</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </form>
             </div>
