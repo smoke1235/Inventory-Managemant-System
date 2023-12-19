@@ -15,7 +15,7 @@ include_once '../src/fetch-customers.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Manager | New Invoice</title>
+    <title>Inventory Manager | Edit Invoice</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="../assets/CSS/main.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
@@ -32,28 +32,24 @@ include_once '../src/fetch-customers.php';
                 <?php include_once '../include/invoiceInsertProduct.php'; ?>
             </div>
             <div class="order-title">
-                <h1>New Invoice</h1>
+                <h1>Edit Invoice</h1>
                 <section>
                     <a href="invoice.php">Cancel</a>
                     <input type="submit" name="submit" value="Save" form="create-invoice">
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="../src/insertInvoiceForm.php" id="create-invoice" method="POST">
+                <form action="" id="edit-invoice" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
                             <select name="customer_select" id="customer-select" onchange="populateTextInput()">
-                                <option selected disabled>Select customer</option>
-                                <?php
-                                foreach ($options as $option) {
-                                    ?>
+                                <option value=""></option>
+                                <?php foreach ($options as $option) { ?>
                                     <option value="<?php echo $option['id']; ?>">
                                         <?php echo $option['first_name'] . ' ' . $option['last_name']; ?>
                                     </option>
-                                    <?php
-                                }
-                                ?>
+                                <?php } ?>
                             </select>
                             <h3>Contact Info</h3>
                             <input type="text" name="customer_number" id="customer_number">
@@ -91,26 +87,25 @@ include_once '../src/fetch-customers.php';
                                 <option value="7">ARCHIEVED</option>
                             </select>
                         </section>
-                    </div>
-                    <br>
-                    <hr>
-                    <div class="order-form-content">
-                        <table aria-label="">
-                            <thead>
-                                <tr>
-                                    <th id="inv-action"></th>
-                                    <th id="inv-name">Name</th>
-                                    <th id="inv-descr">Description</th>
-                                    <th id="inv-qty">Qty</th>
-                                    <th id="inv-prc">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody id="item_results">
-                                <tr>
-                                    <td colspan="5"><a href="#" id="btn">Add product</a></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <br><hr>
+                        <div class="order-form-content">
+                            <table aria-label="">
+                                <thead>
+                                    <tr>
+                                        <th id="inv-action"></th>
+                                        <th id="inv-name">Name</th>
+                                        <th id="inv-descr">Description</th>
+                                        <th id="inv-qty">qty</th>
+                                        <th id="inv-prc">Price</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="item_results">
+                                    <tr>
+                                        <td colspan="5"> <a href="#" id="btn">Add product</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </form>
             </div>
