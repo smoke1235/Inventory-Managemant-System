@@ -7,10 +7,11 @@ if (!isset($_SESSION['loggedin'])) {
 
 require_once '../config/connect.php';
 
-$sql = "SELECT * FROM invoices
+$sql = "SELECT *, `invoices`.`id` as `invoice_id`, `invoices`.`created` AS `invoice_created` FROM invoices
 INNER JOIN invoice_status ON invoices.status=invoice_status.id
-INNER JOIN customers ON invoices.customer
+INNER JOIN customers ON invoices.customer_id=customers.id
 INNER JOIN users ON invoices.user_id=users.id";
+
 $result = $con->query($sql);
 ?>
 
@@ -48,7 +49,7 @@ $result = $con->query($sql);
                         <tbody>
                             <tr>
                                 <td>
-                                    <?php echo $row['id']; ?>
+                                    <?php echo $row['invoice_id']; ?>
                                 </td>
                                 <td>
                                     <?php echo $row['status']; ?>
@@ -60,14 +61,14 @@ $result = $con->query($sql);
                                     <?php echo $row['updated']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $row['created']; ?>
+                                    <?php echo $row['invoice_created']; ?>
                                 </td>
                                 <td>
                                     <?php echo $row['username'] ?>
                                 </td>
                                 <td>
-                                    <a class="edit-data" href="">Edit</a>
-                                    <a class="view-data" href="">View</a>
+                                    <a class="edit-data" href="#">Edit</a>
+                                    <a class="view-data" href="#">View</a>
                                 </td>
                             </tr>
                         </tbody>

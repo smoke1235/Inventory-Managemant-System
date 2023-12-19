@@ -59,3 +59,6 @@ for($i=0;$i<$total_products;$i++) {
     }
 }
 
+if($sql3) {
+    header('Location: ../public/invoice.php');
+}
