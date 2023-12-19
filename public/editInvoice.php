@@ -54,7 +54,7 @@ $row2 = $inv_line_result->fetch_assoc();
                 </section>
             </div>
             <div class="order-form-container">
-                <form action="../src/insertInvoiceForm.php" id="create-invoice" method="POST">
+                <form action="" id="create-invoice" method="POST">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
@@ -124,8 +124,7 @@ $row2 = $inv_line_result->fetch_assoc();
                             </select>
                         </section>
                     </div>
-                    <br>
-                    <hr>
+                    <br><hr>
                     <div class="order-form-content">
                         <table aria-label="">
                             <thead>
