@@ -9,7 +9,10 @@ require_once '../config/connect.php';
 include_once '../src/fetch-customers.php';
 
 $invoice_id = $_GET['id'];
-$sql1 = "SELECT *, `invoices`.`id` as `invoice_id`, `invoices`.`created` AS `invoice_created` FROM invoices
+$sql1 = "SELECT *,
+`invoices`.`id` AS `invoice_id`,
+`invoices`.`created` AS `invoice_created`,
+`invoices`.`status` AS `invoice_status` FROM invoices
 INNER JOIN invoice_status ON invoices.status=invoice_status.id
 INNER JOIN customers ON invoices.customer_id=customers.id
 INNER JOIN users ON invoices.user_id=users.id
@@ -108,6 +111,9 @@ $row2 = $inv_line_result->fetch_assoc();
                         <section class="order-form-status">
                             <h2>Status</h2>
                             <select name="invoice_status">
+                                <option value="<?php echo $row1['invoice_status']; ?>">
+                                    <?php echo $row1['status']; ?>
+                                </option>
                                 <option value="6">IN PROCESS</option>
                                 <option value="8">SHIPPING</option>
                                 <option value="9">SHIPPED</option>
