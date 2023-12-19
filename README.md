@@ -1,5 +1,5 @@
 # Inventory-Managemant-System
-HTML, CSS, PHP & SQL
+CSS, PHP, SQL, JavaScript, Jquery & Jquery-AJAX
 
 ## Introduction
 ### ENG
