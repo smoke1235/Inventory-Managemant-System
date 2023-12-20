@@ -144,17 +144,17 @@ $items = $item_result->fetch_assoc();
                                 <?php
                                     $n = 0;
                                     foreach ($items as $item) {
-                                        echo '<tr id="'.$n.'">';
-                                        echo '<td> a href="#" onclick="removeItem('. $n .')"> Remove</a><td>';
+                                        echo '<tr id="item-'.$n.'">';
+                                        echo '<td><a href="#" onclick="removeItem('. $n .')"> Remove</a><td>';
                                         echo '<td><input type="hidden" name="product[]" value="'. $item['id'].'">';
-                                        echo '<td><p>' . $item['product_name'] . '</p></td>';
+                                        echo '<p>' . $item['product_name'] . '</p></td>';
                                         echo '<td><p>' . $item['product_description'] . '</p></td>';
                                         echo '<td><input type="number" name="qty[]" id="input-qty
                                         value="' . $item['quantity'] . '"></td>';
                                         echo '<td><p>' . $item['product_price'] . '</p></td>';
                                         echo '</tr>';
+                                        $n++;
                                     }
-                                    $n++
                                 ?>
                                 <tr>
                                     <td colspan="5"><a href="#" id="btn">Add product</a></td>
