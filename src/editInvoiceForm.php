@@ -24,9 +24,12 @@ $billing_country =      $_POST['billing_country'];
 
 $sql1 = "UPDATE invoices
 SET `status`= '$status', `user_id`='$user', `customer_id`='$customer', `number`='$number',
-`mail`='$mail', `shipping_name`='$shipping_company', `shipping_street`='$shipping_street',
-`shipping_postalcode`='$shipping_postalcode', `shipping_city`='$shipping_city', `shipping_country`='$shipping_country',
-`updated`=current_timestamp()
+`mail`='$mail', `shipping_name`='$shipping_name', `shipping_company`='$shipping_company',
+`shipping_street`='$shipping_street', `shipping_postalcode`='$shipping_postalcode',
+`shipping_city`='$shipping_city', `shipping_country`='$shipping_country',
+`billing_name`='$billing_name', `billing_company`='$billing_company', `billing_street`='$billing_street',
+`Billing_postalcode`='$billing_postalcode', `billing_city`='$billing_city', `billing_city`='$billing_city',
+`billing_country`='$billing_country', `updated`=current_timestamp()
 WHERE id = $id ";
 $update = $con->query($sql1);
 
