@@ -20,11 +20,13 @@ WHERE `invoices`.`id` = '$invoice_id'";
 $inv_result = $con->query($sql1);
 $row = $inv_result->fetch_assoc();
 
-$fetch_items = "SELECT * FROM invoice_line
+$fetch_items = "SELECT *, products.id AS product_nmr FROM invoice_line
 INNER JOIN products ON invoice_line.product_id=products.id
 WHERE invoice_id = '$invoice_id'";
 $item_result = $con->query($fetch_items);
-$items = $item_result->fetch_assoc();
+while ($array = $item_result->fetch_assoc()) {
+    $items[] = $array;
+}
 ?>
 
 <!DOCTYPE html>
@@ -145,13 +147,13 @@ $items = $item_result->fetch_assoc();
                                     $n = 0;
                                     foreach ($items as $item) {
                                         echo '<tr id="item-'.$n.'">';
-                                        echo '<td><a href="#" onclick="removeItem('. $n .')"> Remove</a><td>';
-                                        echo '<td><input type="hidden" name="product[]" value="'. $item['id'].'">';
-                                        echo '<p>' . $item['product_name'] . '</p></td>';
-                                        echo '<td><p>' . $item['product_description'] . '</p></td>';
-                                        echo '<td><input type="number" name="qty[]" id="input-qty
-                                        value="' . $item['quantity'] . '"></td>';
-                                        echo '<td><p>' . $item['product_price'] . '</p></td>';
+                                        echo '<td><a href="#" onclick="removeItem('. $n .')"> Remove</a></td>';
+                                        echo '<td><p>'.$item['product_name'].'</p></td>';
+                                        echo '<input type="hidden" name="product[]" value="'.$item['product_nmr'].'">';
+                                        echo '<td><p>'.$item['product_description'].'</p></td>';
+                                        echo '<td><input type="number" name="qty" id="input-qty"
+                                        value="'.$item['quantity'].'"></td>';
+                                        echo '<td><p>'.$item['product_price'].'</p></td>';
                                         echo '</tr>';
                                         $n++;
                                     }
