@@ -1,6 +1,9 @@
 <?php
 require_once '../config/connect.php';
 
+$invoice_id =           $_POST['hidden'];
+$DelInvoiceLine = "DELETE FROM invoice_line where invoice_id = '$invoice_id' ";
+
 $user =                 $_SESSION['id'];
 $customer =             $_POST['customer_select'];
 $number =               $_POST['customer_number'];
@@ -29,7 +32,8 @@ VALUES
 ('$status', '$user', '$number', '$mail', '$customer',
 '$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
 ,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
-current_timestamp() )";
+current_timestamp() )
+WHERE id = '$invoice_id' ";
 
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
@@ -45,7 +49,7 @@ for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
     $qty =          $_POST['qty'][$i];
 
-    $sql2 = "UPDATE invoice_line
+    $sql2 = "INSERT INTO invoice_line
     (invoice_id, product_id, quantity)
     VALUES ($last_id, $product, $qty)";
     echo $sql2;

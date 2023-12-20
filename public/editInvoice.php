@@ -60,6 +60,7 @@ while ($array = $item_result->fetch_assoc()) {
             </div>
             <div class="order-form-container">
                 <form action="../src/editInvoiceForm.php" id="create-invoice" method="POST">
+                    <input type="hidden" name="hidden" value="<?php echo $invoice_id; ?>">
                     <div class="order-form-header">
                         <section class="order-form-customer">
                             <h2>Customer</h2>
