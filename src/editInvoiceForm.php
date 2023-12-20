@@ -27,15 +27,14 @@ SET `status`= '$status', `user_id`='$user', `customer_id`='$customer', `number`=
 `mail`='$mail', `shipping_name`='$shipping_company', `shipping_street`='$shipping_street',
 `shipping_postalcode`='$shipping_postalcode', `shipping_city`='$shipping_city', `shipping_country`='$shipping_country',
 `updated`=current_timestamp()
-WHERE id = '$id' ";
-$update = $con->query($sql);
+WHERE id = $id ";
+$update = $con->query($sql1);
+
+$delInvoiceLine =       "DELETE FROM invoice_line where invoice_id = $id";
+$update = $con->query($delInvoiceLine);
 
 $total_products =       count($_POST['product']);
 $total_qty =            count($_POST['qty']);
-$delInvoiceLine =       "DELETE FROM invoice_line where invoice_id = '$id' ";
-echo $delInvoiceLine;
-/*
-$update = $con->query($delInvoiceLine);
 
 for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
@@ -43,7 +42,7 @@ for($i=0;$i<$total_products;$i++) {
 
     $sql2 = "INSERT INTO invoice_line
     (invoice_id, product_id, quantity)
-    VALUES ($last_id, $product, $qty)";
+    VALUES ($id, $product, $qty)";
     $sql3 = mysqli_query($con, $sql2);
     
     if(!$sql3) {
@@ -55,4 +54,3 @@ for($i=0;$i<$total_products;$i++) {
 if($sql2) {
     header('Location: ../public/invoice.php');
 }
-*/
