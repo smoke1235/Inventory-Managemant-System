@@ -48,7 +48,6 @@ for($i=0;$i<$total_products;$i++) {
     $sql2 = "INSERT INTO invoice_line
     (invoice_id, product_id, quantity)
     VALUES ($last_id, $product, $qty)";
-    echo $sql2;
     $sql3 = mysqli_query($con, $sql2);
     
 

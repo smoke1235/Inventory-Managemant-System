@@ -1,8 +1,7 @@
 <?php
 require_once '../config/connect.php';
 
-$invoice_id =           $_POST['hidden'];
-$DelInvoiceLine = "DELETE FROM invoice_line where invoice_id = '$invoice_id' ";
+$id =                   $_POST['hidden'];
 
 $user =                 $_SESSION['id'];
 $customer =             $_POST['customer_select'];
@@ -24,26 +23,19 @@ $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
 $sql1 = "UPDATE invoices
-(status, user_id, number, mail, customer_id,
-shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_city, shipping_country,
-billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
-updated)
-VALUES
-('$status', '$user', '$number', '$mail', '$customer',
-'$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
-,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
-current_timestamp() )
-WHERE id = '$invoice_id' ";
-
-if ($con->query($sql1) === true) {
-    $last_id = $con->insert_id;
-} else {
-    echo mysqli_error($con);
-}
+SET `status`= '$status', `user_id`='$user', `customer_id`='$customer', `number`='$number',
+`mail`='$mail', `shipping_name`='$shipping_company', `shipping_street`='$shipping_street',
+`shipping_postalcode`='$shipping_postalcode', `shipping_city`='$shipping_city', `shipping_country`='$shipping_country',
+`updated`=current_timestamp()
+WHERE id = '$id' ";
+$update = $con->query($sql);
 
 $total_products =       count($_POST['product']);
 $total_qty =            count($_POST['qty']);
-
+$delInvoiceLine =       "DELETE FROM invoice_line where invoice_id = '$id' ";
+echo $delInvoiceLine;
+/*
+$update = $con->query($delInvoiceLine);
 
 for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
@@ -52,7 +44,6 @@ for($i=0;$i<$total_products;$i++) {
     $sql2 = "INSERT INTO invoice_line
     (invoice_id, product_id, quantity)
     VALUES ($last_id, $product, $qty)";
-    echo $sql2;
     $sql3 = mysqli_query($con, $sql2);
     
     if(!$sql3) {
@@ -61,7 +52,7 @@ for($i=0;$i<$total_products;$i++) {
     }
 }
 
-if($sql3) {
+if($sql2) {
     header('Location: ../public/invoice.php');
 }
-
+*/

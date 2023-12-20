@@ -65,8 +65,8 @@ while ($array = $item_result->fetch_assoc()) {
                         <section class="order-form-customer">
                             <h2>Customer</h2>
                             <select name="customer_select" id="customer-select" onchange="populateTextInput()">
-                                <option value="<?php echo $row['invoice_id']; ?>">
-                                    <?php echo $row['first_name'] . ' ' . $row['last_name']; ?>
+                                <option value="<?php echo $row['customer_id']; ?>">
+                                    <?php echo $row['first_name'] . ' ' . $row['last_name']; ?> (draft)
                                 </option>
                                 <?php
                                 foreach ($options as $option) {
@@ -118,7 +118,7 @@ while ($array = $item_result->fetch_assoc()) {
                             <h2>Status</h2>
                             <select name="invoice_status">
                                 <option value="<?php echo $row['invoice_status']; ?>">
-                                    <?php echo $row['status']; ?>
+                                    <?php echo $row['status']; ?> (Previously saved)
                                 </option>
                                 <option value="6">IN PROCESS</option>
                                 <option value="8">SHIPPING</option>
