@@ -24,12 +24,12 @@ $sql1 = "UPDATE invoices
 (status, user_id, number, mail, customer_id,
 shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_city, shipping_country,
 billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
-updated, created)
+updated)
 VALUES
 ('$status', '$user', '$number', '$mail', '$customer',
 '$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
 ,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
-current_timestamp(), current_timestamp())";
+current_timestamp() )";
 
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
@@ -51,7 +51,6 @@ for($i=0;$i<$total_products;$i++) {
     echo $sql2;
     $sql3 = mysqli_query($con, $sql2);
     
-
     if(!$sql3) {
         $error = true;
         $error_msg = $error_msg.mysqli_error($con);

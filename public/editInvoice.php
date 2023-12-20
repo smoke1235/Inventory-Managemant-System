@@ -18,10 +18,13 @@ INNER JOIN customers ON invoices.customer_id=customers.id
 INNER JOIN users ON invoices.user_id=users.id
 WHERE `invoices`.`id` = '$invoice_id'";
 $inv_result = $con->query($sql1);
-$row1 = $inv_result->fetch_assoc();
-$sql2 = "SELECT * FROM `invoice_line` WHERE invoice_id = '$invoice_id'";
-$inv_line_result = $con->query($sql2);
-$row2 = $inv_line_result->fetch_assoc();
+$row = $inv_result->fetch_assoc();
+
+$fetch_items = "SELECT * FROM invoice_line
+INNER JOIN products ON invoice_line.product_id=products.id
+WHERE invoice_id = '$invoice_id'";
+$item_result = $con->query($fetch_items);
+$items = $item_result->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -40,14 +43,14 @@ $row2 = $inv_line_result->fetch_assoc();
 </head>
 
 <body>
-<div class="dashboard-container">
+    <div class="dashboard-container">
         <?php include_once '../include/navbar.php'; ?>
         <main class="main-content">
             <div id="myModal" class="modal">
                 <?php include_once '../include/invoiceInsertProduct.php'; ?>
             </div>
             <div class="order-title">
-                <h1>New Invoice</h1>
+                <h1>Edit Invoice</h1>
                 <section>
                     <a href="invoice.php">Cancel</a>
                     <input type="submit" name="submit" value="Save" form="create-invoice">
@@ -59,8 +62,8 @@ $row2 = $inv_line_result->fetch_assoc();
                         <section class="order-form-customer">
                             <h2>Customer</h2>
                             <select name="customer_select" id="customer-select" onchange="populateTextInput()">
-                                <option value="<?php echo $row1['invoice_id']; ?>">
-                                    <?php echo $row1['first_name'] . ' ' . $row1['last_name']; ?>
+                                <option value="<?php echo $row['invoice_id']; ?>">
+                                    <?php echo $row['first_name'] . ' ' . $row['last_name']; ?>
                                 </option>
                                 <?php
                                 foreach ($options as $option) {
@@ -74,45 +77,45 @@ $row2 = $inv_line_result->fetch_assoc();
                             </select>
                             <h3>Contact Info</h3>
                             <input type="text" name="customer_number" id="customer_number"
-                            value="<?php echo $row1['number']; ?>">
+                                value="<?php echo $row['number']; ?>">
                             <input type="text" name="customer_email" id="customer_email"
-                            value="<?php echo $row1['mail']; ?>">
+                                value="<?php echo $row['mail']; ?>">
                         </section>
                         <section class="order-form-shipping">
                             <h2>Shipping Address</h2>
                             <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name"
-                            value="<?php echo $row1['shipping_name']; ?>">
+                                value="<?php echo $row['shipping_name']; ?>">
                             <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name"
-                            value="<?php echo $row1['shipping_company']; ?>">
+                                value="<?php echo $row['shipping_company']; ?>">
                             <input type="text" name="shipping_street" id="shipping_street" placeholder="Street"
-                            value="<?php echo $row1['shipping_street']; ?>">
+                                value="<?php echo $row['shipping_street']; ?>">
                             <input type="text" name="shipping_postalcode" id="shipping_postalcode"
-                                placeholder="Postal Code" value="<?php echo $row1['shipping_postalcode']; ?>">
+                                placeholder="Postal Code" value="<?php echo $row['shipping_postalcode']; ?>">
                             <input type="text" name="shipping_city" id="shipping_city" placeholder="City"
-                            value="<?php echo $row1['shipping_city']; ?>">
+                                value="<?php echo $row['shipping_city']; ?>">
                             <input type="text" name="shipping_country" id="shipping_country" placeholder="Country"
-                            value="<?php echo $row1['shipping_country']; ?>">
+                                value="<?php echo $row['shipping_country']; ?>">
                         </section>
                         <section class="order-form-billing">
                             <h2>Billing Address</h2>
                             <input type="text" name="billing_name" id="billing_name" placeholder="Full Name"
-                            value="<?php echo $row1['billing_name']; ?>">
+                                value="<?php echo $row['billing_name']; ?>">
                             <input type="text" name="billing_company" id="billing_company" placeholder="Company Name"
-                            value="<?php echo $row1['billing_company']; ?>">
+                                value="<?php echo $row['billing_company']; ?>">
                             <input type="text" name="billing_street" id="billing_street" placeholder="Street"
-                            value="<?php echo $row1['billing_street']; ?>">
+                                value="<?php echo $row['billing_street']; ?>">
                             <input type="text" name="billing_postalcode" id="billing_postalcode"
-                                placeholder="Postal Code" value="<?php echo $row1['billing_postalcode']; ?>">
+                                placeholder="Postal Code" value="<?php echo $row['billing_postalcode']; ?>">
                             <input type="text" name="billing_city" id="billing_city" placeholder="City"
-                            value="<?php echo $row1['billing_city']; ?>">
+                                value="<?php echo $row['billing_city']; ?>">
                             <input type="text" name="billing_country" id="billing_country" placeholder="Country"
-                            value="<?php echo $row1['billing_country']; ?>">
+                                value="<?php echo $row['billing_country']; ?>">
                         </section>
                         <section class="order-form-status">
                             <h2>Status</h2>
                             <select name="invoice_status">
-                                <option value="<?php echo $row1['invoice_status']; ?>">
-                                    <?php echo $row1['status']; ?>
+                                <option value="<?php echo $row['invoice_status']; ?>">
+                                    <?php echo $row['status']; ?>
                                 </option>
                                 <option value="6">IN PROCESS</option>
                                 <option value="8">SHIPPING</option>
@@ -124,7 +127,8 @@ $row2 = $inv_line_result->fetch_assoc();
                             </select>
                         </section>
                     </div>
-                    <br><hr>
+                    <br>
+                    <hr>
                     <div class="order-form-content">
                         <table aria-label="">
                             <thead>
@@ -137,6 +141,21 @@ $row2 = $inv_line_result->fetch_assoc();
                                 </tr>
                             </thead>
                             <tbody id="item_results">
+                                <?php
+                                    $n = 0;
+                                    foreach ($items as $item) {
+                                        echo '<tr id="'.$n.'">';
+                                        echo '<td> a href="#" onclick="removeItem('. $n .')"> Remove</a><td>';
+                                        echo '<td><input type="hidden" name="product[]" value="'. $item['id'].'">';
+                                        echo '<td><p>' . $item['product_name'] . '</p></td>';
+                                        echo '<td><p>' . $item['product_description'] . '</p></td>';
+                                        echo '<td><input type="number" name="qty[]" id="input-qty
+                                        value="' . $item['quantity'] . '"></td>';
+                                        echo '<td><p>' . $item['product_price'] . '</p></td>';
+                                        echo '</tr>';
+                                    }
+                                    $n++
+                                ?>
                                 <tr>
                                     <td colspan="5"><a href="#" id="btn">Add product</a></td>
                                 </tr>
