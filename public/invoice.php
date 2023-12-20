@@ -10,7 +10,7 @@ require_once '../config/connect.php';
 $sql = "SELECT *, `invoices`.`id` as `invoice_id`, `invoices`.`created` AS `invoice_created` FROM invoices
 INNER JOIN invoice_status ON invoices.status=invoice_status.id
 INNER JOIN customers ON invoices.customer_id=customers.id
-INNER JOIN users ON invoices.user_id=users.id";
+INNER JOIN users ON invoices.user_id=users.id ORDER BY updated DESC";
 
 $result = $con->query($sql);
 ?>
