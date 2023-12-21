@@ -52,6 +52,18 @@ while ($array = $item_result->fetch_assoc()) {
     <script src="../assets/js/populateTextInput.js"></script>
 </head>
 <body>
-    
+    <div class="dashboard-container">
+        <?php include_once '../include/navbar.php'; ?>
+        <main class="main-content">
+            <div class="modal" id="modal">
+                <?php include_once '../include/invoiceInsertProduct.php'; ?>
+            </div>
+            <div class="order-title">
+                <h1>View Invoice</h1>
+                <a href="invoice.php">Back</a>
+                <a href="editInvoice.php?id=<?php echo $id; ?>">Edit</a>
+            </div>
+        </main>
+    </div>
 </body>
 </html>
