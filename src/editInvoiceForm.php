@@ -55,7 +55,7 @@ $total_products =       count($_POST['product']);
 
 for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
-    $qty =          $_POST['qty'][$i];
+    $qty =          $_POST['qty'];
 
     $sql2 = "INSERT INTO invoice_line(
         invoice_id,
