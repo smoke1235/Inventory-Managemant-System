@@ -155,7 +155,7 @@ while ($array = $item_result->fetch_assoc()) {
                                     $n = 0;
                                     foreach ($items as $item) {
                                         echo '<tr id="item-'.$n.'">';
-                                        echo '<td><a href="#" onclick="removeItem('. $n .')"> Remove</a></td>';
+                                        echo '<td></td>';
                                         echo '<td><p>'.$item['product_name'].'</p></td>';
                                         echo '<input type="hidden" name="product[]" value="'.$item['product_nmr'].'">';
                                         echo '<td><p>'.$item['product_description'].'</p></td>';
@@ -166,9 +166,6 @@ while ($array = $item_result->fetch_assoc()) {
                                         $n++;
                                     }
                                 ?>
-                                <tr>
-                                    <td colspan="5"><a href="#" id="btn">Add product</a></td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -176,5 +173,7 @@ while ($array = $item_result->fetch_assoc()) {
             </div>
         </main>
     </div>
+    <script src="../assets/js/productSelectorPopup.js"></script>
+    <script src="../assets/js/showProductResult.js"></script>
 </body>
 </html>
