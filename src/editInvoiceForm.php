@@ -55,7 +55,7 @@ $total_products =       count($_POST['product']);
 
 for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
-    $qty =          $_POST['qty'];
+    $qty =          $_POST['qty'][$i];
 
     $sql2 = "INSERT INTO invoice_line(
         invoice_id,
@@ -63,7 +63,6 @@ for($i=0;$i<$total_products;$i++) {
         quantity
     )
     VALUES ($id, $product, $qty)";
-    echo $sql2;
     $sql3 = mysqli_query($con, $sql2);
     
     if(!$sql3) {
