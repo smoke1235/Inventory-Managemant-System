@@ -37,3 +37,21 @@ while ($array = $item_result->fetch_assoc()) {
     $items[] = $array;
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory Manager | View Invoice</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="../assets/CSS/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="../assets/js/populateTextInput.js"></script>
+</head>
+<body>
+    
+</body>
+</html>
