@@ -90,7 +90,6 @@ if (!isset($_SESSION["loggedin"])) {
                     </p>
                 </section>
             </div>
-            <?php include_once '../include/footer.php'; ?>
         </main>
     </div>
 </body>
