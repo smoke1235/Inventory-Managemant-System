@@ -1,4 +1,13 @@
+<?php
+require_once '../config/connect.php';
+session_start();
+if (isset($_SESSION['username'])) {
+    header('location:register.php');
+}
 
+if (isset($_POST['']))
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,6 +29,7 @@
                 <input type="text" name="email" placeholder="" required>
                 <label for="password">Password:</label>
                 <input type="text" name="password" required>
+                <input type="submit" name="submit" value="Sign up">
             </form>
         </div>
     </div>
