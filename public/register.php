@@ -1,43 +1,72 @@
 <?php
+session_start();
+
+$username = "";
+$email = "";
+$errors = array();
+
 require_once '../config/connect.php';
 
-if (isset($_SESSION['username'])) {
-    header('location:register.php');
+if (isset($_POST['register'])) {
+    $username = mysqli_real_escape_string($con, $_POST['$username']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
+
+    if (empty($username)) {
+        array_push($errors, "Username is required");
+    }
+    if (empty($email)) {
+        array_push($errors, "Email is required");
+    }
+    if (empty($password)) {
+        array_push($errors, "Password is required");
+    }
 }
 
-if (isset($_POST['register'])) {
-    if(empty($_POST['username'] && $_POST['email'] && $_POST['password'])) {
-        echo '<script>alert("All Fields are required")</script>';
-    } else {
-        $username = $_POST['username'];
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $password = md5($password);
+$user_check = "SELECT
+    *
+FROM
+    `users`
+WHERE
+    username = '$username' OR email = '$email'
+LIMIT 1";
 
-        $sql = "INSERT INTO users (
-            username,
-            password,
-            email,
-            created
-        )
-        VALUES (
+$result = mysqli_query($con, $user_check);
+$user = mysqli_fetch_assoc($result);
+
+if ($user['username'] === $username) {
+    echo '<script>alert("Username already exists");</script>';
+}
+
+if ($user['email'] === $email) {
+    echo '<script>alert("Email already exists");</script>';
+}
+
+if (count($errors) == 0 ) {
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+
+    $sql  = "INSERT INTO `users`(
+        `username`,
+        `password`,
+        `email`,
+        `created`
+    )
+    VALUES(
         '$username',
-        '$password',
+        '$hash',
         '$email',
         current_timestamp()
-        )";
-        $result = mysqli_query($con, $sql);
-        if(mysqli_num_rows($result) > 0) {
-            header('location:index.php');
-        } else {
-            echo '<script>alert("Wrong user details")</script>';
-        }
-    }
+    )";
+
+    mysqli_query($con, $sql);
+    $_SESSION['username'] = $username;
+    header('Location: ../index.php');
 }
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,6 +74,7 @@ if (isset($_POST['register'])) {
     <link rel="stylesheet" href="../assets/CSS/register.css">
     <meta name="description" name="">
 </head>
+
 <body>
     <div class="container">
         <div class="register-container">
@@ -54,13 +84,14 @@ if (isset($_POST['register'])) {
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>
                 <label for="email">Email:</label>
-                <input type="text" name="email" placeholder="" required>
+                <input type="text" name="email" required>
                 <label for="password">Password:</label>
-                <input type="text" name="password" required>
+                <input type="password" name="password" required>
                 <input type="submit" name="submit" value="Sign up">
             </form>
             <a href="../index.php">Already have an account?</a>
         </div>
     </div>
 </body>
+
 </html>
