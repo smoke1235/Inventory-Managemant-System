@@ -5,7 +5,29 @@ if (isset($_SESSION['username'])) {
     header('location:register.php');
 }
 
-if (isset($_POST['']))
+if (isset($_POST['register'])) {
+    if(empty($_POST['username'] && $_POST['email'] && $_POST['password'])) {
+        echo '<script>alert("All Fields are required")</script>';
+    } else {
+        $username = $_POST['username'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $password = md5($password);
+
+        $sql = "INSERT INTO users (
+            username,
+            password,
+            email,
+            created
+        )
+        VALUES (
+        '$username',
+        '$password',
+        '$email',
+        current_timestamp()
+        )";
+    }
+}
 
 ?>
 <!DOCTYPE html>
