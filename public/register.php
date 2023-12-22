@@ -1,6 +1,6 @@
 <?php
 require_once '../config/connect.php';
-session_start();
+
 if (isset($_SESSION['username'])) {
     header('location:register.php');
 }
@@ -26,6 +26,12 @@ if (isset($_POST['register'])) {
         '$email',
         current_timestamp()
         )";
+        $result = mysqli_query($con, $sql);
+        if(mysqli_num_rows($result) > 0) {
+            header('location:index.php');
+        } else {
+            echo '<script>alert("Wrong user details")</script>';
+        }
     }
 }
 
