@@ -13,13 +13,15 @@ if (isset($_POST['register'])) {
     $password = mysqli_real_escape_string($con, $_POST['password']);
 
     if (empty($username)) {
-        array_push($errors, "Username is required");
+        echo '<script>alert("Username is required");</script>';
     }
+
     if (empty($email)) {
-        array_push($errors, "Email is required");
+        echo '<script>alert("email is required");</script>';
     }
+
     if (empty($password)) {
-        array_push($errors, "Password is required");
+        echo '<script>alert("password is required");</script>';
     }
 }
 
