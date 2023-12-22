@@ -46,12 +46,12 @@ if (isset($_POST['register'])) {
     <meta name="description" name="">
 </head>
 <body>
-    <h1>Drukkerij Teeuwen Inventory Manager</h1>
     <div class="container">
         <div class="register-container">
-            <h2>Register</h2>
+            <h1>Inventory Manager</h1>
+            <h2>Sign up</h2>
             <form action="register.php" method="POST">
-                <label for="username">User name:</label>
+                <label for="username">Username:</label>
                 <input type="text" name="username" required>
                 <label for="email">Email:</label>
                 <input type="text" name="email" placeholder="" required>
@@ -59,6 +59,7 @@ if (isset($_POST['register'])) {
                 <input type="text" name="password" required>
                 <input type="submit" name="submit" value="Sign up">
             </form>
+            <a href="../index.php">Already have an account?</a>
         </div>
     </div>
 </body>

@@ -11,17 +11,18 @@
 </head>
 
 <body>
-    <h1>Drukkerij Teeuwen Inventory Manager</h1>
     <div class="container">
         <div class="login">
+            <h1>Inventory Manager</h1>
             <h2>Login</h2>
             <form action="src/authenticate.php" method="post">
                 <label for="username">Username:</label>
-                <input type="text" name="username" placeholder="Username" required>
+                <input type="text" name="username" required>
                 <label for="password">Password:</label>
-                <input type="password" name="password" placeholder="Password" required>
+                <input type="password" name="password" required>
                 <input class="submit" type="submit" value="Login">
             </form>
+            <a href="public/register.php">Sign up</a>
             <a href="mailto:email@example.com">Forgot Password?</a>
         </div>
     </div>

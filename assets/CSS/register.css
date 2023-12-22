@@ -6,20 +6,15 @@
 }
 
 html {
-    background: #FF5733;
-}
-
-h1 {
-    display: flex;
-    justify-content: center;
-    color: white;
+    background: rgb(255,87,51);
+    background: linear-gradient(180deg, rgba(255,87,51,1) 40%, rgba(255,255,255,1) 100%);
+    background-repeat: repeat-x;
 }
 
 .container {
     display: flex;
     justify-content: center;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin-top: 200px;
 }
 
 .register-container {
@@ -27,9 +22,10 @@ h1 {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 500px;
+    height: 400px;
+    border: 1px #b8b9ba solid;
     border-radius: 5px;
-    width: 550px;
-    height: 450px;
     background: white;
 }
 
@@ -39,4 +35,26 @@ form {
     margin: 10 0px;
     padding: 10px;
     width: 20em;
+}
+
+label {
+    margin-top: 4px;
+}
+
+input[type=text] {
+    height: 25px;
+}
+
+input[type=submit] {
+    height: 30px;
+    margin-top: 8px;
+    border: #2d8be3 1px solid;
+    border-radius: 4px;
+    color: white;
+    background: #2d8be3;
+}
+
+input[type=submit]:hover {
+    background: #3798fa;
+    cursor: pointer;
 }
