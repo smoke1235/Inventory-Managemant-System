@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +9,19 @@
     <meta name="description" name="">
 </head>
 <body>
-    <div class="container"></div>
+    <h1>Drukkerij Teeuwen Inventory Manager</h1>
+    <div class="container">
+        <div class="register-container">
+            <h2>Register</h2>
+            <form action="register.php" method="POST">
+                <label for="username">User name:</label>
+                <input type="text" name="username" required>
+                <label for="email">Email:</label>
+                <input type="text" name="email" placeholder="" required>
+                <label for="password">Password:</label>
+                <input type="text" name="password" required>
+            </form>
+        </div>
+    </div>
 </body>
 </html>

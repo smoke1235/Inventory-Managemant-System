@@ -4,3 +4,39 @@
     margin: 0px;
     padding: 0px;
 }
+
+html {
+    background: #FF5733;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.register-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    width: 550px;
+    height: 450px;
+    background: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin: 10 0px;
+    padding: 10px;
+    width: 20em;
+}
