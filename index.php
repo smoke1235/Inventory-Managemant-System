@@ -14,7 +14,7 @@
     <div class="container">
         <div class="login">
             <h1>Inventory Manager</h1>
-            <h2>Login</h2>
+            <h2>Sign in</h2>
             <form action="src/authenticate.php" method="post">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>

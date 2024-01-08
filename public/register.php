@@ -1,71 +1,3 @@
-<?php
-session_start();
-
-$username = "";
-$email = "";
-$errors = array();
-
-require_once '../config/connect.php';
-
-if (isset($_POST['register'])) {
-    $username = mysqli_real_escape_string($con, $_POST['$username']);
-    $email = mysqli_real_escape_string($con, $_POST['email']);
-    $password = mysqli_real_escape_string($con, $_POST['password']);
-
-    if (empty($username)) {
-        echo '<script>alert("Username is required");</script>';
-    }
-
-    if (empty($email)) {
-        echo '<script>alert("email is required");</script>';
-    }
-
-    if (empty($password)) {
-        echo '<script>alert("password is required");</script>';
-    }
-}
-
-$user_check = "SELECT
-    *
-FROM
-    `users`
-WHERE
-    username = '$username' OR email = '$email'
-LIMIT 1";
-
-$result = mysqli_query($con, $user_check);
-$user = mysqli_fetch_assoc($result);
-
-if ($user['username'] === $username) {
-    echo '<script>alert("Username already exists");</script>';
-}
-
-if ($user['email'] === $email) {
-    echo '<script>alert("Email already exists");</script>';
-}
-
-if (count($errors) == 0 ) {
-    $hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $sql  = "INSERT INTO `users`(
-        `username`,
-        `password`,
-        `email`,
-        `created`
-    )
-    VALUES(
-        '$username',
-        '$hash',
-        '$email',
-        current_timestamp()
-    )";
-
-    mysqli_query($con, $sql);
-    $_SESSION['username'] = $username;
-    header('Location: ../index.php');
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,7 +14,7 @@ if (count($errors) == 0 ) {
         <div class="register-container">
             <h1>Inventory Manager</h1>
             <h2>Sign up</h2>
-            <form action="register.php" method="POST">
+            <form action="../src/insertUser.php" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" name="username" required>
                 <label for="email">Email:</label>
