@@ -49,7 +49,6 @@ for($i=0;$i<$total_products;$i++) {
     (invoice_id, product_id, quantity)
     VALUES ($last_id, $product, $qty)";
     $sql3 = mysqli_query($con, $sql2);
-    
 
     if(!$sql3) {
         $error = true;

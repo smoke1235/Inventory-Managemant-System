@@ -14,7 +14,7 @@
         <div class="register-container">
             <h1>Inventory Manager</h1>
             <h2>Register</h2>
-            <form method="POST" action="../src/register.php">
+            <form action="../src/register.php" method="POST">
                 <label for="username">Username:</label>
                 <input type="text" name="username" maxlength="50" required>
                 <label for="email">Email:</label>
