@@ -1,27 +1,22 @@
 <?php
+session_start();
+
 require_once '../config/connect.php';
-if ($stmt = $con->prepare('SELECT id, password FROM users WHERE username = ?')) {
-    $stmt->bind_param('s', $_POST['username']);
-    $stmt->execute();
 
-    $stmt->store_result();
+$stmt = $con->prepare('SELECT * FROM users WHERE username = ?');
+$stmt->bind_param('s', $_POST['username']);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
 
-    if ($stmt->num_rows > 0) {
-        $stmt->bind_result($id, $password);
-        $stmt->fetch();
-
-        if ($_POST['password'] === $password) {
-            session_regenerate_id();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['name'] = $_POST['username'];
-            $_SESSION['id'] = $id;
-            header('Location: ../public/dashboard.php');
-        } else {
-            echo "Wrong username/password";
-        }
-    } else {
-        echo "Wrong username/password";
-    }
-
-    $stmt->close();
+if ($user && password_verify($_POST['password'], $user['password'])) {
+    $_SESSION['loggedin'] = true;
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['name'] = $user['username'];
+    header('Location: ../public/dashboard.php');
+    exit;
+} else {
+    echo "Invalid password.";
 }
+
+$stmt->close();
