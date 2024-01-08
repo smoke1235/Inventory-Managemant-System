@@ -1,17 +1,40 @@
 <?php
-if (!empty($_POST['username'])) {
-    $errMsg = "Please fill in your username.";
-    echo '<script> alert("'.$errMsg.'"); </script>';
-}
+$username = "";
+$password = "";
+$email = "";
+$errMsg = "";
 
-if (!empty($_POST['password'])) {
-    $errMsg = "Please fill in your password.";
-    echo '<script> alert("'.$errMsg.'"); </script>';
-}
+require '/../config/connect.php';
 
-if (!empty($_POST['email'])) {
-    $errMsg = "Please fill in your email.";
-    echo '<script> alert("'.$errMsg.'"); </script>';
+if (strtoupper($_SERVER['REQUEST_METHODE']) == 'POST') {
+
+    if (!empty($_POST['username'])) {
+        $errMsg = "Please fill in your username.";
+        echo '<script> alert("' . $errMsg . '"); </script>';
+    } else {
+        $username = $_POST['username'];
+    }
+
+    if (!empty($_POST['password'])) {
+        $errMsg = "Please fill in your password.";
+        echo '<script> alert("' . $errMsg . '"); </script>';
+    } else {
+        $password = $_POST['password'];
+    }
+
+    if (!empty($_POST['email'])) {
+        $errMsg = "Please fill in your email.";
+        echo '<script> alert("' . $errMsg . '"); </script>';
+    } else {
+        $email = $_POST['email'];
+        $pattern = "^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$^";
+
+        if (!preg_match($pattern, $email)) {
+            $errMsg = "Email invalid.";
+            echo '<script> alert("' . $errMsg . '"); </script>';
+        }
+    }
+
 }
 ?>
 
