@@ -22,7 +22,7 @@
                 <input type="password" name="password" required>
                 <input class="submit" type="submit" value="Login">
             </form>
-            <a href="public/register.php">Sign up</a>
+            <a href="public/register.php">Register</a>
             <a href="mailto:email@example.com">Forgot Password?</a>
         </div>
     </div>

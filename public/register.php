@@ -1,17 +1,17 @@
 <?php
-$username = $email = $password ="";
-
-if ($_SERVER['REQUEST_METHODE'] == "POST") {
-    $username = test_input($_POST['username']);
-    $email = test_input($_POST['email']);
-    $password = test_input($_POST['password']);
+if (!empty($_POST['username'])) {
+    $errMsg = "Please fill in your username.";
+    echo '<script> alert("'.$errMsg.'"); </script>';
 }
 
-function test_input($data) {
-    $data = trim($data);
-    $data = stripcslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+if (!empty($_POST['password'])) {
+    $errMsg = "Please fill in your password.";
+    echo '<script> alert("'.$errMsg.'"); </script>';
+}
+
+if (!empty($_POST['email'])) {
+    $errMsg = "Please fill in your email.";
+    echo '<script> alert("'.$errMsg.'"); </script>';
 }
 ?>
 
@@ -30,8 +30,8 @@ function test_input($data) {
     <div class="container">
         <div class="register-container">
             <h1>Inventory Manager</h1>
-            <h2>Sign up</h2>
-            <form method="POST">
+            <h2>Register</h2>
+            <form method="POST" autocomplete="off">
                 <label for="username">Username:</label>
                 <input type="text" name="username" maxlength="50" required>
                 <label for="email">Email:</label>
