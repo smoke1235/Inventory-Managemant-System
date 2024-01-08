@@ -1,3 +1,20 @@
+<?php
+$username = $email = $password ="";
+
+if ($_SERVER['REQUEST_METHODE'] == "POST") {
+    $username = test_input($_POST['username']);
+    $email = test_input($_POST['email']);
+    $password = test_input($_POST['password']);
+}
+
+function test_input($data) {
+    $data = trim($data);
+    $data = stripcslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +23,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Manager | Register</title>
     <link rel="stylesheet" href="../assets/CSS/register.css">
-    <meta name="description" name="">
+    <meta name="description" content="">
 </head>
 
 <body>
@@ -14,13 +31,13 @@
         <div class="register-container">
             <h1>Inventory Manager</h1>
             <h2>Sign up</h2>
-            <form action="../src/insertUser.php" method="POST">
+            <form method="POST">
                 <label for="username">Username:</label>
-                <input type="text" name="username" required>
+                <input type="text" name="username" maxlength="50" required>
                 <label for="email">Email:</label>
-                <input type="text" name="email" required>
+                <input type="text" name="email" maxlength="80" required>
                 <label for="password">Password:</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" maxlength="90" required>
                 <input type="submit" name="submit" value="Sign up">
             </form>
             <a href="../index.php">Already have an account?</a>
