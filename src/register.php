@@ -1,6 +1,5 @@
 <?php
 require_once '../config/connect.php';
-require_once '../src/libs/password.php';
 
 if (isset($_POST)) {
     $username = $_POST['username'];
