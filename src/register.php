@@ -20,9 +20,9 @@ if (isset($_POST)) {
                 '$email',
                 current_timestamp()
             )";
-    $result = mysqli_query($con, $query);
 
+    $result = mysqli_query($con, $query);
     if ($result){
-        header('Location: ../index.php');
+       header('Location: ../index.php');
     }
 }
