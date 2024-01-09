@@ -14,12 +14,11 @@ if ($stmt->num_rows() > 0) {
     $stmt->fetch();
 
     if (password_verify($password, $hashed)) {
-        $_SESSION['logedin'] = true;
-        $_SESSION['id'] = $user['id'];
-        $_SESSION['name'] = $user['username'];
+        $_SESSION['loggedin'] = true;
+        $_SESSION['id'] = $id;
+        $_SESSION['name'] = $username;
 
         header('Location: ../public/dashboard.php');
-        exit;
     } else {
         echo "Invalid username or password.";
     }
