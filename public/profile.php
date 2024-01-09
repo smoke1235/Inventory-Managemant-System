@@ -42,12 +42,6 @@ $stmt->close();
                             </td>
                         </tr>
                         <tr>
-                            <td>Password:</td>
-                            <td>
-                                <?= $password ?>
-                            </td>
-                        </tr>
-                        <tr>
                             <td>E-mail:</td>
                             <td>
                                 <?= $email ?>
