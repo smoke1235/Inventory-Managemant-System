@@ -1,9 +1,3 @@
-<?php
-if ($_SESSION['wrong'] == 1) {
-    echo '<script> alert("Wrong username/password"); </script>';
-}
-?>
-
 <!DOCTYPE <html>
 <html lang="en">
 
