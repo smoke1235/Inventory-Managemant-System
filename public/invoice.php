@@ -1,11 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../index.php');
-    exit;
-}
-
-require_once '../config/connect.php';
+require_once '../src/inc/session_check.php';
 
 $sql = "SELECT *, `invoices`.`id` as `invoice_id`, `invoices`.`created` AS `invoice_created` FROM invoices
 INNER JOIN invoice_status ON invoices.status=invoice_status.id

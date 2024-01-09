@@ -1,11 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../index.php');
-    exit;
-}
-
-require_once '../config/connect.php';
+require_once '../src/inc/session_check.php';
 
 $stmt = $con->prepare('SELECT password, email FROM users WHERE id = ?');
 $stmt->bind_param('i', $_SESSION['id']);

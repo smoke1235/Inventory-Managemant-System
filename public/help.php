@@ -1,10 +1,4 @@
-<?php
-session_start();
-if (!isset($_SESSION["loggedin"])) {
-    header("Location: ../index.php");
-    exit;
-}
-?>
+<?php require_once '../src/inc/session_check.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">

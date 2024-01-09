@@ -1,10 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['loggedin'])) {
-    header("location: ../ondex.php");
-}
-
-require_once '../config/connect.php';
+require_once '../src/inc/session_check.php';
 include_once '../src/fetch-customers.php';
 
 $id = $_GET['id'];
