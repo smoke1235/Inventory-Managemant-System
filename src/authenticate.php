@@ -18,7 +18,7 @@ if ($stmt->num_rows() > 0) {
         $_SESSION['id'] = $user['id'];
         $_SESSION['name'] = $user['username'];
 
-        header('Location:/public/dashboard.php');
+        header('Location:../public/dashboard.php');
         exit;
     } else {
         echo "Invalid username or password.";
