@@ -8,3 +8,6 @@
     <meta name="description" content="">
 </head>
 <body>
+    <div>
+        <?php include_once '../src/inc/navbar.php'; ?>
+        <main class="main-content">

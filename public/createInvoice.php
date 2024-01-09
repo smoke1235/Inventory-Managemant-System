@@ -20,10 +20,10 @@ include_once '../src/fetch-customers.php';
 
 <body>
     <div class="dashboard-container">
-        <?php include_once '../include/navbar.php'; ?>
+        <?php include_once '../src/inc/navbar.php'; ?>
         <main class="main-content">
             <div id="myModal" class="modal">
-                <?php include_once '../include/invoiceInsertProduct.php'; ?>
+                <?php include_once '../src/inc/invoiceInsertProduct.php'; ?>
             </div>
             <div class="order-title">
                 <h1>New Invoice</h1>

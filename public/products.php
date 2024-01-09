@@ -19,7 +19,7 @@ $result = $con->query($sql);
 
 <body>
     <div class="dashboard-container">
-        <?php include_once '../include/navbar.php'; ?>
+        <?php include_once '../src/inc/navbar.php'; ?>
         <main class="main-content">
             <h1>Products</h1>
             <a class="new-data" href="insertProduct.php">Add</a>
