@@ -1,15 +1,21 @@
 <?php
 require_once '../config/connect.php';
 
-$stmt = $con->prepare("SELECT * FROM users WHERE username = ? LIMIT 1");
-$stmt->bind_param('s', $_POST['username']);
-$stmt->execute();
+$username = $_POST['username'];
+$password = $_POST['password'];
 
-$result = $stmt->get_result();
-$user = $result->fetch_assoc();
-print_r($user); echo "<br>";
-if ($user && password_verify($_POST['password'], $user['password'])) {
-    echo "JIPPIE";
-} else {
-    echo "Invalid username or password.";
+$stmt = $con->prepare("SELECT id, username, password FROM users WHERE username = ?");
+$stmt->bind_param('s', $username);
+$stmt->execute();
+$stmt->store_result();
+
+if ($stmt->num_rows() > 0) {
+    $stmt->bind_result($id, $username, $hashed);
+    $stmt->fetch();
+
+    if (password_verify($password, $hashed)) {
+        
+    } else {
+        echo "Invalid username or password.";
+    }
 }
