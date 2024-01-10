@@ -20,17 +20,49 @@ $billing_postalcode =   $_POST['billing_postalcode'];
 $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
-$sql1 = "INSERT INTO invoices
-(status, user_id, number, mail, customer_id,
-shipping_name, shipping_company, shipping_street, shipping_postalcode, shipping_city, shipping_country,
-billing_name, billing_company, billing_street, billing_postalcode, billing_city, billing_country,
-updated, created)
-VALUES
-('$status', '$user', '$number', '$mail', '$customer',
-'$shipping_name', '$shipping_company', '$shipping_street', '$shipping_postalcode', '$shipping_city', '$shipping_country'
-,'$billing_name', '$billing_company', '$billing_street', '$billing_postalcode', '$billing_city', '$billing_country',
-current_timestamp(), current_timestamp())";
-
+$sql1 = "INSERT INTO invoices(
+            status,
+            user_id,
+            number,
+            mail,
+            customer_id,
+            shipping_name,
+            shipping_company,
+            shipping_street,
+            shipping_postalcode,
+            shipping_city,
+            shipping_country,
+            billing_name,
+            billing_company,
+            billing_street,
+            billing_postalcode,
+            billing_city,
+            billing_country,
+            updated,
+            created
+        )
+        VALUES(
+            '$status',
+            '$user',
+            '$number',
+            '$mail',
+            '$customer',
+            '$shipping_name',
+            '$shipping_company',
+            '$shipping_street',
+            '$shipping_postalcode',
+            '$shipping_city',
+            '$shipping_country',
+            '$billing_name',
+            '$billing_company',
+            '$billing_street',
+            '$billing_postalcode',
+            '$billing_city',
+            '$billing_country',
+            current_timestamp(),
+            current_timestamp()
+        )";
+echo $sql1;
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
 } else {
@@ -45,9 +77,16 @@ for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
     $qty =          $_POST['qty'][$i];
 
-    $sql2 = "INSERT INTO invoice_line
-    (invoice_id, product_id, quantity)
-    VALUES ($last_id, $product, $qty)";
+    $sql2 = "INSERT INTO invoice_line(
+                invoice_id,
+                product_id,
+                quantity
+            )
+            VALUES(
+                $last_id,
+                $product,
+                $qty
+            )";
     $sql3 = mysqli_query($con, $sql2);
 
     if(!$sql3) {
