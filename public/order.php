@@ -56,8 +56,8 @@ $result = $con->query($sql);
                         <?php echo $row['username'] ?>
                     </td>
                     <td>
-                        <a class="edit-data" href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">Edit</a>
-                        <a class="view-data" href="view-invoice.php?id=<?php echo $row['invoice_id']; ?>">View</a>
+                        <a class="edit-data" href="edit-order.php?id=<?php echo $row['order_id']; ?>">Edit</a>
+                        <a class="view-data" href="view-order.php?id=<?php echo $row['order_id']; ?>">View</a>
                     </td>
                 </tr>
             </tbody>

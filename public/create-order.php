@@ -15,7 +15,7 @@ include_once '../src/fetch-customers.php';
 <div class="order-title">
     <h1>New Order</h1>
     <section>
-        <a href="invoice.php">Cancel</a>
+        <a href="order.php">Cancel</a>
         <input type="submit" name="submit" value="Save" form="create-invoice">
     </section>
 </div>

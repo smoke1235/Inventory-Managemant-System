@@ -28,7 +28,7 @@ $fetch_items = "SELECT
                     order_line
                 INNER JOIN products ON order_line.product_id = products.id
                 WHERE
-                    order_id = '$id';";
+                    order_id = '$id'";
 $item_result = $con->query($fetch_items);
 while ($array = $item_result->fetch_assoc()) {
     $items[] = $array;
@@ -38,8 +38,8 @@ while ($array = $item_result->fetch_assoc()) {
 <div class="order-title">
     <h1>View Invoice</h1>
     <section>
-        <a href="invoice.php">Back</a>
-        <a class="edit-data" href="editInvoice.php?id=<?php echo $id; ?>">Edit</a>
+        <a href="order.php">Back</a>
+        <a class="edit-data" href="edit-order.php?id=<?php echo $id; ?>">Edit</a>
     </section>
 </div>
 <div class="order-form-container">
