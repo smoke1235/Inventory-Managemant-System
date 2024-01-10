@@ -37,31 +37,31 @@ include_once '../src/fetch-customers.php';
                     ?>
                 </select>
                 <h3>Contact Info</h3>
-                <input type="text" name="customer_number" id="customer_number">
-                <input type="text" name="customer_email" id="customer_email">
+                <input type="tel" name="customer_number" id="customer_number" placeholder="Phone number" required>
+                <input type="email" name="customer_email" id="customer_email" placeholder="E-mail" required>
             </section>
             <section class="order-form-shipping">
                 <h2>Shipping Address</h2>
-                <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name">
-                <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name">
-                <input type="text" name="shipping_street" id="shipping_street" placeholder="Street">
-                <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code">
-                <input type="text" name="shipping_city" id="shipping_city" placeholder="City">
-                <input type="text" name="shipping_country" id="shipping_country" placeholder="Country">
+                <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name" required>
+                <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name" required>
+                <input type="text" name="shipping_street" id="shipping_street" placeholder="Street" required>
+                <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code" required>
+                <input type="text" name="shipping_city" id="shipping_city" placeholder="City" required>
+                <input type="text" name="shipping_country" id="shipping_country" placeholder="Country" required>
             </section>
             <section class="order-form-billing">
                 <h2>Billing Address</h2>
-                <input type="text" name="billing_name" id="billing_name" placeholder="Full Name">
-                <input type="text" name="billing_company" id="billing_company" placeholder="Company Name">
-                <input type="text" name="billing_street" id="billing_street" placeholder="Street">
-                <input type="text" name="billing_postalcode" id="billing_postalcode" placeholder="Postal Code">
-                <input type="text" name="billing_city" id="billing_city" placeholder="City">
-                <input type="text" name="billing_country" id="billing_country" placeholder="Country">
+                <input type="text" name="billing_name" id="billing_name" placeholder="Full Name" required>
+                <input type="text" name="billing_company" id="billing_company" placeholder="Company Name" required>
+                <input type="text" name="billing_street" id="billing_street" placeholder="Street" required>
+                <input type="text" name="billing_postalcode" id="billing_postalcode" placeholder="Postal Code" required>
+                <input type="text" name="billing_city" id="billing_city" placeholder="City" required>
+                <input type="text" name="billing_country" id="billing_country" placeholder="Country" required>
             </section>
             <section class="order-form-status">
                 <h2>Status</h2>
-                <select name="invoice_status">
-                    <option selected disabled>Select Status</option>
+                <select name="invoice_status" required>
+                    <option value="" selected disabled>Select Status</option>
                     <option value="6">IN PROCESS</option>
                     <option value="8">SHIPPING</option>
                     <option value="9">SHIPPED</option>
