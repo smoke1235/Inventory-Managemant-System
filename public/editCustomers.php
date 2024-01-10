@@ -23,7 +23,7 @@ $row = $result->fetch_assoc();
                     placeholder="Last name" value="<?php echo $row['last_name']; ?>" maxlength="80">
                     <label for="number">Phone number:</label>
                     <input type="tel" name="number"
-                    placeholder="06123456789" value="<?php echo $row['number']; ?>" maxlength="20">
+                    placeholder="06123456789" value="<?php echo $row['number']; ?>" maxlength="15">
                     <label for="email">Email:</label>
                     <input type="text" name="email"
                     placeholder="customer@example.nl" value="<?php echo $row['email']; ?>" maxlength="200">

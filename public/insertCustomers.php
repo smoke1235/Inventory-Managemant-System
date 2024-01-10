@@ -12,7 +12,7 @@ view('header', ['title' => 'New customer'])
         <label for="lastName" name="lastName">Last name:*</label>
         <input type="text" name="lastName" placeholder="Last Name" required>
         <label for="number">Phone Number:*</label>
-        <input type="tel" name="number" placeholder="06123456789" required>
+        <input type="tel" name="number" placeholder="0612345678" maxlength="15" required>
         <label for="email">Email:</label>
         <input type="text" name="email" placeholder="someone@exaple.com">
         <label for="companyName" name="companyName">Company name:</label>
