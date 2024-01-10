@@ -12,28 +12,28 @@ $customerPostcode = $_REQUEST['customerPostcode'];
 $customerCity = $_REQUEST['customerCity'];
 $customerCountry = $_REQUEST['customerCountry'];
 
-$sql =
-"INSERT INTO customers(
-    first_name,
-    last_name,
-    company_name,
-    number,
-    email,
-    street,
-    postcode,
-    city,
-    country,
-)
-VALUES (
-    '$firstName',
-    '$lastName',
-    '$number',
-    '$email',
-    '$companyName',
-    '$customerStreet',
-    '$customerPostcode',
-    '$customerCity',
-    '$customerCountry'";
+$sql = "INSERT INTO customers(
+            first_name,
+            last_name,
+            company_name,
+            number,
+            email,
+            street,
+            postcode,
+            city,
+            country
+        )
+        VALUES(
+            '$firstName',
+            '$lastName',
+            '$number',
+            '$email',
+            '$companyName',
+            '$customerStreet',
+            '$customerPostcode',
+            '$customerCity',
+            '$customerCountry'
+        )";
 echo $sql;
 if (mysqli_query($con, $sql)) {
     header('Location: ../public/customers.php');
