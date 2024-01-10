@@ -20,7 +20,7 @@ $result = $con->query($sql);
 ?>
 
 <h1>Orders</h1>
-<a class="new-data" href="createInvoice.php">Create invoice</a>
+<a class="new-data" href="create-order.php">Create invoice</a>
 <div class="table-container">
     <table aria-label="">
         <thead>
@@ -38,7 +38,7 @@ $result = $con->query($sql);
             <tbody>
                 <tr>
                     <td>
-                        <?php echo $row['invoice_id']; ?>
+                        <?php echo $row['order_id']; ?>
                     </td>
                     <td>
                         <?php echo $row['status']; ?>
@@ -50,7 +50,7 @@ $result = $con->query($sql);
                         <?php echo $row['updated']; ?>
                     </td>
                     <td>
-                        <?php echo $row['invoice_created']; ?>
+                        <?php echo $row['order_created']; ?>
                     </td>
                     <td>
                         <?php echo $row['username'] ?>
