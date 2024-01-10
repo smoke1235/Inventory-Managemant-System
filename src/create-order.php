@@ -20,7 +20,7 @@ $billing_postalcode =   $_POST['billing_postalcode'];
 $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
-$sql1 = "INSERT INTO invoices(
+$sql1 = "INSERT INTO orders(
             `status`,
             `user_id`,
             `number`,
@@ -66,7 +66,7 @@ if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
 } else {
     if(!$sql3) {
-        header('Loaction:../public/createInvoice.php');
+        header('Loaction:../public/create-order.php');
     }
 }
 
@@ -78,7 +78,7 @@ for($i=0;$i<$total_products;$i++) {
     $product =      $_POST['product'][$i];
     $qty =          $_POST['qty'][$i];
 
-    $sql2 = "INSERT INTO invoice_line(
+    $sql2 = "INSERT INTO order_line(
                 invoice_id,
                 product_id,
                 quantity
@@ -91,10 +91,10 @@ for($i=0;$i<$total_products;$i++) {
     $sql3 = mysqli_query($con, $sql2);
 
     if(!$sql3) {
-        header('Loaction:../public/createInvoice.php');
+        header('Loaction:../public/create-order.php');
     }
 }
 
 if($sql3) {
-    header('Location: ../public/invoice.php');
+    header('Location: ../public/order.php');
 }
