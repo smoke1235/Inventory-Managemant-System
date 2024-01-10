@@ -24,8 +24,8 @@ include_once '../src/fetch-customers.php';
         <div class="order-form-header">
             <section class="order-form-customer">
                 <h2>Customer</h2>
-                <select name="customer_select" id="customer-select" onchange="populateTextInput()">
-                    <option selected disabled>Select customer</option>
+                <select name="customer_select" id="customer-select" required onchange="populateTextInput()">
+                    <option value="" selected disabled>Select customer</option>
                     <?php
                     foreach ($options as $option) {
                         ?>
@@ -72,8 +72,7 @@ include_once '../src/fetch-customers.php';
                 </select>
             </section>
         </div>
-        <br>
-        <hr>
+        <br><hr>
         <div class="order-form-content">
             <table aria-label="">
                 <thead>

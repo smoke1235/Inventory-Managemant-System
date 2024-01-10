@@ -21,25 +21,25 @@ $billing_city =         $_POST['billing_city'];
 $billing_country =      $_POST['billing_country'];
 
 $sql1 = "INSERT INTO invoices(
-            status,
-            user_id,
-            number,
-            mail,
-            customer_id,
-            shipping_name,
-            shipping_company,
-            shipping_street,
-            shipping_postalcode,
-            shipping_city,
-            shipping_country,
-            billing_name,
-            billing_company,
-            billing_street,
-            billing_postalcode,
-            billing_city,
-            billing_country,
-            updated,
-            created
+            `status`,
+            `user_id`,
+            `number`,
+            `mail`,
+            `customer_id`,
+            `shipping_name`,
+            `shipping_company`,
+            `shipping_street`,
+            `shipping_postalcode`,
+            `shipping_city`,
+            `shipping_country`,
+            `billing_name`,
+            `billing_company`,
+            `billing_street`,
+            `billing_postalcode`,
+            `billing_city`,
+            `billing_country`,
+            `updated`,
+            `created`
         )
         VALUES(
             '$status',
@@ -59,14 +59,15 @@ $sql1 = "INSERT INTO invoices(
             '$billing_postalcode',
             '$billing_city',
             '$billing_country',
-            current_timestamp(),
-            current_timestamp()
+            current_timestamp(), current_timestamp()
         )";
 echo $sql1;
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
 } else {
-    echo mysqli_error($con);
+    //if(!$sql3) {
+        //header('Loaction:../public/createInvoice.php');
+    //}
 }
 
 $total_products =       count($_POST['product']);
@@ -90,8 +91,7 @@ for($i=0;$i<$total_products;$i++) {
     $sql3 = mysqli_query($con, $sql2);
 
     if(!$sql3) {
-        $error = true;
-        $error_msg = $error_msg.mysqli_error($con);
+        header('Loaction:../public/createInvoice.php');
     }
 }
 
