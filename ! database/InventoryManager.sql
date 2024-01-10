@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jan 09, 2024 at 04:23 PM
+-- Generation Time: Jan 10, 2024 at 02:29 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.2
 
@@ -32,7 +32,7 @@ CREATE TABLE `customers` (
   `first_name` varchar(90) NOT NULL,
   `last_name` varchar(90) NOT NULL,
   `company_name` varchar(60) NOT NULL,
-  `number` varchar(20) NOT NULL,
+  `number` varchar(15) NOT NULL,
   `email` varchar(200) NOT NULL,
   `street` varchar(90) NOT NULL,
   `postcode` varchar(8) NOT NULL,
@@ -51,7 +51,7 @@ CREATE TABLE `invoices` (
   `status` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `customer_id` int(11) NOT NULL,
-  `number` int(20) NOT NULL,
+  `number` varchar(15) NOT NULL,
   `mail` varchar(90) NOT NULL,
   `shipping_name` varchar(100) NOT NULL,
   `shipping_company` varchar(100) DEFAULT NULL,
@@ -222,19 +222,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=165;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `invoice_line`
 --
 ALTER TABLE `invoice_line`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT for table `invoice_status`
@@ -246,13 +246,13 @@ ALTER TABLE `invoice_status`
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=141;
 
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
 
 --
 -- AUTO_INCREMENT for table `users`
