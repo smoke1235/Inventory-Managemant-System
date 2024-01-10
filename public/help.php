@@ -4,6 +4,10 @@ view('header', ['title' => 'Dashboard']);
 ?>
 
 <h1>Help</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Voluptatem possimus voluptatibus obcaecati corporis soluta numquam porro amet,
+    non, quod vel at. Aperiam inventore iure explicabo delectus dolorum veritatis optio maxime!
+</p>
 <div class="help">
     <section>
         <h2>Collapse Sidebar</h2>
