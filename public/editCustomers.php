@@ -1,5 +1,7 @@
 <?php
 require_once '../src/inc/session_check.php';
+require_once __DIR__ . '/../src/bootstrap.php';
+view('header', ['title' =>  'Edit customers']);
 
 $id = $_GET['id'];
 $sql =
@@ -9,20 +11,6 @@ $result = mysqli_query($con, $sql);
 $row = $result->fetch_assoc();
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inventory Manager | Edit Customer</title>
-    <link rel="stylesheet" href="../assets/CSS/main.css">
-</head>
-
-<body>
-    <div class="dashboard-container">
-        <?php include_once '../src/inc/navbar.php'; ?>
-        <main class="main-content">
             <h1>Edit <?php echo $row['first_name'] . ' ' . $row['last_name']; ?></h1>
             <div class="form-container">
                 <form action="../src/editCustomersForm.php" method="POST">
@@ -58,8 +46,4 @@ $row = $result->fetch_assoc();
                     <a class="cancel-button" href="customers.php">Cancel</a>
                 </form>
             </div>
-        </main>
-    </div>
-</body>
-
-</html>
+<?php view('footer'); ?>
