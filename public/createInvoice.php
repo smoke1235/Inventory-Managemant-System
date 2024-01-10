@@ -1,7 +1,7 @@
 <?php
 require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
-view('header', ['title' => 'Create invoice']);
+view('header', ['title' => 'Create new invoice']);
 include_once '../src/fetch-customers.php';
 ?>
 

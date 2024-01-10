@@ -1,7 +1,7 @@
 <?php
 require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
-view('header', ['title' => 'Create order']);
+view('header', ['title' => 'Create new order']);
 include_once '../src/fetch-customers.php';
 ?>
 
@@ -20,7 +20,7 @@ include_once '../src/fetch-customers.php';
     </section>
 </div>
 <div class="order-form-container">
-    <form action="../src/insertInvoiceForm.php" id="create-invoice" method="POST">
+    <form action="../src/create-order.php" id="create-invoice" method="POST">
         <div class="order-form-header">
             <section class="order-form-customer">
                 <h2>Customer</h2>

@@ -79,9 +79,9 @@ for($i=0;$i<$total_products;$i++) {
     $qty =          $_POST['qty'][$i];
 
     $sql2 = "INSERT INTO order_line(
-                invoice_id,
-                product_id,
-                quantity
+                `order_id`,
+                `product_id`,
+                `quantity`
             )
             VALUES(
                 $last_id,
