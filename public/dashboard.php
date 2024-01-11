@@ -101,22 +101,22 @@ view('header', ['title' =>  'Dashboard'])
             <tbody>
                 <?php while ($rows = $result->fetch_assoc()) { ?>
                     <tr>
-                        <td>
+                        <td id="dash-id">
                             <?php echo $rows['id']; ?>
                         </td>
-                        <td>
+                        <td id="dash-name">
                             <?php echo $rows['product_name']; ?>
                         </td>
-                        <td>
+                        <td id="dash-descr">
                             <?php echo $rows['product_description']; ?>
                         </td>
-                        <td>
+                        <td id="dash-qty">
                             <?php echo $rows['product_quantity']; ?>
                         </td>
-                        <td>
+                        <td id="dash-prc">
                             <?php echo $rows['product_price']; ?>
                         </td>
-                        <td>
+                        <td id="dash-act">
                             <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                             <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
                         </td>

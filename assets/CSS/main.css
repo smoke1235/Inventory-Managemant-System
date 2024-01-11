@@ -376,6 +376,30 @@ table tr:hover {
     color: white;
 }
 
+#dash-id {
+    width: 1%;
+}
+
+#dash-name {
+    width: 30%;
+}
+
+#dash-descr {
+    width: 30%;
+}
+
+#dash-qty {
+    width: 5%;
+}
+
+#dash-prc {
+    width: 5%;
+}
+
+#dash-act {
+    width: 8%;
+}
+
 /* ---- invoice Form ---- */
 
 .order-title {
