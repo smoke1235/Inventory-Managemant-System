@@ -29,25 +29,25 @@ $result = $con->query($sql);
         <?php while ($row = $result->fetch_assoc()) { ?>
             <tbody>
                 <tr>
-                    <td>
+                    <td id="invoice-id">
                         <?php echo $row['invoice_id']; ?>
                     </td>
-                    <td>
+                    <td id="invoice-status">
                         <?php echo $row['status']; ?>
                     </td>
-                    <td>
+                    <td id="invoice-name">
                         <?php echo $row['first_name'] . ' ' . $row['last_name']; ?>
                     </td>
-                    <td>
+                    <td id="invoice-update">
                         <?php echo $row['updated']; ?>
                     </td>
-                    <td>
+                    <td id="invoice-create">
                         <?php echo $row['invoice_created']; ?>
                     </td>
-                    <td>
+                    <td id="invoice-user">
                         <?php echo $row['username'] ?>
                     </td>
-                    <td>
+                    <td id="invoice-action">
                         <a class="edit-data" href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">Edit</a>
                         <a class="view-data" href="view-invoice.php?id=<?php echo $row['invoice_id']; ?>">View</a>
                     </td>
