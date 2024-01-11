@@ -400,7 +400,67 @@ table tr:hover {
     width: 8%;
 }
 
-/* ---- invoice Form ---- */
+/* ---- Table witdh ---- */
+
+#invoice-id {
+    width: 5px;
+}
+
+#invoice-status {
+    width: 20vh;
+}
+
+#invoice-name {
+    width: 50vh;
+}
+
+#invoice-update {
+    width: 35vh;
+}
+
+#invoice-create {
+    width: 35vh;
+}
+
+#invoice-user {
+    width: 25vh;
+}
+
+#invoice-action {
+    width: 20vh;
+}
+
+#order-id {
+    width: 5px;
+}
+
+#order-status {
+    width: 20vh;
+}
+
+#order-name {
+    width: 50vh;
+}
+
+#order-update {
+    width: 35vh;
+}
+
+#order-create {
+    width: 35vh;
+}
+
+#order-user {
+    width: 25vh;
+}
+
+#order-action {
+    width: 20vh;
+}
+
+
+
+/* ---- new invoice Form ---- */
 
 .order-title {
     display: flex;
@@ -443,34 +503,6 @@ table td {
 
 .order-form-content input[type=float]{
     width: 50px;
-}
-
-#invoice-id {
-    width: 5px;
-}
-
-#invoice-status {
-    width: 20vh;
-}
-
-#invoice-name {
-    width: 50vh;
-}
-
-#invoice-update {
-    width: 35vh;
-}
-
-#invoice-create {
-    width: 35vh;
-}
-
-#invoice-user {
-    width: 25vh;
-}
-
-#invoice-action {
-    width: 20vh;
 }
 
 #inv-ation {

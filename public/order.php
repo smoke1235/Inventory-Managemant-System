@@ -36,25 +36,25 @@ $result = $con->query($sql);
         <?php while ($row = $result->fetch_assoc()) { ?>
             <tbody>
                 <tr>
-                    <td>
+                    <td id="order-id">
                         <?php echo $row['order_id']; ?>
                     </td>
-                    <td>
+                    <td id="order-status">
                         <?php echo $row['status']; ?>
                     </td>
-                    <td>
+                    <td id="order-name">
                         <?php echo $row['first_name'] . ' ' . $row['last_name']; ?>
                     </td>
-                    <td>
+                    <td id="order-update">
                         <?php echo $row['updated']; ?>
                     </td>
-                    <td>
+                    <td id="order-create">
                         <?php echo $row['order_created']; ?>
                     </td>
-                    <td>
+                    <td id="order-user">
                         <?php echo $row['username'] ?>
                     </td>
-                    <td>
+                    <td id="order-user">
                         <a class="edit-data" href="edit-order.php?id=<?php echo $row['order_id']; ?>">Edit</a>
                         <a class="view-data" href="view-order.php?id=<?php echo $row['order_id']; ?>">View</a>
                     </td>
