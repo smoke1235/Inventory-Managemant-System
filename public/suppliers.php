@@ -15,7 +15,7 @@ $con->close();
 <h1>Suppliers</h1>
 <a class="new-data" href="insertSuppliers.php">Add</a>
 <div class="table-container">
-    <table>
+    <table aria-describedby="">
         <thead>
             <tr>
                 <th>Name</th>
@@ -29,22 +29,22 @@ $con->close();
             ?>
             <tbody>
                 <tr>
-                    <td>
+                    <td id="sup-name">
                         <?php echo $rows['name']; ?>
                     </td>
-                    <td>
+                    <td id="sup-num">
                         <?php echo $rows['number']; ?>
                     </td>
-                    <td>
+                    <td id="sup-mail">
                         <?php echo $rows['email']; ?>
                     </td>
-                    <td>
+                    <td id="sup-addr">
                         <?php echo $rows['street'] . ', ' .
                             $rows['postcode'] . ', ' .
                             $rows['city'] . ', ' .
                             $rows['country']; ?>
                     </td>
-                    <td>
+                    <td id="sup-act">
                         <a class="edit-data" href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
                         <a class="view-data" href="view-supplier.php?id=<?php echo $rows['id']; ?>">View</a>
                     </td>

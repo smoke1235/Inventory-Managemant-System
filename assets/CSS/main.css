@@ -500,6 +500,26 @@ table tr:hover {
     width: 10%;
 }
 
+#sup-name {
+    width: 15%;
+}
+
+#sup-num {
+    width: 10%;
+}
+
+#sup-mail {
+    width: 20%;
+}
+
+#sup-addr {
+    width: 40%;
+}
+
+#sup-act {
+    width: 10%;
+}
+
 /* ---- new invoice Form ---- */
 
 .order-title {
