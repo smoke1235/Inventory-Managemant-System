@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Inventory Manager' ?></title>
     <link rel="stylesheet" href="../assets/CSS/main.css">
-    <link rel="icon" href="">
+    <link rel="icon" href="../assets/img/checklists.png">
     <meta name="description" content="assets/img/checklists.png">
 </head>
 <body>
