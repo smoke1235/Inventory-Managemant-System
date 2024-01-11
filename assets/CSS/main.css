@@ -299,7 +299,6 @@ table {
 
 .table-container
 table td:first-child {
-    min-width: 150px;
     max-width: 150px;
 }
 
@@ -351,7 +350,6 @@ table td {
 
 .dashboard-table-container
 table td:first-child {
-    min-width: 150px;
     max-width: 150px;
 }
 
@@ -458,7 +456,29 @@ table tr:hover {
     width: 20vh;
 }
 
+#pro-id {
+    width: 3%;
+}
 
+#pro-name {
+    width: 20%;
+}
+
+#pro-descr {
+    width: 45%;
+}
+
+#pro-qty {
+    width: 5%;
+}
+
+#pro-prc {
+    width: 5%;
+}
+
+#pro-act {
+    width: 10%;
+}
 
 /* ---- new invoice Form ---- */
 

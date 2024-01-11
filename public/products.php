@@ -25,22 +25,22 @@ $result = $con->query($sql);
         <?php while ($rows = $result->fetch_assoc()) { ?>
             <tbody>
                 <tr>
-                    <td>
+                    <td id="pro-id">
                         <?php echo $rows['id']; ?>
                     </td>
-                    <td>
+                    <td id="pro-name">
                         <?php echo $rows['product_name']; ?>
                     </td>
-                    <td>
+                    <td id="pro-descr">
                         <?php echo $rows['product_description']; ?>
                     </td>
-                    <td>
+                    <td id="pro-qty">
                         <?php echo $rows['product_quantity']; ?>
                     </td>
-                    <td>
+                    <td id="pro-prc">
                         <?php echo $rows['product_price']; ?>
                     </td>
-                    <td>
+                    <td id="pro-act">
                         <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
                         <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
                     </td>
