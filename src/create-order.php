@@ -61,7 +61,7 @@ $sql1 = "INSERT INTO orders(
             '$billing_country',
             current_timestamp(), current_timestamp()
         )";
-
+echo $sql1;
 if ($con->query($sql1) === true) {
     $last_id = $con->insert_id;
 } else {

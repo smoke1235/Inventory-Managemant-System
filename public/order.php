@@ -9,6 +9,7 @@ $sql = "SELECT
             `orders`.`created` AS `order_created`
         FROM
             orders
+        INNER JOIN order_status ON orders.status = order_status.id
         INNER JOIN customers ON orders.customer_id = customers.id
         INNER JOIN users ON orders.user_id = users.id
         ORDER BY
