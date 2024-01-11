@@ -13,7 +13,7 @@ if (!$result) {
 <h1>Customers</h1>
 <a class="new-data" href="insertCustomers.php">Add</a>
 <div class="table-container">
-    <table>
+    <table aria-describedby="">
         <thead>
             <tr>
                 <th>Name</th>
@@ -26,22 +26,22 @@ if (!$result) {
         <?php while ($rows = $result->fetch_assoc()) { ?>
             <tbody>
                 <tr>
-                    <td>
+                    <td id="cust-name">
                         <?php echo $rows['first_name'] . ' ' . $rows['last_name']; ?>
                     </td>
-                    <td>
+                    <td id="cust-num">
                         <?php echo $rows['number']; ?>
                     </td>
-                    <td>
+                    <td id="cust-mail">
                         <?php echo $rows['email']; ?>
                     </td>
-                    <td>
+                    <td id="cust-addr">
                         <?php echo $rows['street'] . ', ' .
                             $rows['postcode'] . ', ' .
                             $rows['city'] . ', ' .
                             $rows['country']; ?>
                     </td>
-                    <td>
+                    <td id="cust-act">
                         <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
                         <a class="view-data" href="view-customer.php?id=<?php echo $rows['id']; ?>">View</a>
                     </td>

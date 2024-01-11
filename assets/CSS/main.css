@@ -480,6 +480,26 @@ table tr:hover {
     width: 10%;
 }
 
+#cust-name {
+    width: 15%;
+}
+
+#cust-num {
+    width: 15%;
+}
+
+#cust-mail {
+    width: 20%;
+}
+
+#cust-addr {
+    width: 40%;
+}
+
+#cust-act {
+    width: 10%;
+}
+
 /* ---- new invoice Form ---- */
 
 .order-title {
