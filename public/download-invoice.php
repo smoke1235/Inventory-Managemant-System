@@ -1,36 +1,24 @@
 <?php
 require_once('../fpdf186/fpdf.php');
 
-$info = [
-    "customer" => "Ram Kumar",
-    "address" => "4th cross,Car Street,",
-    "city" => "Salem 636204.",
-    "invoice_no" => "1000001",
-    "invoice_date" => "30-11-2021",
-    "total_amt" => "5200.00",
-    "words" => "Rupees Five Thousand Two Hundred Only",
-];
+$id = $_GET['id'];
 
-$products_info = [
-    [
-        "name" => "Keyboard",
-        "price" => "500.00",
-        "qty" => 2,
-        "total" => "1000.00"
-    ],
-    [
-        "name" => "Mouse",
-        "price" => "400.00",
-        "qty" => 3,
-        "total" => "1200.00"
-    ],
-    [
-        "name" => "UPS",
-        "price" => "3000.00",
-        "qty" => 1,
-        "total" => "3000.00"
-    ],
-];
+$sql = "SELECT
+            *,
+            `invoices`.`id` AS `invoice_id`
+        FROM
+            `invoices`
+        INNER JOIN customers ON invoices.customer_id=customers.id
+        WHERE
+            `invoices`.`id` = $id
+        ";
+
+$result = $con->query($sql);
+$array = array($sql);
+while ($row = mysqli_fetch_array($result)) {
+    $array[$row['first_name'].' '.['last_name']] = $info['customer'];
+    
+}
 
 class PDF extends FPDF
 {
@@ -67,6 +55,7 @@ class PDF extends FPDF
         $this->Cell(50, 7, $info["customer"], 0, 1);
         $this->Cell(50, 7, $info["address"], 0, 1);
         $this->Cell(50, 7, $info["city"], 0, 1);
+        $this->Cell(50, 7, $info['country'], 0, 1);
 
         //Display Invoice no
         $this->SetY(55);
