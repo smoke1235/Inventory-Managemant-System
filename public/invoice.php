@@ -50,6 +50,9 @@ $result = $con->query($sql);
                     <td id="invoice-action">
                         <a class="edit-data" href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">Edit</a>
                         <a class="view-data" href="view-invoice.php?id=<?php echo $row['invoice_id']; ?>">View</a>
+                        <a class="Download" href="../src/download-invoice.php">
+                            <ion-icon name="download-outline"></ion-icon>
+                        </a>
                     </td>
                 </tr>
             </tbody>
