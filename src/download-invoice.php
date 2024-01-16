@@ -111,15 +111,7 @@ class PDF extends FPDF
       $this->SetFont('Arial','B',12);
       $this->Cell(150,9,"TOTAL",1,0,"R");
       $this->Cell(40,9,$info["total_amt"],1,1,"R");
-      
-      //Display amount in words
-      $this->SetY(225);
-      $this->SetX(10);
-      $this->SetFont('Arial','B',12);
-      $this->Cell(0,9,"Amount in Words ",0,1);
-      $this->SetFont('Arial','',12);
-      $this->Cell(0,9,$info["words"],0,1);
-      
+            
     }
     function Footer(){
       
@@ -131,10 +123,8 @@ class PDF extends FPDF
       $this->SetFont('Arial','',12);
       $this->Cell(0,10,"Authorized Signature",0,1,"R");
       $this->SetFont('Arial','',10);
-      
-      //Display Footer Text
-      $this->Cell(0,10,"This is a computer generated invoice",0,1,"C");
-      
+
+      $this->Cell(0,10,'Page '.$this->PageNo().'/{nb}',0,0,'C');
     }
     
   }
