@@ -88,9 +88,9 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(50, 10, "Bill To: ", 0, 1);
         $this->SetFont('Arial', '', 12);
-        $this->Cell(50, 7, $row['first_name'], " ", $row['last_name'], 0, 1);
+        $this->Cell(50, 7, $row['first_name'], ',' ,$row['last_name'], 0, 1);
         $this->Cell(50, 7, $row['company'], 0, 1);
-        $this->Cell(50, 7, $row['street'], ",", $row['postalcode'], 0, 1);
+        $this->Cell(50, 7, $row['street'], $row['postalcode'], 0, 1);
         $this->Cell(50, 7, $row['city'], 0, 1);
         $this->Cell(50, 7, $row['country'], 0, 1);
 
@@ -117,9 +117,9 @@ class PDF extends FPDF
         //Display table product rows
         foreach ($product_info as $row) {
             $this->Cell(80, 9, $row['product_name'], "LR", 0);
-            $this->Cell(40, 9, $row['product_price'], "R", 0, "R");
+            $this->Cell(40, 9, $row['product_price'], "R", 0, "C");
             $this->Cell(30, 9, $row["quantity"], "R", 0, "C");
-            $this->Cell(30, 9, $row['total'], "R", 0, "C");
+            $this->Cell(40, 9, $row['total'], "R", 0, "C");
         }
         //Display table empty rows
         for ($i = 0; $i < 12 - count($product_info); $i++) {
@@ -134,21 +134,6 @@ class PDF extends FPDF
         $this->Cell(40, 9, $row['total'], 1, 1, "R");
 
     }
-    function Footer()
-    {
-
-        //set footer position
-        $this->SetY(-50);
-        $this->SetFont('Arial', 'B', 12);
-        $this->Cell(0, 10, "for ABC COMPUTERS", 0, 1, "R");
-        $this->Ln(15);
-        $this->SetFont('Arial', '', 12);
-        $this->Cell(0, 10, "Authorized Signature", 0, 1, "R");
-        $this->SetFont('Arial', '', 10);
-
-        $this->Cell(0, 10, 'Page ' . $this->PageNo() . '/{nb}', 0, 0, 'C');
-    }
-
 }
 //Create A4 Page with Portrait
 $pdf = new PDF("P", "mm", "A4");
