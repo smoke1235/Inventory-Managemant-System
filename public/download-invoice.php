@@ -88,11 +88,10 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(50, 10, "Bill To: ", 0, 1);
         $this->SetFont('Arial', '', 12);
-        $this->Cell(50, 7, $row['first_name'], ',' ,$row['last_name'], 0, 1);
         $this->Cell(50, 7, $row['company'], 0, 1);
-        $this->Cell(50, 7, $row['street'], $row['postalcode'], 0, 1);
-        $this->Cell(50, 7, $row['city'], 0, 1);
-        $this->Cell(50, 7, $row['country'], 0, 1);
+        $this->Cell(50, 7, $row['first_name']. ' ' .$row['last_name'], 0, 1);
+        $this->Cell(50, 7, $row['street']. ', '. $row['postalcode'], 0, 1);
+        $this->Cell(50, 7, $row['city']. ', '. $row['country'], 0, 1);
 
         //Display Invoice no
         $this->SetY(55);
