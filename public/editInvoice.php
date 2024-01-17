@@ -1,7 +1,6 @@
 <?php
 require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
-view('header', ['title' => 'Edit invoice']);
 include_once '../src/fetch-customers.php';
 
 $invoice_id = $_GET['id'];
@@ -24,6 +23,8 @@ while ($array = $item_result->fetch_assoc()) {
     $items[] = $array;
 }
 ?>
+
+<?php view('header', ['title' => 'Edit invoice']); ?>
 
 <div id="myModal" class="modal">
     <?php include_once '../src/inc/invoiceInsertProduct.php'; ?>
