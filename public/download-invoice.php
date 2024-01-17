@@ -49,7 +49,8 @@ while($product_info = mysqli_fetch_array($result)) {
 
 $total = 0;
 foreach ($product_array as $key) {
-    $total += $key;
+    print_r($key);
+    $total += $key['total'];
 }
 
 class PDF extends FPDF
