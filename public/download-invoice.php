@@ -1,5 +1,10 @@
 <?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
+
 require_once('../fpdf186/fpdf.php');
+include_once '../config/connect.php';
 
 $id = $_GET['id'];
 
@@ -10,14 +15,41 @@ $sql = "SELECT
             `invoices`
         INNER JOIN customers ON invoices.customer_id=customers.id
         WHERE
-            `invoices`.`id` = $id
-        ";
+            `invoices`.`id` = $id";
 
 $result = $con->query($sql);
-$array = array($sql);
+$array = array($result);
 while ($row = mysqli_fetch_array($result)) {
-    $array[$row['first_name'].' '.['last_name']] = $info['customer'];
-    
+    $array['invoice_id'] = $row['invoice_id'];
+    $array['updated'] = $row['updated'];
+    $array['first_name'] = $row['first_name'];
+    $array['last_name'] = $row['last_name'];
+    $array['company'] = $row['shipping_company'];
+    $array['street'] = $row['shipping_street'];
+    $array['postalcode'] = $row['shipping_postalcode'];
+    $array['city'] = $row['shipping_city'];
+    $array['country'] = $row['shipping_country'];
+}
+
+$sql = "SELECT
+            *
+        FROM
+            `invoice_line`
+        INNER JOIN products ON invoice_line.product_id=products.id
+        WHERE
+            `invoice_id` = $id";
+$result = $con->query($sql);
+$product_array = array($result);
+while($product_info = mysqli_fetch_array($result)) {
+    $product_array['name'] = $product_info['product_name'];
+    $product_array['price'] = $product_info['product_price'];
+    $product_array['qty'] = $product_info['quantity'];
+    $product_array['total'] = $product_info['product_price'] * $product_info['quantity'];
+}
+
+$total = 0;
+foreach ($product_array as $key) {
+    $total += $key;
 }
 
 class PDF extends FPDF
@@ -43,7 +75,7 @@ class PDF extends FPDF
         $this->Line(0, 48, 210, 48);
     }
 
-    function body($info, $products_info)
+    function body($row, $product_info)
     {
 
         //Billing Details
@@ -52,20 +84,21 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(50, 10, "Bill To: ", 0, 1);
         $this->SetFont('Arial', '', 12);
-        $this->Cell(50, 7, $info["customer"], 0, 1);
-        $this->Cell(50, 7, $info["address"], 0, 1);
-        $this->Cell(50, 7, $info["city"], 0, 1);
-        $this->Cell(50, 7, $info['country'], 0, 1);
+        $this->Cell(50, 7, $row['first_name'], " ", $row['last_name'], 0, 1);
+        $this->Cell(50, 7, $row['company'], 0, 1);
+        $this->Cell(50, 7, $row['street'], ",", $row['postalcode'], 0, 1);
+        $this->Cell(50, 7, $row['city'], 0, 1);
+        $this->Cell(50, 7, $row['country'], 0, 1);
 
         //Display Invoice no
         $this->SetY(55);
         $this->SetX(-60);
-        $this->Cell(50, 7, "Invoice No : " . $info["invoice_no"]);
+        $this->Cell(50, 7, "Invoice No : " . $row['invoice_id']);
 
         //Display Invoice date
         $this->SetY(63);
         $this->SetX(-60);
-        $this->Cell(50, 7, "Invoice Date : " . $info["invoice_date"]);
+        $this->Cell(50, 7, "Invoice Date : " . $row['updated']);
 
         //Display Table headings
         $this->SetY(95);
@@ -78,14 +111,14 @@ class PDF extends FPDF
         $this->SetFont('Arial', '', 12);
 
         //Display table product rows
-        foreach ($products_info as $row) {
-            $this->Cell(80, 9, $row["name"], "LR", 0);
-            $this->Cell(40, 9, $row["price"], "R", 0, "R");
-            $this->Cell(30, 9, $row["qty"], "R", 0, "C");
-            $this->Cell(40, 9, $row["total"], "R", 1, "R");
+        foreach ($product_info as $row) {
+            $this->Cell(80, 9, $row['product_name'], "LR", 0);
+            $this->Cell(40, 9, $row['product_price'], "R", 0, "R");
+            $this->Cell(30, 9, $row["quantity"], "R", 0, "C");
+            $this->Cell(30, 9, $row['total'], "R", 0, "C");
         }
         //Display table empty rows
-        for ($i = 0; $i < 12 - count($products_info); $i++) {
+        for ($i = 0; $i < 12 - count($product_info); $i++) {
             $this->Cell(80, 9, "", "LR", 0);
             $this->Cell(40, 9, "", "R", 0, "R");
             $this->Cell(30, 9, "", "R", 0, "C");
@@ -94,7 +127,7 @@ class PDF extends FPDF
         //Display table total row
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(150, 9, "TOTAL", 1, 0, "R");
-        $this->Cell(40, 9, $info["total_amt"], 1, 1, "R");
+        $this->Cell(40, 9, $row['total'], 1, 1, "R");
 
     }
     function Footer()
@@ -116,5 +149,5 @@ class PDF extends FPDF
 //Create A4 Page with Portrait
 $pdf = new PDF("P", "mm", "A4");
 $pdf->AddPage();
-$pdf->body($info, $products_info);
+$pdf->body($array, $product_array);
 $pdf->Output();
