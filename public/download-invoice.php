@@ -21,7 +21,7 @@ $result = $con->query($sql);
 $array = array($result);
 while ($row = mysqli_fetch_array($result)) {
     $array['invoice_id'] = $row['invoice_id'];
-    $array['updated'] = $row['updated'];
+    $array['created'] = $row['created'];
     $array['first_name'] = $row['first_name'];
     $array['last_name'] = $row['last_name'];
     $array['company'] = $row['shipping_company'];
@@ -39,19 +39,22 @@ $sql = "SELECT
         WHERE
             `invoice_id` = $id";
 $result = $con->query($sql);
-$product_array = array($result);
+$productenArray = array();
 while($product_info = mysqli_fetch_array($result)) {
-    $product_array['name'] = $product_info['product_name'];
-    $product_array['price'] = $product_info['product_price'];
-    $product_array['qty'] = $product_info['quantity'];
+
+    $product_array['product_name'] = $product_info['product_name'];
+    $product_array['product_price'] = $product_info['product_price'];
+    $product_array['quantity'] = $product_info['quantity'];
     $product_array['total'] = $product_info['product_price'] * $product_info['quantity'];
+    $productenArray[] = $product_array;
 }
 
 $total = 0;
-foreach ($product_array as $key) {
-    print_r($key);
+foreach ($productenArray as $key) {
+
     $total += $key['total'];
 }
+$array['total'] = $total;
 
 class PDF extends FPDF
 {
@@ -99,7 +102,7 @@ class PDF extends FPDF
         //Display Invoice date
         $this->SetY(63);
         $this->SetX(-60);
-        $this->Cell(50, 7, "Invoice Date : " . $row['updated']);
+        $this->Cell(50, 7, "Invoice Date : " . $row['created']);
 
         //Display Table headings
         $this->SetY(95);
@@ -150,5 +153,5 @@ class PDF extends FPDF
 //Create A4 Page with Portrait
 $pdf = new PDF("P", "mm", "A4");
 $pdf->AddPage();
-$pdf->body($array, $product_array);
+$pdf->body($array, $productenArray);
 $pdf->Output();
