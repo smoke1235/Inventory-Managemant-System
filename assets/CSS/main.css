@@ -681,8 +681,13 @@ table td {
 .download {
     padding: 5px;
     border-radius: 3px;
-    background: #d6a81c;
+    background: #e6ad00;
     color: white;
+}
+
+.download:hover {
+    background: #f7cd4d;
+    
 }
 
 input[type=submit] {

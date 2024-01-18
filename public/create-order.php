@@ -5,10 +5,14 @@ view('header', ['title' => 'Create new order']);
 include_once '../src/fetch-customers.php';
 ?>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"
-    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous">
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="../assets/js/populateTextInput.js"></script>
+
 <div id="myModal" class="modal">
     <?php include_once '../src/inc/invoiceInsertProduct.php'; ?>
 </div>
@@ -45,7 +49,8 @@ include_once '../src/fetch-customers.php';
                 <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name" required>
                 <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name" required>
                 <input type="text" name="shipping_street" id="shipping_street" placeholder="Street" required>
-                <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code" required>
+                <input type="text" name="shipping_postalcode"
+                id="shipping_postalcode" placeholder="Postal Code" required>
                 <input type="text" name="shipping_city" id="shipping_city" placeholder="City" required>
                 <input type="text" name="shipping_country" id="shipping_country" placeholder="Country" required>
             </section>
@@ -95,4 +100,5 @@ include_once '../src/fetch-customers.php';
 </div>
 <script src="../assets/js/productSelectorPopup.js"></script>
 <script src="../assets/js/showProductResult.js"></script>
+
 <?php view('footer'); ?>
