@@ -51,9 +51,9 @@ while($product_info = mysqli_fetch_array($result)) {
 
 $total = 0;
 foreach ($productenArray as $key) {
-
     $total += $key['total'];
 }
+
 $array['total'] = $total;
 
 class PDF extends FPDF
