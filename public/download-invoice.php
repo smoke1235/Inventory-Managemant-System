@@ -52,7 +52,7 @@ while($product_info = mysqli_fetch_array($result)) {
 
 $total = 0;
 foreach ($productenArray as $key) {
-    $total += $key['total'];
+    $total = $total + $key['total'];
 }
 
 $array['total'] = $total;
@@ -114,11 +114,11 @@ class PDF extends FPDF
         $this->SetFont('Arial', '', 12);
 
         //Display table product rows
-        foreach ($product_info as $row) {
-            $this->Cell(80, 9, $row['product_name'], "LR", 0);
-            $this->Cell(40, 9, EURO. $row['product_price'], "R", 0, "C");
-            $this->Cell(30, 9, $row["quantity"], "R", 0, "C");
-            $this->Cell(40, 9, EURO. $row['total'], "R", 0, "C");
+        foreach ($product_info as $product) {
+            $this->Cell(80, 9, $product['product_name'], "LR", 0);
+            $this->Cell(40, 9, EURO. $product['product_price'], "R", 0, "C");
+            $this->Cell(30, 9, $product["quantity"], "R", 0, "C");
+            $this->Cell(40, 9, EURO. $product['total'], "R", 0, "C");
             $this->Ln();
         }
         //Display table empty rows
