@@ -38,6 +38,7 @@ $sql = "SELECT
         INNER JOIN products ON invoice_line.product_id=products.id
         WHERE
             `invoice_id` = $id";
+            
 $result = $con->query($sql);
 $productenArray = array();
 while($product_info = mysqli_fetch_array($result)) {
@@ -60,9 +61,7 @@ define('EURO', chr(128));
 
 class PDF extends FPDF
 {
-    function Header()
-    {
-
+    function Header() {
         //Display Company Info
         $this->SetFont('Arial', 'B', 14);
         $this->Cell(50, 10, "Drukkerij Teeuwen & Zonen", 0, 1);
@@ -81,8 +80,7 @@ class PDF extends FPDF
         $this->Line(0, 48, 210, 48);
     }
 
-    function body($row, $product_info,)
-    {
+    function body($row, $product_info,) {
 
         //Billing Details
         $this->SetY(55);
