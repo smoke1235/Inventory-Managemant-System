@@ -58,6 +58,9 @@ $result = $con->query($sql);
                     <td id="order-user">
                         <a class="edit-data" href="edit-order.php?id=<?php echo $row['order_id']; ?>">Edit</a>
                         <a class="view-data" href="view-order.php?id=<?php echo $row['order_id']; ?>">View</a>
+                        <a class="Download" href="download-order.php?id=<?php echo $row['order_id']; ?>">
+                            <ion-icon name="download-outline"></ion-icon>
+                        </a>
                     </td>
                 </tr>
             </tbody>
