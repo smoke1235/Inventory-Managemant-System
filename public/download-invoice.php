@@ -56,6 +56,8 @@ foreach ($productenArray as $key) {
 
 $array['total'] = $total;
 
+define('EURO', chr(128));
+
 class PDF extends FPDF
 {
     function Header()
@@ -79,7 +81,7 @@ class PDF extends FPDF
         $this->Line(0, 48, 210, 48);
     }
 
-    function body($row, $product_info)
+    function body($row, $product_info,)
     {
 
         //Billing Details
@@ -116,9 +118,9 @@ class PDF extends FPDF
         //Display table product rows
         foreach ($product_info as $row) {
             $this->Cell(80, 9, $row['product_name'], "LR", 0);
-            $this->Cell(40, 9, $row['product_price'], "R", 0, "C");
+            $this->Cell(40, 9, EURO. $row['product_price'], "R", 0, "C");
             $this->Cell(30, 9, $row["quantity"], "R", 0, "C");
-            $this->Cell(40, 9, $row['total'], "R", 0, "C");
+            $this->Cell(40, 9, EURO. $row['total'], "R", 0, "C");
             $this->Ln();
         }
         //Display table empty rows
@@ -131,7 +133,7 @@ class PDF extends FPDF
         //Display table total row
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(150, 9, "TOTAL", 1, 0, "R");
-        $this->Cell(40, 9, $row['total'], 1, 1, "R");
+        $this->Cell(40, 9, EURO. $row['total'], 1, 1, "R");
 
     }
 }
