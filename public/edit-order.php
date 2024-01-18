@@ -108,15 +108,14 @@ while ($array = $item_result->fetch_assoc()) {
             <section class="order-form-status">
                 <h2>Status</h2>
                 <select name="invoice_status">
-                    <option value="<?php echo $row['invoice_status']; ?>">
+                    <option value="<?php echo $row['order_status']; ?>">
                         <?php echo $row['status']; ?> (Previously saved)
                     </option>
-                    <option value="6">IN PROCESS</option>
-                    <option value="8">SHIPPING</option>
-                    <option value="9">SHIPPED</option>
-                    <option value="3">PAID</option>
-                    <option value="4">RETURNED</option>
-                    <option value="5">CLOSED</option>
+                    <option value="1">IN PROCESS</option>
+                    <option value="2">SHIPPING</option>
+                    <option value="3">DELIVERD</option>
+                    <option value="4">CLOSED</option>
+                    <option value="5">RETURNED</option>
                     <option value="7">ARCHIEVED</option>
                 </select>
             </section>
