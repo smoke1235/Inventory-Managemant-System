@@ -68,7 +68,7 @@ class PDF extends FPDF
         $this->Cell(50, 10, "Drukkerij Teeuwen & Zonen", 0, 1);
         $this->SetFont('Arial', '', 14);
         $this->Cell(50, 7, "Schinkelse baan 15,", 0, 1);
-        $this->Cell(50, 7, "2908 LE, Capelle aan den IJssel.", 0, 1);
+        $this->Cell(50, 7, "2908 LE, Capelle aan den IJssel", 0, 1);
         $this->Cell(50, 7, "TEL : +31 010 458 1511", 0, 1);
 
         //Display INVOICE text

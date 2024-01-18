@@ -16,8 +16,8 @@ view('header', ['title' => 'New product']);
         <label for="product_price">Product Price:</label>
         <input type="float" name="product_price" value="0.00">
         <label for="supplier_name">Supplier name:</label>
-        <select name="supplier_id">
-            <option value="0">None</option>
+        <select required name="supplier_id">
+            <option value="" selected disabled>None</option>
             <?php
             foreach ($options as $option) {
                 ?>
@@ -34,4 +34,5 @@ view('header', ['title' => 'New product']);
         <a class="cancel-button" href="products.php">Cancel</a>
     </form>
 </div>
+
 <?php view('footer') ?>
