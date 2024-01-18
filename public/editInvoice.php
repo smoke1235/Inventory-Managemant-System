@@ -26,6 +26,9 @@ while ($array = $item_result->fetch_assoc()) {
 
 <?php view('header', ['title' => 'Edit invoice']); ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../assets/js/populateTextInput.js"></script>
+
 <div id="myModal" class="modal">
     <?php include_once '../src/inc/invoiceInsertProduct.php'; ?>
 </div>
