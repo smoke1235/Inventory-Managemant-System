@@ -119,6 +119,7 @@ class PDF extends FPDF
             $this->Cell(40, 9, $row['product_price'], "R", 0, "C");
             $this->Cell(30, 9, $row["quantity"], "R", 0, "C");
             $this->Cell(40, 9, $row['total'], "R", 0, "C");
+            $this->Ln();
         }
         //Display table empty rows
         for ($i = 0; $i < 12 - count($product_info); $i++) {
