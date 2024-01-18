@@ -425,7 +425,7 @@ table tr:hover {
 }
 
 #invoice-action {
-    width: 20vh;
+    width: 25vh;
 }
 
 #order-id {
@@ -678,6 +678,12 @@ table td {
     background: #2eb6ff;
 }
 
+.download {
+    padding: 5px;
+    border-radius: 3px;
+    background: #d6a81c;
+    color: white;
+}
 
 input[type=submit] {
     margin: 2px 0px;
