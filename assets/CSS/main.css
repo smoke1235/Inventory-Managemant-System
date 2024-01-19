@@ -873,5 +873,13 @@ select {
         transition: all .25s;
         background: #FF5733;
     }
+
+    .board {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 4px;
+        padding: 4px;
+    }
     
 }
