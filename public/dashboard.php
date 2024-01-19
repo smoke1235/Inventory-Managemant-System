@@ -88,14 +88,21 @@ view('header', ['title' =>  'Dashboard'])
                 </tr>
             </thead>
             <?php
-            $sql =
-                "SELECT products.id, products.product_name, products.product_description,
-                            products.product_quantity, products.product_price, products.other_details,
-                            suppliers.name, date
-                            FROM products
-                            INNER JOIN suppliers
-                            ON products.supplier_id=suppliers.id
-                            ORDER BY date DESC LIMIT 0,30";
+            $sql = "SELECT
+                        products.id,
+                        products.product_name,
+                        products.product_description,
+                        products.product_quantity,
+                        products.product_price,
+                        products.other_details,
+                        suppliers.name, date
+                    FROM
+                        products
+                    INNER JOIN suppliers ON products.supplier_id=suppliers.id
+                    ORDER BY
+                        date
+                    DESC
+                    LIMIT 0,30";
             $result = $con->query($sql);
             ?>
             <tbody>
