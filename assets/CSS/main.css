@@ -74,6 +74,7 @@
     margin-right: 7px;
     padding-top: 80px;
     width: 20%;
+    height: 100%;
     position: relative;
     transition: all .25s;
     background: #FF5733;
@@ -848,4 +849,29 @@ select {
 
 #price {
     width: 10%;
+}
+
+@media only screen and (min-width: 600px) {
+    /* ---- For tablets ---- */
+    .navbar {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        height: 70px;
+        width: 100%;
+        z-index: 2;
+        background: black;
+        border-bottom: 2px #FF5733 solid;    
+    }
+
+    .sidebar {
+        margin-right: 7px;
+        padding-top: 80px;
+        width: 20%;
+        height: 100%;
+        position: relative;
+        transition: all .25s;
+        background: #FF5733;
+    }
+    
 }
