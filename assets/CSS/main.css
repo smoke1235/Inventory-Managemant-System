@@ -853,7 +853,7 @@ html {
     }
 }
 
-@media only screen and (min-width: 768) and (max-width: 1024px) and (orientation:portrait) {
+@media only screen and (min-width: 768) and (max-width: 1024px) {
     /* ---- For tablets ---- */
 
     .dashboard-container {
