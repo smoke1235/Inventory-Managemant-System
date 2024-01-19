@@ -82,7 +82,7 @@ view('header', ['title' =>  'Dashboard'])
                     <th>No.</th>
                     <th>Name</th>
                     <th>Description</th>
-                    <th>Quantity</th>
+                    <th>Qty</th>
                     <th>Price</th>
                     <th>Actions</th>
                 </tr>
