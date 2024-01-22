@@ -80,8 +80,8 @@ view('header', ['title' =>  'Dashboard'])
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Name</th>
-                    <th>Description</th>
+                    <th id="dash-name">Name</th>
+                    <th id="dash-descr">Description</th>
                     <th>Qty</th>
                     <th>Price</th>
                     <th>Actions</th>

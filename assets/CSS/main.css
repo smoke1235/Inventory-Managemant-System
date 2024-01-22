@@ -884,4 +884,12 @@ select {
     .sidebar a {
         font-size: xx-large;
     }
+
+    #dash-descr {
+        width: 15%;
+    }
+
+    #dash-name {
+        width: 15%;
+    }
 }
