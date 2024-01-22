@@ -881,12 +881,7 @@ select {
         width: auto;
     }
 
-    .sidebar img {
-        flex: 1;
+    .sidebar a {
+        font-size: xx-large;
     }
-
-    .sidebar ul {
-        flex: 2;
-    }
-
 }
