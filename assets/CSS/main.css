@@ -13,7 +13,6 @@ html {
 
 .dashboard-container {
     display: flex;
-    width: 100%;
 }
 
 /* ---- Topbar ---- */
@@ -869,7 +868,7 @@ select {
     .board {
         align-items: center;
         flex-wrap: wrap;
-        width: 75vh;
+        width: 60vh;
     }
 
     .sidebar {
@@ -891,5 +890,9 @@ select {
 
     #dash-name {
         width: 15%;
+    }
+
+    .dashboard-table-container {
+        width: 100%;
     }
 }
