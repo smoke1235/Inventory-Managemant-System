@@ -860,22 +860,23 @@ select {
     /* --- Main --- */
     
     .main-content {
-        display: flex;
         flex-wrap: wrap;
+        margin: 0px;
     }
 
     /* --- Dashboard --- */
 
     .board {
-        display: flex;
-        justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        width: 50vh;
+        width: 75vh;
     }
 
     .sidebar {
-        align-items: center;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0px;
         width: auto;
     }
 

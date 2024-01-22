@@ -20,7 +20,7 @@
 </nav>
 
 <nav class="sidebar" id="sidebar" aria-label="">
-<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="auto" width="75%%">
+<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="auto" width="75%">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="invoice.php">Invoices</a></li>
