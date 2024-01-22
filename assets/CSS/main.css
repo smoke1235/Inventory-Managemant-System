@@ -876,8 +876,17 @@ select {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        gap: 70px;
         margin: 0px;
         width: auto;
+    }
+
+    .sidebar img {
+        flex: 1;
+    }
+
+    .sidebar ul {
+        flex: 2;
     }
 
 }
