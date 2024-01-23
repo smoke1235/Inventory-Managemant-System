@@ -3,8 +3,19 @@ require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
 view('header', ['title' => 'Products']);
 
-$sql = "SELECT products.id, product_name, product_description, product_quantity, product_price, other_details, name
-FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id ORDER BY id DESC;";
+$sql = "SELECT
+            products.id,
+            product_name,
+            product_description,
+            product_quantity,
+            product_price,
+            other_details,
+            name
+        FROM
+            products
+        INNER JOIN suppliers ON products.supplier_id=suppliers.id
+        ORDER BY id DESC
+        ";
 $result = $con->query($sql);
 ?>
 
@@ -41,8 +52,12 @@ $result = $con->query($sql);
                         <?php echo $rows['product_price']; ?>
                     </td>
                     <td id="pro-act">
-                        <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                        <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
+                        <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a>
                     </td>
                 </tr>
             </tbody>

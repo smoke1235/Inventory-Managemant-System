@@ -42,8 +42,12 @@ if (!$result) {
                             $rows['country']; ?>
                     </td>
                     <td id="cust-act">
-                        <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                        <a class="view-data" href="view-customer.php?id=<?php echo $rows['id']; ?>">View</a>
+                        <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a class="view-data" href="view-customer.php?id=<?php echo $rows['id']; ?>">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a>
                     </td>
                 </tr>
             </tbody>

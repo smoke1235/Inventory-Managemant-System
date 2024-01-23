@@ -57,8 +57,12 @@ $result = $con->query($sql);
                         <?php echo $row['username'] ?>
                     </td>
                     <td id="invoice-action">
-                        <a class="edit-data" href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">Edit</a>
-                        <a class="view-data" href="view-invoice.php?id=<?php echo $row['invoice_id']; ?>">View</a>
+                        <a class="edit-data" href="editInvoice.php?id=<?php echo $row['invoice_id']; ?>">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a class="view-data" href="view-invoice.php?id=<?php echo $row['invoice_id']; ?>">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a>
                         <a class="download" href="download-invoice.php?id=<?php echo $row['invoice_id']; ?>">
                             <ion-icon name="download-outline"></ion-icon>
                         </a>

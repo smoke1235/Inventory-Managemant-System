@@ -3,7 +3,12 @@ require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
 view('header', ['title' => 'Suppliers']);
 
-$sql = "SELECT * FROM `suppliers` ORDER BY `suppliers`.`dateTime` DESC;";
+$sql = "SELECT
+            *
+        FROM
+            `suppliers`
+        ORDER BY `suppliers`.`dateTime` DESC;
+        ";
 $result = $con->query($sql);
 if (!$result) {
     die("Invalid quary: " . $con->error);
@@ -45,8 +50,12 @@ $con->close();
                             $rows['country']; ?>
                     </td>
                     <td id="sup-act">
-                        <a class="edit-data" href="editSupplier.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                        <a class="view-data" href="view-supplier.php?id=<?php echo $rows['id']; ?>">View</a>
+                        <a class="edit-data" href="editSupplier.php?id=<?php echo $rows['id']; ?>">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a class="view-data" href="view-supplier.php?id=<?php echo $rows['id']; ?>">
+                        <ion-icon name="eye-outline"></ion-icon>
+                        </a>
                     </td>
                 </tr>
             </tbody>

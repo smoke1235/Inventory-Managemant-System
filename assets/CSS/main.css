@@ -847,7 +847,6 @@ select {
     width: 10%;
 }
 
-
 @media screen and (max-width: 800px) {
     /* ---- For tablets ---- */
 
@@ -860,7 +859,6 @@ select {
     
     .main-content {
         flex-wrap: wrap;
-        margin: 0px;
     }
 
     /* --- Dashboard --- */

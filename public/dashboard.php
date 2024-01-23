@@ -124,8 +124,12 @@ view('header', ['title' =>  'Dashboard'])
                             <?php echo $rows['product_price']; ?>
                         </td>
                         <td id="dash-act">
-                            <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">Edit</a>
-                            <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">View</a>
+                            <a class="edit-data" href="editProduct.php?id=<?php echo $rows['id']; ?>">
+                                <ion-icon name="pencil-outline"></ion-icon>
+                            </a>
+                            <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </a>
                         </td>
                     </tr>
                 <?php } ?>
