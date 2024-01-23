@@ -893,4 +893,10 @@ select {
     .dashboard-table-container {
         width: 100%;
     }
+
+    /* ---- Invoice ---- */
+
+    #invoice-action {
+        width: 30vh;
+    }
 }
