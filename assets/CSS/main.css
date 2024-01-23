@@ -853,11 +853,6 @@ select {
 
 @media screen and (max-width: 800px) {
     /* ---- For tablets ---- */
-
-    .dashboard-container {
-        flex-wrap: wrap;
-    }
-
     
     /* --- Main --- */
     
@@ -867,7 +862,15 @@ select {
         flex-wrap: wrap;
     }
 
+    .table-container {
+        width: 750px;
+    }
+
     /* --- Dashboard --- */
+
+    .dashboard-container {
+        flex-wrap: wrap;
+    }
 
     .board {
         align-items: center;
