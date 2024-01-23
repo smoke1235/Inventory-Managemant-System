@@ -899,4 +899,26 @@ select {
     #invoice-action {
         width: 30vh;
     }
+
+    /* ----- Order ---- */
+
+    .order-form-status {
+        width: 15vh;
+    }
+
+    .order-form-billing {
+        width: 23vh;
+    }
+
+    #inv-action {
+        width: 80px;
+    }
+
+    #inv-qty {
+        width: 60px;
+    }
+
+    #inv-prc {
+        width: 60px;
+    }
 }

@@ -1,7 +1,6 @@
 <?php
 require_once '../src/inc/session_check.php';
 require_once __DIR__ . '/../src/bootstrap.php';
-view('header', ['title' => 'Invoices']);
 
 $sql = "SELECT
             *,
@@ -19,6 +18,8 @@ $sql = "SELECT
 
 $result = $con->query($sql);
 ?>
+
+<?php view('header', ['title' => 'Invoices']); ?>
 
 <h1>Invoices</h1>
 <a class="new-data" href="createInvoice.php">Create invoice</a>

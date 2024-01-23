@@ -141,7 +141,7 @@ while ($array = $item_result->fetch_assoc()) {
                         echo '<input type="hidden" name="product[]" value="' . $item['product_nmr'] . '">';
                         echo '<td><p>' . $item['product_description'] . '</p></td>';
                         echo '<td><input type="number" name="qty[]" id="input-qty"
-                                        value="' . $item['quantity'] . '"></td>';
+                                        value="' . $item['quantity'] . '" autocomplete="off"></td>';
                         echo '<td><p>' . $item['product_price'] . '</p></td>';
                         echo '</tr>';
                         $n++;
