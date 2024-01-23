@@ -862,6 +862,8 @@ select {
     /* --- Main --- */
     
     .main-content {
+        display: flex;
+        justify-content: center;
         flex-wrap: wrap;
     }
 
@@ -896,6 +898,10 @@ select {
 
     .dashboard-table-container {
         width: 100%;
+    }
+
+    .dashboard-table {
+        width: 750px;
     }
 
     /* ---- Invoice ---- */

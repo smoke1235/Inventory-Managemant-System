@@ -157,6 +157,8 @@ while ($array = $item_result->fetch_assoc()) {
         </div>
     </form>
 </div>
+
 <script src="../assets/js/productSelectorPopup.js"></script>
 <script src="../assets/js/showProductResult.js"></script>
+
 <?php view('footer'); ?>
