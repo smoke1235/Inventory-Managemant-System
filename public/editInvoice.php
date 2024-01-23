@@ -41,6 +41,7 @@ while ($array = $item_result->fetch_assoc()) {
 <div id="myModal" class="modal">
     <?php include_once '../src/inc/invoiceInsertProduct.php'; ?>
 </div>
+
 <div class="order-title">
     <h1>Edit Invoice</h1>
     <section>
@@ -48,6 +49,7 @@ while ($array = $item_result->fetch_assoc()) {
         <input type="submit" name="submit" value="Save" form="create-invoice">
     </section>
 </div>
+
 <div class="order-form-container">
     <form action="../src/editInvoiceForm.php" id="create-invoice" method="POST">
         <input type="hidden" name="hidden" value="<?php echo $invoice_id; ?>">
@@ -155,6 +157,8 @@ while ($array = $item_result->fetch_assoc()) {
         </div>
     </form>
 </div>
+
 <script src="../assets/js/productSelectorPopup.js"></script>
 <script src="../assets/js/showProductResult.js"></script>
+
 <?php view('footer'); ?>

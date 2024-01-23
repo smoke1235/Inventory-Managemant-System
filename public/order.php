@@ -52,7 +52,7 @@ $result = $con->query($sql);
                     <td id="order-create">
                         <?php echo $row['order_created']; ?>
                     </td>
-                    <td id="order-user">
+                    <td id="order-last">
                         <?php echo $row['username'] ?>
                     </td>
                     <td id="order-user">

@@ -444,6 +444,10 @@ table td {
     width: 35vh;
 }
 
+#order-last {
+    width: 15vh;
+}
+
 #order-user {
     width: 25vh;
 }
@@ -900,16 +904,6 @@ select {
         width: 30vh;
     }
 
-    /* ----- Order ---- */
-
-    .order-form-status {
-        width: 15vh;
-    }
-
-    .order-form-billing {
-        width: 23vh;
-    }
-
     #inv-action {
         width: 80px;
     }
@@ -920,5 +914,23 @@ select {
 
     #inv-prc {
         width: 60px;
+    }
+
+    /* ----- Order ---- */
+
+    .order-form-status {
+        width: 15vh;
+    }
+
+    .order-form-billing {
+        width: 23vh;
+    }
+
+    #order-user {
+        width: 30vh;
+    }
+
+    .order-last {
+        width: 15vh;
     }
 }
