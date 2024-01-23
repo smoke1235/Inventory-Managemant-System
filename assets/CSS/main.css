@@ -882,7 +882,6 @@ select {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 70px;
         margin: 0px;
         width: auto;
     }

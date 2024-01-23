@@ -1,5 +1,6 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
 <nav class="navbar" id="navbar" aria-label="">
     <ul>
         <li>
@@ -20,7 +21,7 @@
 </nav>
 
 <nav class="sidebar" id="sidebar" aria-label="">
-<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="auto" width="75%">
+<img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="auto" width="80%">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
         <li><a href="invoice.php">Invoices</a></li>
