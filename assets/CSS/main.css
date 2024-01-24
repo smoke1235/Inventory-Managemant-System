@@ -891,7 +891,7 @@ select {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        width: 50vh;
+        width: 75vh;
     }
 
     .sidebar li {
@@ -899,7 +899,7 @@ select {
     }
 
     .sidebar a {
-        font-size: xx-large;
+        font-size: 30px;
     }
 
     #dash-descr {
