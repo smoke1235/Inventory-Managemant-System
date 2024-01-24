@@ -851,7 +851,7 @@ select {
     width: 10%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 800px) and (min-width: 500px) {
     /* ---- For tablets ---- */
     
     /* --- Main --- */
@@ -925,6 +925,19 @@ select {
     }
 
     /* ----- Order ---- */
+
+    .order-form-container {
+        width: 760px;
+    }
+
+    .order-title {
+        justify-content: space-between;
+        width: 760px;
+    }
+
+    .order-form-customer {
+        width: 18vh;
+    }
 
     .order-form-status {
         width: 15vh;
@@ -1056,5 +1069,21 @@ select {
 
     .order-form-header {
         flex-wrap: wrap;
+        justify-content: center;
     }
+
+    .order-form-billing {
+        width: 25vh;
+    }
+
+    .order-form-status {
+        width: 20vh;
+        height: 5vh;
+    }
+}
+
+@media screen and (max-width: 800px) and (min-width: 300px) {
+    .navbar button {
+        overflow: hidden;
+    }    
 }
