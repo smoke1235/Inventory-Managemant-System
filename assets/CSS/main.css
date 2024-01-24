@@ -942,3 +942,109 @@ select {
         width: 15vh;
     }
 }
+
+@media screen and (max-width: 425px) { 
+    /* ---- For mobiles Large ---- */
+    
+    /* --- Main --- */
+    
+    .main-content {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .table-container {
+        width: 310px;
+    }
+
+    /* --- Dashboard --- */
+
+    .dashboard-container {
+        flex-wrap: wrap;
+    }
+
+    .board {
+        align-items: center;
+        flex-wrap: wrap;
+        width: 60vh;
+    }
+
+    /* ---- Action buttons ---- */
+
+    .view-data {
+        margin: ;
+    }
+
+    /* ---- Navigation ---- */
+
+    .navbar {
+        height: 120px;
+    }
+
+    .sidebar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-top: 35px;
+        width: auto;
+    }
+
+    .sidebar a {
+        font-size: xx-large;
+    }
+
+    #dash-descr {
+        width: 15%;
+    }
+
+    #dash-name {
+        width: 15%;
+    }
+
+    .dashboard-table-container {
+        width: 100%;
+    }
+
+    .dashboard-table {
+        width: 750px;
+    }
+
+    /* ---- Invoice ---- */
+
+    #invoice-action {
+        display: flex;
+        flex-wrap: wrap;
+        width: 3vh;
+    }
+
+    #inv-action {
+        width: 80px;
+    }
+
+    #inv-qty {
+        width: 60px;
+    }
+
+    #inv-prc {
+        width: 60px;
+    }
+
+    /* ----- Order ---- */
+
+    .order-form-status {
+        width: 15vh;
+    }
+
+    .order-form-billing {
+        width: 23vh;
+    }
+
+    #order-user {
+        width: 30vh;
+    }
+
+    .order-last {
+        width: 15vh;
+    }
+}
