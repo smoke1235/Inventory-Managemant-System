@@ -866,6 +866,13 @@ select {
         width: 750px;
     }
 
+    /* ---- Buttons ---- */
+
+    .new-data {
+        height: 5vh;
+        width: 5vh;
+    }
+
     /* --- Dashboard --- */
 
     .dashboard-container {
@@ -984,6 +991,7 @@ select {
     }
 
     .modal-container {
+        margin-top: 200px;
         width: 700px;
         height: 700px;
     }
@@ -1021,6 +1029,8 @@ select {
     .board {
         align-items: center;
         flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
         width: 60vh;
     }
 
@@ -1041,7 +1051,20 @@ select {
         justify-content: center;
         flex-wrap: wrap;
         margin-top: 35px;
+        margin-right: 0;
         width: auto;
+    }
+
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        width: 35vh;
+    }
+
+    .sidebar li {
+        width: 160px;
     }
 
     .sidebar a {
@@ -1121,10 +1144,4 @@ select {
         width: 20vh;
         height: 5vh;
     }
-}
-
-@media screen and (max-width: 800px) and (min-width: 300px) {
-    .navbar button {
-        overflow: hidden;
-    }    
 }
