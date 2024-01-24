@@ -955,7 +955,7 @@ select {
     }
 
     .table-container {
-        width: 310px;
+        width: 420px;
     }
 
     /* --- Dashboard --- */
@@ -973,7 +973,7 @@ select {
     /* ---- Action buttons ---- */
 
     .view-data {
-        margin: ;
+        margin: 8px 0px;
     }
 
     /* ---- Navigation ---- */
@@ -1046,5 +1046,15 @@ select {
 
     .order-last {
         width: 15vh;
+    }
+
+    .order-title section {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .order-form-header {
+        flex-wrap: wrap;
     }
 }
