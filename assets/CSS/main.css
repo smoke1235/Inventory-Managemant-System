@@ -970,6 +970,19 @@ select {
     .order-last {
         width: 15vh;
     }
+
+    .modal-container {
+        width: 700px;
+        height: 700px;
+    }
+
+    .results-container {
+        height: 57vh;
+    }
+
+    #number {
+        width: 5vh;
+    }
 }
 
 @media screen and (max-width: 425px) { 
