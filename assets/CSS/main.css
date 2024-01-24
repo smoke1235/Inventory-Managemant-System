@@ -936,15 +936,31 @@ select {
     }
 
     .order-form-customer {
+        width: 20vh;
+    }
+
+    .order-form-customer select {
         width: 18vh;
+    }
+
+    .order-form-customer input {
+        width: 18vh;
+    }
+
+    .order-form-shipping {
+        width: 20vh;
     }
 
     .order-form-status {
         width: 15vh;
     }
 
+    .order-form-status select {
+        width: 12vh;
+    }
+
     .order-form-billing {
-        width: 23vh;
+        width: 20vh;
     }
 
     #order-user {
