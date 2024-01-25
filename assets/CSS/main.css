@@ -898,7 +898,7 @@ select {
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
-        width: 75vh;
+        width: 90%;
     }
 
     .sidebar li {
@@ -1005,7 +1005,7 @@ select {
     }
 }
 
-@media screen and (max-width: 425px) { 
+@media screen and (max-width: 499px) { 
     /* ---- For mobiles Large ---- */
     
     /* --- Main --- */
@@ -1043,7 +1043,7 @@ select {
     /* ---- Navigation ---- */
 
     .navbar {
-        height: 120px;
+        height: 125px;
     }
 
     .sidebar {
@@ -1110,11 +1110,12 @@ select {
     /* ----- Order ---- */
 
     .order-form-status {
-        width: 15vh;
+        width: 20vh;
+        height: 5vh;
     }
 
     .order-form-billing {
-        width: 23vh;
+        width: 25vh;
     }
 
     #order-user {
@@ -1134,14 +1135,5 @@ select {
     .order-form-header {
         flex-wrap: wrap;
         justify-content: center;
-    }
-
-    .order-form-billing {
-        width: 25vh;
-    }
-
-    .order-form-status {
-        width: 20vh;
-        height: 5vh;
     }
 }
