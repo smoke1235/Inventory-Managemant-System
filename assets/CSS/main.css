@@ -851,7 +851,7 @@ select {
     width: 10%;
 }
 
-@media screen and (max-width: 800px) and (min-width: 500px) and (orientation: portrait) {
+@media screen and (max-width: 800px) and (min-width: 500px) {
     /* ---- For tablets small/medium ---- */
     
     /* --- Main --- */
@@ -1021,6 +1021,18 @@ select {
         flex-wrap: wrap;
         margin: 0px;
         width: auto;
+    }
+
+    .sidebar img {
+        flex-grow: 3;
+    }
+
+    .sidebar ul {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        width: 90%;
     }
 
     /* ---- Main ---- */
