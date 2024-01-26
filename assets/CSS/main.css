@@ -851,8 +851,8 @@ select {
     width: 10%;
 }
 
-@media screen and (max-width: 800px) and (min-width: 500px) {
-    /* ---- For tablets ---- */
+@media screen and (max-width: 800px) and (min-width: 500px) and (orientation: portrait) {
+    /* ---- For tablets small/medium ---- */
     
     /* --- Main --- */
     
@@ -1002,6 +1002,32 @@ select {
 
     #number {
         width: 5vh;
+    }
+}
+
+@media screen and (min-width: 820px) and (max-width: 1024px) and (orientation: portrait) {
+    /* ---- For tablets large (Ipad Air & Pro) ---- */
+
+
+    /* ---- main container ---- */
+    .dashboard-container {
+        flex-wrap: wrap;
+    }
+
+    /* ---- Sidebar ---- */
+    .sidebar {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin: 0px;
+        width: auto;
+    }
+
+    /* ---- Main ---- */
+
+    .board {
+        margin: 0;
+        padding: 0;
     }
 }
 
