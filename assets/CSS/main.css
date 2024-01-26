@@ -1059,7 +1059,19 @@ select {
     }
 
     .results-container {
-        height: 100%;
+        height: 50vh;
+    }
+
+    #inv-descr {
+        width: 40%;
+    }
+
+    #inv-qty {
+        width: 10%;
+    }
+
+    #inv-prc {
+        width: 10%;
     }
 
     #number {
