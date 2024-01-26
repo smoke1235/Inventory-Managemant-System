@@ -1035,6 +1035,14 @@ select {
         width: 90%;
     }
 
+    .sidebar li {
+        width: fit-content;
+    }
+
+    .sidebar a {
+        font-size: 50px;
+    }
+
     /* ---- Main ---- */
 
     .board {
