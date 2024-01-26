@@ -65,7 +65,7 @@ view('header', ['title' =>  'Dashboard'])
         $result = mysqli_query($con, $sql);
         $data = mysqli_fetch_assoc($result);
         ?>
-        <a href="orders.php">
+        <a href="invoice.php">
             <h3>
                 <?php echo $data['total']; ?>
             </h3>
