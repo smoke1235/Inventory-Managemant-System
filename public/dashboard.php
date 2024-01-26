@@ -65,7 +65,9 @@ view('header', ['title' =>  'Dashboard'])
         $result = mysqli_query($con, $sql);
         $data = mysqli_fetch_assoc($result);
         ?>
-        <a href="invoice.php">
+        <a href="invoice.php"
+        title="This shows how many invoiced are logged in the system. 
+        You can also click the counter to go straight to the invoice page.">
             <h3>
                 <?php echo $data['total']; ?>
             </h3>
