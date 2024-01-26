@@ -1051,6 +1051,16 @@ select {
         padding: 0;
     }
 
+    /* ---- Invoice and order page ---- */
+
+    .order-form-customer select {
+        width: 12vh;
+    }
+
+    .order-form-customer input[type=tel], input[type=email] {
+        width: 12vh;
+    }
+
     /* ---- Pop modal for Invoice & order page ---- */
 
     .modal-container {
