@@ -1024,7 +1024,8 @@ select {
     }
 
     .sidebar img {
-        flex-grow: 3;
+        height: 10vh;
+        width: 40vh;
     }
 
     .sidebar ul {
