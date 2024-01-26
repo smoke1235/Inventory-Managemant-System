@@ -852,7 +852,7 @@ select {
 }
 
 @media screen and (max-width: 800px) and (min-width: 500px) {
-    /* ---- For tablets small/medium ---- */
+    /* ---- For tablets small (Ipad Mini) ---- */
     
     /* --- Main --- */
     
@@ -1048,6 +1048,22 @@ select {
     .board {
         margin: 0;
         padding: 0;
+    }
+
+    /* ---- Pop modal for Invoice & order page ---- */
+
+    .modal-container {
+        margin-top: 200px;
+        width: 700px;
+        height: 700px;
+    }
+
+    .results-container {
+        height: 100%;
+    }
+
+    #number {
+        width: 5vh;
     }
 }
 
