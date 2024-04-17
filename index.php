@@ -26,6 +26,7 @@
             <a href="mailto:email@example.com">Forgot Password?</a>
         </div>
     </div>
+
 </body>
 
 </html>

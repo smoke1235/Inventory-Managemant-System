@@ -22,7 +22,7 @@ if (!$result) {
                 <th>Address</th>
                 <th>Actions</th>
             </tr>
-        </thead>
+</thead>
         <?php while ($rows = $result->fetch_assoc()) { ?>
             <tbody>
                 <tr>
@@ -39,7 +39,7 @@ if (!$result) {
                         <?php echo $rows['street'] . ', ' .
                             $rows['postcode'] . ', ' .
                             $rows['city'] . ', ' .
-                            $rows['country']; ?>
+                            $rows['country']; ?> 
                     </td>
                     <td id="cust-act">
                         <a class="edit-data" href="editcustomers.php?id=<?php echo $rows['id']; ?>">

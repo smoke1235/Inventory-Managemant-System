@@ -7,6 +7,8 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM products INNER JOIN suppliers ON products.supplier_id=suppliers.id  WHERE products.id='$id'";
 $result = $con->query($sql);
 $row = $result->fetch_assoc();
+
+$lowStockWarning = ($row['product_quantity'] < 13) ? '<span style="color: red;">(Low stock!)</span>' : '';
 ?>
 
 <h1>View

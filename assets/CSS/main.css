@@ -37,11 +37,13 @@ html {
 
 .navbar li {
     margin: 0 4px;
+    
 }
 
 .navbar a {
     font-size: larger;
     color: white;
+    
 }
 
 .navbar a:hover {
@@ -55,11 +57,12 @@ html {
 .navbar button {
     border: none;
     border-radius: 8px;
-    height: 40px;
+    width: 40px;
     width: 40px;
     cursor: pointer;
     margin: 8 0px;
     background: black;
+    
 }
 
 .navbar button:hover {
@@ -74,31 +77,44 @@ html {
 /* ---- Sidebar ---- */
 
 .sidebar {
-    margin-right: 7px;
+    margin-right: 20px;
     padding-top: 80px;
+    padding-right: 10px;
     width: 20%;
     transition: all .25s;
     background: #FF5733;
+    
+    
+
 }
 
 .sidebar li {
-    margin: 4px;
-    width: 100%;
+    margin: 7px;
+    width: 95%;
+   
+    
+   
 }
 
 .sidebar li a {
     display: block;
     padding-right: 97%;
+    border: 2px solid rgb(176, 76, 76);
+    border-radius: 5px;
+    margin-bottom: 35px;
+    background: rgb(70, 70, 70);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-
 .sidebar a {
     font-size: 25px;
-    color: white;
+    color: rgb(255, 255, 255);
+    
+    
 }
 
 .sidebar a:hover {
     width: 10%;
-    color: #FF5733;
+    color: #030000;
     background: white;
 }
 
@@ -153,6 +169,7 @@ ul {
     margin: 4px;
     border-radius: 4px;
     background: #c70606;
+    border: 5px solid #ff0000;
 }
 
 .products-button:hover {
@@ -182,6 +199,7 @@ ul {
     margin: 4px;
     border-radius: 4px;
     background: #1332bd;
+    border: 5px solid #2049ff;
 }
 
 .customers-button:hover {
@@ -211,6 +229,7 @@ ul {
     margin: 4px;
     border-radius: 4px;
     background: #26802e;
+    border: 5px solid #53ff61;
 }
 
 .suppliers-button:hover {
@@ -240,6 +259,7 @@ ul {
     margin: 4px;
     border-radius: 4px;
     background: #fcbd0f;
+    border: 5px solid #ffdf87;
 }
 
 .orders-button:hover {
@@ -458,26 +478,32 @@ table td {
 
 #pro-id {
     width: 3%;
+    table-layout: fixed;
 }
 
 #pro-name {
     width: 20%;
+    table-layout: fixed;
 }
 
 #pro-descr {
     width: 45%;
+    table-layout: fixed;
 }
 
 #pro-qty {
     width: 5%;
+    table-layout: fixed;
 }
 
 #pro-prc {
     width: 5%;
+    table-layout: fixed;
 }
 
 #pro-act {
     width: 10%;
+    table-layout: fixed;
 }
 
 #cust-name {
@@ -1088,6 +1114,8 @@ select {
     #number {
         width: 5vh;
     }
+
+
 }
 
 @media screen and (max-width: 499px) { 
@@ -1221,4 +1249,6 @@ select {
         flex-wrap: wrap;
         justify-content: center;
     }
+
+
 }

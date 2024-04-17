@@ -3,7 +3,7 @@
             <h1>Search Product</h1>
             <input type="text" name="search" id="search" placeholder="Search">
             <div class="results-container">
-                <table aria-label="">
+                <table aria-label="" >
                     <thead>
                         <tr>
                             <th id="number">No.</th>

@@ -1,0 +1,106 @@
+/* 
+
+
+         function setComment($con) {
+                     if (isset($_POST['commentSubmit'])) {
+                      $name=$_POST['name'];
+                      $data=$_POST['data']; 
+                    $message=$_POST['message'];
+
+                 $sql= "INSERT INTO comments (name, data, message) VALUES ('$name','$data','$message')";
+                 $result = $con->query($sql);
+    }
+   
+}
+
+
+function getComment($con){
+    $sql = "SELECT * FROM comments";
+    $result = $con->query($sql);
+    while($row = $result->fetch_assoc()) {
+        echo "<div class='comment-box'><p>";
+            echo $row['name']. "<br>";
+            echo $row['data']. "<br>";
+            echo nl2br($row['message']);
+            echo "</p>
+
+<form class='edit-btn-belete' method='POST' action='".deleteComments($con)."'>
+            <input type='hidden' name='cid' value='".$row['cid']."'>
+            <button type='submit' name='commentDelete'>Delete</button>
+</form>
+
+<form class='edit-btn' method='POST' action='editcomment.php'>
+            <input type='hidden' name='cid' value='".$row['cid']."'>
+            <input type='hidden' name='name' value='".$row['name']."'>
+            <input type='hidden' name='data' value='".date('Y-m-d H:i:s')."'>
+            <input type='hidden' name='message' value='".$row['message']."'>
+            <button>Edit</button>
+</form>
+            </div>";
+    }
+}
+
+
+
+
+function deleteComments($con){
+    if (isset($_POST['commentDelete'])) {
+        $cid = $_POST['cid'];
+        
+        $sql= "DELETE FROM comments WHERE cid='$cid'";
+        $result = $con->query($sql);
+        
+    }
+    }
+
+  
+
+echo "<form method='POST' action='".setComment($con)."'>
+<input  type='hidden' name='name' value='".$_SESSION['name']."'>
+<input  type='hidden' name='data' value='".date('Y-m-d H:i:s')."'>
+<textarea class='message' name='message' required placeholder='Voeg uw opmerking toe..'></textarea><br>
+<button class='butcomment' type='submit' name='commentSubmit'>Comment</button>
+</form>"
+;
+getComment($con);
+
+?>
+*/
+
+<?php
+/*
+require_once '../src/inc/session_check.php';
+$cid = $_POST['cid'];
+$name = $_POST['name'];
+$data = $_POST['data'];
+$message= $_POST['message'];
+
+
+function editComments($con){
+    if (isset($_POST['commentSubmit'])) {
+        $cid= $_POST['cid'];
+        $name= $_POST['name']; 
+        $data= $_POST['data'];
+        $message=$_POST['message'];
+    
+        $sql= "UPDATE comments SET message='$message' WHERE cid ='$cid'";
+        $result = $con->query($sql);
+    header("Location: dashboard.php");
+        
+    }
+    }
+
+echo "<form class='edit-btn' method='POST' action='".editComments($con)."'>
+<input type='hidden' name='cid' value='".$cid."'>
+<input type='hidden' name='name' value='".$name."'>
+<input type='hidden' name='data' value='".$data."'>
+<textarea name='message'>".$message."</textarea><br>
+<button type='submit' name='commentSubmit'>Edit</button>
+</form>;"
+
+
+
+
+
+?>
+*/
