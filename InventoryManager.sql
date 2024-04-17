@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 18, 2024 at 03:35 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.2
+-- Host: 127.0.0.1
+-- Gegenereerd op: 17 apr 2024 om 10:58
+-- Serverversie: 10.4.32-MariaDB
+-- PHP-versie: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,33 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `InventoryManager`
+-- Database: `inventorymanager`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `customers`
+-- Tabelstructuur voor tabel `comments`
+--
+
+CREATE TABLE `comments` (
+  `cid` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `data` datetime NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `comments`
+--
+
+INSERT INTO `comments` (`cid`, `name`, `data`, `message`) VALUES
+(39, 'abdul', '2024-04-08 16:43:19', 'Ik heb vandaag de code van het comment systeem helemaal verandert naar OOP stijl en ik ben begonnen met opzetten van producten melding systeem. ');
+
+-- --------------------------------------------------------
+
+--
+-- Tabelstructuur voor tabel `customers`
 --
 
 CREATE TABLE `customers` (
@@ -38,10 +58,10 @@ CREATE TABLE `customers` (
   `postcode` varchar(8) NOT NULL,
   `city` varchar(90) NOT NULL,
   `country` varchar(60) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `customers`
+-- Gegevens worden geëxporteerd voor tabel `customers`
 --
 
 INSERT INTO `customers` (`id`, `first_name`, `last_name`, `company_name`, `number`, `email`, `street`, `postcode`, `city`, `country`) VALUES
@@ -50,7 +70,7 @@ INSERT INTO `customers` (`id`, `first_name`, `last_name`, `company_name`, `numbe
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoices`
+-- Tabelstructuur voor tabel `invoices`
 --
 
 CREATE TABLE `invoices` (
@@ -74,10 +94,10 @@ CREATE TABLE `invoices` (
   `billing_country` varchar(100) NOT NULL,
   `updated` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `invoices`
+-- Gegevens worden geëxporteerd voor tabel `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `status`, `user_id`, `customer_id`, `number`, `mail`, `shipping_name`, `shipping_company`, `shipping_street`, `shipping_postalcode`, `shipping_city`, `shipping_country`, `billing_name`, `billing_company`, `billing_street`, `billing_postalcode`, `billing_city`, `billing_country`, `updated`, `created`) VALUES
@@ -86,7 +106,7 @@ INSERT INTO `invoices` (`id`, `status`, `user_id`, `customer_id`, `number`, `mai
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_line`
+-- Tabelstructuur voor tabel `invoice_line`
 --
 
 CREATE TABLE `invoice_line` (
@@ -94,10 +114,10 @@ CREATE TABLE `invoice_line` (
   `invoice_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `invoice_line`
+-- Gegevens worden geëxporteerd voor tabel `invoice_line`
 --
 
 INSERT INTO `invoice_line` (`id`, `invoice_id`, `product_id`, `quantity`) VALUES
@@ -108,16 +128,16 @@ INSERT INTO `invoice_line` (`id`, `invoice_id`, `product_id`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_status`
+-- Tabelstructuur voor tabel `invoice_status`
 --
 
 CREATE TABLE `invoice_status` (
   `id` int(11) NOT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `invoice_status`
+-- Gegevens worden geëxporteerd voor tabel `invoice_status`
 --
 
 INSERT INTO `invoice_status` (`id`, `status`) VALUES
@@ -132,7 +152,7 @@ INSERT INTO `invoice_status` (`id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orders`
+-- Tabelstructuur voor tabel `orders`
 --
 
 CREATE TABLE `orders` (
@@ -156,10 +176,10 @@ CREATE TABLE `orders` (
   `billing_country` varchar(100) NOT NULL,
   `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `orders`
+-- Gegevens worden geëxporteerd voor tabel `orders`
 --
 
 INSERT INTO `orders` (`id`, `status`, `user_id`, `customer_id`, `number`, `mail`, `shipping_name`, `shipping_company`, `shipping_street`, `shipping_postalcode`, `shipping_city`, `shipping_country`, `billing_name`, `billing_company`, `billing_street`, `billing_postalcode`, `billing_city`, `billing_country`, `updated`, `created`) VALUES
@@ -168,7 +188,7 @@ INSERT INTO `orders` (`id`, `status`, `user_id`, `customer_id`, `number`, `mail`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_line`
+-- Tabelstructuur voor tabel `order_line`
 --
 
 CREATE TABLE `order_line` (
@@ -176,10 +196,10 @@ CREATE TABLE `order_line` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `order_line`
+-- Gegevens worden geëxporteerd voor tabel `order_line`
 --
 
 INSERT INTO `order_line` (`id`, `order_id`, `product_id`, `quantity`) VALUES
@@ -190,16 +210,16 @@ INSERT INTO `order_line` (`id`, `order_id`, `product_id`, `quantity`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order_status`
+-- Tabelstructuur voor tabel `order_status`
 --
 
 CREATE TABLE `order_status` (
   `id` int(11) NOT NULL,
   `status` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `order_status`
+-- Gegevens worden geëxporteerd voor tabel `order_status`
 --
 
 INSERT INTO `order_status` (`id`, `status`) VALUES
@@ -213,7 +233,7 @@ INSERT INTO `order_status` (`id`, `status`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `products`
+-- Tabelstructuur voor tabel `products`
 --
 
 CREATE TABLE `products` (
@@ -225,21 +245,21 @@ CREATE TABLE `products` (
   `other_details` text DEFAULT NULL,
   `supplier_id` int(11) DEFAULT NULL,
   `date` date NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `products`
+-- Gegevens worden geëxporteerd voor tabel `products`
 --
 
 INSERT INTO `products` (`id`, `product_name`, `product_description`, `product_quantity`, `product_price`, `other_details`, `supplier_id`, `date`) VALUES
-(146, 'poster', 'A4', 121, 50, 'test', 53, '2024-01-16'),
-(147, 'A5 Poster', '14.8 x 21 cm', 30, 45, '', 53, '2024-01-17'),
-(148, 'Verf', '', 12, 12.99, '', 53, '2024-01-17');
+(146, 'poster', 'A4       ', 40, 50, 'test', 53, '2024-01-16'),
+(147, 'A5 Poster', '14.8 x 21 cm     ', 40, 45, '', 53, '2024-01-17'),
+(148, 'Verf', '      ', 40, 12.99, '', 53, '2024-01-17');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `suppliers`
+-- Tabelstructuur voor tabel `suppliers`
 --
 
 CREATE TABLE `suppliers` (
@@ -252,10 +272,10 @@ CREATE TABLE `suppliers` (
   `city` varchar(90) NOT NULL,
   `country` varchar(90) NOT NULL,
   `dateTime` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `suppliers`
+-- Gegevens worden geëxporteerd voor tabel `suppliers`
 --
 
 INSERT INTO `suppliers` (`id`, `name`, `number`, `email`, `street`, `postcode`, `city`, `country`, `dateTime`) VALUES
@@ -264,7 +284,7 @@ INSERT INTO `suppliers` (`id`, `name`, `number`, `email`, `street`, `postcode`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Tabelstructuur voor tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -273,27 +293,35 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(80) NOT NULL,
   `created` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `email`, `created`) VALUES
-(71, 'test', '$2y$10$r2jiHfgG7ueY4NTflIxw2upjRA855aok4R/8Nx41fdsuZW5ejUVPy', 'test@test.com', '2024-01-09 16:05:30');
+(71, 'test', '$2y$10$r2jiHfgG7ueY4NTflIxw2upjRA855aok4R/8Nx41fdsuZW5ejUVPy', 'test@test.com', '2024-01-09 16:05:30'),
+(72, 'abdul', '$2y$10$2/R/42TkqIeBOr.Dm6oyt.W6ntkF4ThR6mBzEn7hKt2noUkqh2xMO', 'abdulrhmanabotok@gmail.com', '2024-04-03 10:32:14'),
+(73, 'Sem', '$2y$10$vm6kArLrM9K3Cqkjh.2btuMzLCTW34pgL67B0ENZhc75yt/TguY7C', 'sem@gmail.com', '2024-04-04 10:28:15');
 
 --
--- Indexes for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Indexes for table `customers`
+-- Indexen voor tabel `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`cid`);
+
+--
+-- Indexen voor tabel `customers`
 --
 ALTER TABLE `customers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `invoices`
+-- Indexen voor tabel `invoices`
 --
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`id`),
@@ -301,20 +329,20 @@ ALTER TABLE `invoices`
   ADD KEY `status` (`status`);
 
 --
--- Indexes for table `invoice_line`
+-- Indexen voor tabel `invoice_line`
 --
 ALTER TABLE `invoice_line`
   ADD PRIMARY KEY (`id`),
   ADD KEY `product` (`product_id`);
 
 --
--- Indexes for table `invoice_status`
+-- Indexen voor tabel `invoice_status`
 --
 ALTER TABLE `invoice_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `orders`
+-- Indexen voor tabel `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`id`),
@@ -322,33 +350,33 @@ ALTER TABLE `orders`
   ADD KEY `order_status` (`status`);
 
 --
--- Indexes for table `order_line`
+-- Indexen voor tabel `order_line`
 --
 ALTER TABLE `order_line`
   ADD PRIMARY KEY (`id`),
   ADD KEY `order_product` (`product_id`);
 
 --
--- Indexes for table `order_status`
+-- Indexen voor tabel `order_status`
 --
 ALTER TABLE `order_status`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `products`
+-- Indexen voor tabel `products`
 --
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`),
   ADD KEY `supplier_id` (`supplier_id`);
 
 --
--- Indexes for table `suppliers`
+-- Indexen voor tabel `suppliers`
 --
 ALTER TABLE `suppliers`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -356,100 +384,106 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT voor geëxporteerde tabellen
 --
 
 --
--- AUTO_INCREMENT for table `customers`
+-- AUTO_INCREMENT voor een tabel `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+
+--
+-- AUTO_INCREMENT voor een tabel `customers`
 --
 ALTER TABLE `customers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
--- AUTO_INCREMENT for table `invoices`
+-- AUTO_INCREMENT voor een tabel `invoices`
 --
 ALTER TABLE `invoices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
--- AUTO_INCREMENT for table `invoice_line`
+-- AUTO_INCREMENT voor een tabel `invoice_line`
 --
 ALTER TABLE `invoice_line`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
 
 --
--- AUTO_INCREMENT for table `invoice_status`
+-- AUTO_INCREMENT voor een tabel `invoice_status`
 --
 ALTER TABLE `invoice_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `orders`
+-- AUTO_INCREMENT voor een tabel `orders`
 --
 ALTER TABLE `orders`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `order_line`
+-- AUTO_INCREMENT voor een tabel `order_line`
 --
 ALTER TABLE `order_line`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `order_status`
+-- AUTO_INCREMENT voor een tabel `order_status`
 --
 ALTER TABLE `order_status`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT for table `products`
+-- AUTO_INCREMENT voor een tabel `products`
 --
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
--- AUTO_INCREMENT for table `suppliers`
+-- AUTO_INCREMENT voor een tabel `suppliers`
 --
 ALTER TABLE `suppliers`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
--- Constraints for dumped tables
+-- Beperkingen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `invoices`
+-- Beperkingen voor tabel `invoices`
 --
 ALTER TABLE `invoices`
   ADD CONSTRAINT `status` FOREIGN KEY (`status`) REFERENCES `invoice_status` (`id`) ON UPDATE CASCADE,
   ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `invoice_line`
+-- Beperkingen voor tabel `invoice_line`
 --
 ALTER TABLE `invoice_line`
   ADD CONSTRAINT `product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `orders`
+-- Beperkingen voor tabel `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `order_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
 
 --
--- Constraints for table `order_line`
+-- Beperkingen voor tabel `order_line`
 --
 ALTER TABLE `order_line`
   ADD CONSTRAINT `order_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `products`
+-- Beperkingen voor tabel `products`
 --
 ALTER TABLE `products`
   ADD CONSTRAINT `products_ibfk_1` FOREIGN KEY (`supplier_id`) REFERENCES `suppliers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
