@@ -1,0 +1,24 @@
+{% include 'header.html' %}
+<h1>Add new supplier</h1>
+<div class="form-container">
+    <form action="../src/insertSuppliersForm.php" method="post">
+        <label for="supplierName" name="supplierName">Supplier Name:*</label>
+        <input type="text" name="supplierName" placeholder="Supplier" required>
+        <label for="supplierNumber">Phone Number:</label>
+        <input type="tel" name="supplierNumber" placeholder="06123456789">
+        <label for="supplierEmail">Email:</label>
+        <input type="text" name="supplierEmail" placeholder="supplier@example.nl">
+        <label for="supplierStreet" name="supplierStreet">Street:</label>
+        <input type="text" name="supplierStreet" placeholder="Street">
+        <label for="supplierPostcode" name="supplierPostcode">Postal Code:</label>
+        <input type="text" name="supplierPostcode" placeholder="Postal Code">
+        <label for="supplierCity" name="supplierCity">City:</label>
+        <input type="text" name="supplierCity" placeholder="City">
+        <label for="supplierCountry" name="supplierCountry">Country:</label>
+        <input type="text" name="supplierCountry" placeholder="Country">
+        <input type="submit" name="submit" value="Submit">
+        <a class="cancel-button" href="suppliers.php">Cancel</a>
+    </form>
+</div>
+
+{% include 'footer.html' %}

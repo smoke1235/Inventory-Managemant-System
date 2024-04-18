@@ -1,0 +1,47 @@
+{% include 'header.html' %}
+
+<h1>Suppliers</h1>
+<a class="new-data" href="insertSuppliers.php">Add</a>
+<div class="table-container">
+    <table aria-describedby="">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        {% for supplier in suppliers %}
+            <tbody>
+                <tr>
+                    <td id="sup-name">
+                        {{ supplier.name }}
+                    </td>
+                    <td id="sup-num">
+                        {{ supplier.number }}
+                    </td>
+                    <td id="sup-mail">
+                        {{ supplier.email }}
+                    </td>
+                    <td id="sup-addr">
+                        {{ supplier.street }}, {{ supplier.postcode }}, {{ supplier.city }}, {{ supplier.country }}
+                    </td>
+                    <td id="sup-act">
+                        <a class="edit-data" href="editSupplier.php?id={{ supplier.id }}">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <!--<a class="view-data" href="view-supplier.php?id={{ supplier.id }}">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a>-->
+                    </td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+
+</div>
+{% include 'footer.html' %}
+
