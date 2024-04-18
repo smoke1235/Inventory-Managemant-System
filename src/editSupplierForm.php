@@ -1,26 +1,13 @@
 <?php
-require_once '../config/connect.php';
+require_once '../src/inc/session_check.php';
+
+require_once '../src/classes/SupplierManger.php';
 
 $id = $_POST['id'];
-$supplierName = $_POST['newSupplierName'];
-$supplierStreet = $_POST['newSupplierStreet'];
-$supplierPostcode = $_POST['newSuplierPostcode'];
-$supplierCountry = $_POST['newSupplierCountry'];
-$email = $_POST['email'];
-$number = $_POST['number'];
-$city = $_POST['city'];
+$supplierManger = new SupplierManger;
+$item = $supplierManger->getSupplier($id);
+$item = $supplierManger->fillItem($item);
+$item = $supplierManger->save($item);
 
-$sql =
-"UPDATE suppliers
-SET
-name= '$supplierName',
-number= '$number',
-email= '$email',
-street= '$supplierStreet',
-postcode= '$supplierPostcode',
-city= '$city',
-country= '$supplierCountry'
-WHERE id= $id";
-if (mysqli_query($con, $sql)) {
-    header('Location: ../public/suppliers.php');
-}
+header('Location: ../public/suppliers.php');
+

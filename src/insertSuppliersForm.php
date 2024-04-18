@@ -1,17 +1,10 @@
 <?php
-require_once '../config/connect.php';
+require_once '../src/inc/session_check.php';
 
-$supplierName = $_REQUEST['supplierName'];
-$number = $_REQUEST['number'];
-$email = $_REQUEST['email'];
-$supplierStreet = $_REQUEST['supplierStreet'];
-$supplierPostcode = $_REQUEST['supplierPostcode'];
-$supplierCity = $_REQUEST['supplierCity'];
-$supplierCountry = $_REQUEST['supplierCountry'];
+require_once '../src/classes/SupplierManger.php';
+$supplierManger = new SupplierManger;
+$item = $supplierManger->getSupplier(0);
+$item = $supplierManger->fillItem($item);
+$item = $supplierManger->save($item);
 
-$sql = "INSERT INTO suppliers (name, number, email, street, postcode, city, country)
-VALUES
-('$supplierName', '$number', '$email', '$supplierStreet', '$supplierPostcode', '$supplierCity', '$supplierCountry')";
-if (mysqli_query($con, $sql)) {
-    header('Location: ../public/suppliers.php');
-}
+header('Location: ../public/suppliers.php');

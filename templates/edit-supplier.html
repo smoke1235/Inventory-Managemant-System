@@ -1,0 +1,33 @@
+{% include 'header.html' %}
+
+<h1>Edit {{supplier.name}}</h1>
+    <div class="form-container">
+        <form action="../src/editSupplierForm.php" method="POST">
+            <input type="hidden" name="id" value="{{supplier.id}}">
+            <label for="supplierName" name="supplierName">Name:</label>
+            <input type="text" name="supplierName"
+                    placeholder="Supplier name" value="{{supplier.name}}" maxlength="90">
+                    <label for="supplierNumber">Number:</label>
+                    <input type="tel" name="supplierNumber"
+                    placeholder="06123456789" value="{{supplier.number}}" maxlength="20">
+                    <label for="supplierEmail">Email:</label>
+                    <input type="text" name="supplierEmail"
+                    placeholder="supplier@example.nl" value="{{supplier.email}}" maxlength="200">
+                    <label for="supplierStreet">Street:</label>
+                    <input type="text" name="supplierStreet"
+                    placeholder="Street" value="{{supplier.street}}" maxlength="90">
+                    <label for="supplierPostcode" name="newSupplierPostcode">Postal Code:</label>
+                    <input type="text" name="supplierPostcode"
+                    placeholder="Postal code" value="{{supplier.postcode}}" maxlength="8">
+                    <label for="supplierCity">City:</label>
+                    <input type="text" name="supplierCity"
+                    placeholder="City" value="{{supplier.city}}" maxlength="90">
+                    <label for="supplierCountry" name="newSupplierCountry">Country</label>
+                    <input type="text" name="supplierCountry"
+                    placeholder="Country" value="{{supplier.country}}" maxlength="90">
+                    <input type="submit" name="submit" value="Submit">
+                    <a class="cancel-button" href="suppliers.php">Cancel</a>
+                </form>
+            </div>
+
+            {% include 'footer.html' %}
