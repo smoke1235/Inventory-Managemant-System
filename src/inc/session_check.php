@@ -12,7 +12,7 @@ $database = DB::loadDb($DATABASE_HOST, $DATABASE_NAME, $DATABASE_USER, $DATABASE
 
 $documentRoot = $_SERVER['DOCUMENT_ROOT'];
 if (strrpos($documentRoot, '/') !== strlen($documentRoot) - 1)
-	$documentRoot .= '/Inventory-Managemant-System/';
+	$documentRoot .= '/Inventory-Managemant-System-main';
 
 $loader = new \Twig\Loader\FilesystemLoader($documentRoot.'/templates');
 $twig = new \Twig\Environment($loader, [
