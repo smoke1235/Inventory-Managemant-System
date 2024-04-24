@@ -1,6 +1,5 @@
 <?php
 require_once '../src/inc/session_check.php';
-
 view('header', ['title' =>  'Dashboard'])
 ?>
 
@@ -310,5 +309,5 @@ view('header', ['title' =>  'Dashboard'])
 
 
 
-
+<?php view('footer'); ?>
 

@@ -1,7 +1,7 @@
 <?php
 require_once '../src/inc/session_check.php';
 include_once '../src/fetch-customers.php';
-require_once __DIR__ . '/../src/bootstrap.php';
+
 view('header', ['title' => 'View Order']);
 
 $id = $_GET['id'];

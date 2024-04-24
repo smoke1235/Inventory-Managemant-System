@@ -1,6 +1,5 @@
 <?php
 require_once '../src/inc/session_check.php';
-require_once __DIR__ . '/../src/bootstrap.php';
 include_once '../src/fetch-customers.php';
 ?>
 
