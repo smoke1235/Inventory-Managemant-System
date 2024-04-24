@@ -1,0 +1,38 @@
+{% include 'header.html' %}
+
+<h1>Add new customer</h1>
+<div class="form-container">
+    <form action="../src/insertCustomersFrom.php" method="post">
+        <label for="customerFirstName" name="firstName">Fisrt Name:</label>
+        <input type="text" name="customerFirstName" placeholder="First Name">
+        
+        <label for="customerLastName" name="lastName">Last name:*</label>
+        <input type="text" name="customerLastName" placeholder="Last Name" required>
+        
+        <label for="customerNumber">Phone Number:*</label>
+        <input type="tel" name="customerNumber" placeholder="0612345678" maxlength="15" required>
+        
+        <label for="customerEmail">Email:</label>
+        <input type="text" name="customerEmail" placeholder="someone@exaple.com">
+        
+        <label for="customerCompanyName" name="companyName">Company name:</label>
+        <input type="text" name="customerCompanyName" placeholder="Company Name">
+        
+        <label for="customerStreet" name="customerStreet">Street:</label>
+        <input type="text" name="customerStreet" placeholder="Street">
+        
+        <label for="customerPostcode" name="customerPostcode">Postal Code:</label>
+        <input type="text" name="customerPostcode" placeholder="Postal Code">
+        
+        <label for="customerCity" name="customerCity">City:</label>
+        <input type="text" name="customerCity" placeholder="City">
+        
+        <label for="customerCountry" name="customerCountry">Country:</label>
+        <input type="text" name="customerCountry" placeholder="Country">
+        
+        <input type="submit" name="submit" value="Submit">
+        <a class="cancel-button" href="customers.php">Cancel</a>
+    </form>
+</div>
+
+{% include 'footer.html' %}

@@ -1,0 +1,43 @@
+{% include 'header.html' %}
+
+<h1>Edit {{customer.first_name}} {{customer.last_name}}</h1>
+
+<div class="form-container">
+    <form action="../src/insertCustomersFrom.php" method="post">
+        <input type="hidden" name="id" value="{{customer.id}}">
+
+        <label for="customerFirstName" name="newFirstName">First Name:</label>
+        <input type="text" name="customerFirstName" placeholder="First name" value="{{customer.first_name}}" maxlength="80">
+
+        <label for="customerLastName" name="newLastName">Last Name:</label>
+        <input type="text" name="customerLastName" placeholder="Last name" value="{{customer.last_name}}" maxlength="80">
+
+        <label for="customerNumber">Phone number:</label>
+        <input type="tel" name="customerNumber" placeholder="06123456789" value="{{customer.number}}" maxlength="15">
+
+        <label for="customerEmail">Email:</label>
+        <input type="text" name="customerEmail" placeholder="customer@example.nl" value="{{customer.email}}" maxlength="200">
+
+        <label for="customerCompanyName">Company Name:</label>
+        <input type="text" name="customerCompanyName" placeholder="Company name" value="{{customer.company_name}}" maxlength="100">
+
+        <label for="customerStreet" name="newCompanyName">Street:</label>
+        <input type="text" name="customerStreet" placeholder="Street:" value="{{customer.street}}" maxlength="90">
+
+        <label for="customerPostcode" name="newPostcode">Postcode</label>
+        <input type="text" name="customerPostcode" placeholder="Postcode" value="{{customer.postcode}}" maxlength="8">
+
+        <label for="customerCity" name="newCity">City:</label>
+        <input type="text" name="customerCity" placeholder="City" value="{{customer.city}}" maxlength="90">
+
+        <label for="customerCountry" name="newCountry">Country:</label>
+        <input type="text" name="customerCountry" placeholder="Country" value="{{customer.country}}" maxlength="60">
+
+        <input type="submit" name="submit" value="Submit">
+
+        <a class="cancel-button" href="customers.php">Cancel</a>
+
+    </form>
+</div>
+{% include 'footer.html' %}
+

@@ -1,6 +1,6 @@
 <?php
 require_once '../src/inc/session_check.php';
-require_once __DIR__ . '/../src/bootstrap.php';
+
 view('header', ['title' => 'View product']);
 
 $id = $_GET['id'];

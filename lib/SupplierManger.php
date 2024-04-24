@@ -1,14 +1,15 @@
 <?php
 
-require_once '../src/classes/Supplier.php';
-
 /**
  * SupplierManger, handles suppliers
  *
  * @author Peter Donders
- * @version 0.0.1
+ * @version 0.0.2
  *
  * Changelog
+ * 0.0.2
+ * 		Added Delete method
+ * 		Moved isEnum and isOrderDir method to own file
  * 0.0.1
  *      First Version
  */
@@ -39,7 +40,7 @@ class SupplierManger {
 		else
 			$limit = "";
 
-		if (self::isOrderDir($orderDir) && self::isEnum($orderBy, self::$allowedOrderBy))
+		if (Validator::isOrderDir($orderDir) && Validator::isEnum($orderBy, self::$allowedOrderBy))
 			$order = "ORDER BY `$orderBy` $orderDir";
 		else
 			$order = "ORDER BY `dateTime` DESC";
@@ -56,7 +57,7 @@ class SupplierManger {
 	 * @param int $id
 	 * @return Supplier
 	 */
-    public function getSupplier($id) {
+    public function getSupplier(int $id) {
 
         $id			= (int) $id;
 
@@ -109,42 +110,19 @@ class SupplierManger {
         return $item;
     }
 
-
-    /**
-	 * Check if a variable is a valid MySQL ordering direction
-	 * ("ASC" or "DESC")
-     * 
-	 * @todo Make own file for this
-     * 
-	 * @param mixed $orderDir
-	 * @return bool
-	 */
-	public static function isOrderDir($orderDir)
-	{
-		if (is_string($orderDir))
-		{
-			$orderDir = strtoupper($orderDir);
-			if ($orderDir === 'ASC' || $orderDir === 'DESC')
-				return true;
-		}
-		return false;
-	}
-
-    /**
-	 * Check if a variable is a valid enumeration
-	 * Validates true if $enum is within the list $allowedValues
-     * 
-     * @todo Make own file for this
+	/**
+	 * Delete a given supplier
 	 *
-	 * @param mixed $enum
-	 * @param mixed $allowedValues
+	 * @param int $id
 	 * @return bool
 	 */
-	public static function isEnum($enum, $allowedValues)
-	{
-		if (strlen($enum) && is_array($allowedValues) && in_array($enum, $allowedValues))
-			return true;
-		else
+	public function delete(int $id) {
+		
+		$id = (int) $id;
+		if (!$id)
 			return false;
+
+		$db = DB::loadDb();
+		return $db->delete($this->table, "`id` = $id");
 	}
 }

@@ -1,5 +1,15 @@
 <?php
 
+/**
+ * Database class
+ *
+ * @author Peter Donders
+ * @version 1.0.0
+ *
+ * Changelog
+ * 1.0.0
+ * 		Eerste versie
+ */
 
 
 class DB {
@@ -144,12 +154,12 @@ class DB {
 		$this->errorID		= mysqli_errno($this->linkID);
 		$this->errorMessage	= mysqli_error($this->linkID);
 
-		if ($reset && !is_array($this->record))
+		if ($reset && !Validator::isArray($this->record))
 		{
 			mysqli_free_result($this->queryID);
 			$this->queryID = 0;
 		}
-		elseif (!is_array($this->record) && $this->numRows())
+		elseif (!Validator::isArray($this->record) && $this->numRows())
 		{
 			mysqli_data_seek($this->queryID, 0);
 			$this->row = 0;
@@ -193,7 +203,7 @@ class DB {
 	{
         $this->connect();
 
-		if (!is_string($class))
+		if (!Validator::isString($class))
 			$class = "stdClass";
 
 		$resultset = $this->execute($query);
@@ -204,7 +214,7 @@ class DB {
 		$result = array();
 		while ($array = $this->nextRecord())
 		{
-			if (!is_array($array))
+			if (!Validator::isArray($array, false))
 			{
 				return false;
 			}
@@ -218,7 +228,7 @@ class DB {
 			if (method_exists($object, '__afterDBLoad'))
 				$object->__afterDBLoad();
 
-			if (is_string($rowKeyField) && isset($object->$rowKeyField))
+			if (Validator::isString($rowKeyField) && isset($object->$rowKeyField))
 				$result[$array[$rowKeyField]] = $object;
 			else
 				$result[] = $object;
@@ -250,7 +260,7 @@ class DB {
 		$result = array();
 		$array = $this->nextRecord();
 
-		if (!is_array($array))
+		if (!Validator::isArray($array, false))
 		{
 			return $object;
 		}
@@ -280,7 +290,7 @@ class DB {
 	{
 		$this->connect();
 
-		if (is_object($object))
+		if (Validator::isObject($object))
 		{
 			if (method_exists($object, '__beforeDBSave'))
 				$object->__beforeDBSave();
@@ -291,13 +301,13 @@ class DB {
 		else
 			$data = $object;
 
-		if (!is_array($data))
+		if (!Validator::isArray($data, false))
 			return false;
 
-		if (is_array($tables))
+		if (Validator::isArray($tables))
 			$tables = implode(",", $tables);
 
-		if (!is_string($tables))
+		if (!Validator::isString($tables))
 			return false;
 
 		$tables = str_replace(", ", ",", $tables);
@@ -319,7 +329,7 @@ class DB {
 		$sql = "UPDATE $tables SET ".$values." WHERE ".$where;
 		$result = $this->execute($sql);
 
-		if (is_object($object) && method_exists($object, '__afterDBSave'))
+		if (Validator::isObject($object) && method_exists($object, '__afterDBSave'))
 			$object->__afterDBSave();
 
 		return $result;
@@ -368,10 +378,10 @@ class DB {
 	public function insert($table, $object)
 	{
 		// Validate table as a valid (not empty) string
-		if (!is_string($table))
+		if (!Validator::isString($table))
 			return false;
 
-		if (is_object($object))
+		if (Validator::isObject($object))
 		{
 			if (method_exists($object, '__beforeDBSave'))
 				$object->__beforeDBSave();
@@ -383,7 +393,7 @@ class DB {
 			$data = $object;
 
 		// Validate data as a valid (not empty) array
-		if (!is_array($data))
+		if (!Validator::isArray($data, false))
 			return false;
 
 		// If table is comma separated (multiple tables), select only the first
@@ -417,7 +427,7 @@ class DB {
 		// Execute the query and return the result
 		if ($this->execute($query))
 		{
-			if (is_object($object) && method_exists($object, '__afterDBSave'))
+			if (Validator::isObject($object) && method_exists($object, '__afterDBSave'))
 				$object->__afterDBSave();
 
 			$insertID = $this->insertID();
@@ -428,6 +438,49 @@ class DB {
 		}
 		else
 			return false;
+	}
+
+
+	/**
+	 * Deletes rows from one or more tables
+	 *
+	 * @param mixed $tables
+	 * @param string $where
+	 * @return int affected rows
+	 */
+	public function delete($tables, $where)
+	{
+		$this->connect();
+
+		if (!Validator::isString($where))
+			return false;
+
+		if (!Validator::isArray($tables))
+			$tables = array($tables);
+
+		if (!Validator::isArray($tables, false))
+			return false;
+
+		$affected = 0;
+
+		foreach($tables as $table){
+			$query = "DELETE FROM `$table` WHERE $where";
+			if ($this->execute($query))
+				$affected += $this->affectedRows();
+		}
+
+		return $affected;
+	}
+
+	/**
+	 * Return the number of rows affected by a query
+	 * after UPDATE, INSERT, REPLACE or DELETE queries
+	 *
+	 * @return int
+	 */
+	public function affectedRows()
+	{
+		return mysqli_affected_rows($this->linkID);
 	}
 
 
