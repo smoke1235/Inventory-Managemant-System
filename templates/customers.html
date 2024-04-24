@@ -1,0 +1,45 @@
+{% include 'header.html' %}
+
+<h1>Customers</h1>
+<a class="new-data" href="editcustomers.php">Add</a>
+<div class="table-container">
+    <table aria-describedby="">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone Number</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        {% for customer in customers %}
+            <tbody>
+                <tr>
+                    <td id="cust-name">
+                        {{ customer.first_name }}  {{ customer.last_name }} 
+                    </td>
+                    <td id="cust-num">
+                        {{ customer.number }} 
+                    </td>
+                    <td id="cust-mail">
+                        {{ customer.email }} 
+                    </td>
+                    <td id="cust-addr">
+                        {{ customer.street }}, {{ customer.postcode }}, {{ customer.city }}, {{ customer.country }}
+                    </td>
+                    <td id="cust-act">
+                        <a class="edit-data" href="editcustomers.php?id={{ customer.id }}">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <a class="view-data" href="view-customer.php?id={{ customer.id }}">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% include 'footer.html' %}
