@@ -21,6 +21,7 @@ view('header', ['title' =>  'Dashboard'])
                 <?php
                 echo $data['total'];
                 
+                
                 ?>
             </h3>
             <p>Total products</p>
@@ -194,6 +195,8 @@ view('header', ['title' =>  'Dashboard'])
                                      <button>Edit</button>
                             </form>
                     </div>";
+
+                   
                 }
             }
         

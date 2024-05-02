@@ -13,6 +13,7 @@ html {
 
 .dashboard-container {
     display: flex;
+    
 }
 
 /* ---- Topbar ---- */
@@ -28,6 +29,9 @@ html {
     background: black;
     border-bottom: 2px #FF5733 solid;
 }
+
+
+
 
 .navbar ul {
     display: flex;
@@ -88,6 +92,7 @@ html {
 
 }
 
+
 .sidebar li {
     margin: 7px;
     width: 95%;
@@ -111,6 +116,7 @@ html {
     
     
 }
+
 
 .sidebar a:hover {
     width: 10%;

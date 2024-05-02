@@ -8,6 +8,7 @@
     <link rel="icon" href="../assets/img/checklists.png">
     <meta name="description" content="assets/img/checklists.png">
     <link rel="stylesheet" href="../assets/CSS/comment.css">
+    <link rel="stylesheet" href="../assets/CSS/zoek.css">
     
     
     

@@ -1,0 +1,23 @@
+.zoek{
+    flex-direction: column;
+    text-align: center;
+    width: 200px;
+    height: auto;
+    border: 1px #fc5a03 solid ;
+    margin-bottom: 5px;
+    padding: 10px;
+    background-color: #e7e7e7;
+   position: relative;
+   margin-top: 3px;
+
+}
+
+#button{
+    width: 80px;
+    height: 38px;
+    color: #ffffff;
+    cursor: pointer;
+    background-color: #fc5a03;
+    font-size:medium;
+    
+}

@@ -1,6 +1,8 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
+<?php
+view('header', ['title' =>  'Dashboard'])
+?>
 <nav class="navbar" id="navbar" aria-label="">
     <ul>
         <li>
@@ -15,6 +17,15 @@
         </li>
     </ul>
     <ul>
+         <li>
+            <form method="GET" action="">
+                <input class="zoek"  type="text" name="zoekterm" required placeholder="Voer een naam in">
+                <input id="button" type="submit" value="Zoeken">
+            </form>
+        </li>
+    </ul>
+    <ul>
+
         <li><a href="profile.php">Profile</a></li>
         <li><a href="../src/logout.php">Logout</a></li>
     </ul>

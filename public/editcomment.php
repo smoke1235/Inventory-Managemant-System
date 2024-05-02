@@ -43,10 +43,10 @@ if (isset($_POST['commentSubmit'])) {
     $commentEditor->editComment($cid, $_POST['message']);
 }
 
-echo "<form class='edit-btn' method='POST'>
+echo "<form class='edit-btn' method='POST' action='editcomment.php'>
 <input type='hidden' name='cid' value='".$cid."'>
 <input type='hidden' name='name' value='".$name."'>
-<input type='hidden' name='data' value='".$data."'>
+<input type='hidden' name='data' value='".date('Y-m-d H:i:s')."'>
 <textarea name='message' required placeholder='Pas uw opmerking aan..'>".$message."</textarea><br>
 <button type='submit' name='commentSubmit'>Edit</button>
 </form>";
