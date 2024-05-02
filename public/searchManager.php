@@ -1,4 +1,7 @@
 <?php
+require_once '../src/inc/session_check.php';  
+?>
+<?php
 class ZoekSysteem {
     private $conn;
 
@@ -11,23 +14,33 @@ class ZoekSysteem {
         }
     }
 
-    // Methode om naar een naam te zoeken in verschillende tabellen
-    public function zoekNaam($zoekterm) {
+    // Methode om naar verschillende namen en id's te zoeken in verschillende tabellen
+    public function zoekNaamOfId($zoekterm) {
         $resultaten = [];
 
-        // Tabellen waarin gezocht moet worden
-        $tabellen = ['products', 'customers', 'suppliers'];
+        // Zoeken in products tabel
+        $resultaten['products'] = $this->zoekInTabel('products', 'product_name', 'id', $zoekterm);
 
-        // Zoeken in elke tabel
-        foreach ($tabellen as $tabel) {
-            $sql = "SELECT * FROM $tabel WHERE naam LIKE '%$zoekterm%'";
-            $result = $this->conn->query($sql);
+        // Zoeken in customers tabel
+        $resultaten['customers'] = $this->zoekInTabel('customers', 'first_name', 'id', $zoekterm);
 
-            // Resultaten toevoegen aan array
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    $resultaten[$tabel][] = $row["naam"];
-                }
+        // Zoeken in suppliers tabel
+        $resultaten['suppliers'] = $this->zoekInTabel('suppliers', 'name', 'id', $zoekterm);
+
+        return $resultaten;
+    }
+
+    // Methode om in een specifieke tabel te zoeken naar een specifieke kolom met een zoekterm
+    private function zoekInTabel($tabel, $naamKolom, $idKolom, $zoekterm) {
+        $resultaten = [];
+
+        $sql = "SELECT * FROM $tabel WHERE $naamKolom LIKE '%$zoekterm%' OR $idKolom = '$zoekterm'";
+        $result = $this->conn->query($sql);
+
+        // Resultaten toevoegen aan array
+        if ($result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                $resultaten[] = $row;
             }
         }
 
@@ -43,44 +56,32 @@ class ZoekSysteem {
 // Gebruik van de ZoekSysteem klasse
 if(isset($_GET['zoekterm'])){
     $servername = "localhost";
-    $username = ""; 
+    $username = "root"; 
     $password = ""; 
-    $dbname = ""; 
+    $dbname = "inventoryManager"; 
 
     $zoekterm = $_GET['zoekterm'];
 
     $zoeksysteem = new ZoekSysteem($servername, $username, $password, $dbname);
-    $resultaten = $zoeksysteem->zoekNaam($zoekterm);
+    $resultaten = $zoeksysteem->zoekNaamOfId($zoekterm);
 
-    // Resultaten weergeven
-    echo "<h2>Resultaten</h2>";
-    foreach ($resultaten as $tabel => $resultaat) {
-        echo "<h3>$tabel</h3>";
-        foreach ($resultaat as $naam) {
-            echo "Naam: $naam<br>";
-        }
-    }
+    // Sla de resultaten op in de sessie om door te sturen naar de resultatenpagina
+    session_start();
+    $_SESSION['resultaten'] = $resultaten;
 
-    // Als er geen resultaten zijn
-    if (empty($resultaten)) {
-        echo "Geen resultaten gevonden voor '$zoekterm'.";
-    }
-
-    // Verbinding sluiten
-    $zoeksysteem->sluitVerbinding();
+    // Doorsturen naar de resultatenpagina
+    header("Location:view-zoeken.php");
+    exit;
 }
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Zoek systeem</title>
-</head>
-<body>
-    <h1>Zoek naar Naam</h1>
-    <form method="GET" action="">
-        <input type="text" name="zoekterm" required placeholder="Voer een naam in">
-        <input type="submit" value="Zoeken">
-    </form>
-</body>
-</html>
+
+
+
+
+
+
+
+
+
+

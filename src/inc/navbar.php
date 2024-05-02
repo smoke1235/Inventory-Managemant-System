@@ -18,8 +18,9 @@ view('header', ['title' =>  'Dashboard'])
     </ul>
     <ul>
          <li>
+            <?php include_once 'searchManager.php';  ?>
             <form method="GET" action="">
-                <input class="zoek"  type="text" name="zoekterm" required placeholder="Voer een naam in">
+                <input class="zoek"  type="text" name="zoekterm" required placeholder="Voer een naam of nummer in">
                 <input id="button" type="submit" value="Zoeken">
             </form>
         </li>
