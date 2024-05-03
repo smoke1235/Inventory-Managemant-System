@@ -22,6 +22,8 @@ $row = $result->fetch_assoc();
             maxlength="11">
         <label for="product_price">Product Price:</label>
         <input type="float" name="product_price" value="<?php echo $row['product_price']; ?>">
+        <label for="min_stock">min stock:</label>
+        <input type="float" name="min_stock" value="<?php echo $row['min_stock']; ?>">
         <label for="supplier">Supplier:</label>
         <select name="supplier">
             <option value="<?php echo $row['id']; ?>">

@@ -6,6 +6,7 @@ $id = $_POST['id'];
 $product_descr = $_POST['product_description'];
 $grabbed_price = $_POST['product_price'];
 $product_price = (float) $grabbed_price;
+$min_stock = $_REQUEST['min_stock'];
 $supplier_id = $_POST['supplier'];
 $supplier = (int) $supplier_id;
 $other_details = $_POST['other_details'];
@@ -16,6 +17,7 @@ SET
 product_description= '$product_descr',
 product_quantity= $newQuantity,
 product_price= $product_price,
+min_stock = $min_stock,
 other_details= '$other_details',
 supplier_id= $supplier
 WHERE id= $id";

@@ -9,6 +9,7 @@ $sql = "SELECT
             product_description,
             product_quantity,
             product_price,
+            min_stock,
             other_details,
             name
         FROM
@@ -18,11 +19,7 @@ $sql = "SELECT
         ";
 $result = $con->query($sql);
 
-$minimale_voorraad =array(
-    "A5 Poster" => 60,
-    "Verf" => 30,
-    "poster" => 100,
-);
+
 
 ?>
 
@@ -54,12 +51,12 @@ $minimale_voorraad =array(
                     <td class="pro-descr">
                         <?php echo $rows['product_description']; ?>
                     </td>
-                    <td class="pro-qty <?php echo ($rows['product_quantity'] < $minimale_voorraad[$rows['product_name']]) ? 'low-stock' : ''; ?>">
+                    <td class="pro-qty <?php echo ($rows['product_quantity'] < $rows['min_stock']) ? 'low-stock' : ''; ?>">
                         <?php echo $rows['product_quantity']; ?>
-                        <?php if ($rows['product_quantity'] < $minimale_voorraad[$rows['product_name']]): ?>
-                            <span style="color : red;">(Low stock!)</span> 
+                        <?php if ($rows['product_quantity'] < $rows['min_stock']): ?>
+                            <span style="color: red;">(Low stock!)</span> 
                         <?php endif; ?>
-                        </td>
+                    </td>
                     <td class="pro-prc">
                         <?php echo $rows['product_price']; ?>
                     </td>

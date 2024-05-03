@@ -14,6 +14,8 @@ view('header', ['title' => 'New product']);
         <input type="number" name="quantity" value="1">
         <label for="product_price">Product Price:</label>
         <input type="float" name="product_price" value="0.00">
+        <label for="min_stock">Minimum stock:</label>
+        <input type="number" name="min_stock" id="min_stock">
         <label for="supplier_name">Supplier name:</label>
         <select required name="supplier_id">
             <option value="" selected disabled>None</option>

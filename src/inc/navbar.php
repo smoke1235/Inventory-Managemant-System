@@ -36,7 +36,6 @@ view('header', ['title' =>  'Dashboard'])
 <img src="../assets/img/TEEUWEN_logo_transparant-min.png" alt="Company logo" height="auto" width="80%">
     <ul>
         <li><a href="dashboard.php">Dashboard</a></li>
-        <li><a href="invoice.php">Invoices</a></li>
         <li><a href="order.php">Orders</a></li>
         <li><a href="products.php">Products</a></li>
         <li><a href="customers.php">Customers</a></li>

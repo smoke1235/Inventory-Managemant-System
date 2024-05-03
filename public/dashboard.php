@@ -102,6 +102,7 @@ view('header', ['title' =>  'Dashboard'])
                         products.product_description,
                         products.product_quantity,
                         products.product_price,
+                        min_stock,
                         products.other_details,
                         suppliers.name, date
                     FROM
@@ -138,11 +139,11 @@ view('header', ['title' =>  'Dashboard'])
                         <td id="dash-descr">
                             <?php echo $rows['product_description']; ?>
                         </td>
-                        <td class="pro-qty <?php echo ($rows['product_quantity'] < $minimale_voorraad[$rows['product_name']]) ? 'low-stock' : ''; ?>">
-                        <?php echo $rows['product_quantity']; ?>
-                        <?php if ($rows['product_quantity'] < $minimale_voorraad[$rows['product_name']]): ?>
-                            <span style="color : red;">(Low stock!)</span> 
-                        <?php endif; ?>
+                         <td class="pro-qty <?php echo ($rows['product_quantity'] < $rows['min_stock']) ? 'low-stock' : ''; ?>">
+                            <?php echo $rows['product_quantity']; ?>
+                            <?php if ($rows['product_quantity'] < $rows['min_stock']): ?>
+                                <span style="color: red;">(Low stock!)</span> 
+                            <?php endif; ?>
                         </td>
                         <td id="dash-prc">
                             <?php echo $rows['product_price']; ?>
@@ -153,6 +154,7 @@ view('header', ['title' =>  'Dashboard'])
                             </a>
                             <a class="view-data" href="view-product.php?id=<?php echo $rows['id']; ?>">
                                 <ion-icon name="eye-outline"></ion-icon>
+
                             </a>
                         </td>
                     </tr>
