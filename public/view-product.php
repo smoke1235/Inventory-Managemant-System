@@ -25,6 +25,8 @@ $lowStockWarning = ($row['product_quantity'] < 13) ? '<span style="color: red;">
         <input type="text" value="<?php echo $row['product_quantity']; ?>" disabled>
         <label for="">Price:</label>
         <input type="text" value="<?php echo $row['product_price']; ?>" disabled>
+        <label for="">Min Stock:</label>
+        <input type="text" value="<?php echo $row['min_stock']; ?>" disabled>
         <label for="">Supplier:</label>
         <input type="text" value="<?php echo $row['name']; ?>" disabled>
         <label for="">Other details:</label>
