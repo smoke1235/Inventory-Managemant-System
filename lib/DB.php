@@ -483,6 +483,40 @@ class DB {
 		return mysqli_affected_rows($this->linkID);
 	}
 
+	/**
+	 * Escape a string to be used in a SQL query. This function converts null to NULL, boolean to 0 or 1, and a string is surrounded by quotes unless the second param is false.
+	 *
+	 * @param string $string
+	 * @param bool $quotes Add quotes to the string
+	 * @param bool $percentages Also escape % (only to be used in WHERE LIKE)
+	 * @return string
+	 */
+	public static function escapeStaticForSql($string, $quotes = true, $percentages = false)
+	{
+		// make sure there is a database connection
+		$db = DB::loadDb();
+		$db->connect();
+
+		if ($string === null)
+		{
+			$string = 'NULL';
+		}
+		elseif (is_bool($string))
+		{
+			$string = $string ? 1 : 0;
+		}
+		elseif (!is_numeric($string) || strlen($string) != strlen( (int) $string) )
+		{
+			$string = $db->escapeForSql($string, $quotes, $percentages);
+			if ($percentages)
+				$string = str_replace("%", "\%", $string);
+			if ($quotes)
+				$string = '"' . $string . '"';
+		}
+
+		return $string;
+	}
+
 
 
 

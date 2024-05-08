@@ -102,4 +102,43 @@ class Validator
 			return false;
 	}
 
+	/**
+	 * Check if the variable is a valid floating point number
+	 *
+	 * @param mixed $float
+	 * @return bool
+	 */
+	public static function isFloat($float)
+	{
+		if (isset($float) && is_float($float) && ((float) $float) == $float)
+			return true;
+		else
+			return false;
+	}
+
+	/**
+	 * Check if an object is valid
+	 *
+	 * @param mixed $object
+	 * @param mixed $type Validates if object is an instance of this class
+	 * @return bool
+	 */
+	public static function isObject($object, $type = false)
+	{
+		if (isset($object) && is_object($object))
+		{
+			if(self::isString($type))
+			{
+				if(strtolower(get_class($object)) == strtolower($type))
+					return true;
+				else
+					return false;
+			}
+			else
+				return true;
+		}
+		else
+			return false;
+	}
+
 }
