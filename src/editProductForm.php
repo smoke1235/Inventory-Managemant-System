@@ -1,26 +1,38 @@
 <?php
-require_once '../config/connect.php';
 
-$newQuantity = $_POST['quantity'];
-$id = $_POST['id'];
-$product_descr = $_POST['product_description'];
-$grabbed_price = $_POST['product_price'];
-$product_price = (float) $grabbed_price;
-$min_stock = $_REQUEST['min_stock'];
-$supplier_id = $_POST['supplier'];
-$supplier = (int) $supplier_id;
-$other_details = $_POST['other_details'];
+require_once '../src/inc/session_check.php';
 
-$sql =
-    "UPDATE products
-SET
-product_description= '$product_descr',
-product_quantity= $newQuantity,
-product_price= $product_price,
-min_stock = $min_stock,
-other_details= '$other_details',
-supplier_id= $supplier
-WHERE id= $id";
-if (mysqli_query($con, $sql)) {
-    header('Location: ../public/products.php');
+$id 			= (int) $params->get('id', 0);
+
+$productManager = new ProductManger($params);
+
+// Fetch product category object.
+$product = $productManager->getItem($id);
+
+// Fill product with data from the edit form.
+$product = $productManager->fillProduct($product);
+
+
+// Fetch an array with the result of saving it.
+$success = $productManager->saveProduct($product);
+
+if (Validator::isArray($success, false))
+{
+	$errors = $success;
+
+	$_SESSION['previous_save'] = array();
+	$_SESSION['previous_save']['id'] = $id;
+
+	$_SESSION['previous_save']['item'] = $product;
+	$_SESSION['previous_save']['errors'] = $errors;
+
+	$url = '../public/editProduct.php';
+	if ($id)
+		$url .= '?id='.$id;
+	
+    header('Location: '.$url);
+    exit; //die('error');
 }
+
+header('Location: ../public/products.php');
+

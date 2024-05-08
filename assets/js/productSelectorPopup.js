@@ -4,6 +4,7 @@ var btn = $('#btn');
 $(document).ready(function() {
     btn.on('click',function() {
         modal.show();
+        load_data();
     });
 });
 

@@ -1,0 +1,46 @@
+{% include 'header.html' %}
+
+<h1>Edit {{product.product_name}}</h1>
+<div class="form-container">
+    <form action="../src/editProductForm.php" method="POST" id="editProduct">
+        <input type="hidden" name="id" value="{{product.id}}">
+        
+        
+        <label for="name"> Product name: *</label>
+        {% if errors.product_name %}
+        <span style="color: red;">{{errors.product_name}}</span>
+        {% endif %}
+        <input type="text" name="name" value="{{product.product_name}}" required>
+
+        <label for="description">Description</label>
+        <input type="text" name="description" placeholder="Kleur, type, year?" value="{{product.product_description}}">
+
+        <label for="amount" name="quantity">Quantity:</label>
+        <input type="number" name="amount" id="quantity" value="{{product.product_quantity}}" maxlength="11">
+        
+        <label for="price">Product Price:</label>
+        <input type="float" name="price" value="{{product.getPrice(true)}}">
+        
+        <label for="min_stock">min stock:</label>
+        <input type="float" name="min_stock" value="{{product.min_stock}}">
+
+        <label for="supplier">Supplier:</label>
+        <select name="supplier">
+            <option value="" selected disabled>None</option>
+            {% for key, item in suppliers %}
+                {% if key == product.supplier_id %}
+                    <option value="{{item.id}}" selected>{{item.name}}</option>
+                {% else %}
+                    <option value="{{item.id}}" selected>{{item.name}}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        
+        <label for="other_details">Other Details:</label>
+        <textarea name="other_details" maxlength="500" rows="8">{{product.other_details}}</textarea>
+        
+        <input type="submit" value="Update">
+        <a class="cancel-button" href="products.php">Cancel</a>
+    </form>
+</div>
+{% include 'footer.html' %}

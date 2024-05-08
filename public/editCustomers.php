@@ -15,5 +15,5 @@ else {
 }
 
 $template = $twig->load('edit-customer.html');
-echo $template->render(['customer' => $customer, 'title' => 'Edit customer']);
+echo $template->render(['customer' => $customer, 'title' => $title]);
 

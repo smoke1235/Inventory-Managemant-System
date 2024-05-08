@@ -1,0 +1,66 @@
+{% include 'header.html' %}
+
+<h1>Products</h1>
+<a class="new-data" href="editProduct.php">Add</a>
+
+    <div class="table-container">
+    <table aria-label="Table for products">
+        <thead>
+            <tr>
+                <th>No.</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        <tbody> <!-- Plaats de tbody tag hier -->
+            {% for product in products %}
+                {% if product.isLowOnStock() %}
+                    {% set low = 'low-stock' %}
+                {% else %}
+                    {% set low = '' %}
+                {% endif %}           
+
+                <tr>
+                    <td class="pro-id">
+                       {{product.id}}
+                    </td>
+                    <td class="pro-name">
+                        {{product.product_name}}
+                    </td>
+                    <td class="pro-descr">
+                        {{product.product_description}}
+                    </td>
+
+                   
+                    <td class="pro-qty {{low}}">
+                        {{product.product_quantity}}
+
+                        {% if product.isLowOnStock() %}
+                            <span style="color: red;">(Low stock!)</span> 
+                        {% endif %}
+                    </td>
+
+                    <td class="pro-prc">
+                        &euro; {{product.getPrice(true)}}
+                    </td>
+                    <td class="pro-act">
+                        <a class="edit-data" href="editProduct.php?id={{product.id}}">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <span style="margin-left: 10px;"> </span>
+                        <a class="view-data" href="delete-product.php?id={{product.id}}">
+                            <ion-icon name="trash-outline"></ion-icon>
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+    
+</div>
+
+{% include 'footer.html' %}

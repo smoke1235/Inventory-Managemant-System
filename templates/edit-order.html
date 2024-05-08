@@ -1,0 +1,119 @@
+{% include 'header.html' %}
+
+<div id="myModal" class="modal">
+    {% include 'invoiceInsertProduct.html' %}
+</div>
+<div class="order-title">
+    <h1>Edit Order</h1>
+    <section>
+        <a href="order.php">Cancel</a>
+        <input type="submit" name="submit" value="Save" form="create-invoice">
+    </section>
+</div>
+<div class="order-form-container">
+    <form action="../src/edit-order.php" id="create-invoice" method="POST">
+        <input type="hidden" name="hidden" value="{{order.id}}">
+        <div class="order-form-header">
+            <section class="order-form-customer">
+                <h2>Customer</h2>
+                <select name="customer_select" id="customer-select" onchange="populateTextInput()">
+                    <option >Make a choice</option>
+                    
+                    {% for customer in customers %}
+
+                        {% if customer.id == order.customer_id %}
+                            <option selected value="{{customer.id}}">{{customer.getFullName()}}</option>
+                        {% else %}
+                            <option value="{{customer.id}}">{{customer.getFullName()}}</option>
+                        {% endif %}
+                    {% endfor %}
+                   
+                </select>
+                <h3>Contact Info</h3>
+                <input type="text" name="customer_number" id="customer_number" value="{{order.number}}">
+                <input type="text" name="customer_email" id="customer_email" value="{{order.mail}}">
+            </section>
+            <section class="order-form-shipping">
+                <h2>Shipping Address</h2>
+                <input type="text" name="shipping_name" id="shipping_name" placeholder="Full Name"
+                    value="{{order.shipping_name}}">
+                <input type="text" name="shipping_company" id="shipping_company" placeholder="Compamy name"
+                    value="{{order.shipping_company}}">
+                <input type="text" name="shipping_street" id="shipping_street" placeholder="Street"
+                    value="{{order.shipping_street}}">
+                <input type="text" name="shipping_postalcode" id="shipping_postalcode" placeholder="Postal Code"
+                    value="{{order.shipping_postalcode}}">
+                <input type="text" name="shipping_city" id="shipping_city" placeholder="City"
+                    value="{{order.shipping_city}}">
+                <input type="text" name="shipping_country" id="shipping_country" placeholder="Country"
+                    value="{{order.shipping_country}}">
+            </section>
+            <section class="order-form-billing">
+                <h2>Billing Address</h2>
+                <input type="text" name="billing_name" id="billing_name" placeholder="Full Name"
+                    value="{{order.billing_name}}">
+                <input type="text" name="billing_company" id="billing_company" placeholder="Company Name"
+                    value="{{order.billing_company}}">
+                <input type="text" name="billing_street" id="billing_street" placeholder="Street"
+                    value="{{order.billing_street}}">
+                <input type="text" name="billing_postalcode" id="billing_postalcode" placeholder="Postal Code"
+                    value="{{order.billing_postalcode}}">
+                <input type="text" name="billing_city" id="billing_city" placeholder="City"
+                    value="{{order.billing_city}}">
+                <input type="text" name="billing_country" id="billing_country" placeholder="Country"
+                    value="{{order.billing_country}}">
+            </section>
+            <section class="order-form-status">
+                <h2>Status</h2>
+                <select name="invoice_status">
+                    {% for key,option in orderStatusOptions %}
+                        {% if key == order.status %}
+                           <option value="{{key}}" selected>{{option}}</option>
+                        {% else %}
+                            <option value="{{key}}">{{option}}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </section>
+        </div>
+        <br>
+        <hr>
+        <div class="order-form-content">
+            <table aria-label="">
+                <thead>
+                    <tr>
+                        <th id="inv-action"></th>
+                        <th id="inv-name">Name</th>
+                        <th id="inv-descr">Description</th>
+                        <th id="inv-qty">Qty</th>
+                        <th id="inv-prc">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="item_results">
+
+                    {% for item in order.getItems() %}
+                        <tr id="item-{{item.id}}">
+                        <td><a href="#" onclick="removeItem('{{item.id}}')"> Remove</a></td>
+                        <td><p>{{item.product_name}}</p></td>
+                        <input type="hidden" name="product[]" value="{{item.product_id}}">
+                        <td><p>{{item.product_description}}</p></td>
+                        <td><input type="number" name="qty[]" id="input-qty" value="{{item.quantity}}"></td>
+                        <td><p>&euro; {{item.getPrice(true)}}</p></td>
+                        </tr>
+                        
+                    {% endfor %}
+                   
+                    <tr>
+                        <td colspan="5"><a href="#" id="btn">Add product</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="../assets/js/productSelectorPopup.js"></script>
+<script src="../assets/js/showProductResult.js"></script>
+<script src="../assets/js/populateTextInput.js"></script>
+
+{% include 'footer.html' %}

@@ -1,0 +1,53 @@
+{% include 'header.html' %}
+<h1>Orders</h1>
+<a class="new-data" href="edit-order.php">Create Order</a>
+<div class="table-container">
+    <table aria-label="">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Status</th>
+                <th>Customer</th>
+                <th>Last Updated</th>
+                <th>Created</th>
+                <th>Last interacted</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        
+        {% for order in orders %}
+            <tbody>
+                <tr>
+                    <td id="order-id">
+                       {{order.id}}
+                    </td>
+                    <td id="order-status">
+                        {{order.getOrderStatusLabel(order.status)}}
+                    </td>
+                    <td id="order-name">
+                        {{order.first_name}} {{order.last_name}}
+                    </td>
+                    <td id="order-update">
+                        {{order.updated}}
+                    </td>
+                    <td id="order-create">
+                        {{order.created}}
+                    </td>
+                    <td id="order-last">
+                        {{order.username}}
+                    </td>
+                    <td id="order-user">
+                        <a class="edit-data" href="edit-order.php?id={{order.id}}">
+                            <ion-icon name="pencil-outline"></ion-icon>
+                        </a>
+                        <span style="margin-left: 10px;"> </span>
+                        <a class="download" href="download-order.php?id={{order.id}}">
+                            <ion-icon name="download-outline"></ion-icon>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+            {% endfor %}
+    </table>
+</div>
+{% include 'footer.html' %}

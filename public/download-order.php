@@ -1,57 +1,12 @@
 <?php
-require_once('../fpdf186/fpdf.php');
-include_once '../config/connect.php';
 
-$id = $_GET['id'];
+require_once '../src/inc/session_check.php';
 
-$sql = "SELECT
-            *,
-            `orders`.`id` AS `order_id`
-        FROM
-            `orders`
-        INNER JOIN customers ON orders.customer_id=customers.id
-        WHERE
-            `orders`.`id` = $id";
+$id = $params->get("id");
 
-$result = $con->query($sql);
-$array = array($result);
-while ($row = mysqli_fetch_array($result)) {
-    $array['order_id'] = $row['order_id'];
-    $array['created'] = $row['created'];
-    $array['first_name'] = $row['first_name'];
-    $array['last_name'] = $row['last_name'];
-    $array['company'] = $row['shipping_company'];
-    $array['street'] = $row['shipping_street'];
-    $array['postalcode'] = $row['shipping_postalcode'];
-    $array['city'] = $row['shipping_city'];
-    $array['country'] = $row['shipping_country'];
-}
-
-$sql = "SELECT
-            *
-        FROM
-            `order_line`
-        INNER JOIN products ON order_line.product_id=products.id
-        WHERE
-            `order_id` = $id";
-            
-$result = $con->query($sql);
-$productenArray = array();
-while($product_info = mysqli_fetch_array($result)) {
-
-    $product_array['product_name'] = $product_info['product_name'];
-    $product_array['product_price'] = $product_info['product_price'];
-    $product_array['quantity'] = $product_info['quantity'];
-    $product_array['total'] = $product_info['product_price'] * $product_info['quantity'];
-    $productenArray[] = $product_array;
-}
-
-$total = 0;
-foreach ($productenArray as $key) {
-    $total = $total + $key['total'];
-}
-
-$array['total'] = $total;
+$orderManger = new OrderManger($params);
+$order = $orderManger->getOrder($id);
+$order->setItems($orderManger->getOrderLines($order->id));
 
 define('EURO', chr(128));
 
@@ -76,7 +31,7 @@ class PDF extends FPDF
         $this->Line(0, 48, 210, 48);
     }
 
-    function body($row, $product_info,) {
+    function body($order) {
 
         //Billing Details
         $this->SetY(55);
@@ -84,20 +39,20 @@ class PDF extends FPDF
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(50, 10, "Bill To: ", 0, 1);
         $this->SetFont('Arial', '', 12);
-        $this->Cell(50, 7, $row['company'], 0, 1);
-        $this->Cell(50, 7, $row['first_name']. ' ' .$row['last_name'], 0, 1);
-        $this->Cell(50, 7, $row['street']. ', '. $row['postalcode'], 0, 1);
-        $this->Cell(50, 7, $row['city']. ', '. $row['country'], 0, 1);
+        $this->Cell(50, 7, $order->shipping_company, 0, 1);
+        $this->Cell(50, 7, $order->shipping_name, 0, 1);
+        $this->Cell(50, 7, $order->shipping_street. ', '. $order->shipping_postalcode, 0, 1);
+        $this->Cell(50, 7, $order->shipping_city. ', '. $order->shipping_country, 0, 1);
 
         //Display Invoice no
         $this->SetY(55);
         $this->SetX(-60);
-        $this->Cell(50, 7, "Invoice No : " . $row['order_id']);
+        $this->Cell(50, 7, "Invoice No : " . $order->id);
 
         //Display Invoice date
         $this->SetY(63);
         $this->SetX(-60);
-        $this->Cell(50, 7, "Invoice Date : " . $row['created']);
+        $this->Cell(50, 7, "Invoice Date : " . $order->created);
 
         //Display Table headings
         $this->SetY(95);
@@ -110,15 +65,15 @@ class PDF extends FPDF
         $this->SetFont('Arial', '', 12);
 
         //Display table product rows
-        foreach ($product_info as $product) {
-            $this->Cell(80, 9, $product['product_name'], "LR", 0);
-            $this->Cell(40, 9, EURO. $product['product_price'], "R", 0, "C");
-            $this->Cell(30, 9, $product["quantity"], "R", 0, "C");
-            $this->Cell(40, 9, EURO. $product['total'], "R", 0, "C");
+        foreach ($order->getItems() as $product) {
+            $this->Cell(80, 9, $product->product_name, "LR", 0);
+            $this->Cell(40, 9, EURO. $product->getPrice(true), "R", 0, "C");
+            $this->Cell(30, 9, $product->quantity, "R", 0, "C");
+            $this->Cell(40, 9, EURO. $product->getTotalPrice(true), "R", 0, "C");
             $this->Ln();
         }
         //Display table empty rows
-        for ($i = 0; $i < 12 - count($product_info); $i++) {
+        for ($i = 0; $i < 12 - count($order->getItems()); $i++) {
             $this->Cell(80, 9, "", "LR", 0);
             $this->Cell(40, 9, "", "R", 0, "R");
             $this->Cell(30, 9, "", "R", 0, "C");
@@ -127,12 +82,12 @@ class PDF extends FPDF
         //Display table total row
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(150, 9, "TOTAL", 1, 0, "R");
-        $this->Cell(40, 9, EURO. $row['total'], 1, 1, "R");
+        $this->Cell(40, 9, EURO. $order->getSubTotalPrice(true, true, true), 1, 1, "R");
 
     }
 }
 //Create A4 Page with Portrait
 $pdf = new PDF("P", "mm", "A4");
 $pdf->AddPage();
-$pdf->body($array, $productenArray);
+$pdf->body($order);
 $pdf->Output();

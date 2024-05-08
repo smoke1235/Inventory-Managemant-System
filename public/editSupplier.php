@@ -14,4 +14,4 @@ else {
 }
 
 $template = $twig->load('edit-supplier.html');
-echo $template->render(['supplier' => $supplier, 'title' => 'Edit supplier']);
+echo $template->render(['supplier' => $supplier, 'title' => $title]);

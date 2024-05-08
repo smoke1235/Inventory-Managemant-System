@@ -1,0 +1,25 @@
+{% include 'header.html' %}
+
+<h1>Profile Page</h1>
+<div class="profile-page">
+    <div class="profile-table">
+        <p>Your account details are below:</p>
+        <table aria-label="table for profile">
+            <tr>
+                <td>Username:</td>
+                <td>
+                    {{user.username}}
+                </td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>
+                    {{user.email}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+{% include 'footer.html' %}
