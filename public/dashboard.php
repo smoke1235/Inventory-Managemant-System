@@ -102,7 +102,7 @@ view('header', ['title' =>  'Dashboard'])
                         products.product_description,
                         products.product_quantity,
                         products.product_price,
-                        min_stock,
+                        products.min_stock,
                         products.other_details,
                         suppliers.name, date
                     FROM
